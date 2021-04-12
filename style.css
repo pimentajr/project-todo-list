@@ -34,14 +34,14 @@ main {
   font-size: 15px;
 }
 
-#criar-tarefa , #remover-finalizados , #apaga-tudo {
+#criar-tarefa , #remover-finalizados , #apaga-tudo , #mover-cima{
   border-radius: 8px;
   color: white;
   padding: 2px 20px;
   font-weight: 700;
 }
 
-#remover-selecionado , #salvar-tarefas {
+#remover-selecionado , #salvar-tarefas , #mover-baixo {
   border-radius: 8px;
   color: white;
   padding: 2px 20px;
@@ -61,4 +61,9 @@ main {
 #salvar-tarefas {
   background-color: rgb(64 , 173 , 64);
   border: solid rgb(64 , 173 , 64) 1px;
+}
+
+#mover-cima , #mover-baixo {
+  background-color: rgb(252 , 127 , 0);
+  border: solid rgb(252 , 127 , 0) 1px;
 }
