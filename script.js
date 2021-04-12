@@ -8,3 +8,15 @@ function addToList () {
   orderList.appendChild(node);
   task.value = '';
 }
+
+const findList = document.querySelector('#lista-tarefas')
+const countLines = document.getElementsByTagName('li');
+
+findList.addEventListener('click', colorLine);
+
+function colorLine (event) {
+  for (index = 0; index < countLines.length; index += 1) {
+    countLines[index].style.backgroundColor = 'transparent';
+  }
+    event.target.style.backgroundColor = 'grey';
+}
