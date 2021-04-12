@@ -15,3 +15,16 @@ function creatList() {
     input.value = '';
   }
 }
+
+function selectList(e) {
+  for (let i = 0; i < list.children.length; i += 1) {
+    if (list.children[i] !== e.target) {
+      list.children[i].style.backgroundColor = 'white';
+    }
+  }
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+function completTask(e) {
+  e.target.classList.toggle('completed');
+}
