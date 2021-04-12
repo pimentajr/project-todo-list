@@ -42,15 +42,15 @@ ol.addEventListener('dblclick', (event) => {
 
 clear.addEventListener('click', () => {
   const allLi = document.querySelectorAll('.tarefa');
-  for (let i of allLi) {
-    i.remove();
+  for (let i = 0; i < allLi.length; i += 1) {
+    allLi[i].remove();
   }
 });
 
 clearFinalized.addEventListener('click', () => {
   const finalizedLi = document.querySelectorAll('.completed');
-  for (let i of finalizedLi) {
-    i.remove();
+  for (let i = 0; i < finalizedLi.length; i += 1) {
+    finalizedLi[i].remove();
   }
 });
 
@@ -64,17 +64,21 @@ removeSaved.addEventListener('click', () => {
 
 moveDown.addEventListener('click', () => {
   const selectedDown = document.querySelector('.grey');
-  const nextElement = selectedDown.nextSibling;
-  if (nextElement) {
-    selectedDown.insertAdjacentElement('beforebegin', nextElement);
+  if (selectedDown !== null) {
+    const nextElement = selectedDown.nextSibling;
+    if (nextElement) {
+      selectedDown.insertAdjacentElement('beforebegin', nextElement);
+    }
   }
 });
 
 moveUp.addEventListener('click', () => {
   const selectedUp = document.querySelector('.grey');
-  const previousElement = selectedUp.previousSibling;
-  if (previousElement) {
-    selectedUp.insertAdjacentElement('afterend', previousElement);
+  if (selectedUp !== null) {
+    const previousElement = selectedUp.previousSibling;
+    if (previousElement) {
+      selectedUp.insertAdjacentElement('afterend', previousElement);
+    }
   }
 });
 
