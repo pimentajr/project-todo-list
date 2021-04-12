@@ -46,3 +46,15 @@ function apagarLista() {
 }
 
 apagaTudo.addEventListener('click', apagarLista);
+
+// 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
+
+const removerFinalizado = document.querySelector('#remover-finalizados');
+const tarefa = document.getElementsByClassName('tarefa');
+removerFinalizado.onclick = function removerTarefaFinalizada() {
+  for (let index = 0; index < tarefa.length; index += 1) {
+    if (tarefa[index].classList.contains('completed')) {
+      listaTarefas.removeChild(listaTarefas.childNodes[index]);
+    }
+  }
+};
