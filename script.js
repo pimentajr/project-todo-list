@@ -42,6 +42,18 @@ function deleteItem() {
   const olElement = document.querySelector('ol');
   olElement.innerText = '';
 }
+
+function doneItem() {
+  const doneItens = document.querySelectorAll('.completed');
+  for (let i = 0; i < doneItens.length; i += 1) {
+    let currentElement = doneItens[i];
+    currentElement.parentNode.removeChild(currentElement);
+  }
+}
+
+const doneButtom = document.getElementById('remover-finalizados');
+doneButtom.addEventListener('click', doneItem);
+
 const deleteButtom = document.getElementById('apaga-tudo');
 deleteButtom.addEventListener('click', deleteItem);
 
