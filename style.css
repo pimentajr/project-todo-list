@@ -9,3 +9,52 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+body {
+  background-color: rgb(64 , 173 , 64);
+}
+
+header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+main {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 50px;
+  max-width: 60%;
+}
+
+#funcionamento {
+  font-style: italic;
+}
+
+#criar-tarefa , #remover-finalizados , #apaga-tudo {
+  border-radius: 8px;
+  color: white;
+  padding: 2px 20px;
+}
+
+#remover-selecionado , #salvar-tarefas {
+  border-radius: 8px;
+  color: white;
+  padding: 2px 20px;
+}
+
+#criar-tarefa , #remover-finalizados {
+  background-color: rgb(0 , 135 , 207);
+  border: solid rgb(0 , 135 , 207) 1px;
+}
+
+#apaga-tudo , #remover-selecionado {
+  background-color: rgb(144 , 25 , 27);
+  border: solid rgb(144 , 25 , 27) 1px;
+}
+
+#salvar-tarefas {
+  background-color: rgb(64 , 173 , 64);
+  border: solid rgb(64 , 173 , 64) 1px;
+}
