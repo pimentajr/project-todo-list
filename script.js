@@ -28,10 +28,10 @@ addToList();
 // Muda cor de fundo ao clicar em um item da lista, mas somente um fica selecionado (requisito 9).
 function changeBackgroundColor() {
   list.addEventListener('click', (event) => {
-    for (index = 0; index < itemsOfList.length; index += 1) {
+    for (let index = 0; index < itemsOfList.length; index += 1) {
       itemsOfList[index].classList.remove('selecionado');
     }
     event.target.classList.add('selecionado');
-  })
+  });
 }
 changeBackgroundColor();
