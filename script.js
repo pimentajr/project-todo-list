@@ -16,11 +16,11 @@ function changeBackgroundListColor(listaTarefa) {
     const listas = document.querySelectorAll('li');
     for (let index = 0; index < listas.length; index += 1) {
       listas[index].style.backgroundColor = '';
-      listas[index].className = '';
+      listas[index].id = '';
     }
     if (event.target.localName === 'li') {
       event.target.style.backgroundColor = `rgb(128, 128, 128)`;
-      event.target.className = 'selected';
+      event.target.id = 'selected';
     }
   });
 }
@@ -91,7 +91,7 @@ function loadTasks(listaTarefa) {
 // Subir de posição item da lista
 function moveUp(moverCima, listaTarefa) {
   moverCima.addEventListener('click', () => {
-    const selected = document.querySelector('.selected');
+    const selected = document.querySelector('#selected');
     const upPosition = selected.previousElementSibling;
     console.log(upPosition);
     if(upPosition) {
@@ -103,7 +103,7 @@ function moveUp(moverCima, listaTarefa) {
 // Descer de posição item da lista
 function moveDown(moverBaixo, listaTarefa) {
   moverBaixo.addEventListener('click', () => {
-    const selected = document.querySelector('.selected');
+    const selected = document.querySelector('#selected');
     const downPosition = selected.nextElementSibling;
     if(downPosition) {
       listaTarefa.insertBefore(selected, downPosition.nextElementSibling);
@@ -114,7 +114,7 @@ function moveDown(moverBaixo, listaTarefa) {
 // Remover task selecionada
 function removeTaskSelected(removerSelecionado, listaTarefa) {
   removerSelecionado.addEventListener('click', () => {
-    const selected = document.querySelector('.selected');
+    const selected = document.querySelector('#selected');
     listaTarefa.removeChild(selected);
   })
 }
