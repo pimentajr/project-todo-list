@@ -6,16 +6,6 @@ const createActivity = document.getElementById('criar-tarefa');
 const deleteAllItens = document.getElementById('apaga-tudo');
 const deleteCompletedItem = document.getElementById('remover-finalizados');
 
-// Create li element
-function createAndAddLiItem() {
-  const createLi = document.createElement('li');
-  const text = inputText.value;
-  createLi.innerText = text;
-  orderedList.appendChild(createLi);
-  inputText.value = '';
-  createLiEventListener();
-}
-
 // Add selected class to Li
 function selectedItem(event) {
   for (let index = 0; index < liItens.length; index += 1) {
@@ -24,19 +14,7 @@ function selectedItem(event) {
   event.target.classList.add('selected');
 }
 
-function deleteAllLiItens() {
-  for (let index = 0; index < orderedList.children.length;) {
-    orderedList.removeChild(orderedList.lastChild);
-  }
-}
-
-function deleteCompletedItens() {
-  const completed = document.getElementsByClassName('completed');
-  for (let index = 0; index < completed.length;) {
-    orderedList.removeChild(completed[index]);
-  }
-}
-
+// Mark a line through all completed itens
 function crossedItem(event) {
   if (event.target.className !== '' && event.target.className !== 'selected') {
     event.target.classList.remove('completed');
@@ -52,14 +30,38 @@ function createLiEventListener() {
   }
 }
 
+// Create li element
+function createAndAddLiItem() {
+  const createLi = document.createElement('li');
+  const text = inputText.value;
+  createLi.innerText = text;
+  orderedList.appendChild(createLi);
+  inputText.value = '';
+  createLiEventListener();
+}
+
+function deleteAllLiItens() {
+  for (let index = 0; index < orderedList.children.length;) {
+    orderedList.removeChild(orderedList.lastChild);
+  }
+}
+
+function deleteCompletedItens() {
+  const completed = document.getElementsByClassName('completed');
+  for (let index = 0; index < completed.length;) {
+    orderedList.removeChild(completed[index]);
+  }
+}
+
 function createEventlisteners() {
   createActivity.addEventListener('click', createAndAddLiItem);
   deleteAllItens.addEventListener('click', deleteAllLiItens);
   deleteCompletedItem.addEventListener('click', deleteCompletedItens);
+  createLiEventListener();
 }
 
-function init() {
+function initialize() {
   createEventlisteners();
 }
 
-window.onload = init;
+window.onload = initialize;
