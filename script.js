@@ -16,6 +16,8 @@ const removerFinalizados = document.querySelector('#remover-finalizados');
 
 const removerSelecionado = document.querySelector('#remover-selecionado');
 
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+
 // 5. Clicar o botão com id="criar-tarefa" faz o conteúdo ir para o final da lista
 // 6. Ordene os itens da lista de tarefas por ordem de criação
 
@@ -73,6 +75,7 @@ function deleteAllList() {
   for (let index = (listaDeTarefasChildren.length - 1); index >= 0; index -= 1) {
     listaDeTarefas.removeChild(listaDeTarefasChildren[index]);
   }
+  localStorage.clear();
 }
 
 apagaTudo.addEventListener('click', deleteAllList);
@@ -98,3 +101,41 @@ function removeSelected() {
 }
 
 removerSelecionado.addEventListener('click', removeSelected);
+
+// 12. Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
+
+function saveList() {
+  localStorage.clear();
+
+  const lista = document.querySelectorAll('.itens-tarefa');
+
+  for (let index = 0; index < lista.length; index += 1) {
+    const saveItens = lista[index].innerText;
+    const positionItem = `item + ${[index]}`;
+    localStorage.setItem(positionItem, saveItens);
+    const saveClass = lista[index].className;
+    const positionClass = `class + ${[index]}`;
+    localStorage.setItem(positionClass, saveClass);
+  }
+}
+
+salvarTarefas.addEventListener('click', saveList);
+
+//
+
+function returnList() {
+  if (localStorage.length !== 0) {
+    for (let index = 0; index < (localStorage.length / 2); index += 1) {
+      const positionItem = `item + ${[index]}`;
+      const saveItens = localStorage.getItem(positionItem);
+      const positionClass = `class + ${[index]}`;
+      const saveClass = localStorage.getItem(positionClass);
+      const criaItensLista = document.createElement('li');
+      criaItensLista.innerText = saveItens;
+      criaItensLista.className = saveClass;
+      listaDeTarefas.appendChild(criaItensLista);
+    }
+  }
+}
+
+window.onload = returnList;
