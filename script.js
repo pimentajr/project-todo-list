@@ -23,12 +23,12 @@ function changeBackground(event) {
 
 // Função para colocar input na lista
 function inputTask() {
-  // pegar o valor do input no dom 
+  // pegar o valor do input no dom
   const inputValue = document.getElementById('texto-tarefa').value;
   // depois criamos o elemento que irá ser cada iten da lista, a tag li
   const itenList = document.createElement('li');
   // adicionando id nas li
-  itenList.id ='itenList';
+  itenList.id = 'itenList';
   // adicionando escutador
   itenList.addEventListener('click', changeBackground);
   // Agora precisamos adicionar o conteudo do input na tag li
@@ -42,5 +42,3 @@ function inputTask() {
 }
 // Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
 button.addEventListener('click', inputTask);
-
-

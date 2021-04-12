@@ -1,5 +1,5 @@
 * {
-  margin: 0px;
+  margin: 1px;
   color: white;
 }
 
@@ -9,7 +9,7 @@ body {
 
 #main {
   margin: 12% 10%;
-  background-color: rgb(112 , 18 , 112); 
+  background-color: rgb(112 , 18 , 112) ;
   padding: 20px;
 }
 
