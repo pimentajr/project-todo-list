@@ -116,10 +116,12 @@ function moveUpDown(movement, element) {
 
 function move(event) {
   const btn = event.target;
-  if (btn.id.includes('cima')) {
-    moveUpDown(0, toDoList.firstChild);
-  } else {
-    moveUpDown(1, toDoList.lastChild);
+  if (document.querySelector('.highlighted')) {
+    if (btn.id.includes('cima')) {
+      moveUpDown(0, toDoList.firstChild);
+    } else {
+      moveUpDown(1, toDoList.lastChild);
+    }
   }
 }
 
