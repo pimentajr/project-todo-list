@@ -30,7 +30,25 @@ function grayItem() {
     }
     if (clickedItem.className === 'item') {
       clickedItem.style.backgroundColor = grayColor;
-    }    
+    }  
   });
 }
 grayItem();
+
+// Requisito 9 - Riscar o item duas vezes com double click
+function crossOff() {
+  allList.addEventListener('dblclick', (eventoDeOrigem) => {
+    const dblClickedItem = eventoDeOrigem.target;
+    if (dblClickedItem.className === 'completed') {
+      dblClickedItem.classList.remove('completed');
+    } else {
+      dblClickedItem.classList = 'completed';
+    }
+    const whiteList = document.querySelectorAll('.completed');
+    for (let index = 0; index < whiteList.length; index += 1) {
+      whiteList[index].style.backgroundColor = 'white';
+    }
+  });
+}
+crossOff();
+
