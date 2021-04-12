@@ -3,7 +3,6 @@ const ordenedList = document.querySelector('#lista-tarefas');
 const buttonNewJob = document.querySelector('#criar-tarefa');
 // console.log(buttonNewJob);
 
-
 // botão para criar um novo item na lista
 buttonNewJob.addEventListener('click', function() {
   const newItemList = document.createElement('li');
@@ -18,9 +17,18 @@ buttonNewJob.addEventListener('click', function() {
 // Colocar fundo cinza em um item clicado
 ordenedList.addEventListener('click', function(event) {
   const itensList = document.querySelectorAll('.clicked');
-  for (let index = 0; index < itensList.length; index += 1){
+  for (let index = 0; index < itensList.length; index += 1) {
     itensList[index].classList.remove('clicked');
   }
   event.target.classList.add('clicked');
-  console.log(event.target);
+});
+
+// Coloca um line-trough no item clicado 2x
+ordenedList.addEventListener('dblclick', function(event) {
+  console.log(event.target.className);
+  if (event.target.classList.contains('completed') === true) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 });

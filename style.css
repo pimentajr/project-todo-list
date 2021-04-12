@@ -1,4 +1,8 @@
 .clicked {
-    background-color: rgb(128, 128, 128);
-    width: fit-content;
+  background-color: grey;
+  width: fit-content;
+}
+
+.completed {
+  text-decoration: line-through;
 }
