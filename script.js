@@ -4,6 +4,8 @@ const jobListContainer = document.getElementById('lista-tarefas');
 const clearButton = document.getElementById('apaga-tudo');
 const jobItems = document.getElementsByClassName('job');
 const finishedJobs = document.getElementById('remover-finalizados');
+const storageButton = document.getElementById('salvar-tarefas');
+const teste = document.getElementById('jobs-container');
 
 function createJob() {
   jobButton.addEventListener('click', () => {
@@ -53,10 +55,24 @@ function removeFinishedJobs() {
   finishedJobs.addEventListener('click', () => {
     for (let index = jobItems.length - 1; index > 0; index -= 1) {
       if (jobItems[index].classList.contains('completed')) {
-        let deleteItem = jobItems[index];
+        const deleteItem = jobItems[index];
         jobItems[0].parentNode.removeChild(deleteItem);
       }
     }
   });
 }
 removeFinishedJobs();
+
+function storeJobs() {
+  storageButton.addEventListener('click', () => {
+    localStorage['list'] = jobListContainer.innerHTML;
+  })
+}
+storeJobs();
+
+function retrieveJobs () {
+  if (localStorage['list']) {
+    jobListContainer.innerHTML = localStorage['list'];
+  }
+}
+retrieveJobs();
