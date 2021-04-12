@@ -62,24 +62,20 @@ function getTasksList() {
 getTasksList();
 
 function moveUpTask() {
-  let btnMoveTaskUp = document.querySelector('#mover-cima');
+  const btnMoveTaskUp = document.querySelector('#mover-cima');
   btnMoveTaskUp.addEventListener('click', () => {
-      if (selectedTask) {
-        if (selectedTask[0].previousSibling !== null) {
-          listTask.insertBefore(selectedTask[0], selectedTask[0].previousSibling);
-        }
-      }
+    if (selectedTask[0].previousSibling !== null && selectedTask) {
+      listTask.insertBefore(selectedTask[0], selectedTask[0].previousSibling);
+    }
   });
 }
 
 function moveDownTask() {
   const btnMoveTaskDown = document.querySelector('#mover-baixo');
   btnMoveTaskDown.addEventListener('click', () => {
-      if (selectedTask) {
-        if (selectedTask[0].nextElementSibling !== null) {
-          listTask.insertBefore(selectedTask[0].nextElementSibling, selectedTask[0]);
-        }
-      }
+    if (selectedTask[0].nextElementSibling !== null && selectedTask) {
+      listTask.insertBefore(selectedTask[0].nextElementSibling, selectedTask[0]);
+    }
   });
 }
 
