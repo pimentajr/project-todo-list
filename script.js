@@ -4,7 +4,6 @@ function createItemInList() {
   function clearTextInput() {
     document.querySelector('#texto-tarefa').value = '';
   }
-
   const buttonTaskCreate = document.querySelector('#criar-tarefa');
   buttonTaskCreate.addEventListener('click', function buttonAction() {
     // procura pelo que foi digitado no input
@@ -16,21 +15,36 @@ function createItemInList() {
       const createLi = document.createElement('li');
       createLi.innerText = inputCamp;
       locateLista.appendChild(createLi);
+      // limpa a caixa de entrada 
       clearTextInput();
-      function selectLi() {
-        createLi.addEventListener('click', function backgroundChange() {
-          createLi.classList = 'item-list';
-          
-        })
+      function highLightSelected() {
+        //remover destaque ao item selecionado
+        function unselectLi() {
+          const createLiArray = document.querySelectorAll('li');
+          for ( let i = 0; i < createLiArray.length; i += 1) {
+            createLiArray[i].addEventListener('click',function removebackground() {
+              let itemListSelected = document.querySelector('.item-list');
+              itemListSelected.classList.remove('item-list');
+          })
+        }
+        }
+        unselectLi();
+        //adiciona destaque ao item selecionado
+        function selectLi() {
+          const createLiArray = document.querySelectorAll('li');
+          for ( let i = 0; i < createLiArray.length; i += 1) {
+            createLiArray[i].addEventListener('click', function backgroundChange() {
+              let itemListSelected = document.querySelector('.item-list');
+              createLiArray[i].classList.add('item-list');
+          })
+        }
+        }
+        selectLi();
       }
-      selectLi();
+      highLightSelected();
+
     }
-  });
+    }
+  );
 }
 createItemInList();
-
-
-  const itemList = document.querySelector('.item-list');
-    
-  
-
