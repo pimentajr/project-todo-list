@@ -21,10 +21,10 @@ function changeBg() {
 
 function completedTask() {
   const eventTarget = event.target;
-  if (eventTarget.className !== 'completed') {
-    eventTarget.classList.add('completed');
+  if (eventTarget.classList.contains('completed')) {
+    eventTarget.classList.remove('completed');
   } else {
-    eventTarget.className = null;
+    eventTarget.classList.add('completed');
   }
 }
 
