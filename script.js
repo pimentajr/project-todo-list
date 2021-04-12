@@ -1,3 +1,5 @@
+const ol = document.getElementById('lista-tarefas');
+
 function clearSelected() {
   const toDoItem = document.querySelectorAll('#todo');
   for (let index = 0; index < toDoItem.length; index += 1) {
@@ -28,26 +30,7 @@ function selectTodo() {
   }
 }
 
-function addListItem() {
-  const input = document.getElementById('texto-tarefa').value;
-  document.getElementById('texto-tarefa').value = '';
-  const ol = document.getElementById('lista-tarefas');
-  const li = document.createElement('li');
-  li.id = 'todo';
-  li.innerText = input;
-  ol.appendChild(li);
-  selectTodo();
-}
-
-function addToDo() {
-  const button = document.getElementById('criar-tarefa');
-  button.addEventListener('click', addListItem);
-}
-
-addToDo();
-
 function clearList() {
-  const ol = document.getElementById('lista-tarefas');
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) {
     ol.removeChild(li[index]);
@@ -59,4 +42,35 @@ function clearToDoList() {
   button.addEventListener('click', clearList);
 }
 
-clearToDoList();
+function checkedItem() {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('completed')) {
+      ol.removeChild(li[index]);
+    }
+  }
+}
+
+function removeCheckedItem() {
+  const button = document.getElementById('remover-finalizados');
+  button.addEventListener('click', checkedItem);
+}
+
+function addListItem() {
+  const input = document.getElementById('texto-tarefa').value;
+  document.getElementById('texto-tarefa').value = '';
+  const li = document.createElement('li');
+  li.id = 'todo';
+  li.innerText = input;
+  ol.appendChild(li);
+  selectTodo();
+  clearToDoList();
+  removeCheckedItem();
+}
+
+function addToDo() {
+  const button = document.getElementById('criar-tarefa');
+  button.addEventListener('click', addListItem);
+}
+
+addToDo();

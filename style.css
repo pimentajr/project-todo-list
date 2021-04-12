@@ -43,6 +43,10 @@ main {
   outline: none;
 }
 
+.todo-list p {
+  margin-top: 20px;
+}
+
 .todo-list button {
   background-color: rgb(47 , 193 , 140);
   padding: 10px;
