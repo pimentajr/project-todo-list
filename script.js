@@ -12,6 +12,8 @@ const listaDeTarefas = document.querySelector('#lista-tarefas');
 
 const apagaTudo = document.querySelector('#apaga-tudo');
 
+const removerFinalizados = document.querySelector('#remover-finalizados');
+
 // 5. Clicar o botão com id="criar-tarefa" faz o conteúdo ir para o final da lista
 // 6. Ordene os itens da lista de tarefas por ordem de criação
 
@@ -72,3 +74,15 @@ function deleteAllList() {
 }
 
 apagaTudo.addEventListener('click', deleteAllList);
+
+// 11. Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
+
+function deleteCompleted() {
+  const completedItens = document.querySelectorAll('.completed');
+
+  for (let index = (completedItens.length - 1); index >= 0; index -= 1) {
+    listaDeTarefas.removeChild(completedItens[index]);
+  }
+}
+
+removerFinalizados.addEventListener('click', deleteCompleted);
