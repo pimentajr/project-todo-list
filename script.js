@@ -4,12 +4,16 @@ const textTask = document.querySelector('#texto-tarefa');
 const selectedTask = document.getElementsByClassName('selected');
 const btnDelTasks = document.querySelector('#apaga-tudo');
 const btnRemoveTasksFinish = document.querySelector('#remover-finalizados');
+const liAssignment = document.querySelectorAll('.li-assignment');
+const tasksFinish = document.querySelectorAll('.completed');
+const btnSaveTasks = document.querySelector('#salvar-tarefas');
+
 
 function createTask() {
   btnCreateTask.addEventListener('click', () => {
     if (textTask.value !== '') {
       const createLi = document.createElement('li');
-      createLi.innerHTML = textTask.value;
+      createLi.innerText = textTask.value;
       createLi.className = 'li-assignment';
       listTask.appendChild(createLi);
       textTask.value = '';
@@ -18,23 +22,22 @@ function createTask() {
 }
 
 function alterBackColorTask() {
-  listTask.addEventListener('click', function(event) {
+  listTask.addEventListener('click', (event) => {
     if (selectedTask[0]) {
       selectedTask[0].classList.remove('selected');
     }
-  event.target.classList.add('selected');
+    event.target.classList.add('selected');
   });
 }
 
 function checkTask() {
   listTask.addEventListener('dblclick', (event) => {
-     event.target.classList.toggle('completed');
+    event.target.classList.toggle('completed');
   });
 }
 
 function delTasks() {
   btnDelTasks.addEventListener('click', () => {
-    let liAssignment = document.querySelectorAll('.li-assignment');
     for (let index = 0; index < liAssignment.length; index += 1) {
       liAssignment[index].remove();
     }
@@ -43,11 +46,20 @@ function delTasks() {
 
 function removeTasksFinish() {
   btnRemoveTasksFinish.addEventListener('click', () => {
-    let tasksFinish = document.querySelectorAll('.completed');
     for (let index = 0; index < tasksFinish.length; index += 1) {
       tasksFinish[index].remove();
     }
   });
+}
+
+function saveTasks() {
+  localStorage.savedTasks = listTask.innerHTML;
+}
+
+function loadSavedTasks() {
+  if (localStorage.savedTasks !== undefined) {
+    listTask.innerHTML = localStorage.listTask;
+  }
 }
 
 window.onload = () => {
@@ -56,4 +68,6 @@ window.onload = () => {
   checkTask();
   delTasks();
   removeTasksFinish();
+  saveTasks();
+  loadSavedTasks();
 };
