@@ -1,4 +1,8 @@
-.selecionada {
-  background-color: rgb(128, 128, 128);
+.selected {
+  background-color: gray;
   font-size: large;
+}
+
+.completed {
+  text-decoration: line-through solid black;
 }

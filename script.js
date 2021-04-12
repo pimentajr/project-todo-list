@@ -1,9 +1,17 @@
 function SelectTask(event) {
-  const selected = document.querySelector('.selecionada');
+  const selected = document.querySelector('.selected');
   if (selected !== null) {
-    selected.classList.remove('selecionada');
+    selected.classList.remove('selected');
   }
-  event.target.classList.add('selecionada');
+  event.target.classList.add('selected');
+}
+
+function CompleteTask(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 }
 
 function CreateTask() {
@@ -13,6 +21,7 @@ function CreateTask() {
   element.innerText = text;
   element.classList.add('tarefa');
   element.addEventListener('click', SelectTask);
+  element.addEventListener('dblclick', CompleteTask);
   parent.appendChild(element);
   document.getElementById('texto-tarefa').value = '';
   // let criado = document.querySelector('tarefa');
