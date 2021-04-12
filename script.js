@@ -33,5 +33,17 @@ function addButton() {
   inputTextElement.value = '';
 }
 
+function deleteItem() {
+  // const listItens = document.querySelectorAll('.listItem');
+  // for (let i = 0; i < listItens.length; i += 1) {
+  //   let currentElement = listItens[i];
+  //   currentElement.parentNode.removeChild(currentElement);
+  // }
+  const olElement = document.querySelector('ol');
+  olElement.innerText = '';
+}
+const deleteButtom = document.getElementById('apaga-tudo');
+deleteButtom.addEventListener('click', deleteItem);
+
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addButton);
