@@ -12,10 +12,9 @@ function changeBg() {
   const eventTarget = event.target;
   if (eventTarget.className === 'clickedItem') {
     eventTarget.classList.remove('clickItem');
-  }
-  else {
+  } else {
     eventTarget.classList.add('clickedItem');
   }
- }
+}
 
-listaDeTarefas.addEventListener('click', changeBg)
+listaDeTarefas.addEventListener('click', changeBg);
