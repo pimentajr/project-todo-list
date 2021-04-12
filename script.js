@@ -3,6 +3,8 @@ const getButton = document.querySelector('#criar-tarefa');
 const getOl = document.querySelector('#lista-tarefas');
 const getLi = document.getElementsByClassName('list');
 const getClearButton = document.querySelector('#apaga-tudo');
+const getCompletedButton = document.querySelector('#remover-finalizados');
+const getCompletedCss = document.getElementsByClassName('completed');
 
 function createList(value) {
   const createLi = document.createElement('li');
@@ -55,3 +57,15 @@ function clearButton() {
 }
 clearButton();
 /* remove all child elements = https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript */
+
+function removeCompletedButton() {
+  getCompletedButton.addEventListener('click', () => {
+    while (getCompletedCss.length > 0) {
+      getCompletedCss[0].remove();
+    }
+  });
+}
+removeCompletedButton();
+/* stackoverflow = https://stackoverflow.com/questions/4777077/removing-elements-by-class-name */
+/* documentação while = https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/while */
+
