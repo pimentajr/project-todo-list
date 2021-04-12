@@ -16,11 +16,29 @@ function addTarefaKeypress(event) {
     const tarefa = document.createElement('li');
 
     tarefa.innerText = textoTarefa.value;
+    tarefa.className = 'tarefa';
     listaTarefas.appendChild(tarefa);
-  
+
     textoTarefa.value = '';
   }
 }
 
 criarTarefa.addEventListener('click', addTarefaClick);
 textoTarefa.addEventListener('keypress', addTarefaKeypress);
+
+function removerSelected() {
+  const tarefas = document.querySelectorAll('.tarefa');
+
+  for (let tarefa of tarefas) {
+    tarefa.classList.remove('selected');
+  }
+}
+
+function addSelected(event) {
+  if (event.target.className.includes('tarefa')) {
+    removerSelected();  
+    event.target.classList.add('selected');
+  }
+}
+
+listaTarefas.addEventListener('click', addSelected);
