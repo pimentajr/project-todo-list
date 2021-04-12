@@ -4,6 +4,9 @@ const ol = document.querySelector('#lista-tarefas');
 const saveList = document.querySelector('#salvar-tarefas');
 const clear = document.querySelector('#apaga-tudo');
 const clearFinalized = document.querySelector('#remover-finalizados');
+const removeSaved = document.querySelector('#remover-salvos');
+
+ol.innerHTML = localStorage.getItem('lista');
 
 button.addEventListener('click', () => {
   const valor = input.value;
@@ -49,15 +52,9 @@ clearFinalized.addEventListener('click', () => {
 });
 
 saveList.addEventListener('click', () => {
-  const savedLi = document.querySelectorAll('.tarefa');
-  for (let i = 0; i < savedLi.length; i += 1) {
-    localStorage.setItem(i, savedLi[i].innerText);
-  }
+  localStorage.setItem('lista', ol.innerHTML);
 });
 
-for (let i = 0; i < localStorage.length; i += 1) {
-  const liNew = document.createElement('li');
-  liNew.classList.add('tarefa');
-  liNew.innerText = localStorage.getItem(i);
-  ol.appendChild(liNew);
-}
+removeSaved.addEventListener('click', () => {
+  localStorage.clear();
+});
