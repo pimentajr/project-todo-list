@@ -15,16 +15,25 @@ const header = create('header');
 add(body, header);
 
 // add text to header
-header.innerText = 'Minha Lista de Tarefas';
+header.innerHTML = '<b>Minha Lista de Tarefas</b>';
+header.style.fontSize = '20px';
 
 // Task 2
 // description declaration
 const descrp = create('p');
 add(body, descrp);
 
-// add text to descrp
+// add text amd id to descrp
 descrp.id = 'funcionamento';
 descrp.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+
+// Task 3
+// input declaration
+const input = create('input');
+add(body, input);
+
+// add id
+input.id = 'texto-tarefa';
 
 // start function
 function start() {
