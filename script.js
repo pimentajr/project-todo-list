@@ -9,3 +9,9 @@ getButton.addEventListener('click', function() {
   getLista.appendChild(createLi);
   getInput.value = '';
 });
+
+getLista.addEventListener('click', function(event) {
+  if (getLista.style.backgroundColor !== 'rgb(128, 128, 128)') {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  }
+})
