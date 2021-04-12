@@ -38,10 +38,20 @@ buttonCriarTarefa.addEventListener('click', criarTarefa);
 // 10.
 function apagarTudo() {
   const listItem = document.getElementsByClassName('list-item');
-  console.log(listItem);
   for (let index = listItem.length - 1; index >= 0; index -= 1) {
     listItem[index].parentElement.removeChild(listItem[index]);
   }
 }
 const buttonApagarTudo = document.getElementById('apaga-tudo');
 buttonApagarTudo.addEventListener('click', apagarTudo);
+
+// 11.
+function removeFinalizado() {
+  const listItem = document.getElementsByClassName('completed');
+  console.log(listItem);
+  for (let index = listItem.length - 1; index >= 0; index -= 1) {
+    listItem[index].parentElement.removeChild(listItem[index]);
+  }
+}
+const buttonRemoverFinalizados = document.getElementById('remover-finalizados');
+buttonRemoverFinalizados.addEventListener('click', removeFinalizado);
