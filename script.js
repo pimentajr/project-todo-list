@@ -1,17 +1,41 @@
 const btnCreateTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 
+function paintSelectedELement(event) {
+  const element = event.target;
+  element.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+function indexOfNode(element) {
+  const index = [].indexOf.call(element.parentNode.childNodes, element);
+  return index;
+}
+
+function changeSelected(event) {
+  const element = event.target;
+  const listItem = document.querySelectorAll('#list-item');
+  let indexElement;
+
+  if (element.style.backgroundColor === 'rgb(128, 128, 128)') {
+    indexElement = indexOfNode(element);
+  }
+
+  for (let index = 0; index < listItem.length; index += 1) {
+    if (index !== indexElement) {
+      listItem[index].style.backgroundColor = 'white';
+    }
+  }
+}
+
 btnCreateTask.addEventListener('click', () => {
   const inputData = document.getElementById('texto-tarefa').value;
   const createTask = document.createElement('li');
   createTask.innerText = inputData;
+  createTask.setAttribute('id', 'list-item');
   olList.appendChild(createTask);
   document.getElementById('texto-tarefa').value = '';
 });
 
-function paintSelectedELement(element) {
-  element = element.target;
-  element.style.backgroundColor = 'rgb(128, 128, 128)';
-}
-
 olList.addEventListener('click', paintSelectedELement);
+
+olList.addEventListener('click', changeSelected);
