@@ -63,3 +63,15 @@ function clearTaskList() {
   });
 }
 clearTaskList();
+
+// Requisito 11 - Remover finalizados
+function removeCheckedTasks() {
+  const removeCheckedTasksButton = document.getElementById('remover-finalizados');
+  removeCheckedTasksButton.addEventListener('click', () => {
+    const allCheckedItens = document.querySelectorAll('.completed');
+    for (let index = 0; index < allCheckedItens.length; index += 1) {
+      allList.removeChild(allCheckedItens[index]);
+    }
+  });
+}
+removeCheckedTasks();
