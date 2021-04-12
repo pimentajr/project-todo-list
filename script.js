@@ -53,7 +53,7 @@ crossOff();
 function clearTaskList() {
   const deleteButton = document.getElementById('apaga-tudo');
   deleteButton.addEventListener('click', () => {
-    const allItens = document.querySelectorAll('.item');
+    const allItens = document.querySelectorAll('li');
     for (let index = 0; index < allItens.length; index += 1) {
       allList.removeChild(allItens[index]);
     }
