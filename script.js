@@ -2,6 +2,7 @@ function addTask() {
   const button = document.getElementById('criar-tarefa');
   const task = document.getElementById('texto-tarefa');
   const taskList = document.querySelector('ol');
+  taskList.innerHTML = localStorage.getItem('tasks');
   button.addEventListener('click', () => {
     const newTask = document.createElement('li');
     newTask.innerText = task.value;
@@ -61,3 +62,21 @@ function clearCompleted() {
 }
 
 clearCompleted();
+
+// 12 Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
+
+function saveList() {
+  const saveButton = document.getElementById('salvar-tarefas');
+  saveButton.addEventListener('click', () => {
+    console.log('tesste');
+    const listToSave = document.querySelector('#lista-tarefas').innerHTML;
+    localStorage.setItem('tasks', `${listToSave}`);
+  });
+}
+
+saveList();
+
+// 14
+// function removeSelected() {
+//   const clearButton = document.querySelector('#apaga-tudo');
+// }
