@@ -1,77 +1,93 @@
-const list = document.getElementById('lista-tarefas');
-const creatTaskButton = document.querySelector('#criar-tarefa');
-const clearTasksButton = document.querySelector('#apaga-tudo');
-const clearCompletedButton = document.querySelector('#remover-finalizados');
-const saveTasksButton = document.querySelector('#salvar-tarefas');
-const removeSelectedButton = document.querySelector('#remover-selecionado');
+const inputId = document.getElementById('texto-tarefa');
+const olId = document.querySelector('#lista-tarefas');
+const buttonCreateTask = document.getElementById('criar-tarefa');
+const buttonDeleteEverything = document.getElementById('apaga-tudo');
+const removeFinishedTask = document.getElementById('remover-finalizados');
+const saveEveryFinishedTask = document.getElementById('salvar-tarefas');
+const removeEverySavedTask = document.getElementById('remover-tarefas-salvas');
+const buttonUp = document.getElementById('up');
+const buttonDown = document.getElementById('down');
 
-function creatList() {
-  const input = document.querySelector('#texto-tarefa');
-  const inputTask = input.value;
-  if (inputTask !== '') {
-    const newItem = document.createElement('li');
-    newItem.innerHTML = inputTask;
-    list.appendChild(newItem);
-    input.value = '';
-  }
-}
+buttonCreateTask.addEventListener('click', () => {
+  if (inputId.value === '') {
+    alert('Escreva alguma tarefa!')
+  } else {
+  let li = document.createElement('li');
+  localStorage.setItem('inputid', inputId.value);
+  li.innerText = localStorage.getItem('inputid');
+  olId.appendChild(li);
+  li.className = 'lis'
+  if(inputId.value.length > 0) {
+    inputId.value = '';
+      }
+    }
+  });
 
-function selectList(e) {
-  for (let i = 0; i < list.children.length; i += 1) {
-    if (list.children[i] !== e.target) {
-      list.children[i].style.backgroundColor = 'white';
+olId.addEventListener('click', (e) => {
+  for (let i = 0; i < olId.children.length; i += 1) {
+    if (olId.children[i] !== e.target) {
+      olId.children[i].style.backgroundColor = 'white';
+      olId.children[i].classList.remove('teste')
     }
   }
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-}
+  e.target.classList.add('item')
+  console.log(e.target)
+});
 
-function completTask(e) {
-  e.target.classList.toggle('completed');
-}
-
-function clearTasks() {
-  const reset = document.querySelector('#lista-tarefas');
-  reset.innerHTML = '';
-}
-
-function clearComplet() {
-  const completed = document.querySelectorAll('.completed');
-  for (let i = 0; i < completed.length; i += 1) {
-    completed[i].remove();
+olId.addEventListener('dblclick', (e) => {
+  if(e.target.className !== 'completed') {
+    e.target.classList.toggle('completed');
   }
-}
+});
 
-function saveTasks() {
-  localStorage.setItem(1, list.innerHTML);
-}
-
-function loadSavedTasks() {
-  list.innerHTML = localStorage.getItem(1);
-}
-
-function removeSelected() {
-  const selectedItem = document.querySelector('.selected');
-  list.removeChild(selectedItem);
-}
-
-function addClassSelected(e) {
-  const { target } = e;
-  const selectedItem = document.querySelectorAll('.selected');
-  selectedItem.forEach((el) => {
-    if (el !== target) {
-      el.classList.remove('selected');
+function deleteEveryTask() {
+buttonDeleteEverything.addEventListener('click', () => {
+  const listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    olId.removeChild(olId.lastChild);
     }
   });
-  target.classList.add('selected');
 }
+deleteEveryTask();
 
-window.onload = loadSavedTasks;
+removeFinishedTask.addEventListener('click', () => {
+  const finishedTasks = document.querySelectorAll('li');
+  for (let index = 0; index < finishedTasks.length; index += 1) {
+    if(finishedTasks[index].className === 'lis item completed') {
+      finishedTasks[index].remove();
+    }
+  }
+});
 
-creatTaskButton.addEventListener('click', creatList);
-list.addEventListener('click', selectList);
-list.addEventListener('dblclick', completTask);
-list.addEventListener('click', addClassSelected);
-clearTasksButton.addEventListener('click', clearTasks);
-clearCompletedButton.addEventListener('click', clearComplet);
-saveTasksButton.addEventListener('click', saveTasks);
-removeSelectedButton.addEventListener('click', removeSelected);
+const listClick = document.getElementsByTagName('ol')[0];
+
+saveEveryFinishedTask.addEventListener('click', () => {
+  localStorage.setItem('listOfSavedItens', listClick.innerHTML);
+});
+
+function getTasks() {
+  listClick.innerHTML = localStorage.getItem('listOfSavedItens');
+}
+getTasks();
+
+removeEverySavedTask.addEventListener('click', () => {
+  localStorage.clear();
+  const listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    olId.removeChild(olId.lastChild);
+  }
+});
+
+buttonUp.addEventListener('click', () => {
+  const li = document.querySelector('.item');
+  console.log(li)
+  if (li === null) return;
+  olId.insertBefore(li, li.previousSibling);
+});
+
+buttonDown.addEventListener('click', () => {
+  const li = document.querySelector('.item');
+  if (li === null) return;
+  olId.insertBefore(li.nextSibling, li);
+});
