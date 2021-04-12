@@ -9,3 +9,10 @@ function addItemTaskList() {
 }
 
 createTaskButton.addEventListener('click', addItemTaskList);
+
+function liBackgroundColorChange(event) {
+  const liSelected = event.target;
+  liSelected.className = 'selected';
+}
+
+listTask.addEventListener('click', liBackgroundColorChange);
