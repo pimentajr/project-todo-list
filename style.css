@@ -1,0 +1,23 @@
+main {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+  text-align: center;
+  font-size: 20px;
+}
+
+#texto-tarefa {
+  border-radius: 5%;
+}
+
+#criar-tarefa {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: lightsalmon;
+  font: bolder;
+}
+
+#lista-tarefas {
+  size: 30%;
+  display: block;
+}
