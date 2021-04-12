@@ -11,3 +11,13 @@ createTaskButton.addEventListener('click', () => {
   }
   taskText.focus();
 });
+
+listTask.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') {
+    const classSelected = document.querySelector('.selected');
+    if (classSelected != null) {
+      classSelected.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  }
+});
