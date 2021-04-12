@@ -1,6 +1,6 @@
 const inputValue = document.getElementById('texto-tarefa');
 const jobButton = document.getElementById('criar-tarefa');
-const jobList = document.getElementById('lista-tarefas');
+const jobListContainer = document.getElementById('lista-tarefas');
 
 function createJob() {
   jobButton.addEventListener('click', () => {
@@ -8,15 +8,22 @@ function createJob() {
     const newItem = document.createElement('li');
     newItem.className = 'job';
     newItem.innerText = newJob;
-    jobList.appendChild(newItem);
+    jobListContainer.appendChild(newItem);
     inputValue.value = '';
   });
 }
 createJob();
 
 function jobColor() {
-  jobList.addEventListener('click', (event) => {
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+  let jobItems = document.getElementsByClassName('job');
+  jobListContainer.addEventListener('click', (event) => {
+    for (let index = 0; index < jobItems.length; index += 1) {
+      if (jobItems[index].classList.contains('selected')) {
+        jobItems[index].classList.remove('selected');
+      }
+    }
+    let selectedItem = event.target;
+    selectedItem.classList.add('selected');
   })
 }
 jobColor();
