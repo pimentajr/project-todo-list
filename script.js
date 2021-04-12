@@ -1,6 +1,5 @@
 const addBtn = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-
 function addListItem() {
   const task = document.getElementById('texto-tarefa');
   const listItem = document.createElement('li');
@@ -10,7 +9,10 @@ function addListItem() {
 }
 
 function changeListItemBackgroundColor(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (document.getElementsByClassName('selected')[0]) {
+    document.getElementsByClassName('selected')[0].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
 }
 addBtn.addEventListener('click', addListItem);
 
