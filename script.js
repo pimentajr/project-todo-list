@@ -19,3 +19,12 @@ ol.addEventListener('click', (event) => {
   }
   li.classList.add('grey');
 });
+
+ol.addEventListener('dblclick', (event) => {
+  const liLine = event.target;
+  if (liLine.classList.contains('completed')) {
+    liLine.classList.remove('completed');
+  } else {
+    liLine.classList.add('completed');
+  }
+});
