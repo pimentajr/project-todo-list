@@ -1,4 +1,4 @@
-const div = document.getElementById('div');
+//const div = document.getElementById('div');
 
 // 7. 8.
 function selectItem(event) {
@@ -37,9 +37,9 @@ buttonCriarTarefa.addEventListener('click', criarTarefa);
 
 // 10.
 function apagarTudo() {
-  let listItem = document.getElementsByClassName('list-item');
+  const listItem = document.getElementsByClassName('list-item');
   console.log(listItem);
-  for (let index = listItem.length - 1; index >= 0 ; index -= 1) {
+  for (let index = listItem.length - 1; index >= 0; index -= 1) {
     listItem[index].parentElement.removeChild(listItem[index]);
   }
 }
