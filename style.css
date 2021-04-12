@@ -34,7 +34,7 @@ main {
   font-size: 15px;
 }
 
-#criar-tarefa , #remover-finalizados , #apaga-tudo , #mover-cima{
+#criar-tarefa , #remover-finalizados , #apaga-tudo , #mover-cima {
   border-radius: 8px;
   color: white;
   padding: 2px 20px;

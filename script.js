@@ -80,16 +80,6 @@ function deleteCompleted() {
 
 removerFinalizados.addEventListener('click', deleteCompleted);
 
-// BONUS - 14. Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
-
-function removeSelected() {
-  const selectedItem = document.querySelector('.selected');
-
-  listaDeTarefas.removeChild(selectedItem);
-}
-
-removerSelecionado.addEventListener('click', removeSelected);
-
 // 12. Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
 
 function saveList() {
@@ -110,3 +100,13 @@ function reloadList() {
 }
 
 window.onload = reloadList;
+
+// BONUS - 14. Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
+
+function removeSelected() {
+  const selectedItem = document.querySelector('.selected');
+
+  listaDeTarefas.removeChild(selectedItem);
+}
+
+removerSelecionado.addEventListener('click', removeSelected);
