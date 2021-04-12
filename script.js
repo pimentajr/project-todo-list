@@ -18,5 +18,14 @@ function selectTask(event) {
   selectedTask.classList.add('selected');
 }
 
+function toggleCompletedTask(event) {
+  const task = event.target;
+  task.classList.toggle('completed');
+}
+
 newTaskButton.addEventListener('click', newTask);
+inputElement.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') newTaskButton.click();
+});
 toDoList.addEventListener('click', selectTask);
+toDoList.addEventListener('dblclick', toggleCompletedTask);
