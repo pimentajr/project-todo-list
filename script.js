@@ -8,3 +8,7 @@ addButton.addEventListener('click', () => {
   orderedList.appendChild(li);
   inputText.value = null;
 });
+
+orderedList.addEventListener('click', () => {
+  orderedList.style.backgroundColor = 'rgb(128, 128, 128)';
+});
