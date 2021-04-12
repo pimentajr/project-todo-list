@@ -1,6 +1,6 @@
 // Cria as variáveis recorrentes
 const taskList = document.getElementById('lista-tarefas');
-const buttonArea = document.getElementById('btn-area');
+const btnsContainer = document.getElementById('btns-container');
 const createTask = document.getElementById('criar-tarefa');
 
 // Cria um novo item da lista OL e limpa o campo de input
@@ -45,10 +45,23 @@ function riskItem() {
 }
 riskItem();
 
+// Adiciona um botão que ao ser clicado, apaga toda a lista
 function clearTasks() {
   const clearButton = document.getElementById('apaga-tudo');
   clearButton.addEventListener('click', () => {
     taskList.innerHTML = '';
-  })
+  });
 }
 clearTasks();
+
+// Adiciona um botão que ao ser clicado, remove os itens marcados
+function removeCompletedTasks() {
+  const remTasksButton = document.getElementById('remover-finalizados');
+  remTasksButton.addEventListener('click', () => {
+    let selectedTask = document.getElementsByClassName('completed').length;
+    for (let index = 0; index < selectedTask; index += 1) {
+      taskList.removeChild(document.querySelector('.completed'));
+    }
+  });
+} 
+removeCompletedTasks();
