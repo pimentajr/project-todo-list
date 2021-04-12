@@ -35,3 +35,11 @@ clearTaskList.addEventListener('click', () => {
     clearList[index].remove();
   }
 });
+
+const removeFinishedTasks = document.getElementById('remover-finalizados');
+removeFinishedTasks.addEventListener('click', () => {
+  const clearList = document.querySelectorAll('.completed');
+  for (let index = 0; index < clearList.length; index += 1) {
+    clearList[index].remove();
+  }
+});
