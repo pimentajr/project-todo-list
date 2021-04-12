@@ -1,1 +1,11 @@
-/* start */
+li {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}

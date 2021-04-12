@@ -11,15 +11,30 @@ function addTaskEvent() {
 
 function clickItemEvent(e) {
   const item = e.target;
-  const bg = item.style.backgroundColor;
-
-  if (bg === '') {
-    item.style.backgroundColor = 'gray';
-  } else {
-    item.removeAttribute('style');
+  const cls = item.className;
+  const selected = document.getElementsByClassName('selected');
+  if (selected.length > 0) {
+    selected[0].removeAttribute('class');
   }
 
+  if (cls === '') {
+    item.className = 'selected';
+  } else {
+    item.removeAttribute('class');
+  }
+}
+
+function doubleItemEvent(e) {
+  const item = e.target;
+  const cls = item.className;
+
+  if (cls === '') {
+    item.className = 'completed';
+  } else {
+    item.removeAttribute('class');
+  }
 }
 
 addTask.addEventListener('click', addTaskEvent);
 listTask.addEventListener('click', clickItemEvent);
+listTask.addEventListener('dblclick', doubleItemEvent);
