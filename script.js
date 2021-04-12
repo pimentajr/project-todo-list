@@ -13,7 +13,11 @@ createTaskBtn.addEventListener('click', addTask);
 
 function highlightItem(event) {
   const item = event.target;
-  item.style.backgroundColor = 'rgb(128,128,128)';
+  const highlighted = document.querySelector('.highlighted');
+  if (highlighted) {
+    highlighted.classList.remove('highlighted');
+  }
+  item.classList.add('highlighted');
 }
 
 toDoList.addEventListener('click', highlightItem);
