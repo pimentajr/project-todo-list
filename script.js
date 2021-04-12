@@ -6,7 +6,10 @@ const createActivity = document.getElementById('criar-tarefa');
 const deleteAllItems = document.getElementById('apaga-tudo');
 const deleteCompletedItem = document.getElementById('remover-finalizados');
 const completed = document.getElementsByClassName('completed');
+const selected = document.getElementsByClassName('selected');
 const saveButton = document.getElementById('salvar-tarefas');
+const removeSelected = document.getElementById('remover-selecionado');
+const selectedButton = document.getElementById('remover-selecionado');
 
 // Add selected class to Li
 function selectedItem(event) {
@@ -55,6 +58,10 @@ function deleteCompletedItems() {
   }
 }
 
+function removeSelectedItem() {
+  orderedList.removeChild(selected[0]);
+}
+
 function saveItems() {
   const updatedLiItems = document.getElementsByTagName('li');
   localStorage.clear();
@@ -80,6 +87,7 @@ function createEventlisteners() {
   deleteAllItems.addEventListener('click', deleteAllLiItems);
   deleteCompletedItem.addEventListener('click', deleteCompletedItems);
   saveButton.addEventListener('click', saveItems);
+  selectedButton.addEventListener('click', removeSelectedItem);
   createLiEventListener();
 }
 
