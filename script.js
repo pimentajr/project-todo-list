@@ -1,5 +1,9 @@
 // capturar todos os elementos em constantes antes de criar as funçoes
 
+// const header = document.querySelector('header');
+
+// const funcionamento = document.querySelector('#funcionamento');
+
 const textoTarefa = document.querySelector('#texto-tarefa');
 
 const criarTarefa = document.querySelector('#criar-tarefa');
@@ -22,3 +26,21 @@ function createListItem() {
 }
 
 criarTarefa.addEventListener('click', createListItem);
+
+// 7. Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)
+// 8. Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
+
+function selectItem(event) {
+  const evento = event.target;
+  const selectedItens = document.querySelectorAll('.itens-tarefa');
+
+  for (let index = 0; index < selectedItens.length; index += 1) {
+    selectedItens[index].classList.remove('selected');
+  }
+
+  if (evento.classList.contains('itens-tarefa')) {
+    evento.classList.add('selected');
+  }
+}
+
+listaDeTarefas.addEventListener('click', selectItem);
