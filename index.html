@@ -5,11 +5,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ToDo List Project</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>Minha Lista de Tarefas</header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <input type="text" id="texto-tarefa">
-  <ol id="lista_tarefas"></ol>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
+
+  <main>
+    <aside id="menu-acoes">
+      <button id="remover-finalizados">Remover Tarefas Concluídas</button>
+      <button id="salvar-tarefas">Salvar Lista</button>
+      <div id="botoes-mover">
+        <button id="mover-cima">&nbsp;&nbsp;▲&nbsp;&nbsp;</button>
+        <button id="mover-baixo">&nbsp;&nbsp;▼&nbsp;&nbsp;</button>
+      </div>
+      <button id="remover-selecionado">Excluir Selecionado</button>
+      <button id="apaga-tudo">Limpar Lista</button>
+    </aside>
+
+    <div id="conteudo-central">
+      <div id="menu-criar-tarefa">
+        <input type="text" id="texto-tarefa" placeholder="Digite uma tarefa">
+        <button id="criar-tarefa">Adicionar</button>
+      </div>
+      <ol id="lista-tarefas"></ol>
+    </div>
+  </main>
+  <footer>Criado por <a href="https://github.com/giisele">Gisele Costa</a></footer>
+  <script src="script.js"></script>
 </body>
 </html>
