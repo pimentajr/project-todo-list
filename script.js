@@ -25,12 +25,8 @@ function backgroundClassItem(event) {
 taskList.addEventListener('click', backgroundClassItem);
 
 function risk (event) {
-  event.target.classList.add('completed');
+  event.target.classList.toggle('completed');
 }
 
-function removeRisk (event) {
-  event.target.classList.remove('completed');
-}
-
-taskList.addEventListener('dblclick', risk, removeRisk);
+taskList.addEventListener('dblclick', risk);
 
