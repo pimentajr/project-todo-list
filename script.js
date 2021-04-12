@@ -13,6 +13,15 @@ createTaskButton.addEventListener('click', addItemTaskList);
 function liBackgroundColorChange(event) {
   const liSelected = event.target;
   liSelected.className = 'selected';
+
+  const liSelectedNode = document.querySelectorAll('.selected');
+
+  if (liSelectedNode.length > 1) {
+    for (let index = 0; index < liSelectedNode.length; index += 1) {
+      liSelectedNode[index].classList.remove('selected');
+    }
+    liSelected.className = 'selected';
+  }
 }
 
 listTask.addEventListener('click', liBackgroundColorChange);
