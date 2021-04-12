@@ -130,7 +130,7 @@ const removeSelectedButton = document.getElementById('remover-selecionado');
 removeSelectedButton.addEventListener('click', removeSelected);
 
 function moveUp() {
-  const previousTask = selectedTask.previousSibling;
+  const previousTask = selectedTask?.previousSibling;
 
   if (!selectedTask || !previousTask) {
     return;
@@ -148,7 +148,7 @@ const moveUpButton = document.getElementById('mover-cima');
 moveUpButton.addEventListener('click', moveUp);
 
 function moveDown() {
-  const nextTask = selectedTask.nextSibling;
+  const nextTask = selectedTask?.nextSibling;
 
   if (!selectedTask || !nextTask) {
     return;
