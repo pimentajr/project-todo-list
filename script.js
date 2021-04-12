@@ -1,6 +1,7 @@
 const btnCreateTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 const btnDeleteList = document.querySelector('#apaga-tudo');
+const btnDeleteCompleted = document.querySelector('#remover-finalizados');
 
 function paintSelectedELement(event) {
   const element = event.target;
@@ -55,6 +56,14 @@ olList.addEventListener('dblclick', lineThrough);
 
 btnDeleteList.addEventListener('click', () => {
   const listItem = document.querySelectorAll('#list-item');
+
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].remove();
+  }
+});
+
+btnDeleteCompleted.addEventListener('click', () => {
+  const listItem = document.querySelectorAll('.completed');
 
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].remove();
