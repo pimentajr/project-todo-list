@@ -15,11 +15,22 @@ buttonAddTask.addEventListener('click', addTask);
 const taskList = document.getElementById('lista-tarefas');
 
 function backgroundClassItem(event) {
-  let itens = taskList.children;
+  const itens = taskList.children;
   for (let index = 0; index < itens.length; index += 1) {
     itens[index].classList.remove('selected');
-  }  
+  }
   event.target.className = 'selected';
 }
 
 taskList.addEventListener('click', backgroundClassItem);
+
+function risk (event) {
+  event.target.classList.add('completed');
+}
+
+function removeRisk (event) {
+  event.target.classList.remove('completed');
+}
+
+taskList.addEventListener('dblclick', risk, removeRisk);
+
