@@ -1,4 +1,12 @@
+function clearSelected() {
+  const toDoItem = document.querySelectorAll('#todo');
+  for (let index = 0; index < toDoItem.length; index += 1) {
+    toDoItem[index].style.backgroundColor = null;
+  }
+}
+
 function changeBgColor(event) {
+  clearSelected();
   const task = event.target;
   task.style.backgroundColor = 'rgb(128,128,128)';
 }

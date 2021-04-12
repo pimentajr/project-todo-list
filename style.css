@@ -59,9 +59,17 @@ main {
 .todo-list ol {
   margin-top: 75px;
   font-size: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+  width: 738px;
 }
 
 .todo-list h3 {
   font-size: 2rem;
   color: rgb(65 , 25 , 127);
+}
+
+.completed {
+  text-decoration: line-through;
 }
