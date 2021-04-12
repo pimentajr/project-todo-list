@@ -48,3 +48,16 @@ function clearAll() {
 }
 
 clearAll();
+
+function clearCompleted() {
+  const completedButton = document.querySelector('#remover-finalizados');
+  const taskList = document.getElementById('lista-tarefas');
+  completedButton.addEventListener('click', () => {
+    const tasksCompleted = document.querySelectorAll('.completed');
+    for (let i = 0; i < tasksCompleted.length; i += 1) {
+      taskList.removeChild(tasksCompleted[i]);
+    }
+  });
+}
+
+clearCompleted();
