@@ -56,7 +56,7 @@ deleteEveryTask();
 removeFinishedTask.addEventListener('click', () => {
   const finishedTasks = document.querySelectorAll('li');
   for (let index = 0; index < finishedTasks.length; index += 1) {
-    if (finishedTasks[index].className === 'lis item completed') {
+    if (finishedTasks[index].className === 'lis completed' || finishedTasks[index].className === 'lis item completed') {
       finishedTasks[index].remove();
     }
   }
