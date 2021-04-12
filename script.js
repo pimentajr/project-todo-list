@@ -8,3 +8,14 @@ botaoAdicionar.addEventListener('click', event => {
   listaDeTarefas.appendChild(novoLi);
   caixaDeTexto.value = '';
 });
+function changeBg() {
+  const eventTarget = event.target;
+  if (eventTarget.className === 'clickedItem') {
+    eventTarget.classList.remove('clickItem');
+  }
+  else {
+    eventTarget.classList.add('clickedItem');
+  }
+ }
+
+listaDeTarefas.addEventListener('click', changeBg)
