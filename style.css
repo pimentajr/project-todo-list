@@ -1,7 +1,25 @@
 body {
-    background-color: #2d7fbd;
+  background-color: #2d7fbd;
 }
+
 header {
-    color: #18c761;
-    text-shadow: 2px 2px black;
+  color: #e69c1e;
+  text-shadow: 2px 2px black;
+}
+
+#texto-tarefa {
+  background-color: #e69c1e;
+}
+
+#funcionamento {
+  color: #e69c1e;
+  text-shadow: 2px 2px black;
+
+}
+
+#criar-tarefa {
+  height: 22px;
+  width: 100px;
+  background-color: #e69c1e;
+
 }
