@@ -1,5 +1,5 @@
 function createItemInList() {
-  // referencia para a manipulação do input 'https://www.w3schools.com/jsref/dom_obj_text.  asp'
+  // referencia para a manipulação do input 'https://www.w3schools.com/jsref/dom_obj_text.asp'
   // limpa a barra de inserir texto
   function clearTextInput() {
     document.querySelector('#texto-tarefa').value = '';
@@ -23,8 +23,10 @@ function createItemInList() {
           const createLiArray = document.querySelectorAll('li');
           for ( let i = 0; i < createLiArray.length; i += 1) {
             createLiArray[i].addEventListener('click',function removebackground() {
-              let itemListSelected = document.querySelector('.item-list');
-              itemListSelected.classList.remove('item-list');
+              const itemListSelected = document.querySelector('.item-list');
+              if (itemListSelected !== null) {
+                itemListSelected.classList.remove('item-list');
+              }
           })
         }
         }
@@ -34,15 +36,14 @@ function createItemInList() {
           const createLiArray = document.querySelectorAll('li');
           for ( let i = 0; i < createLiArray.length; i += 1) {
             createLiArray[i].addEventListener('click', function backgroundChange() {
-              let itemListSelected = document.querySelector('.item-list');
-              createLiArray[i].classList.add('item-list');
+              const itemListSelected = document.querySelector('.item-list');
+              createLiArray[i].className = 'item-list';
           })
         }
         }
         selectLi();
       }
       highLightSelected();
-
     }
     }
   );
