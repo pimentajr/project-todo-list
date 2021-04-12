@@ -1,14 +1,17 @@
 // get text input
-let taskInput = document.getElementById('text-tarefa');
-// get text inpute value
-let taskInputValue = taskInput.value
+let taskInput = document.getElementById('texto-tarefa');
 // get task list
 let taskList = document.getElementById('lista-tarefas');
 // get submit button
 let submitButton = document.getElementById('criar-tarefa');
 
+
+
+// Create New Task
 function createNewTask(taskInputValue) {
-  let newTask = document.createElement(li);
-  taskList.appendChild(newTask).innerText(taskInputValue);
-  taskInputValue = '';
+  taskInputValue = taskInput.value
+  let newTask = document.createElement('li');
+  newTask.innerText = taskInputValue;
+  taskList.appendChild(newTask);
+  taskInput.value = '';
 }
