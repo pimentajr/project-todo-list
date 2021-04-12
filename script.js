@@ -18,9 +18,9 @@ button.addEventListener('click', () => {
     tarefa.addEventListener('click', (event) => {
       // Antes de atribuir selected, desatribui de todas as li's
       for (const tarefa of tarefas) {
-        tarefa.classList.remove('selected');
+        tarefa.style.backgroundColor = 'white';
       }
-      event.target.classList.add('selected');
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     });
   }
 
@@ -28,12 +28,9 @@ button.addEventListener('click', () => {
   for (const tarefa of tarefas) {
     tarefa.addEventListener('dblclick', (event) => {
       // Verifica se ja tem a classe completed
-      if (
-        event.target.className === '' ||
-        event.target.className === 'selected'
-      ) {
+      if (event.target.className === '') {
         event.target.classList.add('completed');
-      } else {
+      } else if (event.target.className === 'completed') {
         event.target.classList.remove('completed');
       }
     });
