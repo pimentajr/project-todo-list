@@ -15,4 +15,13 @@ function addTask(text) {
 btnAdd.addEventListener('click', () => {
   addTask(input.value);
   input.focus();
+  input.value = '';
+});
+
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    addTask(input.value);
+    input.focus();
+    input.value = '';
+  }
 });
