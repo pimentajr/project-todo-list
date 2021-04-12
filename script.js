@@ -1,8 +1,9 @@
 const inputValue = document.getElementById('texto-tarefa');
 const jobButton = document.getElementById('criar-tarefa');
-let jobListContainer = document.getElementById('lista-tarefas');
+const jobListContainer = document.getElementById('lista-tarefas');
 const clearButton = document.getElementById('apaga-tudo');
 const jobItems = document.getElementsByClassName('job');
+const finishedJobs = document.getElementById('remover-finalizados');
 
 function createJob() {
   jobButton.addEventListener('click', () => {
@@ -47,3 +48,14 @@ function clearJobs() {
   })
 }
 clearJobs();
+
+function removeFinishedJobs() {
+  finishedJobs.addEventListener('click', (event) => {
+    for (let index = 0; index < jobItems.length; index += 1) {
+      if (jobItems[index].classList.contains('completed')) {
+        jobListContainer.removeChild(jobItems[index]);
+      }
+    }
+  });
+}
+removeFinishedJobs();
