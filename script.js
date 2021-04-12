@@ -12,7 +12,7 @@ createTaskButton.addEventListener('click', addItemTaskList);
 
 function liBackgroundColorChange(event) {
   const liSelected = event.target;
-  liSelected.className = 'selected';
+  liSelected.classList.add('selected');
 
   const liSelectedNode = document.querySelectorAll('.selected');
 
@@ -20,8 +20,19 @@ function liBackgroundColorChange(event) {
     for (let index = 0; index < liSelectedNode.length; index += 1) {
       liSelectedNode[index].classList.remove('selected');
     }
-    liSelected.className = 'selected';
+    liSelected.classList.add('selected');
   }
 }
 
 listTask.addEventListener('click', liBackgroundColorChange);
+
+function lineThroughItem(event) {
+  const liSelected = event.target;
+  if (liSelected.classList.contains('completed')) {
+    liSelected.classList.remove('completed');
+  } else {
+    liSelected.className = 'completed';
+  }
+}
+
+listTask.addEventListener('dblclick', lineThroughItem);
