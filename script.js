@@ -120,3 +120,11 @@ function loadList() {
 }
 
 loadList();
+
+function removeSelected() {
+  selectedTask.remove();
+}
+
+const removeSelectedButton = document.getElementById('remover-selecionado');
+
+removeSelectedButton.addEventListener('click', removeSelected);
