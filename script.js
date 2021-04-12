@@ -1,8 +1,12 @@
 function changeBgcOfTask(element) {
   if (document.querySelectorAll('li').length > 1) {
-    const lastSelectedTask = document.querySelector('#selected-task');
-    lastSelectedTask.style.backgroundColor = 'white';
-    lastSelectedTask.id = '';
+    for (let index = 0; index < document.querySelectorAll('li').length; index += 1) {
+      document.querySelectorAll('li')[index].style.backgroundColor = 'white';
+      document.querySelectorAll('li')[index].id = '';
+    }
+    // const lastSelectedTask = document.querySelector('#selected-task');
+    // lastSelectedTask.style.backgroundColor = 'white';
+    // lastSelectedTask.id = '';
     const taskSelected = element.target;
     taskSelected.id = 'selected-task';
     taskSelected.style.backgroundColor = 'rgb(128,128,128)';
