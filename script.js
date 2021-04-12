@@ -16,4 +16,4 @@ function changeListItemBackgroundColor(event) {
 }
 addBtn.addEventListener('click', addListItem);
 
-taskList.addEventListener('click', changeListItemBackgroundColor)
+taskList.addEventListener('click', changeListItemBackgroundColor);
