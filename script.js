@@ -1,3 +1,5 @@
+const tasksList = document.querySelector('#lista-tarefas');
+
 function listItemBackgroundOnClick(listItem) {
   listItem.addEventListener('click', () => {
     const currentSelected = document.querySelector('.selected');
@@ -22,7 +24,6 @@ function itemDoubleClick(listItem) {
 function newTaskButton() {
   const btnNewTask = document.querySelector('#criar-tarefa');
   const inputNewTask = document.querySelector('#texto-tarefa');
-  const tasksList = document.querySelector('#lista-tarefas');
   btnNewTask.addEventListener('click', () => {
     const newTask = document.createElement('li');
     newTask.innerText = inputNewTask.value;
@@ -37,10 +38,24 @@ newTaskButton();
 
 function clearAllButton() {
   const btnClearAll = document.querySelector('#apaga-tudo');
-  const tasksList = document.querySelector('#lista-tarefas');
   btnClearAll.addEventListener('click', () => {
     tasksList.innerHTML = '';
   });
 }
 
 clearAllButton();
+
+function clearCompletedButton() {
+  const btnClearCompleted = document.querySelector('#remover-finalizados');
+  btnClearCompleted.addEventListener('click', () => {
+    const completedTasks = document.getElementsByClassName('completed');
+    console.log(completedTasks);
+    for (let index = completedTasks.length; index > 0; index -= 1) {
+      const currentCompletedTask = completedTasks[index - 1];
+      console.log(currentCompletedTask);
+      tasksList.removeChild(currentCompletedTask);
+    }
+  });
+}
+
+clearCompletedButton();
