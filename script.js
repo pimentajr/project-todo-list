@@ -26,7 +26,7 @@ function inputTask() {
   mainProject.appendChild(taskList);
 }
 // Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
-
+button.addEventListener('click', inputTask);
 // Adicionar eventLetener no botão para que ele reaja ao click acionando a função que pega o input e coloca em uma lista
 
 
