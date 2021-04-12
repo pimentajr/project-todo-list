@@ -1,1 +1,1 @@
-alert('Start');
+// Start
