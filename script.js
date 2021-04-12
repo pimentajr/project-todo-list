@@ -30,7 +30,7 @@ function grayItem() {
     }
     if (clickedItem.className === 'item') {
       clickedItem.style.backgroundColor = grayColor;
-    }  
+    }
   });
 }
 grayItem();
@@ -51,4 +51,3 @@ function crossOff() {
   });
 }
 crossOff();
-
