@@ -13,7 +13,7 @@ let selectedTask;
 
 function selectTask(e) {
   const task = e.target;
-  
+
   task.style.backgroundColor = 'rgb(128, 128, 128)';
 
   if (selectedTask) {
@@ -77,25 +77,19 @@ function saveList() {
   if (!Storage) {
     return;
   }
-
   const rawList = [];
-
   const allTasks = taskList.getElementsByClassName('task');
-
   if (!allTasks.length) {
     localStorage.removeItem('taskList');
     return;
   }
-
   for (let i = 0; i < allTasks.length; i += 1) {
     rawList.push({
       text: allTasks[i].innerText,
       completed: allTasks[i].classList.contains('completed'),
     });
   }
-
-  let listJson = JSON.stringify(rawList);
-
+  const listJson = JSON.stringify(rawList);
   localStorage.setItem('taskList', listJson);
 }
 
@@ -108,12 +102,12 @@ function loadList() {
     return;
   }
 
-  const taskList = JSON.parse(localStorage.taskList);
+  const loadedTaskList = JSON.parse(localStorage.taskList);
 
-  for (let i = 0; i < taskList.length; i += 1) {
-    let newTask = addTask(taskList[i].text);
+  for (let i = 0; i < loadedTaskList.length; i += 1) {
+    const newTask = addTask(loadedTaskList[i].text);
 
-    if (taskList[i].completed) {
+    if (loadedTaskList[i].completed) {
       newTask.classList.add('completed');
     }
   }
@@ -130,9 +124,13 @@ const removeSelectedButton = document.getElementById('remover-selecionado');
 removeSelectedButton.addEventListener('click', removeSelected);
 
 function moveUp() {
-  const previousTask = selectedTask?.previousSibling;
+  if (!selectedTask) {
+    return;
+  }
 
-  if (!selectedTask || !previousTask) {
+  const previousTask = selectedTask.previousSibling;
+
+  if (!previousTask) {
     return;
   }
 
@@ -150,9 +148,13 @@ const moveUpButton = document.getElementById('mover-cima');
 moveUpButton.addEventListener('click', moveUp);
 
 function moveDown() {
-  const nextTask = selectedTask?.nextSibling;
+  if (!selectedTask) {
+    return;
+  }
 
-  if (!selectedTask || !nextTask) {
+  const nextTask = selectedTask.nextSibling;
+
+  if (!nextTask) {
     return;
   }
 
