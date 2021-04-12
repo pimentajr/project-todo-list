@@ -16,6 +16,10 @@ function clearInput(input) {
     input.value = '';
   }
 }
+// Criando função que altera o bacckgroud.
+function changeBackground(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
 
 // Função para colocar input na lista
 function inputTask() {
@@ -23,6 +27,10 @@ function inputTask() {
   const inputValue = document.getElementById('texto-tarefa').value;
   // depois criamos o elemento que irá ser cada iten da lista, a tag li
   const itenList = document.createElement('li');
+  // adicionando id nas li
+  itenList.id ='itenList';
+  // adicionando escutador
+  itenList.addEventListener('click', changeBackground);
   // Agora precisamos adicionar o conteudo do input na tag li
   itenList.innerText = inputValue;
   // Agora é necessario vincular a li na tag ol
@@ -34,10 +42,5 @@ function inputTask() {
 }
 // Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
 button.addEventListener('click', inputTask);
-// criar função que apaga input
 
-// Adicionar eventLetener no botão para que ele reaja ao click acionando a função que pega o input e coloca em uma lista
 
-// ver como apagar input depois do click
-// Fazer a função adicionando elementos a lista (push ou add) de modo que não sobreescreva o elemento.
-// Pesquisar como adicionar caixinha pacha check no elemento lista
