@@ -5,6 +5,9 @@ const saveList = document.querySelector('#salvar-tarefas');
 const clear = document.querySelector('#apaga-tudo');
 const clearFinalized = document.querySelector('#remover-finalizados');
 const removeSaved = document.querySelector('#remover-salvos');
+const moveUp = document.querySelector('#mover-cima');
+const moveDown = document.querySelector('#mover-baixo');
+const removeSelected = document.querySelector('#remover-selecionado');
 
 ol.innerHTML = localStorage.getItem('lista');
 
@@ -57,4 +60,24 @@ saveList.addEventListener('click', () => {
 
 removeSaved.addEventListener('click', () => {
   localStorage.clear();
+});
+
+moveDown.addEventListener('click', () => {
+  const selectedDown = document.querySelector('.grey');
+  const nextElement = selectedDown.nextSibling;
+  if (nextElement) {
+    selectedDown.insertAdjacentElement('beforebegin', nextElement);
+  }
+});
+
+moveUp.addEventListener('click', () => {
+  const selectedUp = document.querySelector('.grey');
+  const previousElement = selectedUp.previousSibling;
+  if (previousElement) {
+    selectedUp.insertAdjacentElement('afterend', previousElement);
+  }
+});
+
+removeSelected.addEventListener('click', () => {
+  document.querySelector('.grey').remove();
 });
