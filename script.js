@@ -28,7 +28,7 @@ textoTarefa.addEventListener('keypress', addTarefaKeypress);
 
 function removerSelecao() {
   for (let index = 0; index < listaTarefas.children.length; index += 1) {
-    listaTarefas.children[index].style.backgroundColor = '';
+    listaTarefas.children[index].classList.remove('selected');
   }
 }
 
@@ -37,7 +37,7 @@ function selecionarTarefa(event) {
 
   if (element.className.includes('tarefa')) {
     removerSelecao();
-    element.style.backgroundColor = 'gray';
+    element.classList.add('selected');
   }
 }
 
