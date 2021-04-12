@@ -4,6 +4,7 @@ const completedClass = 'completed';
 const inputTask = document.getElementById('texto-tarefa');
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const olTaskList = document.getElementById('lista-tarefas');
+const buttonRemoveSelected = document.getElementById('remover-selecionado');
 const buttonMoveUp = document.getElementById('mover-cima');
 const buttonMoveDown = document.getElementById('mover-baixo');
 const buttonClearCompleted = document.getElementById('remover-finalizados');
@@ -91,6 +92,12 @@ function moveTaskHandler({ target }) {
   if (selectedTask) moveTask(target, selectedTask);
 }
 
+function removeSelected() {
+  const selectedTask = document.querySelector('.selected');
+
+  olTaskList.removeChild(selectedTask);
+}
+
 function onLoad() {
   inputTask.focus();
   buttonCreateTask.addEventListener('click', createTaskHandler);
@@ -102,6 +109,7 @@ function onLoad() {
   loadPreviousSavedList();
   buttonMoveUp.addEventListener('click', moveTaskHandler);
   buttonMoveDown.addEventListener('click', moveTaskHandler);
+  buttonRemoveSelected.addEventListener('click', removeSelected);
 }
 
 window.onload = onLoad;
