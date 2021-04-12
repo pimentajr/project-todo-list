@@ -1,9 +1,9 @@
 // Requisito 5 e 6 - Botão para adicionar lista
 const newTask = document.querySelector('#texto-tarefa');
 const clickCreateTask = document.getElementById('criar-tarefa');
-const listToAdd = document.getElementById('lista-tarefas');
 const allList = document.querySelector('#lista-tarefas');
 const grayColor = 'rgb(128, 128, 128)';
+const saveButton = document.getElementById('salvar-tarefas')
 
 function addingTask() {
   clickCreateTask.addEventListener('click', () => {
@@ -11,9 +11,8 @@ function addingTask() {
       alert('Campo Vazio');
     } else {
       const task = document.createElement('li');
-      task.classList.add('item');
       task.innerText = newTask.value;
-      listToAdd.appendChild(task);
+      allList.appendChild(task);
     }
     newTask.value = '';
   });
@@ -24,13 +23,11 @@ addingTask();
 function grayItem() {
   allList.addEventListener('click', (eventoDeOrigem1) => {
     const clickedItem = eventoDeOrigem1.target;
-    const whiteList = document.querySelectorAll('.item');
+    const whiteList = document.querySelectorAll('li');
     for (let index = 0; index < whiteList.length; index += 1) {
       whiteList[index].style.backgroundColor = 'white';
     }
-    if (clickedItem.className === 'item') {
-      clickedItem.style.backgroundColor = grayColor;
-    }
+    clickedItem.style.backgroundColor = grayColor;
   });
 }
 grayItem();
@@ -78,14 +75,12 @@ removeCheckedTasks();
 
 // Requisito 12 - Salvar tarefas
 function storageItens() {
-  const saveButton = document.getElementById('salvar-tarefas');
-  saveButton.addEventListener('click' , () => {
-    localStorage.clear();
-    const allItens = document.querySelectorAll('.item');
-    for (let index = 0; index < allItens.length; index += 1) {
-      let task = allItens[index].innerText;
-      localStorage.setItem(index,`${task}`)
-    }
-  });
-}
+    saveButton.addEventListener('click', () => {
+      localStorage.setItem('Tarefas', allList.innerHTML);
+    });
+    const savedList = localStorage.getItem('Tarefas');
+    if (savedList) allList.innerHTML = savedList;
+    // https://stackoverflow.com/questions/8860654/javascript-single-line-if-statement-best-syntax-this-alternative
+    // Plantão dia 12/04 uso da condicional de existência
+  }
 storageItens();
