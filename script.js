@@ -3,8 +3,21 @@ const taskInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const deleteListButton = document.querySelector('#apaga-tudo');
 const finalizedButton = document.querySelector('#remover-finalizados');
+const saveListButton = document.querySelector('#salvar-tarefas');
 
-// console.log(finalizedButton);
+function recoverList() {
+  const savedList = JSON.parse(localStorage.getItem('savedList'));
+  console.log(savedList);
+
+  for (const task in savedList) {
+    const newTask = document.createElement('li');
+    newTask.innerText = savedList[task][1];
+    newTask.className = savedList[task][2];
+    taskList.appendChild(newTask);
+  }
+}
+
+window.onload = recoverList;
 
 function createTask() {
   const textTask = taskInput.value;
@@ -46,8 +59,24 @@ function deleteFinalizedTasks() {
   }
 }
 
+function saveList() {
+  const allTasks = document.querySelectorAll('.task');
+  const listToSave = [];
+  let taskElement = [];
+
+  for (let index = 0; index < allTasks.length; index += 1) {
+    const taskText = allTasks[index].innerText;
+    const taskClass = allTasks[index].className;
+    taskElement = [index, taskText, taskClass];
+    listToSave.push(taskElement);
+  }
+  console.log(listToSave);
+  localStorage.setItem('savedList', JSON.stringify(listToSave));
+}
+
 createTaskButton.addEventListener('click', createTask);
 taskList.addEventListener('click', taskSelection);
 taskList.addEventListener('dblclick', completedTask);
 deleteListButton.addEventListener('click', deleteList);
 finalizedButton.addEventListener('click', deleteFinalizedTasks);
+saveListButton.addEventListener('click', saveList);
