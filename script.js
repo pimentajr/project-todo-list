@@ -17,6 +17,8 @@ function createListItem() {
   criaItensLista.innerText = textoTarefaValue;
 
   listaDeTarefas.appendChild(criaItensLista);
+
+  textoTarefa.value = '';
 }
 
 criarTarefa.addEventListener('click', createListItem);
