@@ -6,21 +6,22 @@ const clear = document.querySelector('#apaga-tudo');
 const clearFinalized = document.querySelector('#remover-finalizados');
 
 button.addEventListener('click', () => {
-  const value = input.value;
+  const valor = input.value;
   input.value = '';
   const newLi = document.createElement('li');
   newLi.classList.add('tarefa');
-  newLi.innerText = value;
+  newLi.innerText = valor;
   ol.appendChild(newLi);
 });
 
 ol.addEventListener('click', (event) => {
   const li = event.target;
   const greys = document.querySelectorAll('.grey');
-  for (let i of greys) {
-    i.classList.remove('grey');
+  for (let i = 0; i < greys.length; i += 1) {
+    greys[i].classList.remove('grey');
   }
   li.classList.add('grey');
+  ol.classList.remove('grey');
 });
 
 ol.addEventListener('dblclick', (event) => {
@@ -30,6 +31,7 @@ ol.addEventListener('dblclick', (event) => {
   } else {
     liLine.classList.add('completed');
   }
+  ol.classList.remove('completed');
 });
 
 clear.addEventListener('click', () => {
