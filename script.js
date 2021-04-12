@@ -9,6 +9,7 @@ const getSaveButton = document.querySelector('#salvar-tarefas');
 const getMoveUpButton = document.querySelector('#mover-cima');
 const getMoveDownButton = document.querySelector('#mover-baixo');
 const getRemoveSelectedButton = document.querySelector('#remover-selecionado');
+const colorPattern = 'rgb(128, 128, 128)';
 
 function createList(value) {
   const createLi = document.createElement('li');
@@ -36,7 +37,7 @@ function clickListModifiesColor(color) {
     }
   });
 }
-clickListModifiesColor('rgb(128, 128, 128)');
+clickListModifiesColor(colorPattern);
 
 function doubleClickRiskText() {
   getOl.addEventListener('dblclick', (event) => {
@@ -85,34 +86,36 @@ function saveTasks() {
 function moveUpList() {
   getMoveUpButton.addEventListener('click', () => {
     for (let index = 0; index < getLi.length; index += 1) {
-      if (getLi[index].style.backgroundColor === 'rgb(128, 128, 128)' && getLi[index].previousElementSibling !== null) {
+      if (getLi[index].style.backgroundColor === colorPattern
+        && getLi[index].previousElementSibling !== null) {
         const getIndex = getLi[index];
-        getOl.insertBefore(getIndex, getIndex.previousSibling)
+        getOl.insertBefore(getIndex, getIndex.previousSibling);
       }
     }
-  })
+  });
 }
 
 function moveDownList() {
   getMoveDownButton.addEventListener('click', () => {
     for (let index = getLi.length - 1; index >= 0; index -= 1) {
-      if (getLi[index].style.backgroundColor === 'rgb(128, 128, 128)' && getLi[index].nextElementSibling !== null) {
-        const getIndex2 = getLi[index]
-        getOl.insertBefore(getIndex2.nextSibling, getIndex2)
+      if (getLi[index].style.backgroundColor === colorPattern
+        && getLi[index].nextElementSibling !== null) {
+        const getIndex2 = getLi[index];
+        getOl.insertBefore(getIndex2.nextSibling, getIndex2);
       }
     }
-  })
+  });
 }
 /* mover itens = https://www.codegrepper.com/code-examples/javascript/javascript+move+list+items+up+and+down */
 
 function removeSelected() {
   getRemoveSelectedButton.addEventListener('click', () => {
-    for(let index = 0; index < getLi.length; index += 1) {
-      if(getLi[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-        getLi[index].remove()
+    for (let index = 0; index < getLi.length; index += 1) {
+      if (getLi[index].style.backgroundColor === colorPattern) {
+        getLi[index].remove();
       }
     }
-  })
+  });
 }
 
 window.onload = () => {
