@@ -17,9 +17,17 @@ addTaskToList();
 taskOList.addEventListener('click', (event) => {
   const eventTarget = event.target;
   const listSelectedItems = document.querySelector('.selected');
-  const listItems = document.querySelector('.tasks');
   if (listSelectedItems) {
     listSelectedItems.classList.remove('selected');
   }
   eventTarget.classList.add('selected');
+});
+
+taskOList.addEventListener('dblclick', (event) => {
+  const eventTarget = event.target;
+  if (eventTarget.classList.contains('completed')) {
+    eventTarget.classList.remove('completed');
+  } else {
+    eventTarget.classList.add('completed');
+  }
 });
