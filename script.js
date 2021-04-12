@@ -9,9 +9,3 @@ ADD_TASK_BUTTON.addEventListener('click', () => {
   TASK_LIST.appendChild(TASK);
   TASK_INPUT.value = null;
 });
-
-const obj = { a: 1, b: 2 };
-
-for (let i = 0; i < 10; i += 1) {
-  console.log(obj[i]);
-}
