@@ -4,6 +4,7 @@ const completedClass = 'completed';
 const inputTask = document.getElementById('texto-tarefa');
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const olTaskList = document.getElementById('lista-tarefas');
+const buttonClearCompleted = document.getElementById('remover-finalizados');
 const buttonClearAll = document.getElementById('apaga-tudo');
 
 const li = document.createElement('li');
@@ -49,12 +50,21 @@ function clearList() {
   olTaskList.innerHTML = '';
 }
 
+function clearCompleted() {
+  const completedTasks = document.getElementsByClassName(completedClass);
+
+  for (let index = completedTasks.length - 1; index >= 0; index -= 1) {
+    completedTasks[index].parentElement.removeChild(completedTasks[index]);
+  }
+}
+
 function onLoad() {
   inputTask.focus();
   buttonCreateTask.addEventListener('click', createTaskHandler);
   olTaskList.addEventListener('click', selectTask);
   olTaskList.addEventListener('dblclick', completeTask);
   buttonClearAll.addEventListener('click', clearList);
+  buttonClearCompleted.addEventListener('click', clearCompleted);
 }
 
 window.onload = onLoad;
