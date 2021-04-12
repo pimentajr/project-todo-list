@@ -7,7 +7,7 @@ body {
   background-color: black;
 }
 
-main {
+#main {
   margin: 12% 10%;
   background-color: rgb(112, 18, 112);
   padding: 20px;
@@ -22,5 +22,9 @@ header {
 }
 
 #criar-tarefa {
+  color: black;
+}
+
+#texto-tarefa {
   color: black;
 }
