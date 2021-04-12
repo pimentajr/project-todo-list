@@ -28,3 +28,11 @@ function addInput() {
   document.querySelector('#firstsection').appendChild(input);
 }
 addInput();
+
+// Cria uma lista ordenada
+function addOl() {
+  const ol = document.createElement('ol');
+  ol.id = 'lista-tarefas';
+  document.querySelector('#firstsection').appendChild(ol);
+}
+addOl();
