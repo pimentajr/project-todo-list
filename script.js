@@ -3,6 +3,7 @@ const inputTextElement = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const tasks = document.getElementsByClassName('tasks');
 const resetButton = document.getElementById('apaga-tudo');
+const deleteEndedTasksButton = document.getElementById('remover-finalizados');
 
 function addTask() {
   const task = inputTextElement.value;
@@ -38,11 +39,21 @@ function resetAll() {
   taskList.innerHTML = '';
 }
 
+function deleteEndedTasks() {
+  for (let index = 0; index < tasks.length; index += 1) {
+    if (tasks[index].classList.contains('completed')) {
+      tasks[index].remove();
+      index -= 1;
+    }
+  }
+}
+
 function addListeners() {
   buttonForTaskCreation.addEventListener('click', addTask);
   taskList.addEventListener('click', taskSelector);
   taskList.addEventListener('dblclick', setStatus);
   resetButton.addEventListener('click', resetAll);
+  deleteEndedTasksButton.addEventListener('click', deleteEndedTasks);
 }
 
 addListeners();
