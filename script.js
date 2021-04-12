@@ -4,10 +4,7 @@ const textTask = document.querySelector('#texto-tarefa');
 const selectedTask = document.getElementsByClassName('selected');
 const btnDelTasks = document.querySelector('#apaga-tudo');
 const btnRemoveTasksFinish = document.querySelector('#remover-finalizados');
-const liAssignment = document.querySelectorAll('.li-assignment');
-const tasksFinish = document.querySelectorAll('.completed');
 const btnSaveTasks = document.querySelector('#salvar-tarefas');
-
 
 function createTask() {
   btnCreateTask.addEventListener('click', () => {
@@ -38,6 +35,7 @@ function checkTask() {
 
 function delTasks() {
   btnDelTasks.addEventListener('click', () => {
+    const liAssignment = document.querySelectorAll('.li-assignment');
     for (let index = 0; index < liAssignment.length; index += 1) {
       liAssignment[index].remove();
     }
@@ -46,21 +44,22 @@ function delTasks() {
 
 function removeTasksFinish() {
   btnRemoveTasksFinish.addEventListener('click', () => {
+    const tasksFinish = document.querySelectorAll('.completed');
     for (let index = 0; index < tasksFinish.length; index += 1) {
       tasksFinish[index].remove();
     }
   });
 }
 
-function saveTasks() {
-  localStorage.savedTasks = listTask.innerHTML;
+function saveTasksList() {
+  localStorage.setItem('tasks', listTask.innerHTML);
 }
+btnSaveTasks.addEventListener('click', saveTasksList);
 
-function loadSavedTasks() {
-  if (localStorage.savedTasks !== undefined) {
-    listTask.innerHTML = localStorage.listTask;
-  }
+function getTasksList() {
+  listTask.innerHTML = localStorage.getItem('tasks');
 }
+getTasksList();
 
 window.onload = () => {
   createTask();
@@ -68,6 +67,4 @@ window.onload = () => {
   checkTask();
   delTasks();
   removeTasksFinish();
-  saveTasks();
-  loadSavedTasks();
 };
