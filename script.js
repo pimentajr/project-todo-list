@@ -11,7 +11,12 @@ function selectItem(event) {
 // 9.
 function completedItem(event) {
   const completedListItem = event.target;
-  completedListItem.classList.add('completed');
+  if (completedListItem.className === 'listItem completed') {
+    completedListItem.classList.remove('completed');
+  }
+  else {
+    completedListItem.classList.add('completed');
+  }
 }
 
 // 5. 6.
