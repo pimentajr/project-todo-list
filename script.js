@@ -27,7 +27,10 @@ button.addEventListener('click', () => {
   // Risca tarefa quando clicada 2x
   for (const tarefa of tarefas) {
     tarefa.addEventListener('dblclick', (event) => {
-      event.target.classList.add('completed');
+      if (event.target.style.textDecoration === '') {
+        event.target.classList.add('completed');
+      } else if (event.target.style.textDecoration === 'line-through') {
+      }
     });
   }
 });
