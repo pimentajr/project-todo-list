@@ -26,6 +26,7 @@ function completedList() {
     if (dbclick.classList.contains('completed')) {
       dbclick.classList.remove('completed')
     } else {
+      dbclick.classList.remove('gray')
       dbclick.classList.add('completed');
     }
   })
