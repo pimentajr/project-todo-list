@@ -45,3 +45,10 @@ function riskItem() {
 }
 riskItem();
 
+function clearTasks() {
+  const clearButton = document.getElementById('apaga-tudo');
+  clearButton.addEventListener('click', () => {
+    taskList.innerHTML = '';
+  })
+}
+clearTasks();
