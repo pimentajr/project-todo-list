@@ -1,6 +1,16 @@
 function changeBgcOfTask(element) {
-  const taskSelected = element.target;
-  taskSelected.style.backgroundColor = 'rgb(128,128,128)';
+  if (document.querySelectorAll('li').length > 1) {
+    const lastSelectedTask = document.querySelector('#selected-task');
+    lastSelectedTask.style.backgroundColor = 'white';
+    lastSelectedTask.id = '';
+    const taskSelected = element.target;
+    taskSelected.id = 'selected-task';
+    taskSelected.style.backgroundColor = 'rgb(128,128,128)';
+  } else {
+    const taskSelected = element.target;
+    taskSelected.id = 'selected-task';
+    taskSelected.style.backgroundColor = 'rgb(128,128,128)';
+  }
 }
 
 function addTask() {
