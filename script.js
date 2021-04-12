@@ -18,7 +18,11 @@ function clearInput(input) {
 }
 // Criando função que altera o bacckgroud.
 function changeBackground(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  let listSelected = document.getElementsByClassName('selected');
+  for (let index = 0; index < listSelected.length; index += 1) {
+      listSelected[index].classList.remove('selected');
+  }
+  event.target.className = 'selected';
 }
 
 // Função para colocar input na lista
