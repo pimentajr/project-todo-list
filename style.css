@@ -4,29 +4,31 @@
 }
 
 body {
-  background-color: #457b9d;
+  background-color: lightseagreen;
 }
 
 #titulo-da-pagina {
   text-align: center;
   margin: 15px;
   font-size: 50px;
-  background-color: aqua;
+  background-color: rgba(125, 241, 174, 0.726);
 }
 
 #all-sides {
   margin: 15px;
   display: inline-block;
   width: 1335px;
+  background-color: rgba(125, 241, 174, 0.726);
+  border-radius: 10%;
 }
 
 #right-side {
-  padding-right: 170px;
+  padding: 15px 170px 0 0;
   float: right;
 }
 
 #left-side {
-  padding-left: 350px;
+  padding-left: 380px;
   float: left;
   font-size: 25px;
 }
@@ -34,7 +36,7 @@ body {
 #funcionamento {
   text-align: center;
   font-size: 17px;
-  background-color: aqua;
+  background-color: lightseagreen;
 }
 
 .completed {
