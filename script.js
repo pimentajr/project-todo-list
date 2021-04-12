@@ -7,8 +7,11 @@ addButton.addEventListener('click', () => {
   li.innerHTML += inputText.value;
   orderedList.appendChild(li);
   inputText.value = null;
-});
-
-orderedList.addEventListener('click', () => {
-  orderedList.style.backgroundColor = 'rgb(128, 128, 128)';
+  const temp = orderedList.childNodes;
+  for (let i = 0; i < temp.length; i += 1) {
+    temp[i].addEventListener('click', (event) => {
+      const itemTarget = event.target;
+      itemTarget.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+  }
 });
