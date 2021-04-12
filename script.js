@@ -35,3 +35,9 @@ taskList.addEventListener('click', (event) => {
     event.target.classList.add('selected');
   }
 });
+
+taskList.addEventListener('dblclick', (event) => {
+  if (event.target.tagName === 'LI') {
+    event.target.classList.toggle('completed');
+  }
+});
