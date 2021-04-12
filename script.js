@@ -17,3 +17,17 @@ function addTask() {
   });
 }
 addTask();
+
+function change() {
+  const getList = document.querySelector('#lista-tarefas');
+  getList.addEventListener('click', (event) => {
+    const e = event.target;
+    // console.log(getList);
+    console.log(e.style.backgroundColor);
+    if (e.style.backgroundColor !== 'rgb(128, 128, 128)') {
+      e.style.backgroundColor = 'rgb(128, 128, 128)';
+      // console.log(e);
+    }
+  });
+}
+change();
