@@ -8,6 +8,7 @@ function addList() {
 	  lista.appendChild(item);
 	  const novoItem = texto.value;
 	  item.innerText = novoItem;
+		texto.value = '';
   });
 }
 addList();
