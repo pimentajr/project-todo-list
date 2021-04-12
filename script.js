@@ -12,11 +12,11 @@ botaoAdicionar.addEventListener('click', event => {
 });
 function changeBg() {
   const eventTarget = event.target;
-  if (eventTarget.id !== 'clickedItem') {
-    eventTarget.id = 'clickedItem';
-  } else {
-    eventTarget.id = null;
+  const listSelected = document.querySelector('.clickedItem');
+  if (listSelected) {
+    listSelected.classList.remove('clickedItem');
   }
+  eventTarget.classList.add('clickedItem');
 }
 
 function completedTask() {
