@@ -27,6 +27,7 @@ function creatNewAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
   const newAssigment = document.createElement('li');
   locateList.appendChild(newAssigment);
+  newAssigment.className = 'assigment'
   return newAssigment;
 }
 
@@ -35,6 +36,7 @@ function buttonAssignmentCreat() {
   const textAssigment = document.querySelector('#texto-tarefa');
   function creatNewAssigment() {
     creatNewAssignmentOnList().innerHTML = textAssigment.value;
+    textAssigment.value = ''
   }
   locateButton.addEventListener('click', creatNewAssigment);
 }
