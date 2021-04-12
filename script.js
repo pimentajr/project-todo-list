@@ -34,3 +34,13 @@ function newTaskButton() {
 }
 
 newTaskButton();
+
+function clearAllButton() {
+  const btnClearAll = document.querySelector('#apaga-tudo');
+  const tasksList = document.querySelector('#lista-tarefas');
+  btnClearAll.addEventListener('click', () => {
+    tasksList.innerHTML = '';
+  });
+}
+
+clearAllButton();
