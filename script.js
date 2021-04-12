@@ -1,7 +1,8 @@
 const createTaskBtn = document.querySelector('#criar-tarefa');
 const newTaskInput = document.querySelector('#texto-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
-const clearAll = document.querySelector('#apaga-tudo');
+const clearAllBtn = document.querySelector('#apaga-tudo');
+const removeFinishedBtn = document.querySelector('#remover-finalizados');
 
 function addNewTask() {
   if (newTaskInput.value !== '') {
@@ -13,18 +14,20 @@ function addNewTask() {
 }
 
 function changeTasksBackgndColor(event) {
+  const targetTask = event.target;
   const allTasks = document.querySelectorAll('#lista-tarefas li');
   for (let index = 0; index < allTasks.length; index += 1) {
     allTasks[index].style.backgroundColor = 'rgb(255, 255, 255)';
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  targetTask.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function taskCompleted(event) {
-  if (event.target.className === 'completed') {
-    event.target.className = '';
+  const targetTask = event.target;
+  if (targetTask.className === 'completed') {
+    targetTask.className = '';
   } else {
-    event.target.className = 'completed';
+    targetTask.className = 'completed';
   }
 }
 
@@ -35,14 +38,25 @@ function clearAllTasks() {
   }
 }
 
-[createTaskBtn, tasksList, clearAll].forEach((item) => {
+function clearFinishedTasks() {
+  const allTasks = document.querySelectorAll('#lista-tarefas li');
+  for (let index = 0; index < allTasks.length; index += 1) {
+    if (allTasks[index].className === 'completed') {
+      tasksList.removeChild(allTasks[index]);
+    }
+  }
+}
+
+[createTaskBtn, tasksList, clearAllBtn, removeFinishedBtn].forEach((item) => {
   item.addEventListener('click', (event) => {
     if (item === createTaskBtn) {
       addNewTask();
     } else if (item === tasksList) {
       changeTasksBackgndColor(event);
-    } else if (item === clearAll) {
+    } else if (item === clearAllBtn) {
       clearAllTasks();
+    } else if (item === removeFinishedBtn) {
+      clearFinishedTasks();
     }
   });
 });
