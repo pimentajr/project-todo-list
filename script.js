@@ -16,9 +16,11 @@ function changeBackgroundListColor(listaTarefa) {
     const listas = document.querySelectorAll('li');
     for (let index = 0; index < listas.length; index += 1) {
       listas[index].style.backgroundColor = '';
+      listas[index].className = '';
     }
     if (event.target.localName === 'li') {
       event.target.style.backgroundColor = `rgb(128, 128, 128)`;
+      event.target.className = 'selected';
     }
   });
 }
@@ -87,9 +89,31 @@ function reCreateTasks(text, classCompleted, listaTarefa) {
 function loadTasks(listaTarefa) {
   for (let index = 0; index < localStorage.length; index++) {
     let text = localStorage.getItem(`item${index}`).split(',');
-    console.log(localStorage.length);
     reCreateTasks(text[0], text[1], listaTarefa);
   }
+}
+
+// Subir de posição item da lista
+function moveUp(moverCima, listaTarefa) {
+  moverCima.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    const upPosition = selected.previousElementSibling;
+    console.log(upPosition);
+    if(upPosition) {
+      listaTarefa.insertBefore(selected, upPosition);
+    }
+  })
+}
+
+// Descer de posição item da lista
+function moveDown(moverBaixo, listaTarefa) {
+  moverBaixo.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    const downPosition = selected.nextElementSibling;
+    if(downPosition) {
+      listaTarefa.insertBefore(selected, downPosition.nextElementSibling);
+    }
+  })
 }
 
 // Carregar meus arquivos ao carregar a página
@@ -100,6 +124,8 @@ window.onload = () => {
   const apagaTudo = document.getElementById('apaga-tudo');
   const removerFinalizados = document.getElementById('remover-finalizados');
   const salvarTarefas = document.getElementById('salvar-tarefas');
+  const moverCima = document.getElementById('mover-cima');
+  const moverBaixo = document.getElementById('mover-baixo');
   createTasks(textoTarefa, criarTarefa, listaTarefa);
   changeBackgroundListColor(listaTarefa);
   completeTask(listaTarefa);
@@ -107,4 +133,6 @@ window.onload = () => {
   clearCompleteTasks(removerFinalizados, listaTarefa);
   saveTasks(salvarTarefas);
   loadTasks(listaTarefa);
+  moveUp(moverCima, listaTarefa);
+  moveDown(moverBaixo, listaTarefa)
 }
