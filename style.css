@@ -16,3 +16,11 @@ body {
 h1 {
   margin-top: 5px;
 }
+
+#texto-tarefa {
+  display: inline-block;
+}
+
+#criar-tarefa {
+  display: inline-block;
+}
