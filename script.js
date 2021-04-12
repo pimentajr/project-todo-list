@@ -16,6 +16,10 @@ button.addEventListener('click', () => {
   tarefas = document.querySelectorAll('#lista-tarefas li');
   for (const tarefa of tarefas) {
     tarefa.addEventListener('click', (event) => {
+      // Antes de atribuir selected, desatribui de todas as li's
+      for (const tarefa of tarefas) {
+        tarefa.className = '';
+      }
       event.target.classList.add('selected');
     });
   }
