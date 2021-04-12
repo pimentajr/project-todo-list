@@ -43,3 +43,21 @@ function selecionarTarefa(event) {
 }
 
 listaTarefas.addEventListener('click', selecionarTarefa);
+
+let completed = false;
+
+function completarTarefa(event) {
+  const element = event.target;
+
+  if (element.className.includes('tarefa')) {
+    if (!completed) {
+      element.classList.add('completed');
+      completed = true;
+    } else {
+      element.classList.remove('completed');
+      completed = false;
+    }
+  }
+}
+
+listaTarefas.addEventListener('dblclick', completarTarefa);
