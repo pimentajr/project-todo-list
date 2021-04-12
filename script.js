@@ -14,6 +14,7 @@ function createLi(){
   var crtElement = document.createElement('ol')
   crtElement.setAttribute('id', 'lista-tarefas')
   crtElement.setAttribute('onclick', 'infos()')
+  crtElement.addEventListener('dblclick', dbclick)
   slctDiv.appendChild(crtElement)
 }
 
@@ -36,10 +37,21 @@ function infos(){
   if (lenght >= 1){
     document.querySelector('.selected').className = 'item'
   }
-  event.target.setAttribute('class','selected')
-  document.querySelector('.selected')
+  if (event.target.className === 'item completed'){
+    event.target.className = 'item completed selected'
+  } else {
+    event.target.setAttribute('class','item selected')
+    document.querySelector('.selected')
+  }
 }
 
+function dbclick(){
+  if (event.target.className === 'item completed'){
+    event.target.className = 'item'
+  } else {
+    event.target.className = 'item completed'
+  }
+}
 
 
 
