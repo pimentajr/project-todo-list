@@ -1,6 +1,7 @@
 const addBtn = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-const deleteBtn = document.getElementById('apaga-tudo');
+const deleteTaskListBtn = document.getElementById('apaga-tudo');
+const deleteCompletedListItens = document.getElementById('remover-finalizados');
 function addListItem() {
   const task = document.getElementById('texto-tarefa');
   const listItem = document.createElement('li');
@@ -26,10 +27,18 @@ function deleteTaskList() {
   }
 }
 
+function deleteCompletedItems() {
+  while (document.getElementsByClassName('completed')) {
+    taskList.removeChild(document.getElementsByClassName('completed')[0]);
+  }
+}
+
 addBtn.addEventListener('click', addListItem);
 
 taskList.addEventListener('click', changeListItemBackgroundColor);
 
 taskList.addEventListener('dblclick', makeTaskCompleted);
 
-deleteBtn.addEventListener('click', deleteTaskList);
+deleteTaskListBtn.addEventListener('click', deleteTaskList);
+
+deleteCompletedListItens.addEventListener('click', deleteCompletedItems);
