@@ -42,7 +42,7 @@ function clearTaskList(apagaTudo, listaTarefa) {
     if (listaTarefa.innerText) {
       listaTarefa.innerText = '';
     }
-  })
+  });
 }
 
 // Remove tarefas finalizadas
@@ -55,6 +55,43 @@ function clearCompleteTasks(removerFinalizados, listaTarefa) {
   });
 }
 
+// 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
+// O que será verificado:
+// Será verificado que existe um elemento button com o id salvar-tarefas
+// Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está.
+
+// Salvar as tarefas no storage
+function saveTasks(salvarTarefas) {
+  salvarTarefas.addEventListener('click', () => {
+    localStorage.clear()
+    let lists = document.getElementsByTagName('li');
+    for (let index = 0; index < lists.length; index += 1) {
+      if (lists[index].className === 'completed') {
+        localStorage.setItem(`item${index}`, `${lists[index].innerText}, completed`);
+      } else {
+        localStorage.setItem(`item${index}`, `${lists[index].innerText}`);
+      }
+    }
+  });
+}
+
+// ReCria Lista de tarefas
+function reCreateTasks(text, classCompleted, listaTarefa) {
+    let task = document.createElement('li');
+    task.innerText = text;
+    task.className = classCompleted;
+    listaTarefa.appendChild(task);
+}
+
+// Carrega as tarefas do storage
+function loadTasks(listaTarefa) {
+  for (let index = 0; index < localStorage.length; index++) {
+    let text = localStorage.getItem(`item${index}`).split(',');
+    console.log(localStorage.length);
+    reCreateTasks(text[0], text[1], listaTarefa);
+  }
+}
+
 // Carregar meus arquivos ao carregar a página
 window.onload = () => {
   const textoTarefa = document.getElementById('texto-tarefa');
@@ -62,9 +99,12 @@ window.onload = () => {
   const listaTarefa = document.getElementById('lista-tarefas');
   const apagaTudo = document.getElementById('apaga-tudo');
   const removerFinalizados = document.getElementById('remover-finalizados');
+  const salvarTarefas = document.getElementById('salvar-tarefas');
   createTasks(textoTarefa, criarTarefa, listaTarefa);
   changeBackgroundListColor(listaTarefa);
   completeTask(listaTarefa);
   clearTaskList(apagaTudo, listaTarefa);
   clearCompleteTasks(removerFinalizados, listaTarefa);
+  saveTasks(salvarTarefas);
+  loadTasks(listaTarefa);
 }
