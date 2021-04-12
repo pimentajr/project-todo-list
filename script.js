@@ -83,3 +83,26 @@ function saveTasksButton() {
 }
 
 saveTasksButton();
+
+function moveUpButton() {
+  const btnMoveUp = document.querySelector('#mover-cima');
+  btnMoveUp.addEventListener('click', () => {
+    const currentSelected = document.querySelector('.selected');
+    if (currentSelected && currentSelected.previousSibling) {
+      currentSelected.parentNode.insertBefore(currentSelected, currentSelected.previousSibling);
+    }
+  });
+}
+
+function moveDownButton() {
+  const btnMoveUp = document.querySelector('#mover-baixo');
+  btnMoveUp.addEventListener('click', () => {
+    const currentSelected = document.querySelector('.selected');
+    if (currentSelected && currentSelected.nextSibling) {
+      currentSelected.parentNode.insertBefore(currentSelected.nextSibling, currentSelected);
+    }
+  });
+}
+
+moveUpButton();
+moveDownButton();
