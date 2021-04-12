@@ -2,6 +2,7 @@ const input = document.querySelector('#texto-tarefa');
 const btnAdd = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btnClear = document.querySelector('#apaga-tudo');
+const btnCompleted = document.querySelector('#remover-finalizados');
 
 // Adiciona nova tarefa
 function addTask(text) {
@@ -30,9 +31,9 @@ input.addEventListener('keydown', (e) => {
 // Seleciona e deseleciona as tarefas
 taskList.addEventListener('click', (event) => {
   if (event.target.tagName === 'LI') {
-    const classSelected = document.querySelector('.selected');
-    if (classSelected != null) {
-      classSelected.classList.remove('selected');
+    const classCompleted = document.querySelector('.selected');
+    if (classCompleted != null) {
+      classCompleted.classList.remove('selected');
     }
     event.target.classList.add('selected');
   }
@@ -49,5 +50,15 @@ taskList.addEventListener('dblclick', (event) => {
 btnClear.addEventListener('click', () => {
   while (taskList.lastElementChild) {
     taskList.removeChild(taskList.lastElementChild);
+  }
+});
+
+// Remove somente as tarefas finalizadas
+btnCompleted.addEventListener('click', () => {
+  const classCompleted = document.querySelectorAll('.completed');
+  if (classCompleted != null) {
+    for (let task = 0; task < classCompleted.length; task += 1) {
+      classCompleted[task].remove();
+    }
   }
 });

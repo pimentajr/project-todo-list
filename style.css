@@ -23,11 +23,13 @@ header h1 {
 
 button {
   padding: 5px;
+  background-color: antiquewhite;
 }
 
 input {
   padding: 5px;
   margin-bottom: 10px;
+  background-color: white;
 }
 
 main {
