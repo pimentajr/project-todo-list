@@ -11,11 +11,20 @@ function changeBgColor(event) {
   task.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+function checkListItem(event) {
+  const task = event.target;
+  if (task.classList.contains('completed')) {
+    task.classList.remove('completed');
+  } else {
+    task.classList.toggle('completed');
+  }
+}
+
 function selectTodo() {
   const toDoSelected = document.querySelectorAll('#todo');
-
   for (let index = 0; index < toDoSelected.length; index += 1) {
     toDoSelected[index].addEventListener('click', changeBgColor);
+    toDoSelected[index].addEventListener('dblclick', checkListItem);
   }
 }
 
