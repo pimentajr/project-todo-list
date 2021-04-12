@@ -2,6 +2,7 @@ const buttonForTaskCreation = document.getElementById('criar-tarefa');
 const inputTextElement = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const tasks = document.getElementsByClassName('tasks');
+const resetButton = document.getElementById('apaga-tudo');
 
 function addTask() {
   const task = inputTextElement.value;
@@ -33,10 +34,15 @@ function setStatus(event) {
   targetTask.classList.add('completed');
 }
 
+function resetAll() {
+  taskList.innerHTML = '';
+}
+
 function addListeners() {
   buttonForTaskCreation.addEventListener('click', addTask);
   taskList.addEventListener('click', taskSelector);
   taskList.addEventListener('dblclick', setStatus);
+  resetButton.addEventListener('click', resetAll);
 }
 
 addListeners();
