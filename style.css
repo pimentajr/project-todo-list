@@ -1,0 +1,26 @@
+* {
+ background-color: rgb(223, 255, 255); 
+ text-align: center;
+ color: rgb(2, 57, 66);
+}
+
+p {
+    color: darkcyan;
+}
+
+button {
+    background-color: aqua;
+    border-radius: 5px;
+    border: 1px rgb(31, 189, 149) solid;
+    color: rgb(4, 29, 32);
+}
+input {
+    background-color: aliceblue;
+    color: rgb(8, 80, 80);
+    border-color: teal;
+    border-radius: 5px;
+}
+
+.select {
+    background-color: rgb(128,128,128);
+}
