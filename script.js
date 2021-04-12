@@ -12,8 +12,8 @@ function addTask() {
 createTaskBtn.addEventListener('click', addTask);
 
 function highlightItem(event) {
-  const highlighted = event.target;
-  highlighted.style.backgroundColor = 'rgb(128,128,128)';
+  const item = event.target;
+  item.style.backgroundColor = 'rgb(128,128,128)';
 }
 
 toDoList.addEventListener('click', highlightItem);
