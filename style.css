@@ -1,5 +1,42 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 20px;
+  background: #F8E9E9;
+}
+
+#funcionamento {
+  font-style: italic;
+  font-weight: 200;
+}
+
+input {
+  width: 350px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid white;
+  transition: .5s;
+}
+
+input:focus {
+  width: 400px;
+  height: 32px;
+  box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
+}
+
+#lista-tarefas {
+  width: 60%;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.6);
+  background: #eee;
+}
+
+ol li {
+  text-align: left;
+  padding: 5px 10px;
+  margin: 5px 0;
 }
 
 .highlighted {
@@ -8,4 +45,35 @@ body {
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+button {
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  border: 1px white solid;
+  padding: 8px 25px;
+  margin: 0px 10px;
+  box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
+}
+
+button:hover, ol li {
+  cursor: pointer;
+}
+
+.delete {
+  background-color: #FF4000;
+}
+
+.add {
+  background-color: #2D7DD2;
+}
+
+.save {
+  background-color: #00A9A5;
+}
+
+.move {
+  font-size: 20px;
+  background: orange;
 }

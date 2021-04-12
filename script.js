@@ -92,3 +92,36 @@ if (localStorage.tasks) {
     toDoList.appendChild(newTask);
   }
 }
+
+const upBtn = document.querySelector('#mover-cima');
+const downBtn = document.querySelector('#mover-baixo');
+
+function moveUpDown(movement, element) {
+  const item = document.querySelector('.highlighted');
+  let moveLocation = item.nextSibling;
+
+  if (movement === 0) {
+    moveLocation = item.previousSibling;
+  }
+
+  if (item !== element) {
+    const auxClass = item.className;
+    const auxText = item.innerText;
+    item.className = moveLocation.className;
+    item.innerText = moveLocation.innerText;
+    moveLocation.className = auxClass;
+    moveLocation.innerText = auxText;
+  }
+}
+
+function move(event) {
+  const btn = event.target;
+  if (btn.id.includes('cima')) {
+    moveUpDown(0, toDoList.firstChild);
+  } else {
+    moveUpDown(1, toDoList.lastChild);
+  }
+}
+
+upBtn.addEventListener('click', move);
+downBtn.addEventListener('click', move);

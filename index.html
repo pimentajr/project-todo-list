@@ -16,12 +16,16 @@
   </header>
   <div>
     <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa">Adicionar</button>
+    <button class="add" id="criar-tarefa">Adicionar</button>
   </div>
   <ol id="lista-tarefas"></ol>
-  <button id="apaga-tudo">Limpar lista</button>
-  <button id="remover-finalizados">Limpar completos</button>
-  <button id="salvar-tarefas">Salvar lista</button>
+  <div class="actions">
+    <button class="move" id="mover-cima">&#x2191;</button>
+    <button class="move" id="mover-baixo">&#x2193;</button>
+    <button class="add" id="remover-finalizados">Limpar completos</button>
+    <button class="delete" id="apaga-tudo">Limpar lista</button>
+    <button class="save" id="salvar-tarefas">Salvar lista</button>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
