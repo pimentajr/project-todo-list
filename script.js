@@ -15,3 +15,23 @@ document.body.appendChild(input);
 const lista = document.createElement('ol');
 lista.id = 'lista-tarefas';
 document.body.appendChild(lista);
+
+const button = document.createElement('button');
+button.id = 'criar-tarefa';
+button.innerHTML = 'To Do';
+document.body.appendChild(button);
+
+const selectList = document.querySelector('#lista-tarefas');
+const selectButton = document.querySelector('#criar-tarefa');
+const selectInput = document.getElementById('texto-tarefa');
+
+function generateListItems() {
+  selectButton.addEventListener('click', () => {
+    const inputTask = selectInput.value;
+    const createTask = document.createElement('li');
+    createTask.innerHTML = inputTask;
+    selectList.appendChild(createTask);
+    selectInput.value = '';
+  });
+}
+generateListItems();
