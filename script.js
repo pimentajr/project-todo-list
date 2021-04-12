@@ -28,7 +28,7 @@ textoTarefa.addEventListener('keypress', addTarefaKeypress);
 
 function removerSelecao() {
   for (let index = 0; index < listaTarefas.children.length; index += 1) {
-    listaTarefas.children[index].style.backgroundColor = 'white';
+    listaTarefas.children[index].style.backgroundColor = 'black';
   }
 }
 
