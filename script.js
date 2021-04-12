@@ -1,4 +1,6 @@
+const liTag = 'LI';
 const selectedClass = 'selected';
+const completedClass = 'completed';
 const inputTask = document.getElementById('texto-tarefa');
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const olTaskList = document.getElementById('lista-tarefas');
@@ -27,9 +29,18 @@ function removeAllClasses(className) {
 function selectTask(event) {
   const { target } = event;
 
-  if (target.tagName === 'LI') {
+  if (target.tagName === liTag) {
     removeAllClasses(selectedClass);
     target.classList.add(selectedClass);
+  }
+}
+
+function completeTask(event) {
+  const { target } = event;
+
+  if (target.tagName === liTag) {
+    if (target.classList.contains(completedClass)) target.classList.remove(completedClass);
+    else target.classList.add(completedClass);
   }
 }
 
@@ -37,6 +48,7 @@ function onLoad() {
   inputTask.focus();
   buttonCreateTask.addEventListener('click', createTaskHandler);
   olTaskList.addEventListener('click', selectTask);
+  olTaskList.addEventListener('dblclick', completeTask);
 }
 
 window.onload = onLoad;
