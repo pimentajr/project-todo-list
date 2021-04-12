@@ -61,10 +61,34 @@ function getTasksList() {
 }
 getTasksList();
 
+function moveUpTask() {
+  let btnMoveTaskUp = document.querySelector('#mover-cima');
+  btnMoveTaskUp.addEventListener('click', () => {
+      if (selectedTask) {
+        if (selectedTask[0].previousSibling !== null) {
+          listTask.insertBefore(selectedTask[0], selectedTask[0].previousSibling);
+        }
+      }
+  });
+}
+
+function moveDownTask() {
+  let btnMoveTaskDown = document.querySelector('#mover-baixo');
+  btnMoveTaskDown.addEventListener('click', () => {
+      if (selectedTask) {
+        if (selectedTask[0].nextElementSibling !== null) {
+          listTask.insertBefore(selectedTask[0].nextElementSibling, selectedTask[0]);
+        }
+      }
+  });
+}
+
 window.onload = () => {
   createTask();
   alterBackColorTask();
   checkTask();
   delTasks();
   removeTasksFinish();
+  moveUpTask();
+  moveDownTask();
 };
