@@ -7,7 +7,7 @@ function assignmentTextPlaceHolder() {
 assignmentTextPlaceHolder();
 
 function assigmentList() {
-  const listHolder = document.createElement('ol')
+  const listHolder = document.createElement('ol');
   const listHolderPlacement = document.querySelector('#list-section');
   listHolderPlacement.appendChild(listHolder);
   listHolder.id = 'lista-tarefas';
@@ -23,19 +23,19 @@ function buttonCreat() {
 }
 buttonCreat();
 
-function buttonAssignmentCreat() {
-  const locateButton = document.querySelector('#criar-tarefa');
-  const textAssigment = document.querySelector('#texto-tarefa')
-  function creatNewAssigment() {
-    creatNewAssignmentOnList().innerHTML = textAssigment.value
-  }
-  locateButton.addEventListener('click', creatNewAssigment);
-}
-buttonAssignmentCreat()
-
 function creatNewAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
   const newAssigment = document.createElement('li');
-  locateList.appendChild(newAssigment)
-  return newAssigment
+  locateList.appendChild(newAssigment);
+  return newAssigment;
 }
+
+function buttonAssignmentCreat() {
+  const locateButton = document.querySelector('#criar-tarefa');
+  const textAssigment = document.querySelector('#texto-tarefa');
+  function creatNewAssigment() {
+    creatNewAssignmentOnList().innerHTML = textAssigment.value;
+  }
+  locateButton.addEventListener('click', creatNewAssigment);
+}
+buttonAssignmentCreat();
