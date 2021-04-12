@@ -40,3 +40,16 @@ function clearComplet() {
     completed[i].remove();
   }
 }
+
+function saveTasks() {
+  localStorage.setItem(1, list.innerHTML);
+}
+
+function loadSavedTasks() {
+  list.innerHTML = localStorage.getItem(1);
+}
+
+function removeSelected() {
+  const selectedItem = document.querySelector('.selected');
+  list.removeChild(selectedItem);
+}
