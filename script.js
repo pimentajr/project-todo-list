@@ -17,15 +17,31 @@ function createNewTask() {
 }
 createNewTask();
 
-// Ao clicar no item da lista, ele passa a ter a class selected, e o último item selecionado perde essa classe
+// Ao clicar no item da lista, o último item selecionado perde a classe selected, e ele passa a ter essa classe
 function taskSelector() {
   taskList.addEventListener('click', (event) => {
-    if (event.target.className === 'item') {
-      const previousSelectedItem = document.querySelector('.selected');
-      if (previousSelectedItem) previousSelectedItem.classList.remove('selected');
-      const selectedItem = event.target;
+    const selectedItem = event.target;
+    const previouSelectedItem = document.querySelector('.selected');
+    if (previouSelectedItem) {
+      previouSelectedItem.classList.remove('selected');
+    }
+    if (selectedItem.classList.contains('item')) {
       selectedItem.classList.add('selected');
     }
   });
 }
 taskSelector();
+
+// Atribui a classe completed ao item que for clicado duas vezes
+function riskItem() {
+  taskList.addEventListener('dblclick', (event) => {
+    const selectedItem = event.target;
+    if (selectedItem.classList.contains('completed')) {
+      selectedItem.classList.remove('completed');
+    } else {
+      selectedItem.classList.add('completed');
+    }
+  });
+}
+riskItem();
+
