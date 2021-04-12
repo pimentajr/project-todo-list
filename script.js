@@ -1,8 +1,3 @@
-const botao = document.querySelector('#criar-tarefa');
-let ol = document.getElementById('lista-tarefas');
-let entrada = document.getElementById('texto-tarefa');
-let comandos = document.getElementById('comandos');
-
 //cria elementos
 function tags(elemento) {
   return document.createElement(elemento);
@@ -16,8 +11,8 @@ function criarLi(texto) {
   return entrada.value = '';
 }
 //Adiciona o texto criado acionando o botao Adicionar
-function adicionar() {
-  if (entrada.value != '') {
+function adicionar(texto, idTexto) {
+  if (entrada.value !== '') {
     texto = entrada;
     idTexto = ol.childElementCount;
     li = criarLi(idTexto);
@@ -43,5 +38,8 @@ function botaoRemover(idTexto) {
 
 
 window.onload = function carregar() {
-
+const botao = document.querySelector('#criar-tarefa');
+const ol = document.getElementById('lista-tarefas');
+const entrada = document.getElementById('texto-tarefa');
+const comandos = document.getElementById('comandos');
 };
