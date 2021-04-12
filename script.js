@@ -16,12 +16,12 @@ addNewTask();
 
 // remove selected class e cor de fundo
 function removeBackgroundColor() {
-  const getSelectedColor = document.querySelectorAll('.selected');
+  const getSelectedColor = document.querySelectorAll('.colored');
   
   if (getSelectedColor.length > 0) {
     for (let index = 0; index < getSelectedColor.length; index += 1) {
       getSelectedColor[index].style.backgroundColor = 'white';
-      getSelectedColor[index].classList.remove('selected');
+      getSelectedColor[index].classList.remove('colored');
     }
   }
 }
@@ -33,10 +33,29 @@ function changeTaskBackground() {
   taskList.addEventListener('click', function (event) {
     removeBackgroundColor();
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    event.target.classList.add('selected');
+    event.target.classList.add('colored');
   })
 }
 
 changeTaskBackground();
+
+// risca item utilizando dois clicks
+function defineAsCompleted() {
+  const taskList = document.querySelector('#lista-tarefas');
+
+  taskList.addEventListener('dblclick', function(event) {
+    const taskItem = event.target;
+    for (let index = 0; index < taskItem.classList; index += 1) {
+      if (taskItem[index].className === 'selected') {
+        taskItem.classList.remove('selected');
+      } else {
+        taskItem.classList.remove('selected');
+      }
+    }
+  })
+}
+
+defineAsCompleted();
+
 
 
