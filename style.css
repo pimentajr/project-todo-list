@@ -2,3 +2,6 @@
   display: inline-block;
 }
 
+.itens:hover {
+color: rgb(128, 128, 128);
+}
