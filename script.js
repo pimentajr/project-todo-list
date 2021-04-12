@@ -79,22 +79,37 @@ function retrieveJobs() {
 }
 retrieveJobs();
 
-/*function upJob() {
+function upJob() {
   upButton.addEventListener('click', () => {
     let selectedItem = document.querySelector('.selected');
-    jobListContainer.replaceChild(selectedItem, selectedItem.previousSibling);
+    if (selectedItem.previousSibling === null) {
+      alert('Não é possível mover a tarefa.')
+    } else {
+      jobListContainer.insertBefore(selectedItem, selectedItem.previousSibling);
+    }
   })
 }
 upJob();
-*/
 
-function removeSelected () {
+function downJob() {
+  downButton.addEventListener('click', () => {
+    let selectedItem = document.querySelector('.selected');
+    if (selectedItem.nextSibling === null) {
+      alert('Não é possível mover a tarefa.')
+    } else {
+      jobListContainer.insertBefore(selectedItem.nextSibling, selectedItem);
+    }
+  })
+}
+downJob();
+
+function removeSelected() {
   removeSelecItem.addEventListener('click', () => {
     for (let index = 0; index < jobItems.length; index += 1) {
       if (jobItems[index].classList.contains('selected')) {
         jobListContainer.removeChild(jobItems[index]);
       }
     }
-  })
+  });
 }
 removeSelected();
