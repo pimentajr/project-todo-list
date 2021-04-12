@@ -3,6 +3,7 @@ const listTask = document.querySelector('#lista-tarefas');
 const textTask = document.querySelector('#texto-tarefa');
 const selectedTask = document.getElementsByClassName('selected');
 const btnDelTasks = document.querySelector('#apaga-tudo');
+const btnRemoveTasksFinish = document.querySelector('#remover-finalizados');
 
 function createTask() {
   btnCreateTask.addEventListener('click', () => {
@@ -40,9 +41,19 @@ function delTasks() {
   });
 }
 
+function removeTasksFinish() {
+  btnRemoveTasksFinish.addEventListener('click', () => {
+    let tasksFinish = document.querySelectorAll('.completed');
+    for (let index = 0; index < tasksFinish.length; index += 1) {
+      tasksFinish[index].remove();
+    }
+  });
+}
+
 window.onload = () => {
   createTask();
   alterBackColorTask();
   checkTask();
   delTasks();
+  removeTasksFinish();
 };
