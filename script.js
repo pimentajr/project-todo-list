@@ -5,7 +5,8 @@ function createTasks(textoTarefa, criarTarefa, listaTarefa) {
       const task = document.createElement('li');
       task.innerText = textoTarefa.value;
       listaTarefa.appendChild(task);
-      textoTarefa.value = '';
+      const text = textoTarefa;
+      text.value = null;
     }
   });
 }
@@ -19,8 +20,9 @@ function changeBackgroundListColor(listaTarefa) {
       listas[index].id = '';
     }
     if (event.target.localName === 'li') {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      event.target.id = 'selected';
+      const eTarget = event.target;
+      eTarget.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      eTarget.target.id = 'selected';
     }
   });
 }
@@ -29,10 +31,11 @@ function changeBackgroundListColor(listaTarefa) {
 function completeTask(listaTarefa) {
   listaTarefa.addEventListener('dblclick', (event) => {
     if (event.target.localName === 'li') {
+      const eTarget = event.target;
       if (event.target.className) {
-        event.target.className = '';
+        eTarget.className = '';
       } else {
-        event.target.className = 'completed';
+        eTarget.className = 'completed';
       }
     }
   });
@@ -117,7 +120,8 @@ function moveDown(moverBaixo, listaTarefa) {
 }
 
 // Remover task selecionada
-function removeTaskSelected(removerSelecionado, listaTarefa) {
+function removeTaskSelected(listaTarefa) {
+  const removerSelecionado = document.getElementById('remover-selecionado');
   removerSelecionado.addEventListener('click', () => {
     const selected = document.querySelector('#selected');
     listaTarefa.removeChild(selected);
@@ -134,7 +138,6 @@ window.onload = () => {
   const salvarTarefas = document.getElementById('salvar-tarefas');
   const moverCima = document.getElementById('mover-cima');
   const moverBaixo = document.getElementById('mover-baixo');
-  const removerSelecionado = document.getElementById('remover-selecionado');
   createTasks(textoTarefa, criarTarefa, listaTarefa);
   changeBackgroundListColor(listaTarefa);
   completeTask(listaTarefa);
@@ -144,5 +147,5 @@ window.onload = () => {
   loadTasks(listaTarefa);
   moveUp(moverCima, listaTarefa);
   moveDown(moverBaixo, listaTarefa);
-  removeTaskSelected(removerSelecionado, listaTarefa);
+  removeTaskSelected(listaTarefa);
 };
