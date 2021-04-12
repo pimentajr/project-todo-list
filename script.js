@@ -1,6 +1,8 @@
 const toDoList = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 const createTaskBtn = document.querySelector('#criar-tarefa');
+const selected = '.highlighted';
+
 function addTask() {
   const newTask = document.createElement('li');
   newTask.innerText = input.value;
@@ -12,7 +14,7 @@ createTaskBtn.addEventListener('click', addTask);
 
 function highlightItem(event) {
   const item = event.target;
-  const highlighted = document.querySelector('.highlighted');
+  const highlighted = document.querySelector(selected);
   if (highlighted) {
     highlighted.classList.remove('highlighted');
   }
@@ -97,7 +99,7 @@ const upBtn = document.querySelector('#mover-cima');
 const downBtn = document.querySelector('#mover-baixo');
 
 function moveUpDown(movement, element) {
-  const item = document.querySelector('.highlighted');
+  const item = document.querySelector(selected);
   let moveLocation = item.nextSibling;
 
   if (movement === 0) {
@@ -116,7 +118,7 @@ function moveUpDown(movement, element) {
 
 function move(event) {
   const btn = event.target;
-  if (document.querySelector('.highlighted')) {
+  if (document.querySelector(selected)) {
     if (btn.id.includes('cima')) {
       moveUpDown(0, toDoList.firstChild);
     } else {
@@ -127,3 +129,20 @@ function move(event) {
 
 upBtn.addEventListener('click', move);
 downBtn.addEventListener('click', move);
+
+const removeSelectedBtn = document.querySelector('#remover-selecionados');
+
+function removeSelected() {
+  const item = document.querySelector(selected);
+  item.remove();
+}
+
+removeSelectedBtn.addEventListener('click', removeSelected);
+
+const limpaLista = document.querySelector('#limpa-lista');
+
+function clearStorage() {
+  localStorage.clear();
+}
+
+limpaLista.addEventListener('click', clearStorage);
