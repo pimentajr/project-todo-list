@@ -3,13 +3,19 @@ const addTaskButton = document.getElementById('criar-tarefa');
 
 const taskList = document.getElementById('lista-tarefas');
 
+function toggleTaskCompleted(e) {
+  const task = e.target;
+
+  task.classList.toggle('completed');
+}
+
 let selectedTask;
 
 function selectTask(e) {
   const task = e.target;
   
   task.style.backgroundColor = 'rgb(128, 128, 128)';
-  
+
   if (selectedTask) {
     selectedTask.style.backgroundColor = null;
   }
@@ -20,6 +26,7 @@ function addTask(text) {
   const newTask = document.createElement('li');
   newTask.classList.add('task');
   newTask.addEventListener('click', selectTask);
+  newTask.addEventListener('dblclick', toggleTaskCompleted);
   newTask.innerText = text;
 
   taskList.appendChild(newTask);

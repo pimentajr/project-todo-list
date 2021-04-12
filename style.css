@@ -48,6 +48,15 @@ main {
   margin-bottom: 8px;
 }
 
+.task {
+  user-select: none;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
 #menu-acoes {
   float: left;
   margin-left: 36px;
