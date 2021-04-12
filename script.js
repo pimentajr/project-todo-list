@@ -12,6 +12,10 @@ function addElementTable() {
   clickComand.addEventListener('click', elementFromInput);
 }
 function toColorIten(element) {
+  const itensFromList = document.getElementsByTagName('li');
+  for (let index = 0; index < itensFromList.length; index += 1) {
+    itensFromList[index].style.backgroundColor = '';
+  }
   const selectedItem = element.target;
   selectedItem.style.backgroundColor = 'rgb(128, 128, 128)';
 }
