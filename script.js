@@ -48,3 +48,13 @@ addTaskInput.addEventListener('keydown', (e) => {
     clearInput();
   }
 });
+
+function clearList() {
+  while (taskList.lastElementChild) {
+    taskList.removeChild(taskList.lastElementChild);
+  }
+}
+
+const clearButton = document.getElementById('apaga-tudo');
+
+clearButton.addEventListener('click', clearList);
