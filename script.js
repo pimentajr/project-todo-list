@@ -67,7 +67,7 @@ removerFinalizado.addEventListener('click', removerTarefaFinalizada);
 
 // 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
 
-const botaoSalvarTarefas = document.querySelector('#salvar-tarfas');
+const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
 botaoSalvarTarefas.onclick = function salvarTarefas() {
   localStorage.tarefas = listaTarefas.innerHTML;
 };
