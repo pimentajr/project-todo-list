@@ -6,13 +6,11 @@ const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 
-// window.onload = function () {
-//   if (localStorage.tarefa !== undefined) {
-//     for (let index = 0; index < localStorage.tarefa.length; index += 1) {
-//       listaTarefas.innerText = localStorage.tarefa[index];
-//     }
-//   }
-// };
+window.onload = function () {
+  if (localStorage.tarefas) {
+    listaTarefas.innerHTML = localStorage.tarefas;
+  }
+};
 
 button.onclick = function criarTarefa() {
   const novaTarefa = document.createElement('li');
@@ -69,12 +67,10 @@ removerFinalizado.addEventListener('click', removerTarefaFinalizada);
 
 // 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
 
-// const botaoSalvarTarefas = document.querySelector('#salvar-tarfas');
-// botaoSalvarTarefas.onclick = function salvarTarefas() {
-//   for (let index = 0; index < tarefa.length; index += 1) {
-//     localStorage.setItem('tarefa', tarefa[index].innerText);
-//   }
-// };
+const botaoSalvarTarefas = document.querySelector('#salvar-tarfas');
+botaoSalvarTarefas.onclick = function salvarTarefas() {
+  localStorage.tarefas = listaTarefas.innerHTML;
+};
 
 // 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 
