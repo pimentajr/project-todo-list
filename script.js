@@ -1,5 +1,6 @@
 const addTask = document.getElementById('criar-tarefa');
-const inputTask = addTask.previousElementSibling;
+const clearTasks = document.getElementById('apaga-tudo');
+const inputTask = document.getElementById('texto-tarefa');
 const listTask = document.getElementById('lista-tarefas');
 
 function addTaskEvent() {
@@ -9,32 +10,37 @@ function addTaskEvent() {
   listTask.appendChild(li);
 }
 
-function clickItemEvent(e) {
-  const item = e.target;
-  const cls = item.className;
-  const selected = document.getElementsByClassName('selected');
-  if (selected.length > 0) {
-    selected[0].removeAttribute('class');
-  }
-
-  if (cls === '') {
-    item.className = 'selected';
-  } else {
-    item.removeAttribute('class');
+function clearTasksEvent() {
+  while (listTask.childElementCount) {
+    listTask.firstChild.remove();
   }
 }
 
-function doubleItemEvent(e) {
-  const item = e.target;
-  const cls = item.className;
+function clickTaskEvent(e) {
+  const task = e.target;
+  const cls = task.className;
+  const selected = document.querySelector('.selected');
+  selected.removeAttribute('class');
 
   if (cls === '') {
-    item.className = 'completed';
+    task.className = 'selected';
   } else {
-    item.removeAttribute('class');
+    task.removeAttribute('class');
+  }
+}
+
+function doubleTaskEvent(e) {
+  const task = e.target;
+  const cls = task.className;
+
+  if (cls === '') {
+    task.className = 'completed';
+  } else {
+    task.removeAttribute('class');
   }
 }
 
 addTask.addEventListener('click', addTaskEvent);
-listTask.addEventListener('click', clickItemEvent);
-listTask.addEventListener('dblclick', doubleItemEvent);
+clearTasks.addEventListener('click', clearTasksEvent);
+listTask.addEventListener('click', clickTaskEvent);
+listTask.addEventListener('dblclick', doubleTaskEvent);
