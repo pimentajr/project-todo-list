@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: rgb(23 , 131 , 134);
+}
+
+header {
+  font-size: x-large;
+  margin-top: 20px;
+  color: bisque;
+}
