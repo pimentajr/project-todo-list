@@ -19,10 +19,20 @@ function toColorIten(element) {
   const selectedItem = element.target;
   selectedItem.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+function markElement(element) {
+  const selectedItem = element.target;
+  if (selectedItem.classList[0] === 'completed') {
+    selectedItem.classList.remove('completed');
+  } else {
+    selectedItem.classList.add('completed');
+  }
+}
 function selectListItens() {
   const listItens = document.getElementById('lista-tarefas');
   listItens.addEventListener('click', toColorIten);
+  listItens.addEventListener('dblclick', markElement);
 }
+
 function loadWindow() {
   addElementTable();
   selectListItens();
