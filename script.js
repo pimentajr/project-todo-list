@@ -21,13 +21,13 @@ function removeSelect() {
 }
 
 function selectItem() {
-  const body = document.body;
   const list = document.getElementById('lista-tarefas');
+  const body = document.body;
 
   list.addEventListener('click', () => {
     for (let i = 0; i < list.children.length; i += 1) {
       list.children[i].addEventListener('click', () => {
-        removerSelecao();
+        removeSelect();
         if (list.children[i].className !== 'tarefa selected') {
           list.children[i].classList.add('selected');
         }
@@ -43,4 +43,4 @@ function selectItem() {
 }
 
 addListItem();
-listItemClick();
+selectItem();
