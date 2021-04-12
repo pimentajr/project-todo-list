@@ -27,10 +27,8 @@ criarTarefa.addEventListener('click', addTarefaClick);
 textoTarefa.addEventListener('keypress', addTarefaKeypress);
 
 function removerSelecao() {
-  const tarefas = document.querySelectorAll('.tarefa');
-
-  for (let index = 0; index < tarefas.length; index += 1) {
-    tarefas[index].style.backgroundColor = 'white';
+  for (let index = 0; index < listaTarefas.children.length; index += 1) {
+    listaTarefas.children[index].style.backgroundColor = 'white';
   }
 }
 
