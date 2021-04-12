@@ -80,23 +80,29 @@ removeEverySavedTask.addEventListener('click', () => {
   }
 });
 
-buttonUp.addEventListener('click', () => {
-  const li = document.querySelector('.item');
-  console.log(li);
-  if (li === null) return;
-  olId.insertBefore(li, li.previousSibling);
-});
+function moveTask(target, selectedTask) {
+  const tasks = olId;
 
-buttonDown.addEventListener('click', () => {
-  const li = document.querySelector('.item');
-  if (li === null) return;
-  olId.insertBefore(li.nextSibling, li);
-});
+  if (target.id === 'mover-cima' && selectedTask !== tasks[0]) {
+    olId.insertBefore(selectedTask, selectedTask.previousElementSibling);
+  }
+  if (target.id === 'mover-baixo' && selectedTask !== tasks[tasks.length - 1]) {
+    selectedTask.nextElementSibling.insertAdjacentElement('afterend', selectedTask);
+  }
+}
+
+function moveTaskHandler({ target }) {
+  const selectedTask = document.querySelector('.item');
+  if (selectedTask) moveTask(target, selectedTask);
+}
+
+buttonUp.addEventListener('click', moveTaskHandler);
+buttonDown.addEventListener('click', moveTaskHandler);
 
 function removeSelectedTask() {
   removeSelectedTaskButton.addEventListener('click', () => {
     const liSelected = document.querySelector('.item');
-    console.log(liSelected)
+    console.log(liSelected);
     liSelected.remove();
   });
 }
