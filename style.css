@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#cabecalho {
+  display: block;
+  align-items: center;
+
+}
+#title {
+  text-align: center;
+  align-items: center;
+  background-color: #001242;
+  color: #F1FAEE;
+  height: 50px;
+  padding: 3px;
+  font-family: Paytone One, sans-serif;
+}
+
+
