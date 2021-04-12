@@ -1,8 +1,9 @@
 const ordenedList = document.querySelector('#lista-tarefas');
 const buttonNewJob = document.querySelector('#criar-tarefa');
+const buttonClearList = document.querySelector('#apaga-tudo');
 
 // botão para criar um novo item na lista
-buttonNewJob.addEventListener('click', function () {
+buttonNewJob.addEventListener('click', function newItem() {
   const newItemList = document.createElement('li');
   newItemList.className = 'Item-List';
   const textItem = document.querySelector('#texto-tarefa');
@@ -13,7 +14,7 @@ buttonNewJob.addEventListener('click', function () {
 });
 
 // Colocar fundo cinza em um item clicado
-ordenedList.addEventListener('click', function (event) {
+ordenedList.addEventListener('click', function clickBackground(event) {
   const itensList = document.querySelectorAll('.clicked');
   for (let index = 0; index < itensList.length; index += 1) {
     itensList[index].classList.remove('clicked');
@@ -22,10 +23,19 @@ ordenedList.addEventListener('click', function (event) {
 });
 
 // Coloca um line-trough no item clicado 2x
-ordenedList.addEventListener('dblclick', function (event) {
+ordenedList.addEventListener('dblclick', function lineItem(event) {
   if (event.target.classList.contains('completed') === true) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
+  }
+});
+
+// Botão apagar lista
+buttonClearList.addEventListener('click', function clearList() {
+  const itensListClear = document.querySelectorAll('.Item-List');
+  console.log(itensListClear);
+  for (let index = 0; index < itensListClear.length; index += 1) {
+    itensListClear[index].remove();
   }
 });
