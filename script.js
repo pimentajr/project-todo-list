@@ -1,10 +1,12 @@
 // Adiciona itens à lista
 // Para adição de enter na lista, foi consultada a documentação em W3Schools sobre ações usando o "Enter"
 // Source: https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+const input = document.getElementById('texto-tarefa');
+const addButton = document.getElementById('criar-tarefa');
+const list = document.getElementById('lista-tarefas');
+const itemsOfList = document.getElementsByTagName('li');
+
 function addToList() {
-  const input = document.getElementById('texto-tarefa');
-  const addButton = document.getElementById('criar-tarefa');
-  const list = document.getElementById('lista-tarefas');
   addButton.addEventListener('click', () => {
     const li = document.createElement('li');
     li.innerText = input.value;
@@ -22,3 +24,14 @@ function addToList() {
   });
 }
 addToList();
+
+// Muda cor de fundo ao clicar em um item da lista, mas somente um fica selecionado (requisito 9).
+function changeBackgroundColor() {
+  list.addEventListener('click', (event) => {
+    for (index = 0; index < itemsOfList.length; index += 1) {
+      itemsOfList[index].classList.remove('selecionado');
+    }
+    event.target.classList.add('selecionado');
+  })
+}
+changeBackgroundColor();
