@@ -51,10 +51,23 @@ function removeEverything() {
 
   button.addEventListener('click', () => {
     list.innerHTML = '';
-  })
+  });
+}
+
+function removeCompleted() {
+  const button = document.getElementById('remover-finalizados');
+
+  button.addEventListener('click', () => {
+    for (let i = 0; i < list.children.length; i += 1) {
+      if (list.children[i].classList.contains('completed')) {
+        list.removeChild(list.children[i]);
+      }
+    }
+  });
 }
 
 addListItem();
 selectItem();
 completeItem();
 removeEverything();
+removeCompleted();
