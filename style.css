@@ -12,10 +12,12 @@ body {
 
 header {
   text-align: center;
+  margin-top: 50px;
 }
 
 header h1 {
   font-size: 3rem;
+  color: rgb(65 , 25 , 127);
 }
 
 header p {
@@ -25,12 +27,12 @@ header p {
 }
 
 main {
-  margin-top: 5%;
+  margin-top: 75px;
   text-align: center;
 }
 
 .todo-list input {
-  width: 50%;
+  width: 60%;
   padding: 5px;
   font-size: 1.2rem;
   border: 0;
@@ -52,4 +54,14 @@ main {
 .todo-list button:hover , .todo-list button:focus {
   background-color: rgb(33 , 134 , 97);
   border: rgb(47 , 193 , 140);
+}
+
+.todo-list ol {
+  margin-top: 75px;
+  font-size: 1.5rem;
+}
+
+.todo-list h3 {
+  font-size: 2rem;
+  color: rgb(65 , 25 , 127);
 }
