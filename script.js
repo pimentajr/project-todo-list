@@ -10,6 +10,7 @@ getButton.addEventListener('click', function () {
   getLista.appendChild(createLi);
   getInput.value = '';
 });
+
 //funcao selecionar tarefa e mudar a cor dela
 getLista.addEventListener('click', function (event) {
   const getLiItems = getLista.childNodes;
@@ -18,6 +19,7 @@ getLista.addEventListener('click', function (event) {
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 })
+
 //funcao doubleclick para riscar item
 getLista.addEventListener('dblclick', function (event) {
   if (event.target.className === 'completed') {
@@ -25,4 +27,10 @@ getLista.addEventListener('dblclick', function (event) {
   } else {
     event.target.className = 'completed';
   }
+})
+
+//funcao botao que apaga lista
+const dltButton = document.querySelector('#apaga-tudo');
+dltButton.addEventListener('click', function() {
+  getLista.innerText = '';
 })
