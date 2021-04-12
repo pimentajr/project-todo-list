@@ -4,6 +4,7 @@ const completedClass = 'completed';
 const inputTask = document.getElementById('texto-tarefa');
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const olTaskList = document.getElementById('lista-tarefas');
+const buttonClearAll = document.getElementById('apaga-tudo');
 
 const li = document.createElement('li');
 
@@ -44,11 +45,16 @@ function completeTask(event) {
   }
 }
 
+function clearList() {
+  olTaskList.innerHTML = '';
+}
+
 function onLoad() {
   inputTask.focus();
   buttonCreateTask.addEventListener('click', createTaskHandler);
   olTaskList.addEventListener('click', selectTask);
   olTaskList.addEventListener('dblclick', completeTask);
+  buttonClearAll.addEventListener('click', clearList);
 }
 
 window.onload = onLoad;
