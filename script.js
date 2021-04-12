@@ -37,7 +37,7 @@ const clearBtn = document.querySelector('#apaga-tudo');
 
 function clearList() {
   const listItems = document.querySelector('#lista-tarefas');
-  while (listItems) {
+  while (listItems.firstChild) {
     listItems.firstChild.remove();
   }
 }
