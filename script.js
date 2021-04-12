@@ -13,7 +13,7 @@ function criarLi(texto) {
   li.setAttribute('index', texto);
   li.appendChild(document.createTextNode(entrada.value));
   ol.appendChild(li);
-  return li;
+  return entrada.value = '';
 }
 //Adiciona o texto criado acionando o botao Adicionar
 function adicionar() {
@@ -28,16 +28,16 @@ function adicionar() {
 //Contador do botão remover que busca o index a ser removido
 function removeItem(idTexto) {
   for (let index = 0; index < ol.children.length; index += 1) {
-    if(ol.children[index].getAttribute('index') == idTexto) {
+    if (ol.children[index].getAttribute('itens') == idTexto) {
       ol.children[index].remove();
     }
   }
 }
-addEventListener('click', removeItem);
 
-function botaoRemover() {
+
+function botaoRemover(idTexto) {
   let botaoRemove = document.getElementById('remover');
-  
+  botaoRemove.setAttribute('onclick', 'removeItem('+idTexto+')');
   return botaoRemove;
 }
 
