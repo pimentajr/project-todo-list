@@ -28,3 +28,12 @@ taskList.addEventListener('click',function(event) {
   taskList.addEventListener('dblclick',function(event){
     event.target.classList.toggle('completed');
   })
+
+  // Remove Completed Items
+  function removeCompleted() {
+    let completedTasks = document.getElementsByClassName('completed'); 
+    while (completedTasks.length > 0) {
+      console.log(completedTasks[0])
+      taskList.removeChild(completedTasks[0]);
+    }
+  }
