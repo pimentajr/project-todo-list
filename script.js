@@ -2,7 +2,7 @@
 function createTasks(textoTarefa, criarTarefa, listaTarefa) {
   criarTarefa.addEventListener('click', () => {
     if (textoTarefa.value) {
-      let task = document.createElement('li');
+      const task = document.createElement('li');
       task.innerText = textoTarefa.value;
       listaTarefa.appendChild(task);
       textoTarefa.value = '';
@@ -19,7 +19,7 @@ function changeBackgroundListColor(listaTarefa) {
       listas[index].id = '';
     }
     if (event.target.localName === 'li') {
-      event.target.style.backgroundColor = `rgb(128, 128, 128)`;
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
       event.target.id = 'selected';
     }
   });
@@ -42,6 +42,7 @@ function completeTask(listaTarefa) {
 function clearTaskList(apagaTudo, listaTarefa) {
   apagaTudo.addEventListener('click', () => {
     if (listaTarefa.innerText) {
+      // eslint-disable-next-line no-param-reassign
       listaTarefa.innerText = '';
     }
   });
@@ -49,8 +50,8 @@ function clearTaskList(apagaTudo, listaTarefa) {
 
 // Remove tarefas finalizadas
 function clearCompleteTasks(removerFinalizados, listaTarefa) {
-  removerFinalizados.addEventListener('click', () =>{
-    let completedTasks = document.getElementsByClassName('completed');
+  removerFinalizados.addEventListener('click', () => {
+    const completedTasks = document.getElementsByClassName('completed');
     for (let index = 0; index < completedTasks.length;) {
       listaTarefa.removeChild(completedTasks[index]);
     }
@@ -60,8 +61,8 @@ function clearCompleteTasks(removerFinalizados, listaTarefa) {
 // Salvar as tarefas no storage
 function saveTasks(salvarTarefas) {
   salvarTarefas.addEventListener('click', () => {
-    localStorage.clear()
-    let lists = document.getElementsByTagName('li');
+    localStorage.clear();
+    const lists = document.getElementsByTagName('li');
     for (let index = 0; index < lists.length; index += 1) {
       if (lists[index].className === 'completed') {
         localStorage.setItem(`item${index}`, `${lists[index].innerText}, completed`);
@@ -74,16 +75,16 @@ function saveTasks(salvarTarefas) {
 
 // ReCria Lista de tarefas
 function reCreateTasks(text, classCompleted, listaTarefa) {
-    let task = document.createElement('li');
-    task.innerText = text;
-    task.className = classCompleted;
-    listaTarefa.appendChild(task);
+  const task = document.createElement('li');
+  task.innerText = text;
+  task.className = classCompleted;
+  listaTarefa.appendChild(task);
 }
 
 // Carrega as tarefas do storage
 function loadTasks(listaTarefa) {
-  for (let index = 0; index < localStorage.length; index++) {
-    let text = localStorage.getItem(`item${index}`).split(',');
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const text = localStorage.getItem(`item${index}`).split(',');
     reCreateTasks(text[0], text[1], listaTarefa);
   }
 }
@@ -92,23 +93,27 @@ function loadTasks(listaTarefa) {
 function moveUp(moverCima, listaTarefa) {
   moverCima.addEventListener('click', () => {
     const selected = document.querySelector('#selected');
-    const upPosition = selected.previousElementSibling;
-    console.log(upPosition);
-    if(upPosition) {
-      listaTarefa.insertBefore(selected, upPosition);
+    if (selected) {
+      const upPosition = selected.previousElementSibling;
+      console.log(upPosition);
+      if (upPosition) {
+        listaTarefa.insertBefore(selected, upPosition);
+      }
     }
-  })
+  });
 }
 
 // Descer de posição item da lista
 function moveDown(moverBaixo, listaTarefa) {
   moverBaixo.addEventListener('click', () => {
     const selected = document.querySelector('#selected');
-    const downPosition = selected.nextElementSibling;
-    if(downPosition) {
-      listaTarefa.insertBefore(selected, downPosition.nextElementSibling);
+    if (selected) {
+      const downPosition = selected.nextElementSibling;
+      if (downPosition) {
+        listaTarefa.insertBefore(selected, downPosition.nextElementSibling);
+      }
     }
-  })
+  });
 }
 
 // Remover task selecionada
@@ -116,7 +121,7 @@ function removeTaskSelected(removerSelecionado, listaTarefa) {
   removerSelecionado.addEventListener('click', () => {
     const selected = document.querySelector('#selected');
     listaTarefa.removeChild(selected);
-  })
+  });
 }
 
 // Carregar meus arquivos ao carregar a página
@@ -140,4 +145,4 @@ window.onload = () => {
   moveUp(moverCima, listaTarefa);
   moveDown(moverBaixo, listaTarefa);
   removeTaskSelected(removerSelecionado, listaTarefa);
-}
+};
