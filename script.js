@@ -10,9 +10,35 @@ paragraph.id = 'funcionamento';
 body.appendChild(paragraph);
 
 const textBox = document.createElement('input');
-textBox.id = 'texto-tarefa.';
+textBox.id = 'texto-tarefa';
 body.appendChild(textBox);
 
+const boxButton = document.createElement('div');
+boxButton.id = 'boxButton';
+body.appendChild(boxButton);
+
+const button = document.createElement('button');
+button.id = 'criar-tarefa';
+button.innerText = 'adicionar tarefa';
+boxButton.appendChild(button);
+
 const listOl = document.createElement('ol');
-listOl.id = 'lista-tarefas.';
+listOl.id = 'lista-tarefas';
 body.appendChild(listOl);
+
+function addItens() {
+  const li = document.createElement('li');
+  li.innerText = textBox.value;
+  listOl.appendChild(li);
+}
+
+function removeText() {
+  if (textBox.value.length > 0) {
+    textBox.value = '';
+  }
+}
+
+button.addEventListener('click', () => {
+  addItens();
+  removeText();
+});
