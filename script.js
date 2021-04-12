@@ -14,6 +14,13 @@ function changeListItemBackgroundColor(event) {
   }
   event.target.classList.add('selected');
 }
+
+function makeTaskCompleted(event) {
+  event.target.classList.toggle('completed');
+}
+
 addBtn.addEventListener('click', addListItem);
 
 taskList.addEventListener('click', changeListItemBackgroundColor);
+
+taskList.addEventListener('dblclick', makeTaskCompleted);
