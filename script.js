@@ -16,5 +16,14 @@ function changeBg() {
     tarefaSelecionada.classList.remove('clickedItem');
   }
 }
+function completedTask() {
+  const eventTarget = event.target;
+  if (eventTarget.className !== 'completed') {
+    eventTarget.classList.add('completed');
+  } else {
+    eventTarget.classList.remove('completed');
+  }
+}
 
 listaDeTarefas.addEventListener('click', changeBg);
+listaDeTarefas.addEventListener('dblclick', completedTask);
