@@ -37,3 +37,16 @@ button {
 button:hover {
   background-color: rgb(200 , 205 , 211);
 }
+
+ol {
+  padding: 0;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
+#list-item {
+  font-size: 25px;
+  list-style: none;
+}

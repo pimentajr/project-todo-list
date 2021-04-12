@@ -27,6 +27,16 @@ function changeSelected(event) {
   }
 }
 
+function lineThrough(event) {
+  const element = event.target;
+
+  if (element.className === '') {
+    element.className = 'completed';
+  } else if (element.className === 'completed') {
+    element.classList.remove('completed');
+  }
+}
+
 btnCreateTask.addEventListener('click', () => {
   const inputData = document.getElementById('texto-tarefa').value;
   const createTask = document.createElement('li');
@@ -39,3 +49,5 @@ btnCreateTask.addEventListener('click', () => {
 olList.addEventListener('click', paintSelectedELement);
 
 olList.addEventListener('click', changeSelected);
+
+olList.addEventListener('dblclick', lineThrough);
