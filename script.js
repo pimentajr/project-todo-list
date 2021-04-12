@@ -57,11 +57,6 @@ function clearCompleteTasks(removerFinalizados, listaTarefa) {
   });
 }
 
-// 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
-// O que será verificado:
-// Será verificado que existe um elemento button com o id salvar-tarefas
-// Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está.
-
 // Salvar as tarefas no storage
 function saveTasks(salvarTarefas) {
   salvarTarefas.addEventListener('click', () => {
@@ -116,6 +111,14 @@ function moveDown(moverBaixo, listaTarefa) {
   })
 }
 
+// Remover task selecionada
+function removeTaskSelected(removerSelecionado, listaTarefa) {
+  removerSelecionado.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    listaTarefa.removeChild(selected);
+  })
+}
+
 // Carregar meus arquivos ao carregar a página
 window.onload = () => {
   const textoTarefa = document.getElementById('texto-tarefa');
@@ -126,6 +129,7 @@ window.onload = () => {
   const salvarTarefas = document.getElementById('salvar-tarefas');
   const moverCima = document.getElementById('mover-cima');
   const moverBaixo = document.getElementById('mover-baixo');
+  const removerSelecionado = document.getElementById('remover-selecionado');
   createTasks(textoTarefa, criarTarefa, listaTarefa);
   changeBackgroundListColor(listaTarefa);
   completeTask(listaTarefa);
@@ -134,5 +138,6 @@ window.onload = () => {
   saveTasks(salvarTarefas);
   loadTasks(listaTarefa);
   moveUp(moverCima, listaTarefa);
-  moveDown(moverBaixo, listaTarefa)
+  moveDown(moverBaixo, listaTarefa);
+  removeTaskSelected(removerSelecionado, listaTarefa);
 }
