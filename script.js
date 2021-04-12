@@ -94,36 +94,19 @@ removerSelecionado.addEventListener('click', removeSelected);
 
 function saveList() {
   localStorage.clear();
+  const saveItens = document.getElementById('lista-tarefas').innerHTML;
 
-  const lista = document.querySelectorAll('.itens-tarefa');
-
-  for (let index = 0; index < lista.length; index += 1) {
-    const saveItens = lista[index].innerText;
-    const positionItem = `item + ${[index]}`;
-    localStorage.setItem(positionItem, saveItens);
-    const saveClass = lista[index].className;
-    const positionClass = `class + ${[index]}`;
-    localStorage.setItem(positionClass, saveClass);
-  }
+  localStorage.setItem('info', saveItens);
 }
 
 salvarTarefas.addEventListener('click', saveList);
 
-//
+function reloadList() {
+  const savedItems = document.getElementById('lista-tarefas');
 
-function returnList() {
   if (localStorage.length !== 0) {
-    for (let index = 0; index < (localStorage.length / 2); index += 1) {
-      const positionItem = `item + ${[index]}`;
-      const saveItens = localStorage.getItem(positionItem);
-      const positionClass = `class + ${[index]}`;
-      const saveClass = localStorage.getItem(positionClass);
-      const criaItensLista = document.createElement('li');
-      criaItensLista.innerText = saveItens;
-      criaItensLista.className = saveClass;
-      listaDeTarefas.appendChild(criaItensLista);
-    }
+    savedItems.innerHTML = localStorage.info;
   }
 }
 
-window.onload = returnList;
+window.onload = reloadList;
