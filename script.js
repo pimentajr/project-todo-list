@@ -1,6 +1,5 @@
 const list = document.querySelector('#lista-tarefas');
 const inputV = document.querySelector('#texto-tarefa');
-const liList = document.querySelectorAll('.list');
 
 // Add Button
 function createButton() {
@@ -25,8 +24,9 @@ buttonADD.addEventListener('click', () => {
 
 // add bg color.
 list.addEventListener('click', (event) => {
+  const liList = document.querySelectorAll('.selected');
   for (let index = 0; index < liList.length; index += 1) {
-    list[index].classList.remove('selected');
+    liList[index].classList.remove('selected');
   }
   event.target.classList.add('selected');
 });
