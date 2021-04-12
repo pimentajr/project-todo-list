@@ -23,7 +23,7 @@ clickButtonAdd();
 
 function selectedLiItem(event) {
   const itemSelected = document.querySelector('.selected');
-  if (itemSelected !== null){
+  if (itemSelected !== null) {
     itemSelected.classList.remove('selected');
   }
   event.target.classList.add('selected');
@@ -43,3 +43,12 @@ function doneTask(event) {
 
 const addDoneTask = document.getElementById('lista-tarefas');
 addDoneTask.addEventListener('dblclick', doneTask);
+
+// ->> https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+function cleanList() {
+  const liList = document.getElementById('lista-tarefas');
+  liList.innerHTML = '';
+}
+
+const cleanButton = document.getElementById('apaga-tudo');
+cleanButton.addEventListener('click', cleanList);
