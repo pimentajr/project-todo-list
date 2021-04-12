@@ -37,3 +37,12 @@ const deleteAllBttn = document.querySelector('#apaga-tudo');
 deleteAllBttn.addEventListener('click', () => {
   taskOList.innerHTML = '';
 });
+
+const deleteDoneBttn = document.querySelector('#remover-finalizados');
+
+deleteDoneBttn.addEventListener('click', () => {
+  const completedTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedTasks.length; index += 1) {
+    completedTasks[index].remove();
+  }
+});
