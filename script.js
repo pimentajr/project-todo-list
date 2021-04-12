@@ -28,3 +28,10 @@ ol.addEventListener('dblclick', (event) => {
     liLine.classList.add('completed');
   }
 });
+
+clear.addEventListener('click', () => {
+  const allLi = document.querySelectorAll('.tarefa');
+  for (let i of allLi) {
+    i.remove();
+  }
+});
