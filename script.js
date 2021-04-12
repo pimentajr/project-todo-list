@@ -80,24 +80,18 @@ removeEverySavedTask.addEventListener('click', () => {
   }
 });
 
-function moveTask(target, selectedTask) {
-  const tasks = olId;
+buttonUp.addEventListener('click', () => {
+  const li = document.querySelector('.item');
+  if (li === null) return;
+  if (li.previousSibling[0]) return;
+  olId.insertBefore(li, li.previousSibling);
+});
 
-  if (target.id === 'mover-cima' && selectedTask !== tasks[0]) {
-    olId.insertBefore(selectedTask, selectedTask.previousElementSibling);
-  }
-  if (target.id === 'mover-baixo' && selectedTask !== tasks[tasks.length - 1]) {
-    selectedTask.nextElementSibling.insertAdjacentElement('afterend', selectedTask);
-  }
-}
-
-function moveTaskHandler({ target }) {
-  const selectedTask = document.querySelector('.item');
-  if (selectedTask) moveTask(target, selectedTask);
-}
-
-buttonUp.addEventListener('click', moveTaskHandler);
-buttonDown.addEventListener('click', moveTaskHandler);
+buttonDown.addEventListener('click', () => {
+  const li = document.querySelector('.item');
+  olId.insertBefore(li.nextSibling, li);
+  if (li === null) return;
+});
 
 function removeSelectedTask() {
   removeSelectedTaskButton.addEventListener('click', () => {
