@@ -11,6 +11,12 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
   listOfTasks.appendChild(task);
 });
 
+document.querySelector('#apaga-tudo').addEventListener('click', () => {
+  while (listOfTasks.firstElementChild) {
+    listOfTasks.removeChild(listOfTasks.firstElementChild);
+  }
+});
+
 listOfTasks.addEventListener('click', (event) => {
   if (event.target.classList.contains('task')) {
     if (document.querySelector('.selected')) {
