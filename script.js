@@ -33,3 +33,10 @@ function clearTasks() {
   const reset = document.querySelector('#lista-tarefas');
   reset.innerHTML = '';
 }
+
+function clearComplet() {
+  const completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    completed[i].remove();
+  }
+}
