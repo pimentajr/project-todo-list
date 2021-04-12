@@ -81,25 +81,29 @@ retrieveJobs();
 
 function upJob() {
   upButton.addEventListener('click', () => {
-    let selectedItem = document.querySelector('.selected');
-    if (selectedItem.previousSibling === null) {
-      alert('Não é possível mover a tarefa.')
+    const selectedItem = document.querySelector('.selected');
+    if (selectedItem === null) {
+      alert('Nenhuma tarefa selecionada');
+    } else if (selectedItem.previousSibling === null) {
+      alert('Não é possível mover a tarefa.');
     } else {
       jobListContainer.insertBefore(selectedItem, selectedItem.previousSibling);
     }
-  })
+  });
 }
 upJob();
 
 function downJob() {
   downButton.addEventListener('click', () => {
-    let selectedItem = document.querySelector('.selected');
-    if (selectedItem.nextSibling === null) {
-      alert('Não é possível mover a tarefa.')
+    const selectedItem = document.querySelector('.selected');
+    if (selectedItem === null) {
+      alert('Nenhuma tarefa selecionada');
+    } else if (selectedItem.nextSibling === null) {
+      alert('Não é possível mover a tarefa.');
     } else {
       jobListContainer.insertBefore(selectedItem.nextSibling, selectedItem);
     }
-  })
+  });
 }
 downJob();
 
