@@ -45,3 +45,18 @@ function addToDo() {
 }
 
 addToDo();
+
+function clearList() {
+  const ol = document.getElementById('lista-tarefas');
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    ol.removeChild(li[index]);
+  }
+}
+
+function clearToDoList() {
+  const button = document.getElementById('apaga-tudo');
+  button.addEventListener('click', clearList);
+}
+
+clearToDoList();
