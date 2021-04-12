@@ -1,9 +1,14 @@
 const input = document.getElementById('texto-tarefa');
 const toDoList = document.querySelector('#lista-tarefas');
 const createToDo = document.getElementById('criar-tarefa');
+const removeAll = document.getElementById("apaga-tudo");
+const toDos = document.getElementsByClassName('toDo');
+
+
 
 function addToDo() {
   const toDo = document.createElement('li');
+  toDo.classList.add('toDo');
   toDo.innerText = input.value;
   toDoList.appendChild(toDo);
   input.value = '';
@@ -24,10 +29,18 @@ function toDoSelection(element) {
 
 function toDoCompleted(element) {
   if (element.target.parentNode === toDoList) {
-    element.target.classList.toggle('completed')
+    element.target.classList.toggle('completed');
   }
 }
 
+function removeAllToDos() {
+  for (let index = 0; index <= toDos.length; index = 0) {
+    toDoList.removeChild(toDos[0]);
+  }
+}
+
+
+removeAll.addEventListener('click', removeAllToDos);
 addEventListener("dblclick", toDoCompleted);
 createToDo.addEventListener('click', addToDo);
 addEventListener('click', toDoSelection);
