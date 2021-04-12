@@ -1,6 +1,7 @@
 const taskInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const taskBtn = document.querySelector('#criar-tarefa');
+const eraseBtn = document.querySelector('#apaga-tudo');
 
 function createTaskList(text) {
   const itenLi = document.createElement('li');
@@ -37,4 +38,19 @@ taskBtn.addEventListener('click', () => {
     createTaskList(taskInput.value);
     taskInput.value = '';
   }
+});
+
+taskList.addEventListener('dblclick', (event) => {
+  const taskCompleted = event.target;
+  if (taskCompleted.className.includes('completed')) {
+    taskCompleted.classList.remove('completed');
+  } else {
+    taskCompleted.classList.add('completed');
+  }
+});
+
+// usei o método includes(), consultei no link https://www.w3schools.com/jsref/jsref_includes_array.asp
+
+eraseBtn.addEventListener('click', () => {
+  taskList.innerHTML = '';
 });
