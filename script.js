@@ -25,3 +25,16 @@ function selectTask() {
 }
 
 selectTask();
+
+function completeTask() {
+  const taskList = document.querySelector('ol');
+  taskList.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  });
+}
+
+completeTask();
