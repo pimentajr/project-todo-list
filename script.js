@@ -40,7 +40,7 @@ buttonCleanList.addEventListener('click', function () {
   }
 });
 
-//botão apagar finalizados
+// botão apagar finalizados
 buttonCleanDone.addEventListener('click', function () {
   const itensListDone = document.querySelectorAll('.Item-List');
   for (let index = 0; index < itensListDone.length; index += 1) {
@@ -48,4 +48,4 @@ buttonCleanDone.addEventListener('click', function () {
       itensListDone[index].remove();
     }
   }
-})
+});
