@@ -1,4 +1,6 @@
-function elementFromInput(inputText, listTask) {
+function elementFromInput() {
+  const inputText = document.getElementById('texto-tarefa');
+  const listTask = document.getElementById('lista-tarefas');
   const createdIl = document.createElement('li');
   createdIl.innerText = inputText.value;
   listTask.appendChild(createdIl);
@@ -7,9 +9,7 @@ function elementFromInput(inputText, listTask) {
 }
 function addElementTable() {
   const clickComand = document.getElementById('criar-tarefa');
-  const inputText = document.getElementById('texto-tarefa');
-  const listTask = document.getElementById('lista-tarefas');
-  clickComand.addEventListener('click', function un() { elementFromInput(inputText, listTask); });
+  clickComand.addEventListener('click', elementFromInput);
 }
 function loadWindow() {
   addElementTable();
