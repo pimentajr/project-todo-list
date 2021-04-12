@@ -15,9 +15,16 @@ function createTaskHandler() {
   inputTask.focus();
 }
 
+function selectTask({ target }) {
+  const temp = target;
+
+  if (temp.tagName === 'LI') temp.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
 function onLoad() {
   inputTask.focus();
   buttonCreateTask.addEventListener('click', createTaskHandler);
+  olTaskList.addEventListener('click', selectTask);
 }
 
 window.onload = onLoad;
