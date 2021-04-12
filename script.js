@@ -42,3 +42,10 @@ clearFinalized.addEventListener('click', () => {
     i.remove();
   }
 });
+
+saveList.addEventListener('click', () => {
+  const savedLi = document.querySelectorAll('.tarefa');
+  for (let i = 0; i < savedLi.length; i += 1) {
+    localStorage.setItem(i, savedLi[i].innerText);
+  }
+});
