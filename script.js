@@ -1,13 +1,13 @@
-let button = document.querySelector('#criar-tarefa');
-let texto = document.querySelector('#texto-tarefa');
-let lista = document.querySelector('#lista-tarefas');
+const button = document.querySelector('#criar-tarefa');
+const texto = document.querySelector('#texto-tarefa');
+const lista = document.querySelector('#lista-tarefas');
 
-function addList () {
+function addList() {
 	button.addEventListener('click', function() {
-		let item = document.createElement('li');
-		lista.appendChild(item);
-		let novoItem = texto.value;
-		item.innerText = novoItem;
-	})
+	  const item = document.createElement('li');
+	  lista.appendChild(item);
+	  const novoItem = texto.value;
+	  item.innerText = novoItem;
+  });
 }
 addList();
