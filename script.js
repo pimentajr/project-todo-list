@@ -49,3 +49,11 @@ saveList.addEventListener('click', () => {
     localStorage.setItem(i, savedLi[i].innerText);
   }
 });
+
+for (let i = 0; i < localStorage.length; i += 1) {
+  const liNew = document.createElement('li');
+  liNew.classList.add('tarefa');
+  liNew.innerText = localStorage.getItem(i);
+  ol.appendChild(liNew);
+}
+
