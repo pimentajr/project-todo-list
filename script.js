@@ -83,14 +83,15 @@ removeEverySavedTask.addEventListener('click', () => {
 buttonUp.addEventListener('click', () => {
   const li = document.querySelector('.item');
   if (li === null) return;
-  if (li.previousSibling[0]) return;
-  olId.insertBefore(li, li.previousSibling);
+  if (li === olId.firstChild) return;
+  else olId.insertBefore(li, li.previousSibling); 
 });
 
 buttonDown.addEventListener('click', () => {
   const li = document.querySelector('.item');
-  olId.insertBefore(li.nextSibling, li);
   if (li === null) return;
+  if (li === olId.lastChild) return;
+  else olId.insertBefore(li.nextSibling, li);
 });
 
 function removeSelectedTask() {
