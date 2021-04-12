@@ -1,3 +1,11 @@
 #lista-tarefas li {
   background-color: white;
 }
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.not-completed {
+  text-decoration: none;
+}

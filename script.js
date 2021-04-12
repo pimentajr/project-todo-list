@@ -4,9 +4,6 @@ function changeBgcOfTask(element) {
       document.querySelectorAll('li')[index].style.backgroundColor = 'white';
       document.querySelectorAll('li')[index].id = '';
     }
-    // const lastSelectedTask = document.querySelector('#selected-task');
-    // lastSelectedTask.style.backgroundColor = 'white';
-    // lastSelectedTask.id = '';
     const taskSelected = element.target;
     taskSelected.id = 'selected-task';
     taskSelected.style.backgroundColor = 'rgb(128,128,128)';
@@ -17,6 +14,15 @@ function changeBgcOfTask(element) {
   }
 }
 
+function checkOnCompleted(event) {
+  const completedTask = event.target;
+  if (completedTask.className === 'completed') {
+    completedTask.className = 'not-completed';
+  } else {
+    completedTask.className = 'completed';
+  }
+}
+
 function addTask() {
   const element = document.createElement('li');
   element.innerText = document.querySelector('#texto-tarefa').value;
@@ -24,6 +30,7 @@ function addTask() {
   document.querySelector('#texto-tarefa').value = '';
   for (let index = 0; index < document.querySelectorAll('li').length; index += 1) {
     document.querySelectorAll('li')[index].addEventListener('click', changeBgcOfTask);
+    document.querySelectorAll('li')[index].addEventListener('dblclick', checkOnCompleted);
   }
 }
 document.querySelector('#criar-tarefa').addEventListener('click', addTask);
