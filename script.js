@@ -4,7 +4,7 @@ let listatarefa = document.getElementById('lista-tarefas')
 
 botao.addEventListener('click',function(){
 let novo = listatarefa.appendChild(document.createElement('li'))
-let texto = document.getElementById('texto-tarefa').value;
-novo.insertAdjacentHTML('afterbegin',texto);
+let texto = document.querySelector('#texto-tarefa');
+novo.insertAdjacentHTML('afterbegin',texto.value);
 texto.value = '';
 })
