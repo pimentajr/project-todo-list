@@ -1,6 +1,7 @@
 const caixaDeTexto = document.querySelector('#texto-tarefa');
 const botaoAdicionar = document.querySelector('#criar-tarefa');
 const listaDeTarefas = document.querySelector('#lista-tarefas');
+const apagarTudo = document.querySelector('#apaga-tudo');
 
 botaoAdicionar.addEventListener('click', event => {
   const novoLi = document.createElement('li');
@@ -10,15 +11,15 @@ botaoAdicionar.addEventListener('click', event => {
 });
 function changeBg() {
   const eventTarget = event.target;
-  const tarefaSelecionada = document.querySelector('.clickedItem');
-  if (eventTarget.className !== 'clickedItem') {
+  if (eventTarget.className === 'clickedItem') {
+    eventTarget.classList.remove('clickedItem');
+  } else {
     eventTarget.classList.add('clickedItem');
-    tarefaSelecionada.classList.remove('clickedItem');
   }
 }
 function completedTask() {
   const eventTarget = event.target;
-  if (eventTarget.className !== 'completed') {
+  if (eventTarget.classList !== 'completed') {
     eventTarget.classList.add('completed');
   } else {
     eventTarget.classList.remove('completed');
@@ -27,3 +28,11 @@ function completedTask() {
 
 listaDeTarefas.addEventListener('click', changeBg);
 listaDeTarefas.addEventListener('dblclick', completedTask);
+
+function apagaTudo() {
+  while (listaDeTarefas.firstChild) {
+    listaDeTarefas.removeChild(listaDeTarefas.firstChild);
+  }
+}
+
+apagarTudo.addEventListener('click', apagaTudo);
