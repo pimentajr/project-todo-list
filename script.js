@@ -73,13 +73,23 @@ function moveUpTask() {
 }
 
 function moveDownTask() {
-  let btnMoveTaskDown = document.querySelector('#mover-baixo');
+  const btnMoveTaskDown = document.querySelector('#mover-baixo');
   btnMoveTaskDown.addEventListener('click', () => {
       if (selectedTask) {
         if (selectedTask[0].nextElementSibling !== null) {
           listTask.insertBefore(selectedTask[0].nextElementSibling, selectedTask[0]);
         }
       }
+  });
+}
+
+function removeTaskSelected() {
+  const btnRemoveTaskSelected = document.querySelector('#remover-selecionado');
+  btnRemoveTaskSelected.addEventListener('click', () => {
+    const selectedTaskRemove = document.querySelector('.selected');
+    if (selectedTaskRemove) {
+      selectedTaskRemove.remove();
+    }
   });
 }
 
@@ -91,4 +101,5 @@ window.onload = () => {
   removeTasksFinish();
   moveUpTask();
   moveDownTask();
+  removeTaskSelected();
 };
