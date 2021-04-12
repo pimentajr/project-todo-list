@@ -11,3 +11,7 @@ const input = document.createElement('input');
 input.id = 'texto-tarefa';
 input.type = 'text';
 document.body.appendChild(input);
+
+const lista = document.createElement('ol');
+lista.id = 'lista-tarefas';
+document.body.appendChild(lista);
