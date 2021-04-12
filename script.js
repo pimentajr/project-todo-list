@@ -1,13 +1,17 @@
 // 7. 8.
-function changeColor(event) {
+function selectItem(event) {
   const selectedItem = event.target;
   const itens = document.getElementsByClassName('listItem');
-  console.log(itens);
   for (let index = 0; index < itens.length; index += 1) {
     itens[index].style.backgroundColor = 'transparent';
   }
-  console.log(selectedItem.style.backgroundColor);
   selectedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+// 9.
+function completedItem(event) {
+  const completedListItem = event.target;
+  completedListItem.classList.add('completed');
 }
 
 // 5. 6.
@@ -19,7 +23,8 @@ function criarTarefa() {
   lItem.classList.add('listItem');
   oList.appendChild(lItem);
   inputList.value = '';
-  lItem.addEventListener('click', changeColor);
+  lItem.addEventListener('click', selectItem);
+  lItem.addEventListener('dblclick', completedItem);
 }
 const buttonCriarTarefa = document.getElementById('criar-tarefa');
 buttonCriarTarefa.addEventListener('click', criarTarefa);
