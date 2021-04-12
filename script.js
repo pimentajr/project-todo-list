@@ -1,17 +1,18 @@
-
-function addElementTable () {
-  let clickComand = document.getElementById('criar-tarefa');
-  clickComand.addEventListener('click', function () {
-    let inputText = document.getElementById('texto-tarefa');
-    let listTask = document.getElementById('lista-tarefas');
-    let createdIl = document.createElement('li');
-    createdIl.innerText = inputText.value;
-    listTask.appendChild(createdIl);
-    inputText.value = '';
-  })
+function getElementFromInput(inputText, listTask) {
+  const createdIl = document.createElement('li');
+  createdIl.innerText = inputText.value;
+  listTask.appendChild(createdIl);
+  inputText.value = '';
+  return  
+}
+function addElementTable() {
+  const clickComand = document.getElementById('criar-tarefa');
+  const inputText = document.getElementById('texto-tarefa');
+  const listTask = document.getElementById('lista-tarefas');
+  clickComand.addEventListener('click', function () {getElementFromInput(inputText, listTask)});
 }
 function loadWindow() {
   addElementTable();
 }
 
-window.onload =loadWindow;
+window.onload = loadWindow;

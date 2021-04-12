@@ -1,5 +1,5 @@
 main {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Courier, monospace;
 }
 
 header {
@@ -12,9 +12,8 @@ header {
 }
 
 #criar-tarefa {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Courier, monospace;
   background-color: lightsalmon;
-  font: bolder;
 }
 
 #lista-tarefas {
