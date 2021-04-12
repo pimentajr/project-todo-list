@@ -12,12 +12,12 @@ button.addEventListener('click', addListItem);
 
 // Remove dos itens a cor de fundo cinza.
 function removeColor() {
-  const toDoList = document.querySelectorAll('li'); console.log(toDoList)
+  const toDoList = document.querySelectorAll('li');
   for (let child = 0; child < toDoList.length; child += 1) {
     if (toDoList[child].style.backgroundColor === 'rgb(128, 128, 128)') {
       toDoList[child].style.backgroundColor = 'rgb(255, 255, 255)';
     }
-  } 
+  }
 }
 
 // Altera a cor de fundo do item selecionado.
@@ -55,3 +55,20 @@ function clearList() {
   }
 }
 eraseButton.addEventListener('click', clearList);
+
+// Cria botão "Remove finalizados".
+const removeFinishedButton = document.createElement('button');
+buttonSection.appendChild(removeFinishedButton);
+removeFinishedButton.id = 'remover-finalizados';
+removeFinishedButton.innerText = 'Limpar Completos';
+
+// Remove itens finalizados.
+function removeFinishedItens() {
+  const toDoList = document.querySelectorAll('li');
+  for (let item = 0; item < toDoList.length; item += 1) {
+    if (toDoList[item].className === 'completed') {
+      toDoList[item].remove();
+    }
+  }
+}
+removeFinishedButton.addEventListener('click', removeFinishedItens);
