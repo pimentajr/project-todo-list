@@ -19,3 +19,18 @@ function addingTask() {
   });
 }
 addingTask();
+
+// Requisito 7 e 8 - Colocar fundo cinza em itens clicados
+function grayItem() {
+  allList.addEventListener('click', (eventoDeOrigem1) => {
+    const clickedItem = eventoDeOrigem1.target;
+    const whiteList = document.querySelectorAll('.item');
+    for (let index = 0; index < whiteList.length; index += 1) {
+      whiteList[index].style.backgroundColor = 'white';
+    }
+    if (clickedItem.className === 'item') {
+      clickedItem.style.backgroundColor = grayColor;
+    }    
+  });
+}
+grayItem();
