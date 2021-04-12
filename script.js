@@ -23,9 +23,9 @@ function createItemInList() {
           const createLiArray = document.querySelectorAll('li');
           for ( let i = 0; i < createLiArray.length; i += 1) {
             createLiArray[i].addEventListener('click',function removebackground() {
-              const itemListSelected = document.querySelector('.item-list');
+              const itemListSelected = document.querySelector('.selected');
               if (itemListSelected !== null) {
-                itemListSelected.classList.remove('item-list');
+                itemListSelected.classList.remove('selected');
               }
           })
         }
@@ -36,16 +36,40 @@ function createItemInList() {
           const createLiArray = document.querySelectorAll('li');
           for ( let i = 0; i < createLiArray.length; i += 1) {
             createLiArray[i].addEventListener('click', function backgroundChange() {
-              const itemListSelected = document.querySelector('.item-list');
-              createLiArray[i].className = 'item-list';
+              createLiArray[i].className = 'selected';
           })
         }
         }
         selectLi();
-      }
-      highLightSelected();
+
+        function lineCompleted() {
+          let locateSelectedItens = document.querySelectorAll('li');
+          if (locateSelectedItens.length !== 0) {
+          for(let i = 0; i < locateSelectedItens.length; i += 1){
+          locateSelectedItens[i].addEventListener('dblclick', function dubleClickAction() {
+          locateSelectedItens[i].classList.add('completed');
+          }
+          )}
+          }
+        }
+        
+        function unlineCompleted() {
+          let locateSelectedItens = document.querySelectorAll('li');
+          if (locateSelectedItens.length !== 0) {
+          for(let i = 0; i < locateSelectedItens.length; i += 1){
+          locateSelectedItens[i].addEventListener('dblclick', function dubleClickAction() {
+          locateSelectedItens[i].classList.remove('completed');
+          }
+          )}
+          }
+        }
+        unlineCompleted();
+        lineCompleted();
     }
+
+    highLightSelected();
     }
-  );
+  });
 }
 createItemInList();
+
