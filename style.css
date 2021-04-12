@@ -1,7 +1,3 @@
-.completed {
+.item-list {
   background-color: rgb(128,128,128);
-}
-
-.uncompleted {
-  background-color: white;
 }
