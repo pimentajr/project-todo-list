@@ -21,6 +21,21 @@ function itemDoubleClick(listItem) {
   });
 }
 
+function loadTasks() {
+  const savedTasks = localStorage.getItem('tasks');
+  if (savedTasks) {
+    tasksList.innerHTML = savedTasks;
+    const loadedTasks = document.querySelectorAll('#lista-tarefas li');
+    for (let index = 0; index < loadedTasks.length; index += 1) {
+      const currentTask = loadedTasks[index];
+      listItemBackgroundOnClick(currentTask);
+      itemDoubleClick(currentTask);
+    }
+  }
+}
+
+loadTasks();
+
 function newTaskButton() {
   const btnNewTask = document.querySelector('#criar-tarefa');
   const inputNewTask = document.querySelector('#texto-tarefa');
@@ -59,3 +74,12 @@ function clearCompletedButton() {
 }
 
 clearCompletedButton();
+
+function saveTasksButton() {
+  const btnSaveTasks = document.querySelector('#salvar-tarefas');
+  btnSaveTasks.addEventListener('click', () => {
+    localStorage.setItem('tasks', tasksList.innerHTML);
+  });
+}
+
+saveTasksButton();
