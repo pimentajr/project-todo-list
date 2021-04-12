@@ -30,16 +30,10 @@ function selectItem() {
   });
 }
 
-function removeComplete() {
-  for (let i = 0; i < list.children.length; i += 1) {
-    list.children[i].classList.remove('completed');
-  }
-}
-
 function completeItem() {
   list.addEventListener('dblclick', (e) => {
     if (e.target.classList.contains('completed')) {
-      removeComplete();
+      e.target.classList.remove('completed');
     } else if (e.target.className !== 'tarefa completed') {
       e.target.classList.add('completed');
     }
@@ -63,11 +57,11 @@ function removeCompleted() {
         list.removeChild(list.children[i]);
       }
     }
-  });
+  })
 }
 
 addListItem();
 selectItem();
 completeItem();
 removeEverything();
-removeCompleted();
+removeCompleted()
