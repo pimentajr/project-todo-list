@@ -45,14 +45,26 @@ function clearTaskList(apagaTudo, listaTarefa) {
   })
 }
 
+// Remove tarefas finalizadas
+function clearCompleteTasks(removerFinalizados, listaTarefa) {
+  removerFinalizados.addEventListener('click', () =>{
+    let completedTasks = document.getElementsByClassName('completed');
+    for (let index = 0; index < completedTasks.length;) {
+      listaTarefa.removeChild(completedTasks[index]);
+    }
+  });
+}
+
 // Carregar meus arquivos ao carregar a página
 window.onload = () => {
   const textoTarefa = document.getElementById('texto-tarefa');
   const criarTarefa = document.getElementById('criar-tarefa');
   const listaTarefa = document.getElementById('lista-tarefas');
   const apagaTudo = document.getElementById('apaga-tudo');
+  const removerFinalizados = document.getElementById('remover-finalizados');
   createTasks(textoTarefa, criarTarefa, listaTarefa);
   changeBackgroundListColor(listaTarefa);
   completeTask(listaTarefa);
   clearTaskList(apagaTudo, listaTarefa);
+  clearCompleteTasks(removerFinalizados, listaTarefa);
 }
