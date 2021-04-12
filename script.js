@@ -11,6 +11,7 @@ function add(father, child) {
 // Task 1
 // body and header declaration
 const { body } = document;
+
 const header = create('header');
 add(body, header);
 
@@ -23,7 +24,7 @@ header.style.fontSize = '20px';
 const descrp = create('p');
 add(body, descrp);
 
-// add text amd id to descrp
+// add text and id to descrp
 descrp.id = 'funcionamento';
 descrp.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 
@@ -32,8 +33,16 @@ descrp.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 const input = create('input');
 add(body, input);
 
-// add id
+// add id to input
 input.id = 'texto-tarefa';
+
+// Task 4
+// ordered list declaration
+const list = create('ol');
+add(body, list);
+
+// add id to list
+list.id = 'list-tarefas';
 
 // start function
 function start() {
