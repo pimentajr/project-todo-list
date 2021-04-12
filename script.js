@@ -75,3 +75,17 @@ function removeCheckedTasks() {
   });
 }
 removeCheckedTasks();
+
+// Requisito 12 - Salvar tarefas
+function storageItens() {
+  const saveButton = document.getElementById('salvar-tarefas');
+  saveButton.addEventListener('click' , () => {
+    localStorage.clear();
+    const allItens = document.querySelectorAll('.item');
+    for (let index = 0; index < allItens.length; index += 1) {
+      let task = allItens[index].innerText;
+      localStorage.setItem(index,`${task}`)
+    }
+  });
+}
+storageItens();
