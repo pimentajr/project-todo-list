@@ -25,6 +25,9 @@ function changeBackground(event) {
   event.target.className = 'selected';
 }
 
+function throughLine(event) {
+  console.log('foi');
+}
 // Função para colocar input na lista
 function inputTask() {
   // pegar o valor do input no dom
@@ -35,6 +38,8 @@ function inputTask() {
   itenList.id = 'itenList';
   // adicionando escutador
   itenList.addEventListener('click', changeBackground);
+  // Adicionando dbclick como evento para riscar linha
+  itenList.addEventListener('dblclick', throughLine);
   // Agora precisamos adicionar o conteudo do input na tag li
   itenList.innerText = inputValue;
   // Agora é necessario vincular a li na tag ol
@@ -46,3 +51,6 @@ function inputTask() {
 }
 // Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
 button.addEventListener('click', inputTask);
+
+// Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
+// criar a classe completed com a propr
