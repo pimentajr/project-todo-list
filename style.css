@@ -1,9 +1,13 @@
 * {
-  border: 0px;
-  margin: 0px;
+  border: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 #texto-tarefa {
   border: 1px solid black;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
 }
