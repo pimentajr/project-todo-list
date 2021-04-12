@@ -18,7 +18,7 @@ function createNewTask(taskInputValue) {
 
 // Select item
 taskList.addEventListener('click',function(event) {
-  let listItem = document.getElementsByTagName('li'); //COMO POSSO NÃO REPETIR?
+  let listItem = document.getElementsByTagName('li');
   for (key of listItem){
     key.style.backgroundColor= '';
   }
@@ -26,9 +26,5 @@ taskList.addEventListener('click',function(event) {
 
   // Strike-Unstrike Item
   taskList.addEventListener('dblclick',function(event){
-    if (!event.target.style.textDecoration) {
-    event.target.style.textDecoration = 'line-through';
-    } else {
-      event.target.style.textDecoration = '';
-    }
+    event.target.classList.toggle('completed');
   })
