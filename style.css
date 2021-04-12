@@ -23,3 +23,10 @@ header {
   background-color: #e69c1e;
 
 }
+.listItem {
+    height: auto;
+    width: auto;
+}
+.selected {
+    background-color: rgb(128, 128, 128);
+}
