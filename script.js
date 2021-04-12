@@ -1,3 +1,6 @@
+const listWhite =
+window.onload = 
+
 function createItemInList() {
   // referencia para a manipulação do input 'https://www.w3schools.com/jsref/dom_obj_text.  asp'
   // limpa a barra de inserir texto
@@ -14,6 +17,7 @@ function createItemInList() {
     if (inputCamp !== ''){
       const createLi = document.createElement('li');
       createLi.innerText = inputCamp;
+      createLi.classList.add('uncompleted');
       locateLista.appendChild(createLi);
       // limpa a caixa de entrada 
       clearTextInput();
@@ -23,8 +27,9 @@ function createItemInList() {
           const createLiArray = document.querySelectorAll('li');
           for ( let i = 0; i < createLiArray.length; i += 1) {
             createLiArray[i].addEventListener('click',function removebackground() {
-              let itemListSelected = document.querySelector('.item-list');
-              itemListSelected.classList.remove('item-list');
+              let itemListSelected = document.querySelector('.completed');
+              itemListSelected.classList.remove('completed');
+              createLiArray[i].classList.add('uncompleted');
           })
         }
         }
@@ -34,8 +39,9 @@ function createItemInList() {
           const createLiArray = document.querySelectorAll('li');
           for ( let i = 0; i < createLiArray.length; i += 1) {
             createLiArray[i].addEventListener('click', function backgroundChange() {
-              let itemListSelected = document.querySelector('.item-list');
-              createLiArray[i].classList.add('item-list');
+              let itemListSelected = document.querySelector('.uncompleted');
+              itemListSelected.classList.remove('uncompleted')
+              createLiArray[i].classList.add('completed');
           })
         }
         }
