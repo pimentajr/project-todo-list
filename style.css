@@ -10,3 +10,7 @@
 body {
   margin: 50px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
