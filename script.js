@@ -21,3 +21,14 @@ function highlightItem(event) {
 }
 
 toDoList.addEventListener('click', highlightItem);
+
+function completeTask(event) {
+  const task = event.target;
+  if (task.className.includes('completed')) {
+    task.classList.remove('completed');
+  } else {
+    task.classList.add('completed');
+  }
+}
+
+toDoList.addEventListener('dblclick', completeTask);
