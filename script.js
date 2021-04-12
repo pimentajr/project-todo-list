@@ -1,10 +1,14 @@
+// Retrieve itens
 const liItens = document.getElementsByTagName('li');
+const inputText = document.getElementById('texto-tarefa');
+const orderedList = document.getElementById('lista-tarefas');
+const createActivity = document.getElementById('criar-tarefa');
+const deleteAllItens = document.getElementById('apaga-tudo');
+const deleteCompletedItem = document.getElementById('remover-finalizados');
 
 // Create li element
 function createAndAddLiItem() {
-  const orderedList = document.getElementById('lista-tarefas');
   const createLi = document.createElement('li');
-  const inputText = document.getElementById('texto-tarefa');
   const text = inputText.value;
   createLi.innerText = text;
   orderedList.appendChild(createLi);
@@ -20,12 +24,25 @@ function selectedItem(event) {
   event.target.classList.add('selected');
 }
 
+function deleteAllLiItens() {
+  for (let index = 0; index < orderedList.children.length;) {
+    orderedList.removeChild(orderedList.lastChild);
+  }
+}
+
+function deleteCompletedItens() {
+  const completed = document.getElementsByClassName('completed');
+  for (let index = 0; index < completed.length;) {
+    orderedList.removeChild(completed[index]);
+  }
+}
+
 function crossedItem(event) {
-  if(event.target.className != '' && event.target.className != 'selected') {
+  if (event.target.className !== '' && event.target.className !== 'selected') {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
-  }  
+  }
 }
 
 function createLiEventListener() {
@@ -36,8 +53,9 @@ function createLiEventListener() {
 }
 
 function createEventlisteners() {
-  const createActivity = document.getElementById('criar-tarefa');
   createActivity.addEventListener('click', createAndAddLiItem);
+  deleteAllItens.addEventListener('click', deleteAllLiItens);
+  deleteCompletedItem.addEventListener('click', deleteCompletedItens);
 }
 
 function init() {
