@@ -1,28 +1,28 @@
 // ex 5
 // No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
 // Criando lo para ex 4
-let taskList = document.createElement('ol');
-taskList.id ='lista-tarefa'
+const taskList = document.getElementById('lista-tarefas');
+
 // Pegando o main do DOM
 const mainProject = document.getElementById('main');
 
 // pegar botão
-let button = document.getElementById('criar-tarefa');
+const button = document.getElementById('criar-tarefa');
 // Criar uma função que adiciona um elemento na tela
 
 // Função que limpa input - Será usada na sunção inputTask
-function clearInput(target) {
-  if (target.value !== '') {
-    target.value = '';
+function clearInput(input) {
+  if (input.value !== '') {
+    input.value = '';
   }
 }
 
 // Função para colocar input na lista
 function inputTask() {
   // pegar o valor do input no dom 
-  let inputValue = document.getElementById('texto-tarefa').value;
+  const inputValue = document.getElementById('texto-tarefa').value;
   // depois criamos o elemento que irá ser cada iten da lista, a tag li
-  let itenList = document.createElement('li');
+  const itenList = document.createElement('li');
   // Agora precisamos adicionar o conteudo do input na tag li
   itenList.innerText = inputValue;
   // Agora é necessario vincular a li na tag ol
@@ -37,7 +37,6 @@ button.addEventListener('click', inputTask);
 // criar função que apaga input
 
 // Adicionar eventLetener no botão para que ele reaja ao click acionando a função que pega o input e coloca em uma lista
-
 
 // ver como apagar input depois do click
 // Fazer a função adicionando elementos a lista (push ou add) de modo que não sobreescreva o elemento.
