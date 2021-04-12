@@ -44,3 +44,17 @@ function selectItem(event) {
 }
 
 listaDeTarefas.addEventListener('click', selectItem);
+
+// 9.  Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
+
+function completeItem(event) {
+  const evento = event.target.classList;
+
+  if (evento.contains('completed')) {
+    evento.remove('completed');
+  } else {
+    evento.add('completed');
+  }
+}
+
+listaDeTarefas.addEventListener('dblclick', completeItem);
