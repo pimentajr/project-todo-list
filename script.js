@@ -1,17 +1,17 @@
 // Retrieve itens
-const liItens = document.getElementsByTagName('li');
+const liItems = document.getElementsByTagName('li');
 const inputText = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 const createActivity = document.getElementById('criar-tarefa');
 const deleteAllItems = document.getElementById('apaga-tudo');
 const deleteCompletedItem = document.getElementById('remover-finalizados');
 const completed = document.getElementsByClassName('completed');
-const saveButton = document.getElementById('savar-tarefas');
+const saveButton = document.getElementById('salvar-tarefas');
 
 // Add selected class to Li
 function selectedItem(event) {
-  for (let index = 0; index < liItens.length; index += 1) {
-    liItens[index] = liItens[index].classList.remove('selected');
+  for (let index = 0; index < liItems.length; index += 1) {
+    liItems[index] = liItems[index].classList.remove('selected');
   }
   event.target.classList.add('selected');
 }
@@ -26,9 +26,9 @@ function crossedItem(event) {
 }
 
 function createLiEventListener() {
-  for (let index = 0; index < liItens.length; index += 1) {
-    liItens[index].addEventListener('click', selectedItem);
-    liItens[index].addEventListener('dblclick', crossedItem);
+  for (let index = 0; index < liItems.length; index += 1) {
+    liItems[index].addEventListener('click', selectedItem);
+    liItems[index].addEventListener('dblclick', crossedItem);
   }
 }
 
@@ -55,11 +55,12 @@ function deleteCompletedItems() {
   }
 }
 
-function saveItens() {
+function saveItems() {
+  const updatedLiItems = document.getElementsByTagName('li');
   localStorage.clear();
-  for (let index = 0; index < liItens.length; index += 1) {
-    localStorage.setItem(`liText${index}`, `${liItens[index].innerText}`);
-    localStorage.setItem(`liClass${index}`, `${liItens[index].className}`);
+  for (let index = 0; index < liItems.length; index += 1) {
+    localStorage.setItem(`liText${index}`, `${updatedLiItems[index].innerText}`);
+    localStorage.setItem(`liClass${index}`, `${updatedLiItems[index].className}`);
   }
 }
 
@@ -78,7 +79,7 @@ function createEventlisteners() {
   createActivity.addEventListener('click', createAndAddLiItem);
   deleteAllItems.addEventListener('click', deleteAllLiItems);
   deleteCompletedItem.addEventListener('click', deleteCompletedItems);
-  saveButton.addEventListener('click', saveItens);
+  saveButton.addEventListener('click', saveItems);
   createLiEventListener();
 }
 
