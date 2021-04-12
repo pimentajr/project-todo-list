@@ -13,6 +13,10 @@ window.onload = function () {
   }
 
   function changeTasksBackgndColor(event) {
+    const allTasks = document.querySelectorAll('#lista-tarefas li');
+    for (let index = 0; index < allTasks.length; index += 1) {
+      allTasks[index].style.backgroundColor = 'rgb(255, 255, 255)';
+    }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 
