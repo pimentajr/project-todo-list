@@ -14,20 +14,22 @@ function backGroundGray() {
     const click = event.target;
     const li = document.getElementsByTagName('li');
     for (let index = 0; index < li.length; index += 1) {
-      li[index].classList.remove('gray');
-      click.classList.add('gray');
+      li[index].classList.remove('selected');
+      if (lista.children){
+        click.classList.add('selected');
+      }
+      
     }
   });
 }
 
 function completedList() {
   lista.addEventListener('dblclick', (event) => {
-    const dbclick = event.target;
-    if (dbclick.classList.contains('completed')) {
-      
-      dbclick.classList.remove('completed');
+    const dbclick = event.target.classList.contains('completed');
+    if (dbclick) { 
+      event.target.classList.remove('completed');
     } else {
-      dbclick.classList.add('completed');
+      event.target.classList.add('completed');
     }
     
   });
