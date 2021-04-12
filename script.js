@@ -19,7 +19,7 @@ function criarTarefa() {
   lItem.classList.add('listItem');
   oList.appendChild(lItem);
   inputList.value = '';
-  lItem.addEventListener('click', changeColor)
+  lItem.addEventListener('click', changeColor);
 }
 const buttonCriarTarefa = document.getElementById('criar-tarefa');
 buttonCriarTarefa.addEventListener('click', criarTarefa);
