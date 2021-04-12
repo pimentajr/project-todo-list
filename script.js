@@ -4,6 +4,8 @@ const completedClass = 'completed';
 const inputTask = document.getElementById('texto-tarefa');
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const olTaskList = document.getElementById('lista-tarefas');
+const buttonMoveUp = document.getElementById('mover-cima');
+const buttonMoveDown = document.getElementById('mover-baixo');
 const buttonClearCompleted = document.getElementById('remover-finalizados');
 const buttonClearAll = document.getElementById('apaga-tudo');
 const buttonSave = document.getElementById('salvar-tarefas');
@@ -73,6 +75,22 @@ function loadPreviousSavedList() {
   }
 }
 
+function moveTask(target, selectedTask) {
+  const tasks = olTaskList.children;
+
+  if (target.id === 'mover-cima' && selectedTask !== tasks[0]) {
+    olTaskList.insertBefore(selectedTask, selectedTask.previousElementSibling);
+  }
+  if (target.id === 'mover-baixo' && selectedTask !== tasks[tasks.length - 1]) {
+    selectedTask.nextElementSibling.insertAdjacentElement('afterend', selectedTask);
+  }
+}
+
+function moveTaskHandler({ target }) {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) moveTask(target, selectedTask);
+}
+
 function onLoad() {
   inputTask.focus();
   buttonCreateTask.addEventListener('click', createTaskHandler);
@@ -82,6 +100,8 @@ function onLoad() {
   buttonClearCompleted.addEventListener('click', clearCompleted);
   buttonSave.addEventListener('click', storeListContent);
   loadPreviousSavedList();
+  buttonMoveUp.addEventListener('click', moveTaskHandler);
+  buttonMoveDown.addEventListener('click', moveTaskHandler);
 }
 
 window.onload = onLoad;
