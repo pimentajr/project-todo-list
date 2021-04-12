@@ -9,4 +9,14 @@ function newTask() {
   inputElement.value = '';
 }
 
+function selectTask(event) {
+  const previouslySelectedElement = document.getElementsByClassName('selected')[0];
+  if (previouslySelectedElement) {
+    previouslySelectedElement.classList.remove('selected');
+  }
+  const selectedTask = event.target;
+  selectedTask.classList.add('selected');
+}
+
 newTaskButton.addEventListener('click', newTask);
+toDoList.addEventListener('click', selectTask);
