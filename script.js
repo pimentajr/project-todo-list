@@ -51,3 +51,15 @@ function crossOff() {
   });
 }
 crossOff();
+
+// Requisito 10 - Apagar toda a lista de tarefas
+function clearTaskList() {
+  const deleteButton = document.getElementById('apaga-tudo');
+  deleteButton.addEventListener('click', () => {
+    const allItens = document.querySelectorAll('.item');
+    for (let index = 0; index < allItens.length; index += 1) {
+      allList.removeChild(allItens[index]);
+    }
+  });
+}
+clearTaskList();
