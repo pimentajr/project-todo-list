@@ -20,5 +20,17 @@ function backGroundGray() {
     });
   }
 
+function completedList() {
+  lista.addEventListener('dblclick', (event) => {
+    const dbclick = event.target;
+    if (dbclick.classList.contains('completed')) {
+      dbclick.classList.remove('completed')
+    } else {
+      dbclick.classList.add('completed');
+    }
+  })
+}
+
+completedList();
 backGroundGray();
 addList();
