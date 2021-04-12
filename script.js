@@ -33,20 +33,21 @@ input.id = 'texto-tarefa';
 const list = create('ol');
 add(body, list);
 
-list.id = 'list-tarefas';
-list.style.listStyleType = 'none';
+list.id = 'lista-tarefas';
+// list.style.listStyleType = 'none';
 
 // Task 5
 const button = create('button');
 add(body, button);
 
-button.innerText = 'Clique Aqui';
 button.id = 'criar-tarefa';
+button.innerText = 'Criar Tarefa';
 
 function createListItem() {
   const listItens = create('li');
   add(list, listItens);
   listItens.innerText = input.value;
+  input.value = null;
 }
 
 // start function
