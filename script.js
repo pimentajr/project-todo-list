@@ -1,6 +1,7 @@
 const list = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
-const button = document.querySelector('#criar-tarefa');
+const buttonCreateTask = document.querySelector('#criar-tarefa');
+const buttonDeleteAllTasks = document.querySelector('#apaga-tudo');
 
 function newTask() {
   function addNewTask() {
@@ -9,7 +10,7 @@ function newTask() {
     input.value = '';
     list.appendChild(itemList);
   }
-  button.addEventListener('click', addNewTask);
+  buttonCreateTask.addEventListener('click', addNewTask);
 }
 
 function clearSelected() {
@@ -39,6 +40,17 @@ function taskCompleted() {
   list.addEventListener('dblclick', taskLine);
 }
 
+function deleteList() {
+  function deleteAll() {
+    const itemList = document.getElementsByTagName('li');
+    for (let index = itemList.length; index > 0; index -= 1) {
+      list.removeChild(itemList[index - 1]);
+    }
+  }
+  buttonDeleteAllTasks.addEventListener('click', deleteAll);
+}
+
 newTask();
 selectedTask();
 taskCompleted();
+deleteList();
