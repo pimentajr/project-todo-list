@@ -2,6 +2,7 @@ const caixaDeTexto = document.querySelector('#texto-tarefa');
 const botaoAdicionar = document.querySelector('#criar-tarefa');
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 const apagarTudo = document.querySelector('#apaga-tudo');
+const apagarFinalizados = document.querySelector('#remover-finalizados');
 
 botaoAdicionar.addEventListener('click', event => {
   const novoLi = document.createElement('li');
@@ -37,3 +38,11 @@ function apagaTudo() {
 }
 
 apagarTudo.addEventListener('click', apagaTudo);
+
+function removerFinalizados() {
+  const finalizados = document.querySelectorAll('.completed');
+  for (let index = 0; index < finalizados.length; index += 1) {
+    finalizados[index].remove();
+  }
+}
+apagarFinalizados.addEventListener('click', removerFinalizados);
