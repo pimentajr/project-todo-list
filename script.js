@@ -5,6 +5,7 @@ const taskInput = document.querySelector('#texto-tarefa');
 function addTaskToList() {
   createTaskButton.addEventListener('click', () => {
     const createLi = document.createElement('li');
+    createLi.className = 'tasks';
     createLi.innerText = taskInput.value;
     taskOList.appendChild(createLi);
     taskInput.value = '';
@@ -14,5 +15,11 @@ function addTaskToList() {
 addTaskToList();
 
 taskOList.addEventListener('click', (event) => {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const eventTarget = event.target;
+  const listSelectedItems = document.querySelector('.selected');
+  const listItems = document.querySelector('.tasks');
+  if (listSelectedItems) {
+    listSelectedItems.classList.remove('selected');
+  }
+  eventTarget.classList.add('selected');
 });
