@@ -29,6 +29,7 @@ olId.addEventListener('click', (e) => {
     if (olId.children[i] !== e.target) {
       olId.children[i].style.backgroundColor = 'white';
       olId.children[i].classList.remove('teste');
+      olId.children[i].classList.remove('item')
     }
   }
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -84,7 +85,7 @@ buttonUp.addEventListener('click', () => {
   const li = document.querySelector('.item');
   if (li === null) {
     return;
-  } else if (li === olId.firstChild) {
+  } else if (li === olId.children[0]) {
     return;
   } else { 
     olId.insertBefore(li, li.previousSibling); 
@@ -94,6 +95,7 @@ buttonUp.addEventListener('click', () => {
 buttonDown.addEventListener('click', () => {
   const li = document.querySelector('.item');
   if (li === null) {
+    return;
   } else if (li === olId.lastChild) {
     return;
   } else { 
