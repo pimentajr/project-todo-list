@@ -1,13 +1,13 @@
 // 5 - Incluindo itens na lista
 
-let buttonAdd = document.getElementById('criar-tarefa'); // botão
+const buttonAdd = document.getElementById('criar-tarefa'); // botão
 
-let newItem = document.getElementById('texto-tarefa'); // caixa de texto
+const newItem = document.getElementById('texto-tarefa'); // caixa de texto
 
-let toDoList = document.getElementById('lista-tarefas'); // lista ordenada
+const toDoList = document.getElementById('lista-tarefas'); // lista ordenada
 
 buttonAdd.addEventListener('click', function addItemList() {
-  let itemList = document.createElement('li');
+  const itemList = document.createElement('li');
   toDoList.appendChild(itemList);
   itemList.innerHTML = newItem.value;
   newItem.value = '';
