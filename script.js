@@ -77,12 +77,20 @@ botaoSalvarTarefas.onclick = function salvarTarefas() {
 const botaoMoveCima = document.querySelector('#mover-cima');
 const botaoMoveBaixo = document.querySelector('#mover-baixo');
 
+const tarefa = document.getElementsByClassName('tarefa');
 botaoMoveCima.onclick = function () {
   for (let index = 0; index < tarefa.length; index += 1) {
     if (tarefa[index].classList.contains('selected')) {
-      const aux = tarefa[index - 1];
-      tarefa[index - 1] = tarefa[index];
-      tarefa[index] = aux;
+      tarefa[index].insertBefore()
     }
   }
-}
+};
+
+// 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
+
+const botaoRemoveSelecionado = document.querySelector('#remover-selecionado');
+
+botaoRemoveSelecionado.onclick = function () {
+  const tarefaSelecionada = document.querySelector('.selected');
+  listaTarefas.removeChild(tarefaSelecionada);
+};
