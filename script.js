@@ -10,7 +10,6 @@ function addHeader() {
 addHeader();
 
 // Cria uma section com um parágrafo e texto
-//2 - Adicione abaixo do título um pequeno e discreto parágrafo com id="funcionamento" e com o texto "Clique duas vezes em um item para marcá-lo como completo"
 function addFirstSection() {
   const section = document.createElement('section');
   section.id = 'firstsection';
@@ -21,3 +20,11 @@ function addFirstSection() {
   section.appendChild(paragraph);
 }
 addFirstSection();
+
+// Cria um input para o usuário poder digitar o item
+function addInput() {
+  const input = document.createElement('input');
+  input.id = 'texto-tarefa';
+  document.querySelector('#firstsection').appendChild(input);
+}
+addInput();
