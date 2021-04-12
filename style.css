@@ -38,12 +38,14 @@ main {
   border-radius: 8px;
   color: white;
   padding: 2px 20px;
+  font-weight: 700;
 }
 
 #remover-selecionado , #salvar-tarefas {
   border-radius: 8px;
   color: white;
   padding: 2px 20px;
+  font-weight: 700;
 }
 
 #criar-tarefa , #remover-finalizados {
