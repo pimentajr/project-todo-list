@@ -24,10 +24,10 @@ const createrElement = (el, cl, value) => {
 };
 
 doButton.addEventListener('click', () => {
-  let inputWithValue = document.querySelector('#tarefa');
-  // olTodos.insertBefore(createrElement('li', 'task', inputWithValue), olTodos.firstChild);
+  let inputWithValue = document.querySelector('#texto-tarefa');
+  // olTodos.insertBefore(createrElement('li', 'task', inputWithValue.value), olTodos.firstChild);
   olTodos.appendChild(createrElement('li', 'task', inputWithValue.value));
-  inputWithValue.value = null;
+  inputWithValue.value = '';
 })
 
 removeAllButton.addEventListener('click', () => {
