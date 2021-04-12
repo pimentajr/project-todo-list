@@ -140,7 +140,9 @@ function moveUp() {
 
   previousTask.remove();
 
-  selectedTask.insertAdjacentElement('afterend', swap);
+  const insertedTask = selectedTask.insertAdjacentElement('afterend', swap);
+  insertedTask.addEventListener('click', selectTask);
+  insertedTask.addEventListener('dblclick', toggleTaskCompleted);
 }
 
 const moveUpButton = document.getElementById('mover-cima');
@@ -158,7 +160,9 @@ function moveDown() {
 
   nextTask.remove();
 
-  selectedTask.insertAdjacentElement('beforebegin', swap);
+  const insertedTask = selectedTask.insertAdjacentElement('beforebegin', swap);
+  insertedTask.addEventListener('click', selectTask);
+  insertedTask.addEventListener('dblclick', toggleTaskCompleted);
 }
 
 const moveDownButton = document.getElementById('mover-baixo');
