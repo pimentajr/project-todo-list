@@ -34,3 +34,11 @@ function addTask() {
   }
 }
 document.querySelector('#criar-tarefa').addEventListener('click', addTask);
+
+function clearAll() {
+  const element = document.querySelectorAll('li');
+  for (let index = 0; index < element.length; index += 1) {
+    document.querySelector('#lista-tarefas').removeChild(element[index]);
+  }
+}
+document.querySelector('#apaga-tudo').addEventListener('click', clearAll);
