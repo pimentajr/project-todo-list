@@ -1,21 +1,9 @@
-// capturar todos os elementos em constantes antes de criar as funçoes
-
-// const header = document.querySelector('header');
-
-// const funcionamento = document.querySelector('#funcionamento');
-
 const textoTarefa = document.querySelector('#texto-tarefa');
-
 const criarTarefa = document.querySelector('#criar-tarefa');
-
 const listaDeTarefas = document.querySelector('#lista-tarefas');
-
 const apagaTudo = document.querySelector('#apaga-tudo');
-
 const removerFinalizados = document.querySelector('#remover-finalizados');
-
 const removerSelecionado = document.querySelector('#remover-selecionado');
-
 const salvarTarefas = document.querySelector('#salvar-tarefas');
 
 // 5. Clicar o botão com id="criar-tarefa" faz o conteúdo ir para o final da lista
