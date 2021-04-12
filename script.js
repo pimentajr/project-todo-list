@@ -1,10 +1,12 @@
 // Cria item de lista
 function createTasks(textoTarefa, criarTarefa, listaTarefa) {
   criarTarefa.addEventListener('click', () => {
-    let task = document.createElement('li');
-    task.innerText = textoTarefa.value;
-    listaTarefa.appendChild(task);
-    textoTarefa.value = '';
+    if (textoTarefa.value) {
+      let task = document.createElement('li');
+      task.innerText = textoTarefa.value;
+      listaTarefa.appendChild(task);
+      textoTarefa.value = '';
+    }
   });
 }
 
@@ -34,21 +36,23 @@ function completeTask(listaTarefa) {
   });
 }
 
+// Apaga todas as tarefas
+function clearTaskList(apagaTudo, listaTarefa) {
+  apagaTudo.addEventListener('click', () => {
+    if (listaTarefa.innerText) {
+      listaTarefa.innerText = '';
+    }
+  })
+}
+
 // Carregar meus arquivos ao carregar a página
 window.onload = () => {
   const textoTarefa = document.getElementById('texto-tarefa');
   const criarTarefa = document.getElementById('criar-tarefa');
   const listaTarefa = document.getElementById('lista-tarefas');
+  const apagaTudo = document.getElementById('apaga-tudo');
   createTasks(textoTarefa, criarTarefa, listaTarefa);
   changeBackgroundListColor(listaTarefa);
   completeTask(listaTarefa);
+  clearTaskList(apagaTudo, listaTarefa);
 }
-
-// 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
-// Pontos importantes sobre este requisito:
-// * Crie uma classe CSS com o nome "completed" e defina a propriedade "text-decoration" com o valor "line-through".
-// * Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas.
-// O que será verificado:
-// Será verificado que, antes da ação ser disparada, o elemento adicionado à lista não tem nem a classe completed nem o estilo line-through solid rgb(0, 0, 0).
-// Será verificado que a ação pedida é disparada mediante duplo clique no elemento da lista e que os elementos da lista completos tem em si a classe completed e a propriedade text-decoration com o valor line-through solid rgb(0, 0, 0)
-// Será verificado que, com um segundo duplo clique, um elemento completo deixa de sê-lo
