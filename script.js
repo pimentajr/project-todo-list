@@ -106,3 +106,13 @@ function moveDownButton() {
 
 moveUpButton();
 moveDownButton();
+
+function clearSelectedButton() {
+  const btnClearSelected = document.querySelector('#remover-selecionado');
+  btnClearSelected.addEventListener('click', () => {
+    const currentSelected = document.querySelector('.selected');
+    tasksList.removeChild(currentSelected);
+  });
+}
+
+clearSelectedButton();
