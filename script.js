@@ -4,13 +4,19 @@ const jobList = document.getElementById('lista-tarefas');
 
 function createJob() {
   jobButton.addEventListener('click', () => {
-    let newJob = inputValue.value;
-    let newItem = document.createElement('li');
+    const newJob = inputValue.value;
+    const newItem = document.createElement('li');
     newItem.className = 'job';
     newItem.innerText = newJob;
     jobList.appendChild(newItem);
     inputValue.value = '';
-
-  })
+  });
 }
 createJob();
+
+function jobColor() {
+  jobList.addEventListener('click', (event) => {
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+  })
+}
+jobColor();
