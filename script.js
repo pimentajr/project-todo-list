@@ -1,5 +1,5 @@
 const title = document.getElementById('title');
-title.innerHTML = 'Minhas Lista de Tarefas';
+title.innerHTML = 'Minha Lista de Tarefas';
 
 const paragraph = document.getElementById('funcionamento');
 paragraph.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
@@ -14,27 +14,26 @@ function createItemToDo() {
   }
 }
 
-function clickButtonAdd () {
+function clickButtonAdd() {
   const button = document.getElementById('criar-tarefa');
   button.addEventListener('click', createItemToDo);
 }
 
 clickButtonAdd();
 
-
 function selectedLiItem(event) {
-  const itemSelected = document.querySelector('.selected')
+  const itemSelected = document.querySelector('.selected');
   if (itemSelected !== null){
     itemSelected.classList.remove('selected');
   }
-  event.target.classList.add('selected')
+  event.target.classList.add('selected');
 }
 
 const taskList = document.getElementById('lista-tarefas');
 taskList.addEventListener('click', selectedLiItem);
 
 function doneTask(event) {
-  const completedTask = event.target.classList.contains('completed')
+  const completedTask = event.target.classList.contains('completed');
   if (completedTask) {
     event.target.classList.remove('completed');
   } else {
@@ -44,5 +43,3 @@ function doneTask(event) {
 
 const addDoneTask = document.getElementById('lista-tarefas');
 addDoneTask.addEventListener('dblclick', doneTask);
-
-
