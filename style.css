@@ -3,3 +3,62 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+header {
+  position: sticky;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  padding: 24px 0;
+}
+
+#funcionamento {
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+main {
+  min-height: 75vh;
+}
+
+#conteudo-central {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu-criar-tarefa {
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 36px;
+}
+
+#lista-tarefas {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 620px;
+}
+
+#lista-tarefas > li {
+  padding: 4px;
+  border: 1px solid black;
+  margin-bottom: 8px;
+}
+
+#menu-acoes {
+  float: left;
+  margin-left: 36px;
+}
+
+#menu-acoes > * {
+  display: block;
+  margin-bottom: 12px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 24px;
+}
