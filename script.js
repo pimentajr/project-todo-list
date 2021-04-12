@@ -24,8 +24,10 @@ function completedList() {
   lista.addEventListener('dblclick', (event) => {
     const dbclick = event.target;
     if (dbclick.classList.contains('completed')) {
+      dbclick.classList.remove('gray');
       dbclick.classList.remove('completed');
     } else {
+      dbclick.classList.remove('gray');
       dbclick.classList.add('completed');
     }
   });
