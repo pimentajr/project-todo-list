@@ -45,15 +45,16 @@ jobDone();
 function clearJobs() {
   clearButton.addEventListener('click', () => {
     jobListContainer.innerHTML = '';
-  })
+  });
 }
 clearJobs();
 
 function removeFinishedJobs() {
-  finishedJobs.addEventListener('click', (event) => {
-    for (let index = 0; index < jobItems.length; index += 1) {
+  finishedJobs.addEventListener('click', () => {
+    for (let index = jobItems.length - 1; index > 0; index -= 1) {
       if (jobItems[index].classList.contains('completed')) {
-        jobListContainer.removeChild(jobItems[index]);
+        let deleteItem = jobItems[index];
+        jobItems[0].parentNode.removeChild(deleteItem);
       }
     }
   });
