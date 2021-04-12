@@ -23,4 +23,11 @@ button.addEventListener('click', () => {
       event.target.classList.add('selected');
     });
   }
+
+  // Risca tarefa quando clicada 2x
+  for (const tarefa of tarefas) {
+    tarefa.addEventListener('dblclick', (event) => {
+      event.target.classList.add('completed');
+    });
+  }
 });
