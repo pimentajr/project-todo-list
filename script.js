@@ -41,19 +41,6 @@ function lineThrough(event) {
   }
 }
 
-function checkClassNull() {
-  const listItem = document.querySelectorAll('#list-item');
-  for (let index = 0; index < listItem.length; index += 1) {
-    if (
-      listItem[index].classList === null || listItem[index].className === 'null'
-    ) {
-      listItem[index].removeAttribute('class');
-    } else if (listItem[index].classList.contains('null')) {
-      listItem[index].classList.remove('null');
-    }
-  }
-}
-
 btnCreateTask.addEventListener('click', () => {
   const inputData = document.getElementById('texto-tarefa').value;
   const createTask = document.createElement('li');
@@ -93,31 +80,10 @@ btnDeleteSelected.addEventListener('click', () => {
 });
 
 btnSaveTasks.addEventListener('click', () => {
-  const listItem = document.querySelectorAll('#list-item');
-  const listItemAttributes = [];
-
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItemAttributes.push({
-      id: listItem[index].getAttribute('id'),
-      class: listItem[index].getAttribute('class'),
-      text: listItem[index].innerText,
-    });
-  }
-  localStorage.setItem('listItems', JSON.stringify(listItemAttributes));
+  const htmlData = document.querySelector('html').innerHTML;
+  localStorage.setItem('listItems', htmlData);
 });
 
-function batatatinha() {
-  const storageTasks = JSON.parse(localStorage.getItem('listItems'));
-
-  for (let index = 0; index < storageTasks.length; index += 1) {
-    const createTaskStorage = document.createElement('li');
-    createTaskStorage.setAttribute('class', storageTasks[index].class);
-    createTaskStorage.setAttribute('id', storageTasks[index].id);
-    createTaskStorage.innerText = storageTasks[index].text;
-
-    olList.appendChild(createTaskStorage);
-  }
-  checkClassNull();
-}
-
-window.onload = batatatinha;
+window.onload = function() {
+  document.querySelector('html').innerHTML = localStorage.getItem('listItems');
+};
