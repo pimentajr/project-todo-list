@@ -7,8 +7,12 @@ function addTaskToList() {
     const createLi = document.createElement('li');
     createLi.innerText = taskInput.value;
     taskOList.appendChild(createLi);
-    taskInput.value ='';
+    taskInput.value = '';
   });
 }
 
 addTaskToList();
+
+taskOList.addEventListener('click', (event) => {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+});
