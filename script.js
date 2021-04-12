@@ -1,8 +1,9 @@
 const taskList = document.getElementById('lista-tarefas');
 const insertButtom = document.getElementById('criar-tarefa');
 const tasks = document.querySelector('#lista-tarefas');
+// let selectedTask = document.createElement('style');
 
-function insertTask () {
+function insertTask() {
   const taskContent = document.getElementById('texto-tarefa').value;
   const newTask = taskContent;
   document.getElementById('texto-tarefa').value = '';
@@ -20,16 +21,15 @@ function selectTask(e) {
   e.target.classList.add('selectedTask');
 }
 
-function lineThrough (f) {
-  if (f.target.classList.contains('completed')) {
-    f.target.classList.remove('completed');
+function lineThrough(e) {
+  if (e.target.classList.contains('completed')) {
+    e.target.classList.remove('completed');
   } else {
-    f.target.className = 'completed';
+    e.target.className = 'completed';
   }
 }
 
-
-window.onload = function () {
+window.onload = () => {
   // Desafio 5 e 6
   insertButtom.addEventListener('click', insertTask);
 
@@ -38,4 +38,4 @@ window.onload = function () {
 
   // Desafio 9
   tasks.addEventListener('dblclick', lineThrough);
-}
+};
