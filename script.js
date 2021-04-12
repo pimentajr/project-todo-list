@@ -14,20 +14,29 @@ function addTask() {
 
 function taskSelector(event) {
   for (let index = 0; index < tasks.length; index += 1) {
-    const classes = tasks[index].className;
-    if (classes === 'tasks selected') {
+    const classes = tasks[index].classList;
+    if (classes.contains('selected')) {
       tasks[index].classList.remove('selected');
     }
   }
 
   const targetTask = event.target;
   targetTask.classList.add('selected');
-  console.log(event.target);
+}
+
+function setStatus(event) {
+  const targetTask = event.target;
+  if (targetTask.classList.contains('completed')) {
+    targetTask.classList.remove('completed');
+    return;
+  }
+  targetTask.classList.add('completed');
 }
 
 function addListeners() {
   buttonForTaskCreation.addEventListener('click', addTask);
   taskList.addEventListener('click', taskSelector);
+  taskList.addEventListener('dblclick', setStatus);
 }
 
 addListeners();
