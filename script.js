@@ -32,3 +32,14 @@ function completeTask(event) {
 }
 
 toDoList.addEventListener('dblclick', completeTask);
+
+const clearBtn = document.querySelector('#apaga-tudo');
+
+function clearList() {
+  const listItems = document.querySelector('#lista-tarefas');
+  while (listItems) {
+    listItems.firstChild.remove();
+  }
+}
+
+clearBtn.addEventListener('click', clearList);
