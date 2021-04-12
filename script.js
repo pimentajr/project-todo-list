@@ -9,31 +9,38 @@ let submitButton = document.getElementById('criar-tarefa');
 
 // Create New Task
 function createNewTask(taskInputValue) {
-  taskInputValue = taskInput.value
-  let newTask = document.createElement('li');
-  newTask.innerText = taskInputValue;
-  taskList.appendChild(newTask);
-  taskInput.value = '';
+taskInputValue = taskInput.value
+let newTask = document.createElement('li');
+newTask.innerText = taskInputValue;
+taskList.appendChild(newTask);
+taskInput.value = '';
 }
 
 // Select item
 taskList.addEventListener('click',function(event) {
-  let listItem = document.getElementsByTagName('li');
-  for (key of listItem){
-    key.style.backgroundColor= '';
-  }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)'})
+let listItem = document.getElementsByTagName('li');
+for (key of listItem){
+  key.style.backgroundColor= '';
+}
+event.target.style.backgroundColor = 'rgb(128, 128, 128)'})
 
-  // Strike-Unstrike Item
-  taskList.addEventListener('dblclick',function(event){
-    event.target.classList.toggle('completed');
-  })
+// Strike-Unstrike Item
+taskList.addEventListener('dblclick',function(event){
+  event.target.classList.toggle('completed');
+})
 
-  // Remove Completed Items
-  function removeCompleted() {
-    let completedTasks = document.getElementsByClassName('completed'); 
-    while (completedTasks.length > 0) {
-      console.log(completedTasks[0])
-      taskList.removeChild(completedTasks[0]);
-    }
+// Remove All
+function removeAllItems() {
+  taskList.innerHTML = '';
+}
+
+// Remove Completed Items
+function removeCompleted() {
+  let completedTasks = document.getElementsByClassName('completed'); 
+  while (completedTasks.length > 0) {
+    console.log(completedTasks[0])
+    taskList.removeChild(completedTasks[0]);
   }
+}
+
+
