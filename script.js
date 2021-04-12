@@ -30,6 +30,8 @@ function addTask(text) {
   newTask.innerText = text;
 
   taskList.appendChild(newTask);
+
+  return newTask;
 }
 
 function clearInput() {
@@ -70,3 +72,51 @@ function clearCompleted() {
 const clearCompletedButton = document.getElementById('remover-finalizados');
 
 clearCompletedButton.addEventListener('click', clearCompleted);
+
+function saveList() {
+  if (!Storage) {
+    return;
+  }
+
+  const rawList = [];
+
+  const allTasks = taskList.getElementsByClassName('task');
+
+  if (!allTasks.length) {
+    localStorage.removeItem('taskList');
+    return;
+  }
+
+  for (let i = 0; i < allTasks.length; i += 1) {
+    rawList.push({
+      text: allTasks[i].innerText,
+      completed: allTasks[i].classList.contains('completed'),
+    });
+  }
+
+  let listJson = JSON.stringify(rawList);
+
+  localStorage.setItem('taskList', listJson);
+}
+
+const saveButton = document.getElementById('salvar-tarefas');
+
+saveButton.addEventListener('click', saveList);
+
+function loadList() {
+  if (!Storage || !localStorage.taskList) {
+    return;
+  }
+
+  const taskList = JSON.parse(localStorage.taskList);
+
+  for (let i = 0; i < taskList.length; i += 1) {
+    let newTask = addTask(taskList[i].text);
+
+    if (taskList[i].completed) {
+      newTask.classList.add('completed');
+    }
+  }
+}
+
+loadList();
