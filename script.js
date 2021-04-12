@@ -7,6 +7,7 @@ const saveEveryFinishedTask = document.getElementById('salvar-tarefas');
 const removeEverySavedTask = document.getElementById('remover-tarefas-salvas');
 const buttonUp = document.getElementById('mover-cima');
 const buttonDown = document.getElementById('mover-baixo');
+const removeSelectedTaskButton = document.getElementById('remover-selecionado');
 
 buttonCreateTask.addEventListener('click', () => {
   if (inputId.value === '') {
@@ -27,12 +28,12 @@ olId.addEventListener('click', (e) => {
   for (let i = 0; i < olId.children.length; i += 1) {
     if (olId.children[i] !== e.target) {
       olId.children[i].style.backgroundColor = 'white';
-      olId.children[i].classList.remove('teste')
+      olId.children[i].classList.remove('teste');
     }
   }
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  e.target.classList.add('item')
-  console.log(e.target)
+  e.target.classList.add('item');
+  console.log(e.target);
 });
 
 olId.addEventListener('dblclick', (e) => {
@@ -81,7 +82,7 @@ removeEverySavedTask.addEventListener('click', () => {
 
 buttonUp.addEventListener('click', () => {
   const li = document.querySelector('.item');
-  console.log(li)
+  console.log(li);
   if (li === null) return;
   olId.insertBefore(li, li.previousSibling);
 });
@@ -91,3 +92,12 @@ buttonDown.addEventListener('click', () => {
   if (li === null) return;
   olId.insertBefore(li.nextSibling, li);
 });
+
+function removeSelectedTask() {
+  removeSelectedTaskButton.addEventListener('click', () => {
+    const liSelected = document.querySelector('.item');
+    console.log(liSelected)
+    liSelected.remove();
+  });
+}
+removeSelectedTask();
