@@ -26,19 +26,21 @@ function addTarefaKeypress(event) {
 criarTarefa.addEventListener('click', addTarefaClick);
 textoTarefa.addEventListener('keypress', addTarefaKeypress);
 
-function removerSelected() {
+function removerSelecao() {
   const tarefas = document.querySelectorAll('.tarefa');
 
   for (let index = 0; index < tarefas.length; index += 1) {
-    tarefas[index].classList.remove('selected');
+    tarefas[index].style.backgroundColor = 'white';
   }
 }
 
-function addSelected(event) {
-  if (event.target.className.includes('tarefa')) {
-    removerSelected();
-    event.target.classList.add('selected');
+function selecionarTarefa(event) {
+  const element = event.target;
+
+  if (element.className.includes('tarefa')) {
+    removerSelecao();
+    element.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
 
-listaTarefas.addEventListener('click', addSelected);
+listaTarefas.addEventListener('click', selecionarTarefa);
