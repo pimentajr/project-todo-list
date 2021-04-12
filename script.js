@@ -23,10 +23,11 @@ function checkOnCompleted(event) {
   }
 }
 
+const taskList = document.querySelector('#lista-tarefas');
 function addTask() {
   const element = document.createElement('li');
   element.innerText = document.querySelector('#texto-tarefa').value;
-  document.querySelector('#lista-tarefas').appendChild(element);
+  taskList.appendChild(element);
   document.querySelector('#texto-tarefa').value = '';
   for (let index = 0; index < document.querySelectorAll('li').length; index += 1) {
     document.querySelectorAll('li')[index].addEventListener('click', changeBgcOfTask);
@@ -38,7 +39,15 @@ document.querySelector('#criar-tarefa').addEventListener('click', addTask);
 function clearAll() {
   const element = document.querySelectorAll('li');
   for (let index = 0; index < element.length; index += 1) {
-    document.querySelector('#lista-tarefas').removeChild(element[index]);
+    taskList.removeChild(element[index]);
   }
 }
 document.querySelector('#apaga-tudo').addEventListener('click', clearAll);
+
+function clearCompleted() {
+  const element = document.querySelectorAll('.completed');
+  for (let index = 0; index < element.length; index += 1) {
+    taskList.removeChild(element[index]);
+  }
+}
+document.querySelector('#remover-finalizados').addEventListener('click', clearCompleted);
