@@ -24,5 +24,12 @@ function taskSelection(task) {
   selectedTask.classList.add('selected');
 }
 
+function completedTask(task) {
+  const completedItem = task.target.classList;
+  const haveCompleted = completedItem.contains('completed');
+  haveCompleted ? completedItem.remove('completed') : completedItem.add('completed');
+}
+
 createTaskButton.addEventListener('click', createTask);
 taskList.addEventListener('click', taskSelection);
+taskList.addEventListener('dblclick', completedTask);
