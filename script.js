@@ -2,6 +2,7 @@ const inputElement = document.getElementById('texto-tarefa');
 const toDoList = document.getElementById('lista-tarefas');
 const newTaskButton = document.getElementById('criar-tarefa');
 const clearAllButton = document.getElementById('apaga-tudo');
+const clearCompletedButton = document.getElementById('remover-finalizados');
 
 function newTask() {
   const task = document.createElement('li');
@@ -28,6 +29,10 @@ function deleteAllTasks() {
   toDoList.querySelectorAll('li').forEach((e) => e.remove());
 }
 
+function deleteCompletedTasks() {
+  toDoList.querySelectorAll('.completed').forEach((e) => e.remove());
+}
+
 newTaskButton.addEventListener('click', newTask);
 inputElement.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') newTaskButton.click();
@@ -35,3 +40,4 @@ inputElement.addEventListener('keydown', (event) => {
 toDoList.addEventListener('click', selectTask);
 toDoList.addEventListener('dblclick', toggleCompletedTask);
 clearAllButton.addEventListener('click', deleteAllTasks);
+clearCompletedButton.addEventListener('click', deleteCompletedTasks);
