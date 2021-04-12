@@ -1,0 +1,12 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+#lista-tarefas {
+  list-style-position: inside;
+}
+
+.selected {
+  background-color: rgb(128,128,128);
+}
