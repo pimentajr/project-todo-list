@@ -6,6 +6,7 @@ function addTarefaClick() {
   const tarefa = document.createElement('li');
 
   tarefa.innerText = textoTarefa.value;
+  tarefa.className = 'tarefa';
   listaTarefas.appendChild(tarefa);
 
   textoTarefa.value = '';
