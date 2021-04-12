@@ -17,6 +17,12 @@ document.querySelector('#apaga-tudo').addEventListener('click', () => {
   }
 });
 
+document.querySelector('#remover-finalizados').addEventListener('click', () => {
+  while (listOfTasks.querySelector('.completed')) {
+    listOfTasks.removeChild(listOfTasks.querySelector('.completed'));
+  }
+});
+
 listOfTasks.addEventListener('click', (event) => {
   if (event.target.classList.contains('task')) {
     if (document.querySelector('.selected')) {
