@@ -43,3 +43,14 @@ function clearList() {
 }
 
 clearBtn.addEventListener('click', clearList);
+
+const clearCompletedBtn = document.querySelector('#remover-finalizados');
+
+function removeCompleted() {
+  const completedItems = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedItems.length; index += 1) {
+    completedItems[index].remove();
+  }
+}
+
+clearCompletedBtn.addEventListener('click', removeCompleted);
