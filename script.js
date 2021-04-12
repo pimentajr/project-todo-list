@@ -11,8 +11,17 @@ function addElementTable() {
   const clickComand = document.getElementById('criar-tarefa');
   clickComand.addEventListener('click', elementFromInput);
 }
+function toColorIten(element) {
+  const selectedItem = element.target;
+  selectedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+function selectListItens() {
+  const listItens = document.getElementById('lista-tarefas');
+  listItens.addEventListener('click', toColorIten);
+}
 function loadWindow() {
   addElementTable();
+  selectListItens();
 }
 
 window.onload = loadWindow;
