@@ -8,6 +8,7 @@ const getCompletedCss = document.getElementsByClassName('completed');
 const getSaveButton = document.querySelector('#salvar-tarefas');
 const getMoveUpButton = document.querySelector('#mover-cima');
 const getMoveDownButton = document.querySelector('#mover-baixo');
+const getRemoveSelectedButton = document.querySelector('#remover-selecionado');
 
 function createList(value) {
   const createLi = document.createElement('li');
@@ -104,8 +105,19 @@ function moveDownList() {
 }
 /* mover itens = https://www.codegrepper.com/code-examples/javascript/javascript+move+list+items+up+and+down */
 
+function removeSelected() {
+  getRemoveSelectedButton.addEventListener('click', () => {
+    for(let index = 0; index < getLi.length; index += 1) {
+      if(getLi[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        getLi[index].remove()
+      }
+    }
+  })
+}
+
 window.onload = () => {
   saveTasks();
   moveUpList();
   moveDownList();
+  removeSelected();
 };
