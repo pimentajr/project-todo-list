@@ -27,21 +27,23 @@ function creatNewAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
   const newAssigment = document.createElement('li');
   locateList.appendChild(newAssigment);
-  newAssigment.className = 'assigments';
+  newAssigment.className = ('assigments');
   return newAssigment;
 }
 
 function backGroundColorChangeOnClick() {
   const locateAssigments = document.querySelectorAll('.assigments');
   for (let hint = 0; hint < locateAssigments.length; hint += 1) {
-  function colorizeAssigment() {
-    for (let index = 0; index < locateAssigments.length; index += 1) {
-      locateAssigments[hint].style.backgroundColor = 'rgb(128, 128, 128)';
+    function colorizeAssigment() {
+      for (let index = 0; index < locateAssigments.length; index += 1) {
+        locateAssigments[index].style.backgroundColor = 'rgb(288, 288, 288)';
+        locateAssigments[hint].style.backgroundColor = 'rgb(128, 128, 128)';
+      }
     }
-  }
-  locateAssigments[hint].addEventListener('click', colorizeAssigment);
+    locateAssigments[hint].addEventListener('click', colorizeAssigment);
   }
 }
+backGroundColorChangeOnClick()
 
 function buttonAssignmentCreat() {
   const locateButton = document.querySelector('#criar-tarefa');
@@ -49,7 +51,7 @@ function buttonAssignmentCreat() {
   function creatNewAssigment() {
     creatNewAssignmentOnList().innerHTML = textAssigment.value;
     textAssigment.value = '';
-    backGroundColorChangeOnClick()
+    backGroundColorChangeOnClick();
   }
   locateButton.addEventListener('click', creatNewAssigment);
 }
