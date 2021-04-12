@@ -1,17 +1,22 @@
-function listItemBackgroundOnClick() {
-  const listItems = document.querySelectorAll('#lista-tarefas li');
-  for (let index = 0; index < listItems.length; index += 1) {
-    const listItem = listItems[index];
-    listItem.addEventListener('click', () => {
-      const currentSelected = document.querySelector('.selected');
-      if (currentSelected !== null) {
-        currentSelected.classList.remove('selected');
-        currentSelected.style.backgroundColor = 'transparent';
-      }
-      listItem.style.backgroundColor = 'rgb(128, 128, 128)';
-      listItem.classList.add('selected');
-    });
-  }
+function listItemBackgroundOnClick(listItem) {
+  listItem.addEventListener('click', () => {
+    const currentSelected = document.querySelector('.selected');
+    if (currentSelected !== null) {
+      currentSelected.classList.remove('selected');
+    }
+    listItem.classList.add('selected');
+  });
+}
+
+function itemDoubleClick(listItem) {
+  listItem.addEventListener('dblclick', () => {
+    const completedOrNot = listItem.classList.contains('completed');
+    if (completedOrNot) {
+      listItem.classList.remove('completed');
+    } else if (!completedOrNot) {
+      listItem.classList.add('completed');
+    }
+  });
 }
 
 function newTaskButton() {
@@ -23,7 +28,8 @@ function newTaskButton() {
     newTask.innerText = inputNewTask.value;
     tasksList.appendChild(newTask);
     inputNewTask.value = '';
-    listItemBackgroundOnClick();
+    listItemBackgroundOnClick(newTask);
+    itemDoubleClick(newTask);
   });
 }
 
