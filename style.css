@@ -7,3 +7,16 @@ header {
   font-size: 23px;
   color: rgb(102 , 99 , 99);
 }
+
+#texto-tarefa {
+  display: block;
+  width: 10%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgb(73 , 80 , 87);
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid rgb(206 , 212 , 218);
+  border-radius: 0.25rem;
+}
