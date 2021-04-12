@@ -21,8 +21,8 @@ function changeBackgroundListColor(listaTarefa) {
     }
     if (event.target.localName === 'li') {
       const eTarget = event.target;
-      eTarget.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      eTarget.target.id = 'selected';
+      eTarget.style.backgroundColor = 'rgb(128, 128, 128)';
+      eTarget.id = 'selected';
     }
   });
 }
@@ -45,8 +45,8 @@ function completeTask(listaTarefa) {
 function clearTaskList(apagaTudo, listaTarefa) {
   apagaTudo.addEventListener('click', () => {
     if (listaTarefa.innerText) {
-      // eslint-disable-next-line no-param-reassign
-      listaTarefa.innerText = '';
+      const taskItem = listaTarefa;
+      taskItem.innerText = '';
     }
   });
 }
@@ -98,7 +98,6 @@ function moveUp(moverCima, listaTarefa) {
     const selected = document.querySelector('#selected');
     if (selected) {
       const upPosition = selected.previousElementSibling;
-      console.log(upPosition);
       if (upPosition) {
         listaTarefa.insertBefore(selected, upPosition);
       }
