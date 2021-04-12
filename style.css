@@ -3,7 +3,12 @@
 	font-size: smaller;
 }
 
-#criar-tarefas {
+#criar-tarefa {
 	background-color: darkgreen;
 	color: white;
+}
+
+.gray {
+	background-color: rgb(128, 128, 128);
+	width:fit-content
 }
