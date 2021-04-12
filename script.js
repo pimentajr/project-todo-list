@@ -8,15 +8,17 @@ const saveTasksBtn = document.querySelector('#salvar-tarefas');
 window.onload = function () {
   let savedTasks = [];
   let savedTasksClass = [];
-  savedTasks = localStorage.getItem('tasks');
-  savedTasks = savedTasks.split(',');
-  savedTasksClass = localStorage.getItem('task-class');
-  savedTasksClass = savedTasksClass.split(',');
-  for (let index = 0; index < savedTasks.length; index += 1) {
-    const newTaskListItem = document.createElement('li');
-    newTaskListItem.innerText = savedTasks[index];
-    newTaskListItem.className = savedTasksClass[index];
-    tasksList.appendChild(newTaskListItem);
+  if (localStorage.length !== 0) {
+    savedTasks = localStorage.getItem('tasks');
+    savedTasks = savedTasks.split(',');
+    savedTasksClass = localStorage.getItem('task-class');
+    savedTasksClass = savedTasksClass.split(',');
+    for (let index = 0; index < savedTasks.length; index += 1) {
+      const newTaskListItem = document.createElement('li');
+      newTaskListItem.innerText = savedTasks[index];
+      newTaskListItem.className = savedTasksClass[index];
+      tasksList.appendChild(newTaskListItem);
+    }
   }
 }
 
