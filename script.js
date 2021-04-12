@@ -11,18 +11,19 @@ botaoAdicionar.addEventListener('click', event => {
 });
 function changeBg() {
   const eventTarget = event.target;
-  if (eventTarget.className === 'clickedItem') {
-    eventTarget.classList.remove('clickedItem');
+  if (eventTarget.id !== 'clickedItem') {
+    eventTarget.id = 'clickedItem';
   } else {
-    eventTarget.classList.add('clickedItem');
+    eventTarget.id = null;
   }
 }
+
 function completedTask() {
   const eventTarget = event.target;
-  if (eventTarget.classList !== 'completed') {
+  if (eventTarget.className !== 'completed') {
     eventTarget.classList.add('completed');
   } else {
-    eventTarget.classList.remove('completed');
+    eventTarget.className = null;
   }
 }
 
