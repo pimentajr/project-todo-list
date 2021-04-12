@@ -10,7 +10,12 @@ const mainProject = document.getElementById('main');
 let button = document.getElementById('criar-tarefa');
 // Criar uma função que adiciona um elemento na tela
 
-
+// Função que limpa input - Será usada na sunção inputTask
+function clearInput(target) {
+  if (target.value !== '') {
+    target.value = '';
+  }
+}
 
 // Função para colocar input na lista
 function inputTask() {
@@ -24,9 +29,13 @@ function inputTask() {
   taskList.appendChild(itenList);
   // Adiciona a lista no main
   mainProject.appendChild(taskList);
+  // Limpa o input
+  clearInput(document.getElementById('texto-tarefa'));
 }
 // Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
 button.addEventListener('click', inputTask);
+// criar função que apaga input
+
 // Adicionar eventLetener no botão para que ele reaja ao click acionando a função que pega o input e coloca em uma lista
 
 
