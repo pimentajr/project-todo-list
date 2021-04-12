@@ -14,6 +14,14 @@ function CompleteTask(event) {
   }
 }
 
+function clearAll() {
+  const list = document.getElementById('lista-tarefas');
+  const size = list.childElementCount;
+  for (let index = 0; index < size; index += 1) {
+    list.removeChild(list.lastElementChild);
+  }
+}
+
 function CreateTask() {
   const element = document.createElement('li');
   const text = document.getElementById('texto-tarefa').value;
@@ -33,6 +41,12 @@ function addEventCreateTask() {
   button.addEventListener('click', CreateTask);
 }
 
+function addEventClearAll() {
+  const button = document.getElementById('apaga-tudo');
+  button.addEventListener('click', clearAll);
+}
+
 window.onload = function load() {
   addEventCreateTask();
+  addEventClearAll();
 };
