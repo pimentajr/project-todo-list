@@ -1,3 +1,4 @@
+const selectedClass = 'selected';
 const inputTask = document.getElementById('texto-tarefa');
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const olTaskList = document.getElementById('lista-tarefas');
@@ -15,10 +16,21 @@ function createTaskHandler() {
   inputTask.focus();
 }
 
-function selectTask({ target }) {
-  const temp = target;
+function removeAllClasses(className) {
+  const elements = document.getElementsByClassName(className);
 
-  if (temp.tagName === 'LI') temp.style.backgroundColor = 'rgb(128, 128, 128)';
+  for (let index = 0; index < elements.length; index += 1) {
+    elements[index].classList.remove(className);
+  }
+}
+
+function selectTask(event) {
+  const { target } = event;
+
+  if (target.tagName === 'LI') {
+    removeAllClasses(selectedClass);
+    target.classList.add(selectedClass);
+  }
 }
 
 function onLoad() {
