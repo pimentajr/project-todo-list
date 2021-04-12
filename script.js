@@ -18,8 +18,14 @@ createTaskButton.addEventListener('click', clearInputField);
 
 const orderedList = document.querySelector('#lista-tarefas');
 
-function changeListItemBackgroundColor(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function changeListItemBackgroundColor(evento) {
+  const tasklist = document.querySelectorAll('.tasks');
+  for (let index = 0; index < tasklist.length; index += 1) {
+    if (document.querySelectorAll('.tasks')[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      tasklist[index].style.backgroundColor = 'transparent';
+    }
+  }
+  evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 orderedList.addEventListener('click', changeListItemBackgroundColor);
