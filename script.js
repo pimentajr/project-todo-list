@@ -1,14 +1,22 @@
 const addTaskForm = document.getElementById('add-task-form');
-const taskList = document.getElementById('lista-tarefas');
+const taskListElement = document.getElementById('lista-tarefas');
 
 function addTask(event) {
-  let addTaskField = document.getElementById('texto-tarefa');
-  let taskItem = document.createElement('li');
+  const dateAdded = Date.now();
+  const prettyDateAdded = new Date().toUTCString();
+  const task = document.getElementById('texto-tarefa').value;
+  const taskObject = { task, dateAdded, prettyDateAdded };
+  let stringifiedTaskList = localStorage.taskList;
+  let taskList;
 
-  taskItem.textContent = addTaskField.value;
-  taskItem.classList.add('task');
-  taskList.appendChild(taskItem);
-  addTaskField.value = '';
+  if (!stringifiedTaskList) {
+    taskList = [taskObject];
+  } else {
+    taskList = JSON.parse(stringifiedTaskList);
+    taskList.push(taskObject);
+  }
+  stringifiedTaskList = JSON.stringify(taskList);
+  localStorage.taskList = stringifiedTaskList;
   event.preventDefault();
 }
 
