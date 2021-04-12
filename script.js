@@ -1,10 +1,10 @@
-let buttom = document.querySelector('#criar-tarefas')
-let input = document.querySelector('#texto-tarefa')
-let lista = document.querySelector('#lista-tarefas') 
+const buttom = document.querySelector('#criar-tarefa');
+const input = document.querySelector('#texto-tarefa');
+const lista = document.querySelector('#lista-tarefas') ;
 
-function addList () {
-buttom.addEventListener('click', function toDo(event) {
-lista.appendChild(document.createElement('li')).innerHTML = input.value
-})
+function addList() {
+  buttom.addEventListener('click', function toDo() {
+    lista.appendChild(document.createElement('li')).innerHTML = input.value
+  });
 }
-addList()
+addList();
