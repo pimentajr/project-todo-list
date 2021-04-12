@@ -9,44 +9,49 @@ function add(father, child) {
 }
 
 // Task 1
-// body and header declaration
 const { body } = document;
-
 const header = create('header');
 add(body, header);
 
-// add text to header
 header.innerHTML = '<b>Minha Lista de Tarefas</b>';
 header.style.fontSize = '20px';
 
 // Task 2
-// description declaration
 const descrp = create('p');
 add(body, descrp);
 
-// add text and id to descrp
 descrp.id = 'funcionamento';
 descrp.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 
 // Task 3
-// input declaration
 const input = create('input');
 add(body, input);
 
-// add id to input
 input.id = 'texto-tarefa';
 
 // Task 4
-// ordered list declaration
 const list = create('ol');
 add(body, list);
 
-// add id to list
 list.id = 'list-tarefas';
+list.style.listStyleType = 'none';
+
+// Task 5
+const button = create('button');
+add(body, button);
+
+button.innerText = 'Clique Aqui';
+button.id = 'criar-tarefa';
+
+function createListItem() {
+  const listItens = create('li');
+  add(list, listItens);
+  listItens.innerText = input.value;
+}
 
 // start function
 function start() {
-
+  button.addEventListener('click', createListItem);
 }
 
 // window.onload
