@@ -8,8 +8,34 @@ assignmentTextPlaceHolder();
 
 function assigmentList() {
   const listHolder = document.createElement('ol')
-  const listHolderPlacement = document.querySelector('#section-interactive');
+  const listHolderPlacement = document.querySelector('#list-section');
   listHolderPlacement.appendChild(listHolder);
-  textHolder.id = 'lista-tarefas'
+  listHolder.id = 'lista-tarefas';
 }
 assigmentList();
+
+function buttonCreat() {
+  const buttonHolder = document.createElement('button');
+  const buttonHolderPlacement = document.querySelector('#section-interactive');
+  buttonHolder.id = 'criar-tarefa';
+  buttonHolder.innerHTML = 'newAssigment';
+  buttonHolderPlacement.appendChild(buttonHolder);
+}
+buttonCreat();
+
+function buttonAssignmentCreat() {
+  const locateButton = document.querySelector('#criar-tarefa');
+  const textAssigment = document.querySelector('#texto-tarefa')
+  function creatNewAssigment() {
+    creatNewAssignmentOnList().innerHTML = textAssigment.value
+  }
+  locateButton.addEventListener('click', creatNewAssigment);
+}
+buttonAssignmentCreat()
+
+function creatNewAssignmentOnList() {
+  const locateList = document.querySelector('#lista-tarefas');
+  const newAssigment = document.createElement('li');
+  locateList.appendChild(newAssigment)
+  return newAssigment
+}
