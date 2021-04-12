@@ -40,3 +40,14 @@ function crossOutCompletedTask(event) {
 }
 
 orderedList.addEventListener('dblclick', crossOutCompletedTask);
+
+const eraseButton = document.querySelector('#apaga-tudo');
+
+function eraseEverything() {
+  let orderedList = document.querySelector('#lista-tarefas');
+    while (orderedList.firstChild) {
+      orderedList.removeChild(orderedList.firstChild);
+    }
+}
+
+eraseButton.addEventListener('click', eraseEverything);
