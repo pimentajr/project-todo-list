@@ -1,0 +1,13 @@
+const input = document.getElementById('texto-tarefa')
+const toDoList = document.querySelector('#lista-tarefas')
+const createToDo = document.getElementById('criar-tarefa')
+
+
+function addToDo () {
+	const toDo = document.createElement('li');
+	toDo.innerText = input.value;
+	toDoList.appendChild(toDo);
+	input.value = ""
+}
+
+createToDo.addEventListener('click', addToDo);
