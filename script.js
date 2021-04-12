@@ -13,6 +13,7 @@ function createLi(){
   var slctDiv = document.getElementById('list')
   var crtElement = document.createElement('ol')
   crtElement.setAttribute('id', 'lista-tarefas')
+  crtElement.setAttribute('onclick', 'infos()')
   slctDiv.appendChild(crtElement)
 }
 
@@ -23,7 +24,27 @@ function createTask(){
   var textInput = input.value;
   var list = document.querySelector('#lista-tarefas')
   var createLi = document.createElement('li')
+  createLi.className = 'item'
   createLi.innerText = textInput
   list.appendChild(createLi)
   input.value = ''
 }
+
+function infos(){
+  let clear = document.getElementsByClassName('selected')
+  let lenght = clear.length
+  if (lenght >= 1){
+    document.querySelector('.selected').className = 'item'
+  }
+  event.target.setAttribute('class','selected')
+  document.querySelector('.selected')
+}
+
+
+
+
+// var cont = 0
+// var listSelector = document.getElementsByTagName('li')
+// for (let iten = 0; iten < listSelector.length; itens += 1){
+//   cont += 1
+// }
