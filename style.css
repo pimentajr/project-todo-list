@@ -12,24 +12,26 @@
 
 body {
   background-color: rgb(64 , 173 , 64);
+  font-size: 20px;
 }
 
 header {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 main {
   background-color: white;
   padding: 30px;
   border-radius: 20px;
-  margin-top: 50px;
+  margin: 50px;
   max-width: 60%;
 }
 
 #funcionamento {
   font-style: italic;
+  font-size: 15px;
 }
 
 #criar-tarefa , #remover-finalizados , #apaga-tudo {
