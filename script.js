@@ -1,3 +1,1 @@
-console.log("xulambs")
-
-
+console.log('xulambs');
