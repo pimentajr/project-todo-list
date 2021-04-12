@@ -58,3 +58,15 @@ function clearList() {
 const clearButton = document.getElementById('apaga-tudo');
 
 clearButton.addEventListener('click', clearList);
+
+function clearCompleted() {
+  const completedTasks = document.getElementsByClassName('completed');
+
+  while (completedTasks.length) {
+    completedTasks[0].remove();
+  }
+}
+
+const clearCompletedButton = document.getElementById('remover-finalizados');
+
+clearCompletedButton.addEventListener('click', clearCompleted);
