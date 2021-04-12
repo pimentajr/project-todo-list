@@ -45,6 +45,7 @@ function completeTask(event) {
   const { target } = event;
 
   if (target.tagName === liTag) {
+    target.classList.remove(selectedClass);
     if (target.classList.contains(completedClass)) target.classList.remove(completedClass);
     else target.classList.add(completedClass);
   }
