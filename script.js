@@ -1,3 +1,11 @@
+function selectTask(event) {
+  if (event.target.className !== 'selected') {
+    event.target.classList.add('selected');
+  } else {
+    event.target.classList.remove('selected');
+  }
+}
+
 function addTask() {
   const userInput = document.getElementById('texto-tarefa').value;
   const typed = userInput;
@@ -8,7 +16,6 @@ function addTask() {
   listTask.appendChild(task);
   task.innerHTML = typed;
   document.getElementById('texto-tarefa').value = '';
-  
 }
 
 function clickButtonTask() {
@@ -16,19 +23,6 @@ function clickButtonTask() {
   buttonTask.addEventListener('click', addTask);
 }
 
-function selectTask(event) {
-  if (event.target.className !== 'selected') {
-    event.target.classList.add('selected');
-  }else {
-    event.target.classList.remove('selected');
-  }
-}
-
 window.onload = function load() {
-
-clickButtonTask(); 
-
+  clickButtonTask();
 };
-
-
-
