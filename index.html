@@ -4,27 +4,58 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Todo List Project</title>
   </head>
   <body>
-    <main>
+    <main class="pill">
       <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">
           Clique duas vezes em um item para marcá-lo como completo
         </p>
       </header>
-      <input type="text" id="texto-tarefa" placeholder="Escreva aqui a nova tarefa">
-      <button id="criar-tarefa">Adicionar</button>
+      <div id="new-task">
+        <input
+          class="pill"
+          type="text"
+          id="texto-tarefa"
+          placeholder="Escreva aqui a nova tarefa"
+        />
+        <button id="criar-tarefa">Adicionar</button>
+      </div>
       <ol id="lista-tarefas"></ol>
-      <div class="task-controls">
-        <button id="remover-selecionado">Remover Tarefa</button>
-        <button id="mover-cima">↑</button>
-        <button id="mover-baixo">↓</button>
-        <button id="remover-finalizados">Limpar Completas</button>
-        <button id="apaga-tudo">Limpar Lista</button>
-        <button id="salvar-tarefas">Salvar</button>
+      <div id="task-controls">
+        <button id="remover-selecionado" title="Remove item selecionado">
+          <i class="fas fa-times"></i>
+        </button>
+        <button id="mover-cima" title="Move item selecionado para cima">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+        <button id="mover-baixo" title="Move item selecionado para baixo">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+        <button
+          id="remover-finalizados"
+          title="Remove itens marcados como completo"
+        >
+          Limpar Completas
+        </button>
+        <button id="apaga-tudo" title="Reseta a lista de tarefas">
+          Limpar Lista
+        </button>
+        <button
+          id="salvar-tarefas"
+          title="Salva a lista de tarefas para ter acesso ao voltar para a pagina"
+        >
+          Salvar
+        </button>
       </div>
     </main>
     <script src="script.js"></script>
