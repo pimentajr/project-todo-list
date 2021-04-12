@@ -65,3 +65,14 @@ function checkClassList(element) {
   }
   return classCompleted;
 }
+
+function eraseAllTasks() {
+  const getEraseButton = document.querySelector('#apaga-tudo');
+
+  getEraseButton.addEventListener('click', function() {
+    const getListItems = document.querySelector('#lista-tarefas');
+    getListItems.innerHTML = '';
+  })
+}
+
+eraseAllTasks();
