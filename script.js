@@ -1,5 +1,6 @@
 const addBtn = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const deleteBtn = document.getElementById('apaga-tudo');
 function addListItem() {
   const task = document.getElementById('texto-tarefa');
   const listItem = document.createElement('li');
@@ -19,8 +20,16 @@ function makeTaskCompleted(event) {
   event.target.classList.toggle('completed');
 }
 
+function deleteTaskList() {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
+
 addBtn.addEventListener('click', addListItem);
 
 taskList.addEventListener('click', changeListItemBackgroundColor);
 
 taskList.addEventListener('dblclick', makeTaskCompleted);
+
+deleteBtn.addEventListener('click', deleteTaskList);
