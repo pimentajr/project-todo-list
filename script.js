@@ -53,3 +53,25 @@ function removeSelected() {
   const selectedItem = document.querySelector('.selected');
   list.removeChild(selectedItem);
 }
+
+function addClassSelected(e) {
+  const { target } = e;
+  const selectedItem = document.querySelectorAll('.selected');
+  selectedItem.forEach((el) => {
+    if (el !== target) {
+      el.classList.remove('selected');
+    }
+  });
+  target.classList.add('selected');
+}
+
+window.onload = loadSavedTasks;
+
+creatTaskButton.addEventListener('click', creatList);
+list.addEventListener('click', selectList);
+list.addEventListener('dblclick', completTask);
+list.addEventListener('click', addClassSelected);
+clearTasksButton.addEventListener('click', clearTasks);
+clearCompletedButton.addEventListener('click', clearComplet);
+saveTasksButton.addEventListener('click', saveTasks);
+removeSelectedButton.addEventListener('click', removeSelected);
