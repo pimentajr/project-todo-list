@@ -58,14 +58,14 @@ apagaTudo.addEventListener('click', apagarLista);
 // 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
 
 const removerFinalizado = document.querySelector('#remover-finalizados');
-const tarefa = document.getElementsByClassName('tarefa');
-removerFinalizado.onclick = function removerTarefaFinalizada() {
-  for (let index = 0; index < tarefa.length; index += 1) {
-    if (tarefa[index].classList.contains('completed')) {
-      listaTarefas.removeChild(listaTarefas.children[index]);
-    }
+
+function removerTarefaFinalizada() {
+  const tarefaCompleta = document.querySelectorAll('.completed');
+  for (let index = 0; index < tarefaCompleta.length; index += 1) {
+    listaTarefas.removeChild(tarefaCompleta[index]);
   }
-};
+}
+removerFinalizado.addEventListener('click', removerTarefaFinalizada);
 
 // 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
 
