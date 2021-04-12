@@ -1,30 +1,37 @@
-const btnCriarTarefa = document.querySelector('#criar-tarefa');
-const listaTarefas = document.querySelector('#lista-tarefas');
+const btnCreateTask = document.querySelector('#criar-tarefa');
+const listTask = document.querySelector('#lista-tarefas');
 const textTask = document.querySelector('#texto-tarefa');
 
-
 function createTask() {
-  btnCriarTarefa.addEventListener('click', () => {
+  btnCreateTask.addEventListener('click', () => {
+    if (textTask.value !== '') {
     const createLi = document.createElement('li');
     createLi.innerHTML = textTask.value;
-    createLi.className = 'li-assignment'
-    listaTarefas.appendChild(createLi);
+    createLi.className = 'li-assignment';
+    listTask.appendChild(createLi);
     textTask.value = '';
+    }
   });
 }
 
 function alterBackColorTask() {
-  const liAssignment = document.querySelector('#lista-tarefas');
-    liAssignment.addEventListener('click', (event) => {
-      const selectedTask = document.getElementsByClassName('selected');
-      if (selectedTask[0]) {
-        selectedTask[0].classList.remove('selected');
-      }
-      event.target.classList.add('selected');
-    });
-};
+  listTask.addEventListener('click', function(event) {
+    const selectedTask = document.getElementsByClassName('selected');
+    if (selectedTask[0]) {
+      selectedTask[0].classList.remove('selected');
+    }
+  event.target.classList.add('selected');
+  });
+}
+
+function checkTask() {
+  listTask.addEventListener('dblclick', (event) => {
+     event.target.classList.toggle('completed');
+  });
+}
 
 window.onload = () => {
   createTask();
   alterBackColorTask();
+ checkTask();
 };
