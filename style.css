@@ -9,3 +9,8 @@
 #texto-tarefa {
   border-style: solid , 2px;
 }
+
+#lista-tarefas {
+  background-color: palevioletred;
+}
+

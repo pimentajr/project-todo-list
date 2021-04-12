@@ -12,3 +12,7 @@ body.appendChild(paragraph);
 const textBox = document.createElement('input');
 textBox.id = 'texto-tarefa.';
 body.appendChild(textBox);
+
+const listOl = document.createElement('ol');
+listOl.id = 'lista-tarefas.';
+body.appendChild(listOl);
