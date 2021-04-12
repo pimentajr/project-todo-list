@@ -10,6 +10,8 @@ const criarTarefa = document.querySelector('#criar-tarefa');
 
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 
+const apagaTudo = document.querySelector('#apaga-tudo');
+
 // 5. Clicar o botão com id="criar-tarefa" faz o conteúdo ir para o final da lista
 // 6. Ordene os itens da lista de tarefas por ordem de criação
 
@@ -58,3 +60,15 @@ function completeItem(event) {
 }
 
 listaDeTarefas.addEventListener('dblclick', completeItem);
+
+// 10. Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
+
+function deleteAllList() {
+  const listaDeTarefasChildren = listaDeTarefas.children;
+
+  for (let index = (listaDeTarefasChildren.length - 1); index >= 0; index -= 1) {
+    listaDeTarefas.removeChild(listaDeTarefasChildren[index]);
+  }
+}
+
+apagaTudo.addEventListener('click', deleteAllList);
