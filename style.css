@@ -24,3 +24,7 @@ h1 {
 #criar-tarefa {
   display: inline-block;
 }
+
+li {
+  background-color: transparent;
+}
