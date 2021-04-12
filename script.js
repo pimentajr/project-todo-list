@@ -3,12 +3,26 @@ window.onload = function () {
   const newTaskInput = document.querySelector('#texto-tarefa');
   const tasksList = document.querySelector('#lista-tarefas');
 
-  createTaskBtn.addEventListener('click', function () {
+  function addNewTask() {
     if (newTaskInput.value !== '') {
-      let newTaskListItem = document.createElement('li');
+      const newTaskListItem = document.createElement('li');
       newTaskListItem.innerText = newTaskInput.value;
       tasksList.appendChild(newTaskListItem);
       newTaskInput.value = '';
     }
+  }
+
+  function changeTasksBackgndColor(event) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+
+  [createTaskBtn, tasksList].forEach((item) => {
+    item.addEventListener('click', (event) => {
+      if (item === createTaskBtn) {
+        addNewTask();
+      } else if (item === tasksList) {
+        changeTasksBackgndColor(event);
+      }
+    });
   });
-}
+};
