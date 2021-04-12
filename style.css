@@ -8,3 +8,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128) ;
+}
+
