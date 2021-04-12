@@ -10,10 +10,10 @@ botaoAdicionar.addEventListener('click', event => {
 });
 function changeBg() {
   const eventTarget = event.target;
-  if (eventTarget.className === 'clickedItem') {
-    eventTarget.classList.remove('clickItem');
-  } else {
+  const tarefaSelecionada = document.querySelector('.clickedItem');
+  if (eventTarget.className !== 'clickedItem') {
     eventTarget.classList.add('clickedItem');
+    tarefaSelecionada.classList.remove('clickedItem');
   }
 }
 
