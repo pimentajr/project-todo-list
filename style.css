@@ -1,5 +1,5 @@
 /* resolucao 1366 x 768 */
 
-.selected {
-    text-decoration: line-through;
+.completed {
+    text-decoration: line-through solid rgb(0,0,0);
 }

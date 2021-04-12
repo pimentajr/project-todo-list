@@ -16,12 +16,12 @@ addNewTask();
 
 // remove selected class e cor de fundo
 function removeBackgroundColor() {
-  const getSelectedColor = document.querySelectorAll('.colored');
+  const getSelectedColor = document.querySelectorAll('.selected');
   
   if (getSelectedColor.length > 0) {
     for (let index = 0; index < getSelectedColor.length; index += 1) {
       getSelectedColor[index].style.backgroundColor = 'white';
-      getSelectedColor[index].classList.remove('colored');
+      getSelectedColor[index].classList.remove('selected');
     }
   }
 }
@@ -33,7 +33,7 @@ function changeTaskBackground() {
   taskList.addEventListener('click', function (event) {
     removeBackgroundColor();
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    event.target.classList.add('colored');
+    event.target.classList.add('selected');
   })
 }
 
@@ -44,18 +44,24 @@ function defineAsCompleted() {
   const taskList = document.querySelector('#lista-tarefas');
 
   taskList.addEventListener('dblclick', function(event) {
-    const taskItem = event.target;
-    for (let index = 0; index < taskItem.classList; index += 1) {
-      if (taskItem[index].className === 'selected') {
-        taskItem.classList.remove('selected');
-      } else {
-        taskItem.classList.remove('selected');
-      }
+    if (checkClassList(event.target) >= 1) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
     }
   })
 }
 
 defineAsCompleted();
 
+function checkClassList(element) {
+  let classList = element.classList;
+  let classCompleted = 0;
 
-
+  for (let index = 0; index < classList.length; index += 1) {
+    if (classList[index] === 'completed') {
+      classCompleted += 1;
+    }
+  }
+  return classCompleted;
+}
