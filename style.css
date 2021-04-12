@@ -36,3 +36,7 @@ body {
   font-size: 17px;
   background-color: aqua;
 }
+
+.completed {
+  text-decoration: line-through;
+}

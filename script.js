@@ -29,3 +29,14 @@ function changeListItemBackgroundColor(evento) {
 }
 
 orderedList.addEventListener('click', changeListItemBackgroundColor);
+
+function crossOutCompletedTask(event) {
+  const isCompleted = event.target.classList.contains('completed');
+  if (isCompleted) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+orderedList.addEventListener('dblclick', crossOutCompletedTask);
