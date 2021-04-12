@@ -31,3 +31,9 @@ taskOList.addEventListener('dblclick', (event) => {
     eventTarget.classList.add('completed');
   }
 });
+
+const deleteAllBttn = document.querySelector('#apaga-tudo');
+
+deleteAllBttn.addEventListener('click', () => {
+  taskOList.innerHTML = '';
+});
