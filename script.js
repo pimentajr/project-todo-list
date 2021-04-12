@@ -81,13 +81,17 @@ function getSelectedElement() {
   return document.querySelector('.selected');
 }
 
+function checkTargetDirection(target, idDirection) {
+  return target.id === idDirection || target.parentElement.id === idDirection;
+}
+
 function moveTask(target, selectedTask) {
   const tasks = olTaskList.children;
 
-  if (target.id === 'mover-cima' && selectedTask !== tasks[0]) {
+  if (checkTargetDirection(target, 'mover-cima') && selectedTask !== tasks[0]) {
     olTaskList.insertBefore(selectedTask, selectedTask.previousElementSibling);
   }
-  if (target.id === 'mover-baixo' && selectedTask !== tasks[tasks.length - 1]) {
+  if (checkTargetDirection(target, 'mover-baixo') && selectedTask !== tasks[tasks.length - 1]) {
     selectedTask.nextElementSibling.insertAdjacentElement('afterend', selectedTask);
   }
 }
