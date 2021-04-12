@@ -1,5 +1,10 @@
-let button = document.getElementById('criar-tarefa');
-button.addEventListener('click', addButton);
+function changeColor(event) {
+  let listColored = document.getElementsByClassName('listItem');
+  for (let i = 0; i < listColored.length; i += 1) {
+    listColored[i].style.backgroundColor = '';
+  }
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
 
 function addButton() {
   // pegando os elementos
@@ -8,7 +13,7 @@ function addButton() {
   // pegando o valor (texto) que está dentro do input
   const inputText = inputTextElement.value;
   // criando LI
-  let createLi = document.createElement('li');
+  const createLi = document.createElement('li');
   createLi.classList.add('listItem');
   // atribuindo o INNERTEXT para o olList
   createLi.innerText = inputText;
@@ -19,6 +24,5 @@ function addButton() {
   inputTextElement.value = '';
 }
 
-function changeColor(event) {
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
-}
+const button = document.getElementById('criar-tarefa');
+button.addEventListener('click', addButton);
