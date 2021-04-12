@@ -54,7 +54,12 @@ eraseButton.addEventListener('click', removeEverything);
 const removeCompletedButton = document.querySelector('#remover-finalizados');
 
 function removeCompleted() {
-
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    if (completed[index].classList.contains('completed')) {
+      orderedList.removeChild(completed[index]);
+    }
+  }
 }
 
 removeCompletedButton.addEventListener('click', removeCompleted);
