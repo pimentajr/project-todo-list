@@ -2,10 +2,11 @@ const btnCreateTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 const btnDeleteList = document.querySelector('#apaga-tudo');
 const btnDeleteCompleted = document.querySelector('#remover-finalizados');
+const btnDeleteSelected = document.querySelector('#remover-selecionado');
 
 function paintSelectedELement(event) {
   const element = event.target;
-  element.style.backgroundColor = 'rgb(128, 128, 128)';
+  element.classList.add('selected');
 }
 
 function indexOfNode(element) {
@@ -18,13 +19,13 @@ function changeSelected(event) {
   const listItem = document.querySelectorAll('#list-item');
   let indexElement;
 
-  if (element.style.backgroundColor === 'rgb(128, 128, 128)') {
+  if (element.classList.contains('selected')) {
     indexElement = indexOfNode(element);
   }
 
   for (let index = 0; index < listItem.length; index += 1) {
     if (index !== indexElement) {
-      listItem[index].style.backgroundColor = 'white';
+      listItem[index].classList.remove('selected');
     }
   }
 }
@@ -32,9 +33,9 @@ function changeSelected(event) {
 function lineThrough(event) {
   const element = event.target;
 
-  if (element.className === '') {
-    element.className = 'completed';
-  } else if (element.className === 'completed') {
+  if (element.className === 'selected') {
+    element.classList.add('completed');
+  } else if (element.className === 'selected completed') {
     element.classList.remove('completed');
   }
 }
@@ -65,6 +66,13 @@ btnDeleteList.addEventListener('click', () => {
 btnDeleteCompleted.addEventListener('click', () => {
   const listItem = document.querySelectorAll('.completed');
 
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].remove();
+  }
+});
+
+btnDeleteSelected.addEventListener('click', () => {
+  const listItem = document.querySelectorAll('.selected');
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].remove();
   }
