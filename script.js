@@ -29,14 +29,14 @@ textoTarefa.addEventListener('keypress', addTarefaKeypress);
 function removerSelected() {
   const tarefas = document.querySelectorAll('.tarefa');
 
-  for (let tarefa of tarefas) {
-    tarefa.classList.remove('selected');
+  for (let index = 0; index < tarefas.length; index += 1) {
+    tarefas[index].classList.remove('selected');
   }
 }
 
 function addSelected(event) {
   if (event.target.className.includes('tarefa')) {
-    removerSelected();  
+    removerSelected();
     event.target.classList.add('selected');
   }
 }
