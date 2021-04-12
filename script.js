@@ -29,27 +29,20 @@ listaTarefas.onclick = function selecionarTarefa(event) {
 
 // 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
 
-// function completarTarefa(event) {
-//   event.target.classList.add('completed');
-// }
-
-// function descompletarTarefa(event) {
-//   event.target.classList.remove('completed');
-// }
-
-listaTarefas.ondblclick = function (event) {
-  if (event.target.classList === 'completed') event.target.classList.remove('completed');
-};
-
-listaTarefas.ondblclick = function (event) {
-  event.target.classList.add('completed');
-};
+function completarTarefa(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+listaTarefas.addEventListener('dblclick', completarTarefa);
 
 // 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
 
 const apagaTudo = document.querySelector('#apaga-tudo');
-apagaTudo.onclick = function apagarLista() {
-  while (listaTarefas.hasChildNodes) {
-    listaTarefas.removeChild(listaTarefas.firstChild);
-  }
-};
+function apagarLista() {
+  listaTarefas.innerHTML = '';
+}
+
+apagaTudo.addEventListener('click', apagarLista);
