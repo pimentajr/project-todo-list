@@ -35,3 +35,10 @@ clear.addEventListener('click', () => {
     i.remove();
   }
 });
+
+clearFinalized.addEventListener('click', () => {
+  const finalizedLi = document.querySelectorAll('.completed');
+  for (let i of finalizedLi) {
+    i.remove();
+  }
+});
