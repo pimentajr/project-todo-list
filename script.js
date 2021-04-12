@@ -5,7 +5,22 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
   const input = document.querySelector('#texto-tarefa');
 
   task.innerText = input.value;
+  task.classList.add('task');
   input.value = '';
 
   listOfTasks.appendChild(task);
+});
+
+listOfTasks.addEventListener('click', (event) => {
+  if (event.target.classList.contains('task')) {
+    if (document.querySelector('.selected')) {
+      document.querySelector('.selected').classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  }
+});
+
+listOfTasks.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('completed')) event.target.classList.remove('completed');
+  else event.target.classList.add('completed');
 });
