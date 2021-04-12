@@ -28,3 +28,8 @@ function selectList(e) {
 function completTask(e) {
   e.target.classList.toggle('completed');
 }
+
+function clearTasks() {
+  const reset = document.querySelector('#lista-tarefas');
+  reset.innerHTML = '';
+}
