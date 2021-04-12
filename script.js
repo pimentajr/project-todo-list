@@ -44,7 +44,6 @@ orderedList.addEventListener('dblclick', crossOutCompletedTask);
 const eraseButton = document.querySelector('#apaga-tudo');
 
 function removeEverything() {
-  const orderedList = document.querySelector('#lista-tarefas');
   while (orderedList.firstChild) {
     orderedList.removeChild(orderedList.firstChild);
   }
