@@ -27,3 +27,15 @@ function jobColor() {
   })
 }
 jobColor();
+
+function jobDone() {
+  jobListContainer.addEventListener('dblclick', (event) => {
+    let selectedItem = event.target;
+    if (selectedItem.classList.contains('completed')) {
+      selectedItem.classList.remove('completed');
+    } else {
+      selectedItem.classList.add('completed')
+    }
+  })
+}
+jobDone();
