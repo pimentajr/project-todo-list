@@ -29,7 +29,6 @@ function createLiEventListener() {
 function createEventlisteners() {
   const createActivity = document.getElementById('criar-tarefa');
   createActivity.addEventListener('click', createAndAddLiItem);
-  createLiEventListener();
 }
 
 function init() {
