@@ -1,6 +1,9 @@
 const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const ol = document.querySelector('#lista-tarefas');
+const saveList = document.querySelector('#salvar-tarefas');
+const clear = document.querySelector('#apaga-tudo');
+const clearFinalized = document.querySelector('#remover-finalizados');
 
 button.addEventListener('click', () => {
   const value = input.value;
@@ -56,4 +59,3 @@ for (let i = 0; i < localStorage.length; i += 1) {
   liNew.innerText = localStorage.getItem(i);
   ol.appendChild(liNew);
 }
-
