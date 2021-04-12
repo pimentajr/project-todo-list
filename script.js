@@ -1,3 +1,5 @@
+let tarefas = document.querySelectorAll('li');
+
 // Adiciona tarefas
 const button = document.querySelector('#criar-tarefa');
 button.addEventListener('click', () => {
@@ -9,4 +11,12 @@ button.addEventListener('click', () => {
   li.appendChild(tarefa);
   ol.appendChild(li);
   document.querySelector('#texto-tarefa').value = '';
+
+  // Muda fundo da tarefa quando clicada
+  tarefas = document.querySelectorAll('#lista-tarefas li');
+  for (const tarefa of tarefas) {
+    tarefa.addEventListener('click', (event) => {
+      event.target.classList.add('selected');
+    });
+  }
 });
