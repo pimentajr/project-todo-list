@@ -1,12 +1,12 @@
 body {
-  background-color: #40ad40;
+  background-color: rgb(64, 173, 64);
 }
 
 #header {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 8px;
   width: 80%;
   padding: 4px;

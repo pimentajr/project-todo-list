@@ -8,4 +8,4 @@ function criarTarefa() {
   inputList.value = '';
 }
 const buttonCriarTarefa = document.getElementById('criar-tarefa');
-buttonCriarTarefa.addEventListener('click',  criarTarefa);
+buttonCriarTarefa.addEventListener('click', criarTarefa);
