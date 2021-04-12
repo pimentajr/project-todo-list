@@ -31,7 +31,18 @@ function generateListItems() {
     const createTask = document.createElement('li');
     createTask.innerHTML = inputTask;
     selectList.appendChild(createTask);
+    createTask.className = 'item-lista';
     selectInput.value = '';
   });
 }
 generateListItems();
+
+function selectTasks() {
+  selectList.addEventListener('click', (selectItems) => {
+    const eventTarget = selectItems.target;
+    const selectItem = document.querySelectorAll('li');
+    selectItem.forEach((element) => element.classList.remove('selected'));
+    eventTarget.classList.add('selected');
+  });
+}
+selectTasks();
