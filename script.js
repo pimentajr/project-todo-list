@@ -43,9 +43,18 @@ function completeItem() {
     } else if (e.target.className !== 'tarefa completed') {
       e.target.classList.add('completed');
     }
-  });  
+  });
+}
+
+function removeEverything() {
+  const button = document.getElementById('apaga-tudo');
+
+  button.addEventListener('click', () => {
+    list.innerHTML = '';
+  })
 }
 
 addListItem();
 selectItem();
 completeItem();
+removeEverything();
