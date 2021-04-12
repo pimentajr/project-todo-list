@@ -1,10 +1,10 @@
 const input = document.getElementById('texto-tarefa');
 const toDoList = document.querySelector('#lista-tarefas');
 const createToDo = document.getElementById('criar-tarefa');
-const removeAll = document.getElementById("apaga-tudo");
+const removeAll = document.getElementById('apaga-tudo');
 const toDos = document.getElementsByClassName('toDo');
-
-
+const removeCompleted = document.getElementById('remover-finalizados')
+const completedToDos = document.getElementsByClassName('completed')
 
 function addToDo() {
   const toDo = document.createElement('li');
@@ -35,12 +35,18 @@ function toDoCompleted(element) {
 
 function removeAllToDos() {
   for (let index = 0; index <= toDos.length; index = 0) {
-    toDoList.removeChild(toDos[0]);
+    toDoList.removeChild(toDos[index]);
   }
 }
 
+function removeCompletedToDos() {
+  for (let index = 0; index <= completedToDos.length; index = 0) {
+    toDoList.removeChild(completedToDos[0]);
+  }
+}
 
+removeCompleted.addEventListener('click', removeCompletedToDos);
 removeAll.addEventListener('click', removeAllToDos);
-addEventListener("dblclick", toDoCompleted);
+addEventListener('dblclick', toDoCompleted);
 createToDo.addEventListener('click', addToDo);
 addEventListener('click', toDoSelection);
