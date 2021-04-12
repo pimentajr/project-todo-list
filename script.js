@@ -16,21 +16,19 @@ function backGroundGray() {
     for (let index = 0; index < li.length; index += 1) {
       li[index].classList.remove('gray');
       click.classList.add('gray');
-      }
-    });
-  }
+    }
+  });
+}
 
 function completedList() {
   lista.addEventListener('dblclick', (event) => {
     const dbclick = event.target;
     if (dbclick.classList.contains('completed')) {
-      dbclick.classList.remove('gray');
       dbclick.classList.remove('completed');
     } else {
-      dbclick.classList.remove('gray');
       dbclick.classList.add('completed');
     }
-  })
+  });
 }
 
 completedList();
