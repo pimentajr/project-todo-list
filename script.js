@@ -13,7 +13,7 @@ const buttonSave = document.getElementById('salvar-tarefas');
 
 const li = document.createElement('li');
 
-function createTaskHandler() {
+function createTask() {
   const task = inputTask.value;
 
   const newTask = li.cloneNode();
@@ -55,10 +55,11 @@ function clearList() {
 }
 
 function clearCompleted() {
-  const completedTasks = document.getElementsByClassName(completedClass);
+  let completedTask = document.querySelector('.completed');
 
-  for (let index = completedTasks.length - 1; index >= 0; index -= 1) {
-    completedTasks[index].parentElement.removeChild(completedTasks[index]);
+  while (completedTask) {
+    completedTask.parentElement.removeChild(completedTask);
+    completedTask = document.querySelector('.completed');
   }
 }
 
@@ -76,6 +77,10 @@ function loadPreviousSavedList() {
   }
 }
 
+function getSelectedElement() {
+  return document.querySelector('.selected');
+}
+
 function moveTask(target, selectedTask) {
   const tasks = olTaskList.children;
 
@@ -88,19 +93,19 @@ function moveTask(target, selectedTask) {
 }
 
 function moveTaskHandler({ target }) {
-  const selectedTask = document.querySelector('.selected');
+  const selectedTask = getSelectedElement();
   if (selectedTask) moveTask(target, selectedTask);
 }
 
 function removeSelected() {
-  const selectedTask = document.querySelector('.selected');
+  const selectedTask = getSelectedElement();
 
   olTaskList.removeChild(selectedTask);
 }
 
 function onLoad() {
   inputTask.focus();
-  buttonCreateTask.addEventListener('click', createTaskHandler);
+  buttonCreateTask.addEventListener('click', createTask);
   olTaskList.addEventListener('click', selectTask);
   olTaskList.addEventListener('dblclick', completeTask);
   buttonClearAll.addEventListener('click', clearList);
