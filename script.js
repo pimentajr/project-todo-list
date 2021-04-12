@@ -128,3 +128,39 @@ function removeSelected() {
 const removeSelectedButton = document.getElementById('remover-selecionado');
 
 removeSelectedButton.addEventListener('click', removeSelected);
+
+function moveUp() {
+  const previousTask = selectedTask.previousSibling;
+
+  if (!selectedTask || !previousTask) {
+    return;
+  }
+
+  const swap = previousTask.cloneNode(true);
+
+  previousTask.remove();
+
+  selectedTask.insertAdjacentElement('afterend', swap);
+}
+
+const moveUpButton = document.getElementById('mover-cima');
+
+moveUpButton.addEventListener('click', moveUp);
+
+function moveDown() {
+  const nextTask = selectedTask.nextSibling;
+
+  if (!selectedTask || !nextTask) {
+    return;
+  }
+
+  const swap = nextTask.cloneNode(true);
+
+  nextTask.remove();
+
+  selectedTask.insertAdjacentElement('beforebegin', swap);
+}
+
+const moveDownButton = document.getElementById('mover-baixo');
+
+moveDownButton.addEventListener('click', moveDown);
