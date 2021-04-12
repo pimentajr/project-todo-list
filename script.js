@@ -34,3 +34,12 @@ const dltButton = document.querySelector('#apaga-tudo');
 dltButton.addEventListener('click', function() {
   getLista.innerText = '';
 })
+
+//funcao botao que apaga riscados
+const dltCmpltButton = document.querySelector('#remover-finalizados');
+dltCmpltButton.addEventListener('click', function() {
+  let getComplets = document.querySelectorAll('.completed');
+  for (let i = 0; i < getComplets.length; i += 1) {
+    getLista.removeChild(getComplets[i]);
+  }
+})
