@@ -21,6 +21,7 @@ function clickButtonAdd() {
 
 clickButtonAdd();
 
+// ->> Ajuda da Mih
 function selectedLiItem(event) {
   const itemSelected = document.querySelector('.selected');
   if (itemSelected !== null) {
@@ -32,6 +33,8 @@ function selectedLiItem(event) {
 const taskList = document.getElementById('lista-tarefas');
 taskList.addEventListener('click', selectedLiItem);
 
+
+// ->> Ajuda da Mih
 function doneTask(event) {
   const completedTask = event.target.classList.contains('completed');
   if (completedTask) {
@@ -52,3 +55,14 @@ function cleanList() {
 
 const cleanButton = document.getElementById('apaga-tudo');
 cleanButton.addEventListener('click', cleanList);
+
+function removeCompleted() {
+  const finished = document.getElementsByClassName('completed');
+  for (let index = 0; index < finished.length; index++) {
+    const completedList = document.getElementById('lista-tarefas');
+    completedList.removeChild(finished[index]);
+  }
+}
+
+const finishButton = document.getElementById('remover-finalizados');
+finishButton.addEventListener('click',removeCompleted);
