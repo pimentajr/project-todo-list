@@ -1,9 +1,18 @@
 function changeColor(event) {
-  let listColored = document.getElementsByClassName('listItem');
+  const listColored = document.getElementsByClassName('listItem');
   for (let i = 0; i < listColored.length; i += 1) {
     listColored[i].style.backgroundColor = '';
   }
   event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+function lineThrough(event) {
+  // let isCompleted = event.target.classList.contains('completed');
+  // if (isCompleted === true) {
+  //   event.target.classList.remove('completed');
+  // } else {
+  //   event.target.classList.add('completed');
+  // }
+  event.target.classList.toggle('completed');
 }
 
 function addButton() {
@@ -18,7 +27,7 @@ function addButton() {
   // atribuindo o INNERTEXT para o olList
   createLi.innerText = inputText;
   createLi.addEventListener('click', changeColor);
-
+  createLi.addEventListener('dblclick', lineThrough);
   olList.appendChild(createLi);
   // limpando o elemento:
   inputTextElement.value = '';
