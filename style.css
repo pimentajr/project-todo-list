@@ -5,3 +5,7 @@
 #funcionamento {
   font-style: italic;
 }
+
+#texto-tarefa {
+  border-style: solid , 2px;
+}

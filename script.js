@@ -8,3 +8,7 @@ const paragraph = document.createElement('p');
 paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 paragraph.id = 'funcionamento';
 body.appendChild(paragraph);
+
+const textBox = document.createElement('input');
+textBox.id = 'texto-tarefa.';
+body.appendChild(textBox);
