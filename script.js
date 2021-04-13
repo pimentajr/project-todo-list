@@ -7,13 +7,13 @@ window.onload = () => {
 
 function bindListeners() {
   document.querySelector('#criar-tarefa')
-    .addEventListener('click', onClickAddButton);
+    .addEventListener('click', onClickButtonAdd);
 
   taskList.addEventListener('click', onClickTask);
   taskList.addEventListener('dblclick', onDoubleClickTask);
 }
 
-function onClickAddButton() {
+function onClickButtonAdd() {
   const taskText = document.querySelector('#texto-tarefa');
   if (taskText.value) {
     addTaskToList(taskText.value);
