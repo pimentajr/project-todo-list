@@ -24,12 +24,13 @@ function completedItem(event) {
 
 // 5. 6.
 function criarTarefa() {
+  const listar = document.getElementById('lista-tarefas');
   const inputList = document.getElementById('texto-tarefa');
   if (inputList.value !== '') {
     const lItem = document.createElement('li');
     lItem.innerText = inputList.value;
     lItem.classList.add('list-item');
-    oList.appendChild(lItem);
+    listar.appendChild(lItem);
     inputList.value = '';
     lItem.addEventListener('click', selectItem);
     lItem.addEventListener('dblclick', completedItem);
