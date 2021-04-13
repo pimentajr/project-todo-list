@@ -36,3 +36,12 @@ button.addEventListener('click', () => {
     });
   }
 });
+
+const apagaTudo = document.querySelector('#apaga-tudo');
+apagaTudo.addEventListener('click', () => {
+  const lis = document.querySelectorAll('li');
+  for (const li of lis) {
+    // Recupera o elemento pai <ul> e remove seu elemento filho <li>
+    li.parentNode.removeChild(li);
+  }
+});
