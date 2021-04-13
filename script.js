@@ -1,9 +1,9 @@
 function selectTask(event) {
-  if (event.target.className !== 'selected') {
-    event.target.classList.add('selected');
-  } else {
-    event.target.classList.remove('selected');
+  const getTask = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < getTask.length; index += 1) {
+    getTask[index].className = 'tarefa';
   }
+  event.target.classList.add('selected');
 }
 
 function addTask() {
