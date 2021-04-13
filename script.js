@@ -2,14 +2,13 @@ const div = document.getElementById('div');
 
 // 7. 8.
 function selectItem(event) {
-  const selectedItem = event.target;
+  const selecItem = event.target;
+  console.log('entrou em selectItem');
   const itens = document.getElementsByClassName('list-item');
   for (let index = 0; index < itens.length; index += 1) {
-    itens[index].style.backgroundColor = 'transparent';
     itens[index].classList.remove('selected');
   }
-  selectedItem.style.backgroundColor = 'rgb(128, 128, 128)';
-  selectedItem.classList.add('selected');
+  selecItem.classList.add('selected');
 }
 
 // 9.
@@ -52,7 +51,7 @@ function removerSelecionado() {
   const selectedItem = document.getElementsByClassName('selected');
   if (selectedItem.length !== 0) {
     const index = 0;
-    selectedItem[index].parentElement.removeChild(selectedItem[index]);
+    selectedItem[index].remove();
   }
 }
 const buttonRemoverSelecionado = document.createElement('button');
@@ -63,11 +62,18 @@ div.appendChild(buttonRemoverSelecionado);
 
 // 13.
 function moverCima() {
-  // const selectedItem = document.getElementsByClassName('selected');
-  // if (selectedItem.length !== 0) {
-  //   const index = 0;
-  //   selectedItem[index].parentElement.removeChild(selectedItem[index]);
-  // }
+  const selectedItem = document.getElementsByClassName('selected');
+  const itensList = document.getElementsByClassName('list-item');
+  const index = 0;
+  if (selectedItem.length !== 0 && !(itensList[index].className.includes('selected'))) {
+    let aboveElement = selectedItem[index].previousElementSibling;
+    const bufferText = selectedItem[index].innerText;
+    selectedItem[index].innerText = aboveElement.innerText;
+    aboveElement.innerText = bufferText;
+    aboveElement.classList.add('selected');
+    let belowElement = selectedItem[index].nextElementSibling;
+    belowElement.classList.remove('selected');
+  }
 }
 const buttonMoverCima = document.createElement('button');
 buttonMoverCima.setAttribute('id', 'mover-cima');
@@ -76,11 +82,19 @@ buttonMoverCima.addEventListener('click', moverCima);
 div.appendChild(buttonMoverCima);
 
 function moverBaixo() {
-  // const selectedItem = document.getElementsByClassName('selected');
-  // if (selectedItem.length !== 0) {
-  //   const index = 0;
-  //   selectedItem[index].parentElement.removeChild(selectedItem[index]);
-  // }
+  const selectedItem = document.getElementsByClassName('selected');
+  const itensList = document.getElementsByClassName('list-item');
+  const lastIndex = itensList.length - 1;
+  const index = 0;
+  if (selectedItem.length !== 0 && !(itensList[lastIndex].className.includes('selected'))) {
+    let belowElement = selectedItem[index].nextElementSibling;
+    const bufferText = selectedItem[index].innerText;
+    selectedItem[index].innerText = belowElement.innerText;
+    belowElement.innerText = bufferText;
+    belowElement.classList.add('selected');
+    let aboveElement = selectedItem[index + 1].previousElementSibling;
+    aboveElement.classList.remove('selected');
+  }
 }
 const buttonMoverBaixo = document.createElement('button');
 buttonMoverBaixo.setAttribute('id', 'mover-baixo');

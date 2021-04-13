@@ -32,3 +32,11 @@ li {
 .completed {
   text-decoration: line-through solid black;
 }
+
+.list-item {
+  background-color: transparent;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
