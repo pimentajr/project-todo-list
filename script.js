@@ -2,6 +2,7 @@ const jobList = document.getElementById('lista-tarefas');
 const taskNameInput = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
 const btnDeleteTasks = document.getElementById('apaga-tudo');
+const btnDeleteCompletedTasks = document.getElementById('remover-finalizados');
 
 function changeBackgroundColorTask(event) {
   for (let tarefa = 0; tarefa < jobList.children.length; tarefa += 1) {
@@ -10,12 +11,9 @@ function changeBackgroundColorTask(event) {
   event.target.setAttribute('id', 'selectedTask');
 }
 
-
 // Faz o risco em tarefas completas, ou tira.
 function completedTask(event) {
-  if (event.target.className === 'task') {
-    event.target.classList.toggle('completed');
-  } 
+  event.target.classList.toggle('completed');
 }
 
 // Adiciona a task ao clicar no botao.
@@ -32,10 +30,22 @@ function addTask() {
 
 btnCreateTask.addEventListener('click', addTask);
 
-function deleAllTasks() {
+// Deleta todas as tarefas.
+function deleteAllTasks() {
   while (jobList.children.length > 0) {
     jobList.children[0].remove();
   }
 }
 
-btnDeleteTasks.addEventListener('click', deleAllTasks);
+btnDeleteTasks.addEventListener('click', deleteAllTasks);
+
+// Deleta tarefas completadas.
+function deleteCompletedTasks() {
+  for (let tarefa = 0; tarefa < jobList.children.length; tarefa += 1) {
+    if (jobList.children[tarefa].classList[1] === 'completed') {
+      jobList.children[tarefa].remove();
+    }
+  }
+}
+
+btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTasks);
