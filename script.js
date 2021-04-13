@@ -24,9 +24,17 @@ function backgroundClassItem(event) {
 
 taskList.addEventListener('click', backgroundClassItem);
 
-function riskCompleted (event) {
+function riskCompleted(event) {
   event.target.classList.toggle('completed');
 }
 
 taskList.addEventListener('dblclick', riskCompleted);
 
+const clearAll = document.getElementById('apaga-tudo');
+
+function clearItem() {
+  taskList.innerHTML = '';
+  //https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+}
+
+clearAll.addEventListener('click', clearItem);
