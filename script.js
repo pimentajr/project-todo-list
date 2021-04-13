@@ -15,6 +15,7 @@ function createInputText() {
   input.id = 'texto-tarefa';
   div.appendChild(input);
 }
+
 createInputText();
 
 function createList() {
@@ -23,5 +24,18 @@ function createList() {
   const list = document.createElement('ol');
   list.id = 'lista-tarefas';
   div2.appendChild(list);
+
+  const button = document.createElement('button');
+  button.id = 'criar-tarefa';
+  button.innerText = 'Criar Tarefa';
+  div2.appendChild(button);
+
+  button.addEventListener('click', () => {
+    const getInput = document.getElementById('texto-tarefa');
+    const itemList = document.createElement('li');
+    list.appendChild(itemList);
+    itemList.innerText = getInput.value;
+    getInput.value = '';
+  });
 }
 createList();
