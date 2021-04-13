@@ -1,6 +1,7 @@
 const task = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('ol');
 const apagar = document.querySelector('#apaga-tudo');
+const apagarFinalizados = document.querySelector("#remover-finalizados")
 
 task.addEventListener('click', () => {
   let captura = '';
@@ -33,4 +34,10 @@ apagar.addEventListener('click', () => {
   ol.innerHTML = '';
 });
 
-
+apagarFinalizados.addEventListener('click', () => {
+  const list = document.querySelectorAll('.completed');
+  console.log(list);
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].remove();
+  }
+});
