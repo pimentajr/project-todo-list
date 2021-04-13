@@ -64,3 +64,17 @@ function removeCompleted() {
 
 const finishButton = document.getElementById('remover-finalizados');
 finishButton.addEventListener('click', removeCompleted);
+
+function saveList() {
+  const createdList = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('lista', createdList);
+}
+
+const savedList = document.getElementById('salvar-tarefas');
+savedList.addEventListener('click', saveList);
+
+let ol = document.getElementById('lista-tarefas');
+
+let aleatoria = localStorage.getItem('lista');
+
+ol.innerHTML = aleatoria;
