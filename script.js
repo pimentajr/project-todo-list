@@ -32,7 +32,7 @@ function creatNewAssignmentOnList() {
 }
 
 function backGroundColorChangeOnClick() {
-  let colorized
+  let colorized;
   const locateAssigments = document.querySelectorAll('.assigments');
   for (let hint = 0; hint < locateAssigments.length; hint += 1) {
     colorized = function colorizeAssigment() {
@@ -40,20 +40,32 @@ function backGroundColorChangeOnClick() {
         locateAssigments[index].style.backgroundColor = 'rgb(288, 288, 288)';
         locateAssigments[hint].style.backgroundColor = 'rgb(128, 128, 128)';
       }
-    }
+    };
     locateAssigments[hint].addEventListener('click', colorized);
   }
 }
-backGroundColorChangeOnClick();
 
 function buttonAssignmentCreat() {
   const locateButton = document.querySelector('#criar-tarefa');
   const textAssigment = document.querySelector('#texto-tarefa');
   function creatNewAssigment() {
-    creatNewAssignmentOnList().innerHTML = textAssigment.value;
+    creatNewAssignmentOnList().innerText = textAssigment.value;
     textAssigment.value = '';
     backGroundColorChangeOnClick();
+    riskAssignmentOnList();
   }
   locateButton.addEventListener('click', creatNewAssigment);
 }
 buttonAssignmentCreat();
+
+function riskAssignment(event) {
+let string = 'assigments'
+  if (event.target.classList.contains(string)) {
+    event.target.classList.toggle('completed')
+  } 
+}
+// Luiz Wendel me ajudo no plantão.
+function riskAssignmentOnList() {
+  const locateList = document.querySelector('#lista-tarefas');
+  locateList.addEventListener('dblclick', riskAssignment);
+}
