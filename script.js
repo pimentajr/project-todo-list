@@ -61,3 +61,13 @@ function completarTarefa(event) {
 }
 
 listaTarefas.addEventListener('dblclick', completarTarefa);
+
+const apagaTudo = document.querySelector('#apaga-tudo');
+
+function apagarTudo() {
+  for (let index = (listaTarefas.children.length - 1); index >= 0; index -= 1) {
+    listaTarefas.removeChild(listaTarefas.children[index]);
+  }
+}
+
+apagaTudo.addEventListener('click', apagarTudo);
