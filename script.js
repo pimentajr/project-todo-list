@@ -1,4 +1,3 @@
-
 function addTask() {
   const button = document.getElementById('criar-tarefa');
   const task = document.getElementById('texto-tarefa');
@@ -75,6 +74,7 @@ function saveList() {
 }
 
 saveList();
+
 
 function moveUp() {
   const upButton = document.getElementById('mover-cima');
