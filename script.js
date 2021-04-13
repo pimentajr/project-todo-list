@@ -38,17 +38,27 @@ function addBtnNewItem() {
 }
 addBtnNewItem();
 
+// Cria função com evento ao clicar nos itens criados
+function clickItem() {
+  const itens = document.querySelectorAll('.item');
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].addEventListener('click', () => {
+      itens[index].classList.add('highlight');
+    });
+  }
+}
+
 // Adiciona função ao botão Adicionar
 function addItem() {
   const addButton = document.querySelector('#criar-tarefa');
   addButton.addEventListener('click', () => {
     const valueItem = document.querySelector('#texto-tarefa').value;
     const itemList = document.createElement('li');
-    itemList.className = 'item'
+    itemList.className = 'item';
     itemList.innerText = valueItem;
     document.querySelector('#lista-tarefas').appendChild(itemList);
     document.querySelector('#texto-tarefa').value = '';
-    clickItem()
+    clickItem();
   })
 }
 addItem();
@@ -69,12 +79,3 @@ function addOl() {
 }
 addOl();
 
-// Cria função com evento ao clicar nos itens criados
-function clickItem() {
-  let itens = document.querySelectorAll('.item')
-  for (let index = 0; index < itens.length; index += 1) {
-    itens[index].addEventListener('click', () => {
-      itens[index].classList.add('highlight')
-    })
-  }
-}
