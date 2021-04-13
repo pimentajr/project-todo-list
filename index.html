@@ -9,19 +9,25 @@
 </head>
 <body>
   <header>
-    Minha Lista de Tarefas
+    <h2>Minha Lista de Tarefas</h2>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
   <main>
     <section class="btn">
-        <input type="text" id="texto-tarefa">
-        <button id="criar-tarefa">Criar Tarefa</button>
-        <button id="apaga-tudo">Apaga Tudo</button>
-        <button id="remover-finalizados">Remover Finalizados</button>
-        <button id="salvar-tarefas">Salvar Tarefas</button>
-        <button id="mover-cima">Mover para Cima</button>
-        <button id="mover-baixo">Mover para Baixo</button>
-        <button id="remover-selecionado">Remover Selecionado</button>
+      <div class="block">
+        <input class="inp-text" type="text" id="texto-tarefa">
+        <button id="criar-tarefa" title="Criar Tarefa"></button>
+      </div>
+      <div class="block">
+        <button id="salvar-tarefas" title="Salvar Tarefas"></button>
+        <button id="remover-selecionado" title="Remover Selecionado"></button>
+        <button id="apaga-tudo" title="Apaga Tudo"></button>
+        <button id="remover-finalizados" title="Remover Finalizados"></button>
+      </div>
+      <div class="block">
+        <button id="mover-cima" title="Mover para Cima"></button>
+        <button id="mover-baixo" title="Mover para Baixo"></button>
+      </div>
     </section>
     <section class="list">
       <ol id="lista-tarefas"></ol>
