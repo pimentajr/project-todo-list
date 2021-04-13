@@ -31,3 +31,11 @@ function itemCompleted() {
   });
 }
 itemCompleted();
+
+function clearAll() {
+  const selectButtonClearAll = document.querySelector('#apaga-tudo');
+  selectButtonClearAll.addEventListener('click', () => {
+    selectList.innerHTML = '';
+  });
+}
+clearAll();
