@@ -1,3 +1,74 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+#container-text {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  height: 100px;
+  border: 1px solid rgb(117, 117, 117);
+  background-color: rgb(199, 199, 199);
+  border-radius: 20px;
+  margin: auto;
+}
+
+#texto-tarefa {
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba( 0, 0, 0, 0);
+  border: 0;
+}
+
+#texto-tarefa:focus {
+  outline: none;
+}
+
+#container-button {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+#criar-tarefa {
+  margin: 0 auto;
+}
+
+#lista-tarefas {
+  background-color: lightblue;
+  width: 500px;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin: auto;
+}
+
+#lista-tarefas li {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 90%;
+  border-bottom: 1px solid white;
+  margin-right: 50px;
+  align-items: center;
+  justify-content: left;
+}
+
+#moviment-buttons {
+  margin-left: 80%;
+}
+
+#invisible {
+  display: none;
+  visibility: hidden;
+}
+
+#main {
+  text-align: center;
+}
+
+#header {
+  text-align: center;
+}
