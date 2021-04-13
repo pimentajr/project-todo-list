@@ -6,7 +6,8 @@ function criaLista() {
  button.addEventListener('click', function () {
   const recebe = document.createElement('li');
   recebe.innerHTML = entradaDeTexto.value;
-  listaOrdenada.appendChild(recebe);  
+  listaOrdenada.appendChild(recebe);
+  entradaDeTexto.value = null;
  });
 }
 criaLista();
