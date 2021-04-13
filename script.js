@@ -40,11 +40,21 @@ function deleteList() {
   const buttonDeletelist = document.getElementById('apaga-tudo');
   buttonDeletelist.addEventListener('click', eraseList);
 }
-
+function deleteItens() {
+  const concludeItenstoDelete = document.getElementsByClassName('completed');
+  for (let index = concludeItenstoDelete.length - 1; index >= 0; index -= 1) {
+    concludeItenstoDelete[index].parentElement.removeChild(concludeItenstoDelete[index]);
+  }
+}
+function concludeItens() {
+  const removeConcludeBotton = document.querySelector('#remover-finalizados');
+  removeConcludeBotton.addEventListener('click', deleteItens);
+}
 function loadWindow() {
   addElementTable();
   selectListItens();
   deleteList();
+  concludeItens();
 }
 
 window.onload = loadWindow;

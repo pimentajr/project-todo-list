@@ -25,6 +25,6 @@ header {
   text-decoration: line-through solid  black;
 }
 
-#apaga-tudo {
+#apaga-tudo, #remover-finalizados {
   font-family: Courier, monospace;
 }
