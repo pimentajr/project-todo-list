@@ -48,6 +48,14 @@ function dbclick(){ /// função que marca como completo ou desmarca
   }
 }
 
+function clearList(){ /// função que limpa a lista
+  var list = document.querySelector('ol')
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
+
+
 // crtElement.setAttribute('onclick', 'infos()')
 // crtElement.addEventListener('dblclick', dbclick)
 
