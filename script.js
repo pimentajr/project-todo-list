@@ -38,7 +38,7 @@ function clearSelected() {
 
 function moveUp() {
   const selected = document.querySelector('.selected');
-  if (selected.previousElementSibling === null || selected === null) {
+  if (selected === null || selected.previousElementSibling === null) {
     return;
   }
   const previous = selected.previousElementSibling;
@@ -47,7 +47,7 @@ function moveUp() {
 
 function moveDown() {
   const selected = document.querySelector('.selected');
-  if (selected.nextElementSibling === null || selected === null) {
+  if (selected === null || selected.nextElementSibling === null) {
     return;
   }
   const next = selected.nextElementSibling;
