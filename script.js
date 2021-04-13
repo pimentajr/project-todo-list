@@ -47,7 +47,7 @@ if (inputCamp !== ''){
     let locateSelectedItens = document.querySelectorAll('li');
     for(let i = 0; i < locateSelectedItens.length; i += 1){
       locateSelectedItens[i].addEventListener('dblclick', function dubleClickAction() {
-          // testar o toggle 'https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_class'
+          // testar o togle 'https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_class'
           locateSelectedItens[i].classList.toggle('completed');
       })
 
