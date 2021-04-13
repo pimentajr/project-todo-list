@@ -106,9 +106,8 @@ function moveDownList() {
   }
 }
 
-// recuperar lista identificar a lista de li
-
-// recuperar a posição do elemento com classe selected
-// memoria = posição i -1
-// remover memória da lista
-// inserir memória na posição i
+//// Remove Selected
+function removeSelected() {
+  let selectedElement = document.querySelector('.selected');
+  selectedElement.parentNode.removeChild(selectedElement);
+}
