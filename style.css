@@ -19,7 +19,8 @@ main {
   align-items: center;
 }
 
-header , main {
+header,
+main {
   border: 1px solid;
   border-radius: 6px;
   padding: 20px 60px;
@@ -40,7 +41,8 @@ header h1 {
   font-size: 1rem;
 }
 
-#texto-tarefa , #criar-tarefa {
+#texto-tarefa,
+#criar-tarefa {
   padding: 5px 10px;
 }
 
@@ -48,7 +50,8 @@ header h1 {
   width: 100%;
 }
 
-#lista-tarefas , #lista-tarefas li {
+#lista-tarefas,
+#lista-tarefas li {
   user-select: none;
 }
 
@@ -65,7 +68,3 @@ header h1 {
 #lista-tarefas li:after {
   content: 'x';
 }
-
-/* .selected {
-  background-color: rgb(128 , 128 , 128);
-} */
