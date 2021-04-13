@@ -78,15 +78,18 @@ const botaoMoveCima = document.querySelector('#mover-cima');
 
 botaoMoveCima.onclick = function moverParaCima() {
   const tarefaSelecionada = document.querySelector('.selected');
-  if (tarefaSelecionada) {
+  if (tarefaSelecionada.previousSibling) {
     listaTarefas.insertBefore(tarefaSelecionada.previousSibling, tarefaSelecionada.nextSibling);
   }
 };
 
 const botaoMoveBaixo = document.querySelector('#mover-baixo');
+
 botaoMoveBaixo.onclick = function moverParaBaixo() {
   const tarefaSelecionada = document.querySelector('.selected');
-  if (tarefaSelecionada)listaTarefas.insertBefore(tarefaSelecionada.nextSibling, tarefaSelecionada);
+  if (tarefaSelecionada.nextSibling) {
+    listaTarefas.insertBefore(tarefaSelecionada.nextSibling, tarefaSelecionada);
+  }
 };
 
 // 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
