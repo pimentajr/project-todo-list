@@ -29,6 +29,13 @@ body.appendChild(listOl);
 function addItens() {
   const li = document.createElement('li');
   li.innerText = textBox.value;
+  li.addEventListener('click', (event) => {
+    if (document.querySelector('.color') !== null) {
+      document.querySelector('.color').classList.remove('color');
+    }
+    event.target.classList.add('color');
+  });
+
   listOl.appendChild(li);
 }
 
