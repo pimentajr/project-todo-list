@@ -87,4 +87,3 @@ function addOl() {
   document.querySelector('#secondsection').appendChild(ol);
 }
 addOl();
-
