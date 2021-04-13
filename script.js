@@ -73,7 +73,7 @@ function saveTasks() {
   const saveButton = document.getElementById('salvar-tarefas');
   saveButton.addEventListener('click', () => {
     localStorage.clear();
-    localStorage.savedListStorage = taskList.innerHTML; 
+    localStorage.savedListStorage = taskList.innerHTML;
     alert('Sua lista foi salva!');
   });
 }
@@ -83,12 +83,6 @@ saveTasks();
 function removeClasses() {
   const itemSelected = document.querySelector('.selected');
   if (itemSelected) itemSelected.classList.remove('selected');
-  const itemsCompleted = document.querySelectorAll('.completed');
-  if (itemsCompleted.length > 0) {
-    for (let index = 0; index < itemsCompleted.length; index += 1) {
-      itemsCompleted[index].classList.remove('completed');
-    }
-  }
 }
 
 // Restaura a lista ao carregar o site
