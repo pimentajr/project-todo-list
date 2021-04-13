@@ -1,6 +1,12 @@
 const button = document.getElementById('criar-tarefa');
-const entradaDeTexto = document.getElementById('texto-tarefas');
 const listaOrdenada = document.getElementById('lista-tarefas');
-function criaLista (){
- 
+
+function criaLista() {
+ const entradaDeTexto = document.getElementById('texto-tarefa'); 
+ button.addEventListener('click', function () {
+  const recebe = document.createElement('li');
+  recebe.innerHTML = entradaDeTexto.value;
+  listaOrdenada.appendChild(recebe);  
+ });
 }
+criaLista();
