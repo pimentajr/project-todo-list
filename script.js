@@ -81,11 +81,11 @@ eraseAllTasks();
 
 // apaga todos os items com classe completed
 function eraseCompletedTasks() {
-  const getEraseCompletedButton = document.querySelector('#remover-finalizados');
+  let getEraseCompletedButton = document.querySelector('#remover-finalizados');
 
   getEraseCompletedButton.addEventListener('click', function() {
-    let getCompletedTasks = document.getElementsByClassName('completed');
-    for (index = 0; index < getCompletedTasks.length; index += 1) {
+    let getCompletedTasks = document.querySelectorAll('.completed');
+    for (let index = 0; index < getCompletedTasks.length; index += 1) {
       getCompletedTasks[index].remove();
     }
   })
