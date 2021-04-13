@@ -75,25 +75,84 @@ buttonRemoveSelected.addEventListener('click', function(){
   }
 })
 
-
 // const buttonUp = document.querySelector('#mover-cima')
 
 // buttonUp.addEventListener('click', function(){
 //   const li = document.querySelectorAll('li')
 //   for(let index = 0; index < li.length; index += 1){
 //     if(li[index].id === 'list-color' && index !==0){
-//       let teste = li[index].innerHTML
-//       let teste2 = li[index -1].innerHTML
-      
-//       li[index].innerHTML = teste2
-//       li[index - 1].innerHTML = teste
-//       li[index].removeAttribute('id', 'list-color')
-//       li[index -1].setAttribute('id', 'list-color')
+//       let elemento1 = document.querySelector(`#lista-tarefas li:nth-child(${index+1})`)
+//       let elemento2 = document.querySelector(`#lista-tarefas li:nth-child(${index})`)
 
-//       console.log(teste2)
-//       console.log(teste)
+//       document.querySelector(`#lista-tarefas li:nth-child(${index+1})`) = elemento2
+      
+//       console.log(elemento1)
+//       console.log(elemento2)
 //     }
 //   }
 // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const buttonUp = document.querySelector('#mover-cima')
+
+buttonUp.addEventListener('click', function(){
+  const li = document.querySelectorAll('li')
+  for(let index = 0; index < li.length; index += 1){
+    if(li[index].id === 'list-color' && index !==0){
+      let element = li[index].innerHTML
+      let element2 = li[index -1].innerHTML
+      let elementClass = li[index].className
+      let element2Class = li[index -1].className
+      
+      li[index].innerHTML = element2
+      li[index - 1].innerHTML = element
+      li[index].removeAttribute('id', 'list-color')
+      li[index -1].setAttribute('id', 'list-color')
+      li[index].className = element2Class
+      li[index - 1].className = elementClass
+    }
+  }
+})
+
+const buttonDown = document.querySelector('#mover-baixo')
+
+buttonDown.addEventListener('click', function(){
+  const li = document.querySelectorAll('li')
+  for(let index = 0; index < li.length; index += 1){
+    if(li[index].id === 'list-color' && index !==li.length-1){
+      let x = li[index].innerHTML
+      let x2 = li[index +1].innerHTML
+      let xClass = li[index].className
+      let x2Class = li[index +1].className
+
+      console.log(xClass)
+      console.log(x2Class)
+      
+      li[index].innerHTML = x2
+      li[index + 1].innerHTML = x
+      li[index].removeAttribute('id', 'list-color')
+      li[index+1].setAttribute('id', 'list-color')
+      li[index].className = x2Class
+      li[index + 1].className = xClass
+    }
+  }
+})
 
 
