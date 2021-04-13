@@ -7,11 +7,42 @@ addButton.addEventListener('click', () => {
   li.innerHTML += inputText.value;
   orderedList.appendChild(li);
   inputText.value = null;
-  const temp = orderedList.childNodes;
-  for (let i = 0; i < temp.length; i += 1) {
-    temp[i].addEventListener('click', (event) => {
-      const itemTarget = event.target;
-      itemTarget.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
-  }
 });
+
+function removeClass(arrayList) {
+  for (let j = 0; j < arrayList.length; j += 1) {
+    if (arrayList[j].classList.contains('selected')) {
+      arrayList[j].classList.remove('selected');
+    }
+  }
+}
+
+function removeBackgroundcolor() {
+  const arrayItensList = [];
+  const itemList = document.querySelectorAll('ol li.selected');
+  for (let i = 0; i < itemList.length; i += 1) {
+    itemList[i].style.backgroundColor = 'rgb(256, 256, 256)';
+    arrayItensList.push(itemList[i]);
+    removeClass(arrayItensList);
+  }
+}
+
+function greyBackground(event) {
+  const mouseEvent = event;
+  if (mouseEvent.target.classList.contains('selected')) {
+    mouseEvent.target.classList.remove('selected');
+  } else {
+    mouseEvent.target.classList.add('selected');
+  }
+  mouseEvent.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+function actionList() {
+  const itemList = document.querySelectorAll('ol');
+  for (let i = 0; i < itemList.length; i += 1) {
+    itemList[i].addEventListener('click', removeBackgroundcolor);
+    itemList[i].addEventListener('click', greyBackground);
+  }
+}
+
+actionList();
