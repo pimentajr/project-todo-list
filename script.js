@@ -74,3 +74,23 @@ function removerFinalizados() {
 }
 
 removeFinalizados.addEventListener('click', removerFinalizados);
+
+const salvaTarefas = document.querySelector('#salvar-tarefas');
+
+function salvarTarefas() {
+  const listaSalva = listaTarefas.innerHTML;
+  localStorage.setItem('listaSalva', listaSalva);
+}
+
+function carregarLista() {
+  const listaSalva = localStorage.getItem('listaSalva');
+
+  if (listaSalva) {
+    listaTarefas.innerHTML = listaSalva;
+    removerSelecao();
+  }
+}
+
+salvaTarefas.addEventListener('click', salvarTarefas);
+
+carregarLista();
