@@ -16,6 +16,7 @@ body {
 
 #all-sides {
   margin: 15px;
+  padding: 0 0 13px 0;
   display: inline-block;
   width: 1335px;
   background-color:rgb(125, 241, 174);
@@ -28,7 +29,7 @@ body {
 }
 
 #left-side {
-  padding-left: 380px;
+  padding: 10px 0 0 380px;
   float: left;
   font-size: 25px;
 }

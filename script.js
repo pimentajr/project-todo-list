@@ -63,3 +63,15 @@ function removeCompleted() {
 }
 
 removeCompletedButton.addEventListener('click', removeCompleted);
+
+const saveTasksButton = document.querySelector('#salvar-tarefas');
+
+function saveTasksLocalStorage() {
+  let listItems = document.querySelectorAll('.tasks')
+  for (let index = 0; index < listItems.length; index += 1) {
+    localStorage.setItem('orderedList', index.innerHTML);
+  }
+}
+
+saveTasksButton.addEventListener('click', saveTasksLocalStorage);
+
