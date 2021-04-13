@@ -3,6 +3,7 @@ const input = document.querySelector('#texto-tarefa');
 const buttonCreateTask = document.querySelector('#criar-tarefa');
 const buttonDeleteAllTasks = document.querySelector('#apaga-tudo');
 const buttonDeleteCompleted = document.querySelector('#remover-finalizados');
+const buttonDeleteSelected = document.querySelector('#remover-selecionado');
 
 function newTask() {
   function addNewTask() {
@@ -61,8 +62,19 @@ function deleteTask() {
   buttonDeleteCompleted.addEventListener('click', deleteCompleted);
 }
 
+function deleteSelected() {
+  function deleteTaskSelected() {
+    const itemListSelected = document.getElementsByClassName('bg-list');
+    for (let index = itemListSelected.length; index > 0; index -= 1) {
+      list.removeChild(itemListSelected[index - 1]);
+    }
+  }
+  buttonDeleteSelected.addEventListener('click', deleteTaskSelected);
+}
+
 newTask();
 selectedTask();
 taskCompleted();
+deleteSelected();
 deleteTask();
 deleteList();
