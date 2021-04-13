@@ -5,8 +5,8 @@ const inputListaTarefa = document.querySelector('#texto-tarefa');
 function createNewToDo(toDo) {
   const newLi = document.createElement('li');
   listaDeTarefasOl.appendChild(newLi);
-  console.log(toDo)
   newLi.innerText = toDo;
+  inputListaTarefa.value = '';
 }
 function createListToDo() {
   createNewToDo(inputListaTarefa.value);
