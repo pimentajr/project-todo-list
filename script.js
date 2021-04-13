@@ -19,7 +19,7 @@ function indexOfNode(element) {
 
 function changeSelected(event) {
   const element = event.target;
-  const listItem = document.querySelectorAll('#list-item');
+  const listItem = document.querySelectorAll('[id = list-item]');
   let indexElement;
 
   if (element.classList.contains('selected')) {
@@ -59,7 +59,7 @@ olList.addEventListener('click', changeSelected);
 olList.addEventListener('dblclick', lineThrough);
 
 btnDeleteList.addEventListener('click', () => {
-  const listItem = document.querySelectorAll('#list-item');
+  const listItem = document.querySelectorAll('[id = list-item]');
 
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].remove();
@@ -91,8 +91,8 @@ btnTop.addEventListener('click', () => {
     const elementIndex = indexOfNode(document.querySelector('.selected'));
 
     if (elementIndex !== 0) {
-      const element = document.querySelectorAll('#list-item')[elementIndex];
-      const list = document.querySelector('#lista-tarefas');
+      const element = document.querySelectorAll('[id =list-item]')[elementIndex];
+      const list = olList;
 
       element.remove();
       list.insertBefore(element, list.childNodes[elementIndex - 1]);
@@ -107,7 +107,7 @@ btnBot.addEventListener('click', () => {
 
     if (elementIndex <= itemsLength) {
       const element = document.querySelectorAll('#list-item')[elementIndex];
-      const list = document.querySelector('#lista-tarefas');
+      const list = olList;
 
       element.remove();
       list.insertBefore(element, list.childNodes[elementIndex + 1]);

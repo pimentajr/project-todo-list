@@ -1,3 +1,12 @@
+body {
+  text-align: center;
+  width: 1000px;
+  position: relative;
+  border: 1px solid rgb(156 , 151 , 151);
+  border-radius: 10px;
+  padding: 20px;
+}
+
 header {
   font-size: 30px;
   font-weight: 700;
@@ -9,9 +18,9 @@ header {
 }
 
 #texto-tarefa {
-  display: block;
-  width: 10%;
-  padding: 0.375rem 0.75rem;
+  text-align: left;
+  width: 15%;
+  padding: 12px;
   font-size: 1rem;
   line-height: 1.5;
   color: rgb(73 , 80 , 87);
@@ -22,20 +31,57 @@ header {
 }
 
 button {
-  display: block;
-  margin: 20px 0;
+  display: inline-block;
+  margin: 10px;
   padding: 12px 40px;
   border-radius: 5px;
   border: 1px solid transparent;
-  background-color: rgb(233 , 236 , 240);
   font-size: 20px;
   font-weight: 500;
-  color: black;
+  color: white;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: rgb(200 , 205 , 211);
+#criar-tarefa {
+  background-color: rgb(0 , 123 , 255);
+  border-bottom-width: 5px;
+  margin-left: 25px;
+}
+
+#remover-selecionado , #apaga-tudo {
+  background-color: rgb(233 , 31 , 51);
+}
+
+#mover-cima , #mover-baixo {
+  background-color: rgb(52 , 58 , 64);
+}
+
+#remover-finalizados {
+  background-color: rgb(233 , 78 , 31);
+}
+
+#salvar-tarefas {
+  background-color: rgb(40 , 167 , 69);
+}
+
+#criar-tarefa:hover {
+  background-color: rgb(8 , 93 , 184);
+}
+
+#remover-selecionado:hover , #apaga-tudo:hover {
+  background-color: rgb(199 , 40 , 56);
+}
+
+#mover-cima:hover , #mover-baixo:hover {
+  background-color: rgb(28 , 31 , 34);
+}
+
+#remover-finalizados:hover {
+  background-color: rgb(216 , 62 , 16);
+}
+
+#salvar-tarefas:hover {
+  background-color: rgb(26 , 138 , 52);
 }
 
 ol {
