@@ -16,7 +16,7 @@ body {
 }
 
 .completed {
-  text-decoration: line-through solid white;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 ol {
