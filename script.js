@@ -1,17 +1,17 @@
 function selectTask(event) {
-  const getTask = document.querySelectorAll('.tarefa');
-  for (let index = 0; index < getTask.length; index += 1) {
-    getTask[index].className = 'tarefa';
-  }
-  event.target.classList.add('selected');
+  
+  const getTask = document.querySelector('.selected');
+  if (getTask !== null) {
+    getTask.classList.remove('selected');
+  } event.target.classList.add('selected');
+  
 }
 
 function doubleClickToComplete(event) {
-  const captureTask = document.querySelectorAll('.tarefa');
-  if (captureTask.className !== 'completed') {
-    event.target.classList.add('completed');
-  } else {
+  if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
   }
 }
 
