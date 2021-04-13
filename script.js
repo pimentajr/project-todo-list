@@ -41,3 +41,14 @@ buttonErase.addEventListener('click', function(){
     list.removeChild(listItem[index])
   }
 })
+
+const buttonRemoveDone = document.querySelector('#remover-finalizados')
+
+buttonRemoveDone.addEventListener('click', function(){
+  let listItem = document.querySelectorAll('li')
+  for(let index =0; index < listItem.length; index+=1){
+    if(listItem[index].classList.contains('completed')){
+      list.removeChild(listItem[index])
+    }
+  } 
+})
