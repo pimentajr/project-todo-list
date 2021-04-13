@@ -43,17 +43,34 @@ const orderList = document.createElement('ol');
 orderList.id = 'lista-tarefas';
 divInput.appendChild(orderList);
 
-function addTask() {
+const createTask = document.getElementById('criar-tarefa');
+
+createTask.addEventListener('click', () => {
   const listItem = document.createElement('li');
   listItem.style = 'font-family: Old Standard TT';
   listItem.innerText = input.value;
   input.value = '';
-  listItem.addEventListener('click', (event) => {
-    if (document.querySelector('.selected') !== null) {
-      document.querySelector('.selected').classList.remove('selected');
+  orderList.appendChild(listItem);
+});
+
+function click() {
+  orderList.addEventListener('click', (event) => {
+    const selectedItem = document.querySelector('.selected');
+    if (selectedItem) {
+      selectedItem.classList.remove('selected');
     }
     event.target.classList.add('selected');
   });
-  orderList.appendChild(listItem);
 }
-button.addEventListener('click', addTask);
+click();
+
+function dblclick() {
+  orderList.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  });
+}
+dblclick();

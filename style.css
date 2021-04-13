@@ -48,3 +48,7 @@
   border-radius: 10px;
   width: 520px;
 }
+
+.completed {
+  text-decoration: line-through solid black;
+}
