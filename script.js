@@ -23,6 +23,7 @@ function buttonCreat(id, innertext) {
 }
 buttonCreat('criar-tarefa', 'newAssignment');
 buttonCreat('apaga-tudo', 'DeleteAllAssignments');
+buttonCreat('remover-finalizados', 'DeleteAllRisk')
 
 function creatNewAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
@@ -51,23 +52,26 @@ function riskAssignment(event) {
   if (event.target.classList.contains(string)) {
     event.target.classList.toggle('completed');
   }
+  deleteAllRisk()
 }
 // Ajuda do plantão.
 function riskAssignmentOnList() {
-  const locateListb = document.querySelector('#lista-tarefas');
-  locateListb.addEventListener('dblclick', riskAssignment);
+  const locateList = document.querySelector('#lista-tarefas');
+  locateList.addEventListener('dblclick', riskAssignment);
 }
+riskAssignmentOnList();
 
 function deleteAllAssignments() {
-  const locatelista = document.querySelector('#lista-tarefas');
+  const locatelist = document.querySelector('#lista-tarefas');
   const locatebutton = document.querySelector('#apaga-tudo');
   function listdelete() {
-    for (let index = 0; index < locatelista.childNodes.length; index += 1) {
-      locatelista.childNodes[index].remove();
+    for (let index = 0; index < locatelist.childNodes.length; index += 1) {
+      locatelist.childNodes[index].remove();
     }
   }
   locatebutton.addEventListener('click', listdelete);
 }
+
 
 function buttonAssignmentCreat() {
   const locateButton = document.querySelector('#criar-tarefa');
@@ -76,9 +80,18 @@ function buttonAssignmentCreat() {
     creatNewAssignmentOnList().innerText = textAssigment.value;
     textAssigment.value = '';
     backGroundColorChangeOnClick();
-    riskAssignmentOnList();
-    deleteAllAssignments();
   }
   locateButton.addEventListener('click', creatNewAssigment);
 }
 buttonAssignmentCreat();
+
+function deleteAllRisk() {
+  const locatelist = document.querySelectorAll('.completed');
+  const locatebutton = document.querySelector('#remover-finalizados');
+  function riskdelete() {
+    for (let index = 0; index < locatelist.length; index += 1) {
+      locatelist[index].remove()
+    }
+  }
+  locatebutton.addEventListener('click', riskdelete);
+}
