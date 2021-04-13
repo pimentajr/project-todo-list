@@ -130,7 +130,7 @@ function move(event) {
 upBtn.addEventListener('click', move);
 downBtn.addEventListener('click', move);
 
-const removeSelectedBtn = document.querySelector('#remover-selecionados');
+const removeSelectedBtn = document.querySelector('#remover-selecionado');
 
 function removeSelected() {
   const item = document.querySelector(selected);
