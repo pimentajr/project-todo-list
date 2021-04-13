@@ -87,7 +87,7 @@ storageItens();
 
 // Requisito 13 - Botões para mover para cima e para baixo
 function moveUp() {
-  const allItens = document.querySelectorAll('li');
+  let allItens = document.querySelectorAll('li');
   const moveUpButton = document.getElementById('mover-cima');
   moveUpButton.addEventListener('click', () => {
     for (let index = 1; index < allItens.length; index += 1) {
@@ -100,10 +100,10 @@ function moveUp() {
 moveUp();
 
 function moveDown() {
-  const allItens = document.querySelectorAll('li');
+  let allItens = document.querySelectorAll('li');
   const moveDownButton = document.getElementById('mover-baixo');
   moveDownButton.addEventListener('click', () => {
-    for (let index = 0; index < allItens.length; index += 1) {
+    for (let index = 0; index < (allItens.length - 1); index += 1) {
       if (allItens[index].style.backgroundColor === grayColor) {
         allList.insertBefore(allItens[index+1], allItens[index]);
       }
