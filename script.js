@@ -66,6 +66,7 @@ function clickColorList(event) {
     listElem[index].classList.remove('selected'); // Task 8
     const aux = event;
     aux.target.classList.add('selected');
+    if (aux.target === list) aux.target.classList.remove('selected');
   }
 }
 
