@@ -1,6 +1,5 @@
 // Cria as variáveis recorrentes
 const taskList = document.getElementById('lista-tarefas');
-const btnsContainer = document.getElementById('btns-container');
 const createTask = document.getElementById('criar-tarefa');
 const savedListStorage = localStorage.getItem('savedListStorage');
 const upMove = document.getElementById('mover-cima');
@@ -24,7 +23,7 @@ createNewTask();
 function taskSelector() {
   taskList.addEventListener('click', (event) => {
     const selectedItem = event.target;
-    const previouSelectedItem = document.querySelector('.selected');;
+    const previouSelectedItem = document.querySelector('.selected');
     if (previouSelectedItem) {
       previouSelectedItem.classList.remove('selected');
     }
@@ -83,7 +82,7 @@ saveTasks();
 
 // Remove as classes selected e completed adicionadas aos itens
 function removeClasses() {
-  let itemSelected = document.querySelector('.selected');
+  const itemSelected = document.querySelector('.selected');
   if (itemSelected) itemSelected.classList.remove('selected');
 }
 
@@ -98,12 +97,12 @@ function loadsite() {
   restoreTasks();
   if (savedListStorage) console.log('Lista carregada com sucesso!');
 }
-window.onload = loadsite
+window.onload = loadsite;
 
 // Leva os itens para cima ou para baixo
 function moveItens() {
   upMove.addEventListener('click', () => {
-    let items = document.getElementsByClassName('item');
+    const items = document.getElementsByClassName('item');
     const itemSelected = document.querySelector('.selected');
     if (itemSelected && (itemSelected !== items[0])) {
       console.log('move item pra cima');
@@ -111,7 +110,7 @@ function moveItens() {
     }
   });
   downMove.addEventListener('click', () => {
-    let items = document.getElementsByClassName('item');
+    const items = document.getElementsByClassName('item');
     const itemSelected = document.querySelector('.selected');
     if (itemSelected && (itemSelected !== items[items.length - 1])) {
       console.log('move item pra baixo');
@@ -120,3 +119,13 @@ function moveItens() {
   });
 }
 moveItens();
+
+// Adiciona botão pra remover a seleção do item 
+function removeSelected() {
+  const buttonRemove = document.getElementById('remover-selecionado');
+  buttonRemove.addEventListener('click', () => {
+    let itemSelected = document.querySelector('.selected');
+    itemSelected.remove(itemSelected.parentElement);
+  });
+}
+removeSelected();
