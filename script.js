@@ -26,4 +26,4 @@ evento.target.className = 'selected';
 evento.classList.add('selected');
 }
 colorUl.addEventListener('click', changeColor);
-changeColor();
+
