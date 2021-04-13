@@ -20,3 +20,24 @@ function addBackground() {
   });
 }
 addBackground();
+
+function addClass(par) {
+  const completedClass = par;
+  completedClass.classList.add('completed');
+}
+
+function removeClass(par) {
+  const removedClass = par;
+  removedClass.classList.remove('completed');
+}
+
+function throughLine() {
+  orderedList.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      removeClass(event.target);
+    } else {
+      addClass(event.target);
+    }
+  });
+}
+throughLine();
