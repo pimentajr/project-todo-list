@@ -1,10 +1,12 @@
 const buttonForTaskCreation = document.getElementById('criar-tarefa');
 const inputTextElement = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-let tasks = document.getElementsByClassName('tasks');
+const tasks = document.getElementsByClassName('tasks');
 const resetButton = document.getElementById('apaga-tudo');
 const deleteEndedTasksButton = document.getElementById('remover-finalizados');
 const saveButton = document.getElementById('salvar-tarefas');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
 
 function addTask() {
   const task = inputTextElement.value;
@@ -56,6 +58,44 @@ function retrieveState() {
   taskList.innerHTML = localStorage.getItem('tasks');
 }
 
+function moveUp() {
+  const taskToMove = document.getElementsByClassName('selected')[0];
+  if (taskToMove === undefined) {
+    return;
+  }
+  if (taskList.firstChild === taskToMove) {
+    return;
+  }
+
+  const previousTask = taskToMove.previousElementSibling;
+  let temp = previousTask.innerHTML;
+  previousTask.innerHTML = taskToMove.innerHTML;
+  taskToMove.innerHTML = temp;
+
+  temp = previousTask.className;
+  previousTask.className = taskToMove.className;
+  taskToMove.className = temp;
+}
+
+function movedown() {
+  const taskToMove = document.getElementsByClassName('selected')[0];
+  if (taskToMove === undefined) {
+    return;
+  }
+  if (taskList.lastChild === taskToMove) {
+    return;
+  }
+
+  const nextTask = taskToMove.nextElementSibling;
+  let temp = nextTask.innerHTML;
+  nextTask.innerHTML = taskToMove.innerHTML;
+  taskToMove.innerHTML = temp;
+
+  temp = nextTask.className;
+  nextTask.className = taskToMove.className;
+  taskToMove.className = temp;
+}
+
 function addListeners() {
   buttonForTaskCreation.addEventListener('click', addTask);
   taskList.addEventListener('click', taskSelector);
@@ -63,7 +103,10 @@ function addListeners() {
   resetButton.addEventListener('click', resetAll);
   deleteEndedTasksButton.addEventListener('click', deleteEndedTasks);
   saveButton.addEventListener('click', saveState);
+  moveUpButton.addEventListener('click', moveUp);
+  moveDownButton.addEventListener('click', movedown);
 }
 
 addListeners();
 retrieveState();
+moveUp();
