@@ -68,6 +68,13 @@ document.querySelector('#mover-baixo').addEventListener('click', () => {
   }
 });
 
+document.querySelector('#remover-selecionado').addEventListener('click', () => {
+  if (document.querySelector('.selected')) {
+    const selected = document.querySelector('.selected');
+    listOfTasks.removeChild(selected);
+  }
+});
+
 listOfTasks.addEventListener('click', (event) => {
   if (event.target.classList.contains('task')) {
     if (document.querySelector('.selected')) {
