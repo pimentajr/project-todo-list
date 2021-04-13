@@ -3,11 +3,11 @@
 }
 
 body {
-  background-color: rgb(25, 33, 34);
+  background-color: rgb(25 , 33 , 34);
 }
 
 main {
-  background-color: rgb(247, 245, 234);
+  background-color: rgb(247 , 245 , 234);
   padding: 30px;
   width: 800px;
   height: 400px;
@@ -26,4 +26,8 @@ main {
 #criar-tarefa {
   width: 70px;
   display: inline-block;
+}
+
+.selected {
+  background-color: gray;
 }

@@ -6,14 +6,16 @@ const formList = document.getElementById('texto-tarefa');
 function addLi(textForm) {
   const item = document.createElement('li');
   item.innerText = `${textForm}`;
-  taskList.appendChild(item).classList.add('task-list');
+  taskList.appendChild(item);
   formList.value = '';
   formList.focus();
 }
 
 function printSelectedItem(event) {
   const changeBg = event.target;
-  changeBg.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (document.querySelector('.selected') === null) {
+    changeBg.classList.add('selected');
+  }
 }
 
 btnAdd.addEventListener('click', () => {
