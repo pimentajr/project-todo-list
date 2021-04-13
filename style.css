@@ -1,3 +1,35 @@
 * {
   box-sizing: border-box;
 }
+
+#texto-tarefa {
+  height: 30px;
+  width: 25%;
+}
+
+.container-task {
+  padding: 10px;
+}
+
+#criar-tarefa {
+  background-color: darkcyan;
+  color: white;
+}
+
+#apaga-tudo {
+  background-color: darkred;
+  color: white;
+}
+
+#remover-finalizados {
+  background-color: coral;
+  color: white;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
