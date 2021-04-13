@@ -48,3 +48,12 @@ function removeFinalizados() {
   });
 }
 removeFinalizados();
+
+function removeSelected() {
+  const selectButtonRemoveSelected = document.querySelector('#remover-selecionado');
+  selectButtonRemoveSelected.addEventListener('click', () => {
+    const selected = document.querySelectorAll('.selected');
+    selected.forEach((element) => element.remove());
+  });
+}
+removeSelected();
