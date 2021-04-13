@@ -1,7 +1,8 @@
 const taskList = document.getElementById('lista-tarefas');
 const insertButtom = document.getElementById('criar-tarefa');
-const tasks = document.querySelector('#lista-tarefas');
-// let selectedTask = document.createElement('style');
+const tasks = document.getElementById('lista-tarefas');
+const removeTasks = document.getElementById('apaga-tudo');
+const removeCompletedTasks = document.getElementById('remover-finalizados');
 
 function insertTask() {
   const taskContent = document.getElementById('texto-tarefa').value;
@@ -29,6 +30,18 @@ function lineThrough(e) {
   }
 }
 
+function removeAllTasks() {
+  tasks.innerHTML = '';
+}
+// usei como referência, o código utilizado pelo Victor Dias, no link https://github.com/tryber/sd-010-b-project-todo-list/pull/133/files
+
+function removeFinishedTasks() {
+  let finishedTasks = document.getElementsByClassName('completed');
+  for (let index = 0; index < finishedTasks.length; index += 1) {
+    tasks.removeChild(finishedTasks[index]);
+  }
+}
+
 window.onload = () => {
   // Desafio 5 e 6
   insertButtom.addEventListener('click', insertTask);
@@ -38,4 +51,10 @@ window.onload = () => {
 
   // Desafio 9
   tasks.addEventListener('dblclick', lineThrough);
+
+  // Desafio 10
+  removeTasks.addEventListener('click', removeAllTasks);
+
+  // Desafio 11
+  removeCompletedTasks.addEventListener('click', removeFinishedTasks);
 };
