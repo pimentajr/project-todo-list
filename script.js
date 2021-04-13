@@ -4,6 +4,8 @@ const titleParagraph = document.createElement('p');
 const mainContent = document.createElement('main');
 const inputSection = document.createElement('section');
 const taskEntry = document.createElement('input');
+const listSection = document.createElement('section');
+const ordenedList = document.createElement('ol');
 
 function insertTitle() {
   title.id = 'title';
@@ -36,10 +38,22 @@ function createsTaskEntry() {
   inputSection.appendChild(taskEntry);
 }
 
+function createListSection() {
+  listSection.id = 'list-section';
+  mainContent.appendChild(listSection);
+}
+
+function createOrdenedList() {
+  ordenedList.id = 'lista-tarefa';
+  listSection.appendChild(ordenedList);
+}
+
 window.onload = function loadPage() {
   insertTitle();
   insertParagraphToTitle();
   createsMainContent();
   createsInputSection();
   createsTaskEntry();
+  createListSection();
+  createOrdenedList();
 };
