@@ -84,7 +84,7 @@ botaoMoveCima.onclick = function moverParaCima() {
 const botaoMoveBaixo = document.querySelector('#mover-baixo');
 botaoMoveBaixo.onclick = function moverParaBaixo() {
   const tarefaSelecionada = document.querySelector('.selected');
-  listaTarefas.insertBefore(tarefaSelecionada.nextSibling, tarefaSelecionada);
+  if (tarefaSelecionada)listaTarefas.insertBefore(tarefaSelecionada.nextSibling, tarefaSelecionada);
 };
 
 // 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
