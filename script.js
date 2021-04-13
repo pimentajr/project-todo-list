@@ -48,6 +48,9 @@ function saveList() {
 
 function loadList() {
   const list = localStorage.getItem('list');
+  if (list === null || list === ''){
+    return;
+  }
   const array = list.split(',');
   for (let index = 0; index < array.length; index += 2) {
     const element = document.createElement('li');
