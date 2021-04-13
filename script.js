@@ -3,6 +3,7 @@ const toDoList = document.getElementById('lista-tarefas');
 const newTaskButton = document.getElementById('criar-tarefa');
 const clearAllButton = document.getElementById('apaga-tudo');
 const clearCompletedButton = document.getElementById('remover-finalizados');
+const saveListButton = document.getElementById('salvar-tarefas');
 
 function newTask() {
   const task = document.createElement('li');
@@ -33,6 +34,10 @@ function deleteCompletedTasks() {
   toDoList.querySelectorAll('.completed').forEach((e) => e.remove());
 }
 
+function saveList() {
+  localStorage.setItem('todo-list', toDoList.innerHTML);
+}
+
 newTaskButton.addEventListener('click', newTask);
 inputElement.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') newTaskButton.click();
@@ -41,3 +46,6 @@ toDoList.addEventListener('click', selectTask);
 toDoList.addEventListener('dblclick', toggleCompletedTask);
 clearAllButton.addEventListener('click', deleteAllTasks);
 clearCompletedButton.addEventListener('click', deleteCompletedTasks);
+saveListButton.addEventListener('click', saveList);
+
+toDoList.innerHTML = localStorage.getItem('todo-list');
