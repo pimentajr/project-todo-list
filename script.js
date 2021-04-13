@@ -21,9 +21,9 @@ function selectedSwitch(event) {
   eventTarget.className += ' selected';
 }
 
-function removeLis(){
+function removeLis() {
   taskList.innerHTML = '';
-  }
+}
 
 taskList.addEventListener('click', selectedSwitch);
 createTask.addEventListener('click', newTask);

@@ -1,18 +1,18 @@
 body {
-  background-color: #2d7fbd;
+  background-color: rgb(45, 127, 189);
 }
 
 header {
-  color: #e69c1e;
+  color: rgb(230, 156, 30);
   text-shadow: 2px 2px black;
 }
 
 #texto-tarefa {
-  background-color: #e69c1e;
+  background-color: rgb(230, 156, 30);
 }
 
 #funcionamento {
-  color: #e69c1e;
+  color: rgb(230, 156, 30);
   text-shadow: 2px 2px black;
 
 }
@@ -20,18 +20,21 @@ header {
 #criar-tarefa {
   height: 22px;
   width: 100px;
-  background-color: #e69c1e;
+  background-color: rgb(230, 156, 30);
 
 }
+
 .listItem {
   height: auto;
   width: auto;
 }
+
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
+
 #apaga-tudo {
   height: 22px;
   width: 110px;
-  background-color: #e69c1e;
+  background-color: rgb(230, 156, 30);
 }
