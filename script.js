@@ -55,6 +55,18 @@ function clearList(){ /// função que limpa a lista
   }
 }
 
+function clearFinish(){ /// função que limpa as tarefas completas
+  var listF = document.querySelectorAll('.completed')
+  var tamanho = listF.length
+  for (let i = 0; i < tamanho ; i += 1){
+    listF[i].remove();
+  }
+}
+
+
+// if(listF.length){
+//   listF[listF.length-1].remove();
+// }
 
 // crtElement.setAttribute('onclick', 'infos()')
 // crtElement.addEventListener('dblclick', dbclick)
