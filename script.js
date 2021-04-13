@@ -62,3 +62,24 @@ delAll.addEventListener('click', () => {
     list.removeChild(list.lastElementChild);
   }
 });
+
+// button de deletar os completos
+function buttonClearCompleted() {
+  const buttonClear = document.createElement('button');
+  buttonClear.id = 'remover-finalizados';
+  buttonClear.innerHTML = 'Apagar os concluidos!';
+  classPai.appendChild(buttonClear);
+}
+
+buttonClearCompleted();
+
+const getClearComplet = document.querySelector('#remover-finalizados');
+
+function dellCompleted() {
+  const getComletedClass = document.querySelectorAll('.completed');
+  for (let index = 0; index < getComletedClass.length; index += 1) {
+    getComletedClass[index].parentNode.removeChild(getComletedClass[index]);
+  }
+}
+
+getClearComplet.addEventListener('click', dellCompleted);
