@@ -25,7 +25,6 @@ descrp.id = 'funcionamento';
 descrp.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 
 // Task 3
-
 const mainDiv = create('div');
 mainDiv.id = 'main';
 add(body, mainDiv);
@@ -76,9 +75,9 @@ function completedEvent(event) {
   const listElem = document.querySelectorAll('#list-item');
   for (let index = 0; index < listElem.length; index += 1) {
     const aux = event;
-    if (aux.target.classList.contains('completed')) {
-      aux.target.classList.remove('completed');
-    } else aux.target.classList.add('completed');
+    if (aux.target.style.textDecoration === 'line-through solid black') {
+      aux.target.style.textDecoration = null;
+    } else aux.target.style.textDecoration = 'line-through solid black';
   }
 }
 
@@ -140,16 +139,18 @@ moveDownBtn.innerHTML = '&#9660';
 add(mainDiv, moveUpBtn);
 add(mainDiv, moveDownBtn);
 
+// Reference: https://www.w3schools.com/jsref/met_node_insertbefore.asp
 function moveDown() {
   const selected = document.querySelector('.selected');
-  if (selected && selected.nextElementSibling) {
+  if (selected) {
     loadList.insertBefore(selected.nextElementSibling, selected);
   }
 }
 
+// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
 function moveUp() {
   const selected = document.querySelector('.selected');
-  if (selected && selected.previousElementSibling) {
+  if (selected) {
     selected.insertAdjacentElement('afterend', selected.previousElementSibling);
   }
 }
