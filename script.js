@@ -46,3 +46,17 @@ function deleteAll () {
 }
 
 deleteAll();
+
+//11
+const apagarFinal = document.getElementById('remover-finalizados');
+const complete = document.getElementsByClassName('completed');
+function deleteFinal () {
+    apagarFinal.addEventListener('click', () => {
+      console.log(complete);
+        for (let i = complete.length - 1; i >= 0; i -= 1) {
+        complete[i].remove();
+      }
+    })
+}
+
+deleteFinal();
