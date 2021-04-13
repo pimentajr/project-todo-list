@@ -61,6 +61,11 @@ function CreateTask() {
 }
 
 inputButton.addEventListener('click', CreateTask);
+inputField.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    CreateTask();
+  }
+});
 
 function clearAll() {
   taskList.innerHTML = '';
@@ -78,22 +83,45 @@ function clearCompleted() {
 clearCompletedButton.addEventListener('click', clearCompleted);
 
 function saveTasks() {
+  let x;
   for (let i = 0; i < listItem.length; i += 1) {
-    const x = String(i);
-    const y = String(listItem[i].innerText);
-    sessionStorage.setItem(`${x}`, `${y}`);
+    if (listItem[i].classList.contains('completed')) {
+      x = { [i]: listItem[i].innerText, class: 'completed' };
+    } else {
+      x = { [i]: listItem[i].innerText };
+    }
+    sessionStorage.setItem(`${[i]}`, JSON.stringify(x));
   }
+
+  //   const xd = { name: 'John', class: 'completed' };
+  //   sessionStorage.setItem('xd', JSON.stringify(xd));
+  //   const obj = JSON.parse(sessionStorage.xd);
 }
+let lista = [];
+// function StoragelengthSize() {
+//   if (sessionStorage.length > 1) {
+//     taskList.innerHTML = '';
+//     for (let i = 0; i < sessionStorage.length - 1; i += 1) {
+//       lista.push(JSON.parse(sessionStorage[i]))
+//   }
+// }
 
 function sessionToList() {
   if (sessionStorage.length > 1) {
     taskList.innerHTML = '';
     for (let i = 0; i < sessionStorage.length - 1; i += 1) {
+      lista.push(JSON.parse(sessionStorage[i]));
       const x = document.createElement('li');
-      x.setAttribute('class', 'listItem');
-      x.innerText = sessionStorage.getItem(i);
+      x.classList.add('listItem');
+      x.innerText = lista[i][i];
+      if (lista[i].class === 'completed') {
+        x.classList.add('completed');
+      }
+      //   x.innerText = sessionStorage.getItem(i);
       taskList.appendChild(x);
     }
+    lista = [''];
+    console.log(lista);
   }
 }
 
