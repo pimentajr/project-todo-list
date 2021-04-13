@@ -42,15 +42,38 @@ function createList(){
 createList();
 
 function select(){
+  
   let boxItems = document.getElementById('lista-tarefas');
-
+  
   boxItems.addEventListener('click',function(event){
-
     let listItems = document.querySelectorAll('.list-item');
 
     for(let index = 0; index < listItems.length; index += 1) {
-      listItems[index].classList.remove('select')
+      listItems[index].classList.remove('select');
     } event.target.classList.add('select');
   })
 }
 select();
+
+function finished(){
+  
+  let boxItems = document.getElementById('lista-tarefas');
+
+    console.log(boxItems);
+
+  boxItems.addEventListener('dblclick', function(event){
+
+    console.log('teste');
+
+      console.log(event.target);
+
+       if(event.target.classList.contains('completed') === true) {
+        event.target.classList.remove('completed'); 
+      } else {
+        event.target.classList.add('completed');
+      }
+  })
+}
+finished();
+
+
