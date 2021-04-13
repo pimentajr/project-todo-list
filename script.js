@@ -3,6 +3,7 @@ const btnAdd = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btnClear = document.querySelector('#apaga-tudo');
 const btnCompleted = document.querySelector('#remover-finalizados');
+const btnSave = document.querySelector('#salvar-tarefas');
 const btnUp = document.querySelector('#mover-cima');
 const btnDown = document.querySelector('#mover-baixo');
 
@@ -11,8 +12,6 @@ function addTask(text) {
   if ((input.value !== '')) {
     const newTask = document.createElement('li');
     newTask.classList.add('task');
-    // newTask.addEventListener('click', selectTask);
-    // newTask.addEventListener('dblclick', toggleCompleted);
     newTask.innerText = text;
     taskList.appendChild(newTask);
   }
@@ -53,6 +52,7 @@ btnClear.addEventListener('click', () => {
   while (taskList.lastElementChild) {
     taskList.removeChild(taskList.lastElementChild);
   }
+  localStorage.clear();
 });
 
 // Remove somente as tarefas finalizadas
@@ -64,6 +64,18 @@ btnCompleted.addEventListener('click', () => {
     }
   }
 });
+
+// Salva lista de tarefa no local storage
+btnSave.addEventListener('click', () => {
+  const olData = document.querySelector('OL').innerHTML;
+  localStorage.setItem('listItems', olData);
+});
+
+window.onload = () => {
+  if (localStorage.getItem('listItems') !== null) {
+    document.querySelector('OL').innerHTML = localStorage.getItem('listItems');
+  }
+};
 
 // Move tarefa selecionada para cima
 btnUp.addEventListener('click', () => {
