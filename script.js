@@ -65,7 +65,7 @@ function saveList() {
 
 function recoverList() {
   const savedList = JSON.parse(localStorage.getItem('savedList'));
-  console.log(savedList.length);
+  console.log(savedList);
 
   for (const key in savedList) {
     const newTask = document.createElement('li');
