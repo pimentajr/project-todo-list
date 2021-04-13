@@ -15,8 +15,8 @@ body {
 }
 
 #all-sides {
+  min-height: 100px;
   margin: 15px;
-  padding: 0 0 13px 0;
   display: inline-block;
   width: 1335px;
   background-color:rgb(125, 241, 174);
@@ -24,8 +24,13 @@ body {
 }
 
 #right-side {
-  padding: 15px 170px 0 0;
-  float: right;
+  position: absolute;
+  margin: 15px 0 0 750px;
+}
+
+#right-side-under {
+  position: absolute;
+  margin: 57px 0 0 750px;
 }
 
 #left-side {

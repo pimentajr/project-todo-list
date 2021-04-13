@@ -26,6 +26,9 @@ function changeListItemBackgroundColor(event) {
     }
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (orderedList.style.backgroundColor = 'rgb(128, 128, 128)') {
+  orderedList.style.backgroundColor = 'transparent';
+  }
 }
 
 orderedList.addEventListener('click', changeListItemBackgroundColor);
@@ -67,11 +70,19 @@ removeCompletedButton.addEventListener('click', removeCompleted);
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 
 function saveTasksLocalStorage() {
-  let listItems = document.querySelectorAll('.tasks')
+  let listItems = document.querySelectorAll('.lista-tarefas');
+  localStorage.setItem('listItems', )
   for (let index = 0; index < listItems.length; index += 1) {
-    localStorage.setItem('orderedList', index.innerHTML);
+    listItems[index].innerHTML
   }
 }
 
 saveTasksButton.addEventListener('click', saveTasksLocalStorage);
 
+const buttonRmvSelected = document.querySelector('#remover-finalizados');
+
+function removeSelectedItems() {
+
+}
+
+buttonRmvSelected.addEventListener('click', removeSelectedItems);
