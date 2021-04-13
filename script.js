@@ -32,8 +32,8 @@ addInput();
 // Cria o botão que irá adicionar um novo item a lista
 function addBtnNewItem() {
   const button = document.createElement('button');
-  button.id = 'criar-tarefa'
-  button.innerText = 'Adicionar'
+  button.id = 'criar-tarefa';
+  button.innerText = 'Adicionar';
   document.querySelector('#firstsection').appendChild(button);
 }
 addBtnNewItem();
@@ -44,12 +44,14 @@ function addItem() {
   addButton.addEventListener('click', () => {
     const valueItem = document.querySelector('#texto-tarefa').value;
     const itemList = document.createElement('li');
+    itemList.className = 'item'
     itemList.innerText = valueItem;
     document.querySelector('#lista-tarefas').appendChild(itemList);
     document.querySelector('#texto-tarefa').value = '';
+    clickItem()
   })
 }
-addItem ();
+addItem();
 
 // Cria segunda section
 function addSecondSection() {
@@ -66,3 +68,13 @@ function addOl() {
   document.querySelector('#secondsection').appendChild(ol);
 }
 addOl();
+
+// Cria função com evento ao clicar nos itens criados
+function clickItem() {
+  let itens = document.querySelectorAll('.item')
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].addEventListener('click', () => {
+      itens[index].classList.add('highlight')
+    })
+  }
+}
