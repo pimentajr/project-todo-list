@@ -47,7 +47,7 @@ const buttonCreate = create('button');
 add(mainDiv, buttonCreate);
 
 buttonCreate.id = 'criar-tarefa';
-buttonCreate.innerText = 'Create';
+buttonCreate.innerText = 'Create Task';
 
 function createListItem() {
   const listItensAux = create('li');
@@ -125,8 +125,32 @@ function saveItem() {
 }
 
 // Task 13
-const moveUp = create('button');
-const moveDown = create('button');
+const moveUpBtn = create('button');
+const moveDownBtn = create('button');
+
+moveUpBtn.id = 'mover-cima';
+moveDownBtn.id = 'mover-baixo';
+
+// Html symbols: https://erikasarti.com/html/dingbats-simbolos-desenhos/
+moveUpBtn.innerHTML = '&#9650';
+moveDownBtn.innerHTML = '&#9660';
+
+add(mainDiv, moveUpBtn);
+add(mainDiv, moveDownBtn);
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  if (selected && selected.nextElementSibling) {
+    loadList.insertBefore(selected.nextElementSibling, selected);
+  }
+}
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (selected && selected.previousElementSibling) {
+    selected.insertAdjacentElement('afterend', selected.previousElementSibling);
+  }
+}
 
 // Task 14
 const deleteTaskBtn = create('button');
@@ -146,6 +170,8 @@ function start() {
   removeCompButton.addEventListener('click', removeCompleted);
   saveButton.addEventListener('click', saveItem);
   deleteTaskBtn.addEventListener('click', removeListItem);
+  moveDownBtn.addEventListener('click', moveDown);
+  moveUpBtn.addEventListener('click', moveUp);
   list.addEventListener('click', clickColorList);
   list.addEventListener('dblclick', completedEvent);
 }

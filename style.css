@@ -60,7 +60,7 @@ li {
 #remover-finalizados {
   border: 1px inset black;
   border-radius: 10px;
-  background: darkslateblue;
+  background: darkred;
   color: white;
   margin-left: 5px;
   padding: 3px 10px;
@@ -80,6 +80,24 @@ li {
   border-radius: 10px;
   background: darkslateblue;
   color: white;
+  margin-left: 5px;
+  padding: 3px 10px;
+}
+
+#mover-cima {
+  border: 1px inset black;
+  border-radius: 10px;
+  background: snow;
+  color: black;
+  margin-left: 15px;
+  padding: 3px 10px;
+}
+
+#mover-baixo {
+  border: 1px inset black;
+  border-radius: 10px;
+  background: snow;
+  color: black;
   margin-left: 5px;
   padding: 3px 10px;
 }
