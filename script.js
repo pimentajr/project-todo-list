@@ -1,6 +1,8 @@
 const title = document.createElement('header');
 const titleText = document.createElement('h1');
 const titleParagraph = document.createElement('p');
+const mainContent = document.createElement('main');
+const taskEntry = document.createElement('input');
 
 function insertTitle() {
   title.id = 'title';
@@ -16,7 +18,19 @@ function insertParagraphToTitle() {
   title.appendChild(titleParagraph);
 }
 
+function createsMainContent() {
+  mainContent.id = 'main-content';
+  document.body.appendChild(mainContent);
+}
+
+function createsTaskEntry() {
+  taskEntry.id = 'texto-tarefa';
+  mainContent.appendChild(taskEntry);  
+}
+
 window.onload = function loadPage() {
   insertTitle();
   insertParagraphToTitle();
+  createsMainContent();
+  createsTaskEntry();
 };
