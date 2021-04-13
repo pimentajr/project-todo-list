@@ -1,5 +1,6 @@
 const addButton = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+const clearButton = document.querySelector('#apaga-tudo');
 
 addButton.addEventListener('click', () => {
   const inputText = document.querySelector('#texto-tarefa').value;
@@ -24,5 +25,11 @@ tasksList.addEventListener('dblclick', (event) => {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
+  }
+});
+
+clearButton.addEventListener('click', () => {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.lastChild);
   }
 });
