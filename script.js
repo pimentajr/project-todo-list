@@ -5,19 +5,27 @@ const taskList = document.getElementById('lista-tarefas');
 
 // Pegando o main do DOM
 const mainProject = document.getElementById('main');
-// Pegando botões
+
+// Botões
 const button = document.getElementById('criar-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
 const removeThroughLine = document.getElementById('remover-finalizados');
-// Criar uma função que adiciona um elemento na tela
+const saveButoon = document.getElementById('salvar-tarefas');
 
-// Função que limpa input - Será usada na sunção inputTask
+// Carregando o conteudo do localStorage na page
+// PEgar o local storage
+// Atribuir a lista
+taskList.innerHTML = localStorage.getItem('list');
+
+// ex 12 bonus (2/2)
+// Função que limpa input 
 function clearInput(input) {
   if (input.value !== '') {
     input.value = '';
   }
 }
-// Criando função que altera o bacckgroud.
+
+// Função que altera o background da li selecionada
 function changeBackground(event) {
   const listSelected = document.getElementsByClassName('selected');
   for (let index = 0; index < listSelected.length; index += 1) {
@@ -26,32 +34,23 @@ function changeBackground(event) {
   event.target.classList.add('selected');
 }
 
+// Função que risca linha 
 function throughLine(event) {
   event.target.classList.toggle('completed');
 }
 
 // Função para colocar input na lista
 function inputTask() {
-  // pegar o valor do input no dom
   const inputValue = document.getElementById('texto-tarefa').value;
-  // depois criamos o elemento que irá ser cada iten da lista, a tag li
   const itenList = document.createElement('li');
-  // adicionando id nas li
   itenList.id = 'itenList';
-  // adicionando escutador
   itenList.addEventListener('click', changeBackground);
-  // Adicionando dbclick como evento para riscar linha
   itenList.addEventListener('dblclick', throughLine);
-  // Agora precisamos adicionar o conteudo do input na tag li
   itenList.innerText = inputValue;
-  // Agora é necessario vincular a li na tag ol
   taskList.appendChild(itenList);
-  // Adiciona a lista no main
   mainProject.appendChild(taskList);
-  // Limpa o input
   clearInput(document.getElementById('texto-tarefa'));
 }
-// Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
 button.addEventListener('click', inputTask);
 
 // ex10
@@ -60,7 +59,6 @@ function removeList() {
   // Consulta ao https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
   taskList.textContent = '';
 }
-// Adicioanr evento ao botaão com id apara-tudo com função de apagar li
 clearButton.addEventListener('click', removeList);
 
 // ex11
@@ -69,8 +67,14 @@ clearButton.addEventListener('click', removeList);
 function deleteThroughLine() {
   const listItenThroughLine = document.getElementsByClassName('completed');
   for (let index1 = listItenThroughLine.length - 1; index1 >= 0; index1 -= 1) {
-      listItenThroughLine[index1].parentNode.removeChild(listItenThroughLine[index1]);
+    listItenThroughLine[index1].parentNode.removeChild(listItenThroughLine[index1]);
   }
 }
-// Adicionar função ao botão
 removeThroughLine.addEventListener('click', deleteThroughLine);
+
+// 12 - bonus (1/2)
+// Consultado o codigo do colega Cesar Bhering para desenvolver funcionalidade.
+function saveList() {
+  localStorage.setItem('list', taskList.innerHTML);
+}
+saveButoon.addEventListener('click', saveList);
