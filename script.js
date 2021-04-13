@@ -47,3 +47,36 @@ function clearList() {
 buttonClear.addEventListener('click', clearList);
 
 // Button remove itens da lista finalizados
+const buttonFinish = document.getElementById('remover-finalizados');
+function clearItenStrike() {
+  const liComp = document.querySelectorAll('.completed');
+  for (let index = 0; index < liComp.length; index += 1) {
+    liComp[index].remove();
+  }
+}
+buttonFinish.addEventListener('click', clearItenStrike);
+
+// Button Salva lista.
+const buttonSave = document.getElementById('salvar-tarefas');
+clearMylist.innerHTML = localStorage.getItem('list');
+function buttonSaved() {
+  localStorage.setItem('list', clearMylist.innerHTML);
+}
+buttonSave.addEventListener('click', buttonSaved);
+
+// Button Move para cime e Button para baixo
+const buttonUp = document.getElementById('mover-cima');
+const buttonDown = document.getElementById('mover-baixo');
+
+if()
+
+
+// Button remove itens da lista selecionados pintados
+const buttonClearSelected = document.getElementById('remover-selecionado');
+function clearItenSelected() {
+  const liCompSele = document.querySelectorAll('.selected');
+  for (let index = 0; index < liCompSele.length; index += 1) {
+    liCompSele[index].remove();
+  }
+}
+buttonClearSelected.addEventListener('click', clearItenSelected);
