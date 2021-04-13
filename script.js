@@ -1,3 +1,18 @@
+function removeAllTasks() {
+  const getOlList = document.getElementById('lista-tarefas');
+  const size = getOlList.children.length;
+  for (let index = 0; index < size; index += 1) {
+    getOlList.removeChild(getOlList.lastChild);
+  }
+}
+
+function clearAll() {
+  const size = taskList.childElementCount;
+  for (let index = 0; index < size; index += 1) {
+    taskList.removeChild(taskList.lastElementChild);
+  }
+}
+
 function selectTask(event) {
   const getTask = document.querySelector('.selected');
   if (getTask !== null) {
@@ -12,6 +27,8 @@ function doubleClickToComplete(event) {
     event.target.classList.add('completed');
   }
 }
+
+
 
 function addTask() {
   const userInput = document.getElementById('texto-tarefa').value;
@@ -31,6 +48,11 @@ function clickButtonTask() {
   buttonTask.addEventListener('click', addTask);
 }
 
+function clickButtonRemove() {
+  const buttonRemove = document.getElementById('apaga-tudo');
+  buttonRemove.addEventListener('click', removeAllTasks);
+}
 window.onload = function load() {
   clickButtonTask();
+  clickButtonRemove();
 };
