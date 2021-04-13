@@ -63,9 +63,13 @@ getSaveBtn.addEventListener('click', function() {
 const movUpBtn = document.querySelector('#mover-cima');
 movUpBtn.addEventListener('click', function () {
   const getSelected = document.querySelector('#selected');
-  const posB4 = getSelected.previousElementSibling;
-  if (getSelected && posB4 !== null) {
-    getLista.insertBefore(getSelected, posB4);
+  if (getSelected) {
+    const posB4 = getSelected.previousElementSibling;
+    if (posB4 !== null) {
+      getLista.insertBefore(getSelected, posB4);
+    }
+  } else if (!getSelected) {
+    getLista;
   }
 });
 
@@ -73,10 +77,12 @@ movUpBtn.addEventListener('click', function () {
 const movDwnBtn = document.querySelector('#mover-baixo');
 movDwnBtn.addEventListener('click', function () {
   const getSelected = document.querySelector('#selected');
-  const posAft = getSelected.nextElementSibling;
-  if (getSelected && posAft !== null) {
-    getLista.insertBefore(posAft, getSelected);
+  if (getSelected) {
+    const posAft = getSelected.nextElementSibling;
+    if (posAft !== null) {
+      getLista.insertBefore(posAft, getSelected);
+    }
+  } else if (!getSelected) {
+    getLista;
   }
-});
-
-
+})
