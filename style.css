@@ -1,6 +1,6 @@
 .clicked {
   background-color: grey;
-  width: fit-content;
+  /* width: fit-content; */
 }
 
 .completed {
