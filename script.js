@@ -50,18 +50,19 @@ function removeEverything() {
 
 function removeCompleted() {
   const button = document.getElementById('remover-finalizados');
+  let completed = document.getElementsByClassName('completed');
 
   button.addEventListener('click', () => {
-    for (let i = 0; i < list.children.length; i += 1) {
-      if (list.children[i].classList.contains('completed')) {
-        list.removeChild(list.children[i]);
-      }
+    while (completed.length > 0) {
+      let i = 0;
+      list.removeChild(completed[i]);
+      i += 1;
     }
-  })
+  });
 }
 
 addListItem();
 selectItem();
 completeItem();
 removeEverything();
-removeCompleted()
+removeCompleted();
