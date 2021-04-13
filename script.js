@@ -74,9 +74,8 @@ clearSelected();
 // Salva tarefas
 function saveList() {
   saveTasks.addEventListener('click', () => {
-    let tasks = document.getElementById('lista-tarefas').innerHTML; 
+    const tasks = document.getElementById('lista-tarefas').innerHTML;
     localStorage.setItem('savedTasks', `${tasks}`);
-  })
-
+  });
 }
 saveList();
