@@ -144,16 +144,17 @@ downButton.addEventListener('click', moveDown);
 
 // Cria botão que apaga item selecionado.
 const removeButton = document.createElement('button');
-removeButton.innerText = 'Excluir selecionado'
+removeButton.innerText = 'Excluir selecionado';
 removeButton.id = 'remover-selecionado';
 buttonSection.appendChild(removeButton);
 
+// Apaga item selecionado.
 function removeItem() {
-  const toDoList = document.querySelectorAll('li');
+  toDoList = document.querySelectorAll('li');
   for (let item = 0; item < toDoList.length; item += 1) {
     if (toDoList[item].classList.contains('selected')) {
       toDoList[item].remove();
     }
   }
 }
-removeButton.addEventListener('click', removeItem)
+removeButton.addEventListener('click', removeItem);
