@@ -2,6 +2,10 @@ const addTask = document.getElementById('criar-tarefa');
 const clearTasks = document.getElementById('apaga-tudo');
 const endedTasks = document.getElementById('remover-finalizados');
 const salveTasks = document.getElementById('salvar-tarefas');
+
+const upTask = document.getElementById('mover-cima');
+const downTask = document.getElementById('mover-baixo');
+
 const inputTask = document.getElementById('texto-tarefa');
 const listTask = document.getElementById('lista-tarefas');
 
@@ -9,10 +13,11 @@ function loadTasks() {
   for (let i = 0; i < localStorage.length / 2; i += 1) {
     const li = document.createElement('li');
     const val = localStorage[`val_${i}`];
-    const cls = localStorage[`cls_${i}`];
+    let cls = localStorage[`cls_${i}`];
+    cls = cls.split(' ').includes('completed');
     li.innerText = val;
-    if (cls === 'completed') {
-      li.className = cls;
+    if (cls) {
+      li.classList.add('completed');
     }
     listTask.appendChild(li);
   }
@@ -51,28 +56,35 @@ function salveTasksEvent() {
 
 function clickTaskEvent(e) {
   const task = e.target;
-  const cls = task.className;
+  const cls = task.classList;
   const selected = document.querySelector('.selected');
   if (selected) {
-    selected.removeAttribute('class');
+    selected.classList.remove('selected');
   }
 
-  if (cls === '') {
-    task.className = 'selected';
+  if (!cls.contains('selected')) {
+    cls.add('selected');
   } else {
-    task.removeAttribute('class');
+    cls.remove('selected');
   }
 }
 
 function doubleTaskEvent(e) {
   const task = e.target;
-  const cls = task.className;
+  const cls = task.classList;
 
-  if (cls === '') {
-    task.className = 'completed';
+  if (!cls.contains('completed')) {
+    cls.add('completed');
   } else {
-    task.removeAttribute('class');
+    cls.remove('completed');
   }
+}
+
+function upTaskEvent() {
+  const selected = document.querySelector('.selected');
+  const up = selected.previousSibling;
+  up.replaceWith(selected);
+  selected.replaceWith(up);
 }
 
 loadTasks();
@@ -81,6 +93,9 @@ addTask.addEventListener('click', addTaskEvent);
 clearTasks.addEventListener('click', clearTasksEvent);
 endedTasks.addEventListener('click', endedTasksEvent);
 salveTasks.addEventListener('click', salveTasksEvent);
+
+upTask.addEventListener('click', upTaskEvent);
+// downTask.addEventListener('click', salveTaskEvent);
 
 listTask.addEventListener('click', clickTaskEvent);
 listTask.addEventListener('dblclick', doubleTaskEvent);
