@@ -51,3 +51,14 @@ buttonDelete.addEventListener('click', function deleteAllList() {
     toDoList.removeChild(deleteList[index]);
   }
 });
+
+const buttonDeleteFinalized = document.getElementById('remover-finalizados');
+
+buttonDeleteFinalized.addEventListener('click', function deleteFinalized() {
+  const deleteItem = document.querySelectorAll('li');
+  for (let index = 0; index < deleteItem.length; index += 1) {
+    if (deleteItem[index].classList.contains('completed')) {
+      toDoList.removeChild(deleteItem[index]);
+    }
+  }
+});
