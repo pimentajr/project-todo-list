@@ -36,7 +36,7 @@ function toDoCompleted(element) {
 }
 
 function removeAllToDos() {
-  for (let index = 0; index <= toDos.length; index = 0) {
+  for (let index = 0; index < toDos.length; index = 0) {
     toDoList.removeChild(toDos[index]);
     localStorage.clear();
   }
@@ -44,7 +44,7 @@ function removeAllToDos() {
 
 function removeCompletedToDos() {
   if(completedToDos.length > 0){
-    for (let index = 0; index <= completedToDos.length; index = 0) {
+    for (let index = 0; index < completedToDos.length; index = 0) {
       toDoList.removeChild(completedToDos[0]);
     }
   }
