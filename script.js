@@ -38,11 +38,20 @@ function addBtnNewItem() {
 }
 addBtnNewItem();
 
+// Cria função que limpa os destaques da lista
+function allItemsWhite() {
+  const itens = document.querySelectorAll('.item');
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].className = 'item';
+  }
+}
+
 // Cria função com evento ao clicar nos itens criados
 function clickItem() {
   const itens = document.querySelectorAll('.item');
   for (let index = 0; index < itens.length; index += 1) {
     itens[index].addEventListener('click', () => {
+      allItemsWhite();
       itens[index].classList.add('highlight');
     });
   }
