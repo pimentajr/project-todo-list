@@ -1,0 +1,37 @@
+#body {
+  background-color: rgb(139 , 131 , 134);
+}
+
+#div-main {
+  background-color: peachpuff;
+  height: 400px;
+  margin-left: 50px;
+  border-radius: 30px;
+  margin-right: 100px;
+  margin-top: 100px;
+}
+
+#cabecalho {
+  margin-left: 40px;
+  padding-top: 30px;
+  font-size: 30px;
+}
+
+#funcionamento {
+  font-family: Old Standard TT, sans-serif;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#inputs {
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+#criar-tarefa-btn {
+  margin-left: 20px;
+  border-radius: 10px;
+  width: 130px;
+  font-family: Old Standard TT, sans-serif;
+  font-size: medium;
+}
