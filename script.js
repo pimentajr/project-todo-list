@@ -119,9 +119,8 @@ function moveUpTask() {
 
   getMoveUpButton.addEventListener('click', function () {
     let elementToChange = document.querySelector('.selected');
-    let elementBefore = elementToChange.previousSibling;
-    if (elementBefore) {
-      elementToChange.parentElement.insertBefore(elementToChange, elementBefore);
+    if (elementToChange.previousSibling) {
+      elementToChange.parentElement.insertBefore(elementToChange, elementToChange.previousSibling);
     }
   })
 }
@@ -133,9 +132,8 @@ function moveDownTask() {
 
   getMoveDownButton.addEventListener('click', function () {
     let elementToChange = document.querySelector('.selected');
-    let elementAfter = elementToChange.nextSibling;
-    if (elementAfter) {
-      elementToChange.parentElement.insertBefore(elementAfter, elementToChange);
+    if (elementToChange.nextSibling) {
+      elementToChange.parentElement.insertBefore(elementToChange.nextSibling, elementToChange);
     }
   })
 }
