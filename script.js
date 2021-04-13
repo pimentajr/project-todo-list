@@ -124,7 +124,10 @@ function moveTaskDown() {
 }
 
 function clearSelectedTask() {
-
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask !== null) {
+    tasksList.removeChild(selectedTask);
+  }
 }
 
 [createTaskBtn, tasksList, clearAllBtn, removeFinishedBtn, saveTasksBtn, moveUpTaskBtn, moveDownTaskBtn, removeSelectedBtn].forEach((item) => {
@@ -143,7 +146,7 @@ function clearSelectedTask() {
       moveTaskUp();
     } else if (item === moveDownTaskBtn) {
       moveTaskDown();
-    } else if (item === moveDownTaskBtn) {
+    } else if (item === removeSelectedBtn) {
       clearSelectedTask();
     } 
   });
