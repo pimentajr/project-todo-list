@@ -24,7 +24,7 @@ function completedItem(event) {
 
 // 5. 6.
 function criarTarefa() {
-  const listar = document.getElementById('lista-tarefas');
+  const listar = document.querySelector('lista-tarefas');
   const inputList = document.getElementById('texto-tarefa');
   if (inputList.value !== '') {
     const lItem = document.createElement('li');
