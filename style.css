@@ -27,7 +27,7 @@ header {
 }
 
 #instruction {
- text-align: center;
+  text-align: center;
 }
 
 ol {
@@ -51,10 +51,9 @@ ol {
 
 #wrapper {
   margin-top: 40px;
-  background-color: rgb(202, 177, 157);
-  padding: 10px 10px;
+  background-color: rgb(202 , 177 , 157);
+  padding: 10px;
   border-radius: 10%;
   display: inline-block;
-  border-style:dotted
-
+  border-style: dotted;
 }
