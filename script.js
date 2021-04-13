@@ -18,4 +18,11 @@ btnTasks.addEventListener('click', () => {
     }
     e.target.classList.add('selected');
   });
+  li.addEventListener('dblclick', (e) => {
+    if (!e.target.classList.contains('completed')) {
+      e.target.classList.add('completed');
+    } else {
+      e.target.classList.remove('completed');
+    }
+  })
 });
