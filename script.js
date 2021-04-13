@@ -36,11 +36,12 @@ function removeAllTasks() {
 // usei como referência, o código utilizado pelo Victor Dias, no link https://github.com/tryber/sd-010-b-project-todo-list/pull/133/files
 
 function removeFinishedTasks() {
-  let finishedTasks = document.getElementsByClassName('completed');
-  for (let index = 0; index < finishedTasks.length; index += 1) {
+  const finishedTasks = document.getElementsByClassName('completed');
+  for (let index = 0; index < finishedTasks.length;) {
     tasks.removeChild(finishedTasks[index]);
   }
 }
+// Usei como referência, o código utilizado pelo Victor Faria, no link https://github.com/tryber/sd-011-project-todo-list/pull/4/files
 
 window.onload = () => {
   // Desafio 5 e 6
