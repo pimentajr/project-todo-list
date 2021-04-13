@@ -6,7 +6,7 @@ const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 
-window.onload = function () {
+window.onload = function loadLocalList() {
   if (localStorage.tarefas) {
     listaTarefas.innerHTML = localStorage.tarefas;
   }
@@ -75,22 +75,23 @@ botaoSalvarTarefas.onclick = function salvarTarefas() {
 // 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 
 const botaoMoveCima = document.querySelector('#mover-cima');
-const botaoMoveBaixo = document.querySelector('#mover-baixo');
 
-const tarefa = document.getElementsByClassName('tarefa');
-botaoMoveCima.onclick = function () {
-  for (let index = 0; index < tarefa.length; index += 1) {
-    if (tarefa[index].classList.contains('selected')) {
-      tarefa[index].insertBefore()
-    }
-  }
+botaoMoveCima.onclick = function moverParaCima() {
+  const tarefaSelecionada = document.querySelector('.selected');
+  listaTarefas.insertBefore(tarefaSelecionada.previousSibling, tarefaSelecionada.nextSibling);
+};
+
+const botaoMoveBaixo = document.querySelector('#mover-baixo');
+botaoMoveBaixo.onclick = function moverParaBaixo() {
+  const tarefaSelecionada = document.querySelector('.selected');
+  listaTarefas.insertBefore(tarefaSelecionada.nextSibling, tarefaSelecionada);
 };
 
 // 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
 
 const botaoRemoveSelecionado = document.querySelector('#remover-selecionado');
 
-botaoRemoveSelecionado.onclick = function () {
+botaoRemoveSelecionado.onclick = function removerSelecionado() {
   const tarefaSelecionada = document.querySelector('.selected');
   listaTarefas.removeChild(tarefaSelecionada);
 };
