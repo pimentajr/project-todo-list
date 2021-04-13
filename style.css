@@ -25,6 +25,7 @@ header {
   text-decoration: line-through solid  black;
 }
 
-#apaga-tudo, #remover-finalizados {
+#apaga-tudo, #remover-finalizados, #salvar-tarefas {
   font-family: Courier, monospace;
+  font-weight: bolder;
 }
