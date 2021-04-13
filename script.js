@@ -23,7 +23,7 @@ function buttonCreat(id, innertext) {
 }
 buttonCreat('criar-tarefa', 'newAssignment');
 buttonCreat('apaga-tudo', 'DeleteAllAssignments');
-buttonCreat('remover-finalizados', 'DeleteAllRisk')
+buttonCreat('remover-finalizados', 'DeleteAllRisk');
 
 function creatNewAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
@@ -47,12 +47,23 @@ function backGroundColorChangeOnClick() {
   }
 }
 
+function deleteAllRisk() {
+  const locatelist = document.querySelectorAll('.completed');
+  const locatebutton = document.querySelector('#remover-finalizados');
+  function riskdelete() {
+    for (let index = 0; index < locatelist.length; index += 1) {
+      locatelist[index].remove();
+    }
+  }
+  locatebutton.addEventListener('click', riskdelete);
+}
+
 function riskAssignment(event) {
   const string = 'assigments';
   if (event.target.classList.contains(string)) {
     event.target.classList.toggle('completed');
   }
-  deleteAllRisk()
+  deleteAllRisk();
 }
 // Ajuda do plantão.
 function riskAssignmentOnList() {
@@ -72,7 +83,6 @@ function deleteAllAssignments() {
   locatebutton.addEventListener('click', listdelete);
 }
 
-
 function buttonAssignmentCreat() {
   const locateButton = document.querySelector('#criar-tarefa');
   const textAssigment = document.querySelector('#texto-tarefa');
@@ -80,18 +90,8 @@ function buttonAssignmentCreat() {
     creatNewAssignmentOnList().innerText = textAssigment.value;
     textAssigment.value = '';
     backGroundColorChangeOnClick();
+    deleteAllAssignments();
   }
   locateButton.addEventListener('click', creatNewAssigment);
 }
 buttonAssignmentCreat();
-
-function deleteAllRisk() {
-  const locatelist = document.querySelectorAll('.completed');
-  const locatebutton = document.querySelector('#remover-finalizados');
-  function riskdelete() {
-    for (let index = 0; index < locatelist.length; index += 1) {
-      locatelist[index].remove()
-    }
-  }
-  locatebutton.addEventListener('click', riskdelete);
-}
