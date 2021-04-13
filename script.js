@@ -47,7 +47,7 @@ function removeAllToDos() {
 }
 
 function removeCompletedToDos() {
-  if(completedToDos.length > 0){
+  if (completedToDos.length > 0) {
     for (let index = 0; index < completedToDos.length; index = 0) {
       toDoList.removeChild(completedToDos[0]);
     }
@@ -86,11 +86,8 @@ function reloadToDos() {
 
 function toDoMoveUp() {
   for (let index = 0; index < toDos.length; index += 1) {
-    if(toDos[index] === document.querySelector('.selected')){
-      if (index === 0) {
-        toDoList.insertBefore(toDos[index], toDos[toDos.length]);
-        toDoList.insertBefore(toDos[toDos.length], toDos[index]);
-      } else {
+    if (toDos[index] === document.querySelector('.selected')) {
+      if (index !== 0) {
         toDoList.insertBefore(toDos[index], toDos[index - 1]);
       }
     }
@@ -99,10 +96,8 @@ function toDoMoveUp() {
 
 function toDoMoveDown() {
   for (let index = 0; index < toDos.length; index += 1) {
-    if(toDos[index] === document.querySelector('.selected')){
-      if (index === (toDos.length - 1)) {
-        toDoList.insertBefore(toDos[index], toDos[0]);
-      } else {
+    if (toDos[index] === document.querySelector('.selected')) {
+      if (index !== (toDos.length - 1)) {
         toDoList.insertBefore(toDos[index], toDos[index + 1].nextSibling);
         break;
       }
