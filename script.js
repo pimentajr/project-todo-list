@@ -14,9 +14,5 @@ document.getElementById('lista-tarefas').addEventListener('click', function (eve
 })
 
 document.getElementById('lista-tarefas').addEventListener('dblclick', function (event) {
-    if (event.target.className === 'completed') {
-        event.target.classList.remove('completed');
-    } else {
-        event.target.classList.add('completed');
-    }
+    event.target.classList.toggle('completed');
 })
