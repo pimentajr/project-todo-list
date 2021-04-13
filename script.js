@@ -62,6 +62,3 @@ function saveCurrentList() {
 }
 
 btnSaveTasks.addEventListener('click', saveCurrentList);
-
-
-localStorage.clear()
