@@ -5,7 +5,6 @@ const removeAll = document.getElementById('apaga-tudo');
 const toDos = document.getElementsByClassName('toDo');
 const removeCompleted = document.getElementById('remover-finalizados');
 const completedToDos = document.getElementsByClassName('completed');
-const selectedToDo = document.querySelector('.selected');
 const saveAll = document.getElementById('salvar-tarefas');
 const removeSelected = document.getElementById('remover-selecionado');
 
@@ -44,52 +43,48 @@ function removeAllToDos() {
 }
 
 function removeCompletedToDos() {
-  for (let index = 0; index <= completedToDos.length; index = 0) {
-    toDoList.removeChild(completedToDos[0]);
+  if(completedToDos.length > 0){
+    for (let index = 0; index <= completedToDos.length; index = 0) {
+      toDoList.removeChild(completedToDos[0]);
+    }
   }
 }
 
 function removeSelectedToDo() {
-  if(document.querySelector('.selected') !== null){
+  if (document.querySelector('.selected') !== null) {
     toDoList.removeChild(document.querySelector('.selected'));
   }
-  
 }
 
 function saveToDos() {
-
   const savedToDos = [];
-  if(toDos.length > 0){
-
+  if (toDos.length > 0) {
     for (let index = 0; index < toDos.length; index += 1) {
       savedToDos[index] = {
         toDoName: toDos[index].innerHTML,
         toDoClass: toDos[index].className,
-      }
+      };
       localStorage.toDo = JSON.stringify(savedToDos);
-  
     }
-
   }
 }
 
 function reloadToDos() {
   const toDosSave = JSON.parse(localStorage.toDo);
-    for(let todo of toDosSave){
-      const toDoReload = document.createElement('li');
-      toDoReload.innerText = todo.toDoName;
-      toDoReload.className = todo.toDoClass;
-      console.log(toDoReload);
-      toDoList.appendChild(toDoReload);
-    }
-  
+  for (const todo of toDosSave) {
+    const toDoReload = document.createElement('li');
+    toDoReload.innerText = todo.toDoName;
+    toDoReload.className = todo.toDoClass;
+    console.log(toDoReload);
+    toDoList.appendChild(toDoReload);
+  }
 }
 
 window.onload = function () {
-  if(localStorage.length > 0){
+  if (localStorage.length > 0) {
     reloadToDos();
   }
-}
+};
 
 removeSelected.addEventListener('click', removeSelectedToDo);
 saveAll.addEventListener('click', saveToDos);
