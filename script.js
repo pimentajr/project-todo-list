@@ -31,10 +31,10 @@ const botaoLimpar = document.getElementById('apaga-tudo');
 
 function apagarLista() {
   while (listaTarefa.hasChildNodes()) {
-  listaTarefa.removeChild(listaTarefa.firstChild);
-  }  
+    listaTarefa.removeChild(listaTarefa.firstChild);
+  }
 }
-botaoLimpar.addEventListener('click', apagarLista)
+botaoLimpar.addEventListener('click', apagarLista);
 
 const botaoLimparFeitos = document.getElementById('remover-finalizados');
 botaoLimparFeitos.addEventListener('click', () => {
@@ -42,4 +42,4 @@ botaoLimparFeitos.addEventListener('click', () => {
   for (let index = 0; index < limparRiscados.length; index += 1) {
     limparRiscados[index].remove();
   }
-})
+});
