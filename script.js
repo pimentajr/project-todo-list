@@ -23,10 +23,12 @@ document.getElementById('apaga-tudo').addEventListener('click', function() {
     }
 })
 
-document.getElementById('remover-finalizados').addEventListener('click', function () {
-    while (document.querySelectorAll('.completed'))
-        document.getElementById('lista-tarefas').removeChild(document.querySelectorAll('.completed')[0])
-    
-    
-    
-})
+function deleteCompleted() {
+    for (let index = document.querySelectorAll('li').length -1; index >= 0; index -= 1) {
+        if (document.querySelectorAll('li')[index].className.includes('completed')) {
+            document.querySelectorAll('li')[index].remove();
+        }
+    }
+}
+
+document.getElementById('remover-finalizados').addEventListener('click', deleteCompleted)
