@@ -3,6 +3,10 @@ const taskList = document.querySelector('#lista-tarefas');
 const taskBtn = document.querySelector('#criar-tarefa');
 const eraseBtn = document.querySelector('#apaga-tudo');
 const eraseDone = document.querySelector('#remover-finalizados');
+const saveBtn = document.querySelector('#salvar-tarefas');
+const upBtn = document.querySelector('#mover-cima');
+const downBtn = document.querySelector('#mover-baixo');
+const eraseSelectedBtn = document.querySelector('#remover-selecionado');
 
 function createTaskList(text) {
   const itenLi = document.createElement('li');
@@ -59,8 +63,49 @@ eraseBtn.addEventListener('click', () => {
 eraseDone.addEventListener('click', () => {
   const completedTask = document.querySelectorAll('.completed');
   for (let index = 0; index < completedTask.length; index += 1) {
-    if (completedTask[index].className.includes('completed')) {
-      completedTask[index].parentNode.removeChild(completedTask[index]);
+    completedTask[index].parentNode.removeChild(completedTask[index]);
+  }
+});
+
+saveBtn.addEventListener('click', () => {
+  localStorage.setItem('toDoList', taskList.innerHTML);
+});
+
+const taskListStoraged = localStorage.getItem('toDoList');
+
+window.onload = () => {
+  if (taskListStoraged) {
+    taskList.innerHTML = taskListStoraged;
+  }
+};
+
+// Para atender ao requisito 13 eu consultei o metodo insertBefore no link: https://www.w3schools.com/jsref/met_node_insertbefore.asp
+
+downBtn.addEventListener('click', () => {
+  const selectedListSeacrh = document.querySelectorAll('.iten-li');
+  for (let index = 0; index < selectedListSeacrh.length; index += 1) {
+    const currentLi = selectedListSeacrh[index];
+    if (currentLi.nextSibling === null) {
+      break;
+    } else if (currentLi.className.includes('task-selected')) {
+      currentLi.parentNode.insertBefore(currentLi.nextSibling, currentLi);
     }
   }
+});
+
+upBtn.addEventListener('click', () => {
+  const selectedListSeacrh2 = document.querySelectorAll('.iten-li');
+  for (let index2 = 0; index2 < selectedListSeacrh2.length; index2 += 1) {
+    const currentLi2 = selectedListSeacrh2[index2];
+    console.log(currentLi2, 'current');
+    if (currentLi2.previousSibling !== null && currentLi2.className.includes('task-selected')) {
+      currentLi2.parentNode.insertBefore(currentLi2, currentLi2.previousSibling);
+      console.log(currentLi2.previousSibling, 'previous');
+    }
+  }
+});
+
+eraseSelectedBtn.addEventListener('click', () => {
+  const selectedSearch = document.querySelectorAll('.task-selected');
+  selectedSearch[0].parentNode.removeChild(selectedSearch[0]);
 });
