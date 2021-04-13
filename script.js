@@ -45,6 +45,18 @@ function backGroundColorChangeOnClick() {
   }
 }
 
+function riskAssignment(event) {
+  const string = 'assigments';
+  if (event.target.classList.contains(string)) {
+    event.target.classList.toggle('completed');
+  }
+}
+// Luiz Wendel me ajudo no plantão
+function riskAssignmentOnList() {
+  const locateList = document.querySelector('#lista-tarefas');
+  locateList.addEventListener('dblclick', riskAssignment);
+}
+
 function buttonAssignmentCreat() {
   const locateButton = document.querySelector('#criar-tarefa');
   const textAssigment = document.querySelector('#texto-tarefa');
@@ -57,15 +69,3 @@ function buttonAssignmentCreat() {
   locateButton.addEventListener('click', creatNewAssigment);
 }
 buttonAssignmentCreat();
-
-function riskAssignment(event) {
-let string = 'assigments'
-  if (event.target.classList.contains(string)) {
-    event.target.classList.toggle('completed')
-  } 
-}
-// Luiz Wendel me ajudo no plantão.
-function riskAssignmentOnList() {
-  const locateList = document.querySelector('#lista-tarefas');
-  locateList.addEventListener('dblclick', riskAssignment);
-}
