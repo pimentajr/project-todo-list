@@ -3,8 +3,7 @@ const botao = document.getElementById('criar-tarefa');
 const listaTarefa = document.getElementById('lista-tarefas');
 
 function addTarefa() {
-
-  const novaTarefa = document.createElement('li')
+  const novaTarefa = document.createElement('li');
   novaTarefa.innerText = campoTexto.value;
 
   listaTarefa.appendChild(novaTarefa);
@@ -22,13 +21,13 @@ listaTarefa.addEventListener('click', (event) => {
     }
     event.target.classList.add('corFundo');
   }
-})
+});
 
 listaTarefa.addEventListener('dblclick', (event) => {
-    event.target.classList.toggle('completed')
-})
+  event.target.classList.toggle('completed');
+});
 
-const botaoLimpar = document.getElementById('apaga-tudo')
+const botaoLimpar = document.getElementById('apaga-tudo');
 
 function apagarLista() {
   while (listaTarefa.hasChildNodes()) {
@@ -37,13 +36,10 @@ function apagarLista() {
 }
 botaoLimpar.addEventListener('click', apagarLista)
 
-const botaoLimparFeitos = document.getElementById('remover-finalizados')
+const botaoLimparFeitos = document.getElementById('remover-finalizados');
 botaoLimparFeitos.addEventListener('click', () => {
- const limparRiscados = document.querySelectorAll('.completed');
- for (let index = 0; index < limparRiscados.length; index += 1) {
-  limparRiscados[index].remove();
- }
-
+  const limparRiscados = document.querySelectorAll('.completed');
+  for (let index = 0; index < limparRiscados.length; index += 1) {
+    limparRiscados[index].remove();
+  }
 })
-
-  
