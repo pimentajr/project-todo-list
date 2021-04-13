@@ -5,9 +5,9 @@ const taskList = document.getElementById('lista-tarefas');
 
 // Pegando o main do DOM
 const mainProject = document.getElementById('main');
-
-// pegar botão
+// Pegando botões
 const button = document.getElementById('criar-tarefa');
+const clearButton = document.getElementById('apaga-tudo');
 // Criar uma função que adiciona um elemento na tela
 
 // Função que limpa input - Será usada na sunção inputTask
@@ -54,12 +54,13 @@ function inputTask() {
 button.addEventListener('click', inputTask);
 
 // ex11
-// Pegar o botão no DOM
-
-// PEgar as li's do DOM
-
-// Criar codigo que apaga li
-
-// Encapsular codigo em uma função
-
+// Função para apagar li
+function removeList() {
+  for (let index =0; index < taskList.childElementCount; index += 1) {
+    taskList.removeChild(taskList.lastChild);
+  }
+}
 // Adicioanr evento ao botaão com id apara-tudo com função de apagar li
+clearButton.addEventListener('click', removeList);
+
+// Terminar requisito 10. Nao estou conseguindo apagar todos das as li de uma vez.
