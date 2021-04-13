@@ -7,6 +7,8 @@ function addListItem() {
   toDoList.appendChild(newItem);
   inputValue.value = '';
 }
+
+// Botão que adiciona novos itens à lista de tarefas.
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addListItem);
 
@@ -26,7 +28,7 @@ function changeColor(event) {
   const itemSelected = event.target;
   itemSelected.style.backgroundColor = 'rgb(128,128,128)';
 }
-const toDoList = document.querySelector('#lista-tarefas');
+let toDoList = document.querySelector('#lista-tarefas');
 toDoList.addEventListener('click', changeColor);
 
 // Risca o item ao ser clicado 2 vezes.
@@ -43,13 +45,13 @@ toDoList.addEventListener('dblclick', crossItem);
 // Cria botão que apaga todos os itens da lista.
 const eraseButton = document.createElement('button');
 eraseButton.id = 'apaga-tudo';
-const buttonSection = document.getElementById('botoes-dinamicos');
+const buttonSection = document.getElementById('botoes');
 buttonSection.appendChild(eraseButton);
 eraseButton.innerText = 'X';
 
 // Apaga todos os itens de uma lista.
 function clearList() {
-  const toDoList = document.querySelectorAll('li');
+  toDoList = document.querySelectorAll('li');
   for (let child = 0; child < toDoList.length; child += 1) {
     toDoList[child].remove();
   }
@@ -64,7 +66,7 @@ removeFinishedButton.innerText = 'Limpar Completos';
 
 // Remove itens finalizados.
 function removeFinishedItens() {
-  const toDoList = document.querySelectorAll('li');
+  toDoList = document.querySelectorAll('li');
   for (let item = 0; item < toDoList.length; item += 1) {
     if (toDoList[item].className === 'completed') {
       toDoList[item].remove();
@@ -72,3 +74,21 @@ function removeFinishedItens() {
   }
 }
 removeFinishedButton.addEventListener('click', removeFinishedItens);
+
+// Cria botão "salvar-tarefas".
+const saveListButton = document.createElement('button');
+saveListButton.id = 'salvar-tarefas';
+buttonSection.appendChild(saveListButton);
+saveListButton.innerText = 'Salvar lista';
+
+// Salva conteúdo da lista.
+function saveList() {
+  const list = document.querySelector('ol').innerHTML;
+  localStorage.setItem('savedList', list);
+}
+saveListButton.addEventListener('click', saveList);
+
+// Retorna ao browser a lista salva.
+const savedList = localStorage.getItem('savedList');
+const showedList = document.querySelector('ol');
+showedList.innerHTML = savedList;
