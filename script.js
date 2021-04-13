@@ -3,6 +3,7 @@ const getOl = document.querySelector('#lista-tarefas');
 const getBtn = document.querySelector('#criar-tarefa');
 const getLi = document.getElementsByTagName('li');
 const getClear = document.getElementById('apaga-tudo');
+const btnComplet = document.querySelector('#remover-finalizados');
 
 function addTask() {
   getBtn.addEventListener('click', () => {
@@ -48,3 +49,13 @@ function clearAll() {
   });
 }
 clearAll();
+
+function removeComplete() {
+  btnComplet.addEventListener('click', () => {
+    const getRisk = document.querySelectorAll('.completed');
+    for (let i = 0; i < getRisk.length; i += 1) {
+      getOl.removeChild(getRisk[i]);
+    }
+  });
+}
+removeComplete();
