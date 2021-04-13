@@ -42,7 +42,7 @@ function createsTaskEntry() {
 function createsTaskButton() {
   taskButton.id = 'criar-tarefa';
   taskButton.type = 'onclick';
-  taskButton.textContent = 'Criar Tarefa'
+  taskButton.textContent = 'Criar Tarefa';
   inputSection.appendChild(taskButton);
 }
 
@@ -58,7 +58,7 @@ function createOrdenedList() {
 
 function createsElementsInTheList() {
   const elementList = document.createElement('li');
-  elementList.id = 'task'
+  elementList.id = 'task';
   elementList.textContent = taskEntry.value;
   ordenedList.appendChild(elementList);
   taskEntry.value = '';
@@ -80,5 +80,3 @@ window.onload = function loadPage() {
   createsTaskButton();
   taskButtonEvent();
 };
-
-// continuar do segundo requisito da quinta questão, primeito requisito (criar botão) já realizado!
