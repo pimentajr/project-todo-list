@@ -124,3 +124,15 @@ function moverParaCima() {
 
 moveParaBaixo.addEventListener('click', moverParaBaixo);
 moveParaCima.addEventListener('click', moverParaCima);
+
+const removeSelecionado = document.querySelector('#remover-selecionado');
+
+function removerSelecionado() {
+  const tarefaSelecionada = document.querySelector('.selected');
+
+  if (tarefaSelecionada) {
+    listaTarefas.removeChild(tarefaSelecionada);
+  }
+}
+
+removeSelecionado.addEventListener('click', removerSelecionado);
