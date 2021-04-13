@@ -72,16 +72,11 @@ function clickColorList(event) {
 // Task 9
 // classList: https://www.w3schools.com/jsref/prop_element_classlist.asp
 function completedEvent(event) {
-  const listElem = document.querySelectorAll('#list-item');
-  for (let index = 0; index < listElem.length; index += 1) {
-    const aux = event;
-    if (aux.target.style.textDecoration === 'line-through solid black') {
-      aux.target.classList.remove('completed');
-      aux.target.style.textDecoration = null;
-    } else {
-      aux.target.classList.add('completed');
-      aux.target.style.textDecoration = 'line-through solid black';
-    }
+  const aux = event;
+  if (aux.target.classList.contains('completed')) {
+    aux.target.classList.remove('completed');
+  } else {
+    aux.target.classList.add('completed');
   }
 }
 
