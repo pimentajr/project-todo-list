@@ -62,8 +62,9 @@ function deleteAllAssignments() {
   const locatelist = document.querySelector('#lista-tarefas');
   const locatebutton = document.querySelector('#apaga-tudo');
   function listdelete () {
-    locatelist.parentElement.removeChild(locatelist);
-    assigmentList();
+    for (let index = 0; index < locatelist.childNodes.length; index += 1) {
+      locatelist.childNodes[index].remove()
+    }
   }
   locatebutton.addEventListener('click', listdelete);
 }
@@ -76,7 +77,7 @@ function buttonAssignmentCreat() {
     textAssigment.value = '';
     backGroundColorChangeOnClick();
     riskAssignmentOnList();
-    deleteAllAssignments()
+    deleteAllAssignments();
   }
   locateButton.addEventListener('click', creatNewAssigment);
 }
