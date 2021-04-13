@@ -6,12 +6,12 @@
 }
 
 .selected {
-  background-color: gray
+  background-color: gray;
 }
 
 body {
   margin: 50px;
-  background-color: rgb(184, 255, 251)
+  background-color: lightskyblue;
 }
 
 .completed {
@@ -28,6 +28,27 @@ main {
   border-radius: 10px;
 }
 
+.warning {
+  background-color: red;
+}
+
+button {
+  padding: 8px;
+  border-radius: 6px;
+  background-color: darkblue;
+  font-weight: bold;
+}
+
+input {
+  background-color: white;
+  color: brown;
+  font-weight: bold;
+}
+
+.save {
+  background-color: green;
+}
+
 /* Setas em CSS 'https://tableless.com.br/fazendo-triangulos-triangle-arrows-com-css/'*/
 .seta-cima:before {
   content: '';
@@ -38,7 +59,7 @@ main {
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid rgb(60, 171, 38);
+  border-bottom: 5px solid lightgreen;
 }
 
 .seta-baixo:before {
@@ -50,24 +71,5 @@ main {
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid rgb(202, 30, 30);
-}
-
-.warning {
-  background-color: red;
-}
-
-button {
-  padding: 4px;
-  border-radius: 3px;
-  background-color: rgb(18, 18, 61);
-  font-weight: bold;
-}
-
-input {
-  background-color: rgb(207, 18, 18);
-}
-
-.save {
-  background-color: rgb(0, 128, 0);
+  border-top: 5px solid tomato;
 }
