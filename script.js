@@ -31,9 +31,19 @@ listaTarefa.addEventListener('dblclick', (event) => {
 const botaoLimpar = document.getElementById('apaga-tudo')
 
 function apagarLista() {
-  //const listaTarefa = document.getElementById('lista-tarefas')
   while (listaTarefa.hasChildNodes()) {
   listaTarefa.removeChild(listaTarefa.firstChild);
   }  
 }
 botaoLimpar.addEventListener('click', apagarLista)
+
+const botaoLimparFeitos = document.getElementById('remover-finalizados')
+botaoLimparFeitos.addEventListener('click', () => {
+ const limparRiscados = document.querySelectorAll('.completed');
+ for (let index = 0; index < limparRiscados.length; index += 1) {
+  limparRiscados[index].remove();
+ }
+
+})
+
+  
