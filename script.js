@@ -1,7 +1,9 @@
 // cria lista de elementos;
+
 const btnTasks = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
+const body = document.querySelector('body');
 
 // give selected to a testk
 function selectedTask(event) {  
@@ -16,7 +18,6 @@ function selectedTask(event) {
 // give completed to a task
 function completedTask(event) {
   event.target.classList.toggle('completed');
-  console.log(event.target)
 }
 
 // create Lists;
@@ -32,3 +33,19 @@ btnTasks.addEventListener('click', () => {
     ol.appendChild(li);
   }
 });
+// despara o clear button
+function clearTasks() {
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i += 1) {
+    li[i].remove();
+  }
+}
+// cria o clear button
+function createClearBtn() {
+  const button = document.createElement('button');
+  button.setAttribute('id', 'apaga-tudo');
+  button.innerHTML = 'Limpar lista';
+  body.appendChild(button);
+  button.addEventListener('click', clearTasks);
+}
+createClearBtn();
