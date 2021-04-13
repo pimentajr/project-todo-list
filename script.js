@@ -27,3 +27,15 @@ function change() {
   });
 }
 change();
+
+function riskTask() {
+  getOl.addEventListener('dblclick', (event) => {
+    const e = event.target;
+    if (e.classList.contains('completed')) {
+      e.classList.remove('completed');
+    } else {
+      e.classList.add('completed');
+    }
+  });
+}
+riskTask();
