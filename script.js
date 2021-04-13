@@ -25,10 +25,22 @@ function updateStorage(task) {
   }
 }
 
+function getInputValuesFrom(container) {
+  const inputElements = document.querySelectorAll(`${container} input`);
+  const inputValues = [];
+
+  for (let index = 0; index < inputElements.length; index += 1) {
+    inputValues.push(inputElements[index].value);
+  }
+
+  return inputValues;
+}
+
 function addTask(event) {
   const task = new Task();
+  const inputValuesFromAddTaskForm = getInputValuesFrom('#add-task-form');
 
-  task.title = document.getElementById('texto-tarefa').value;
+  [task.title] = inputValuesFromAddTaskForm;
   updateStorage(task);
   event.preventDefault();
 }
