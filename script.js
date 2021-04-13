@@ -8,10 +8,19 @@ function inputBlank() {
 
 function addTask() {
   const text = taskInput.value;
-  const listItem = document.createElement('li');
-  listItem.innerText = text;
-  taskList.appendChild(listItem);
-  inputBlank();
+  if (text !== '') {
+    const listItem = document.createElement('li');
+    listItem.innerText = text;
+    taskList.appendChild(listItem);
+    inputBlank();
+  }
+}
+
+function highlight(origin) {
+  const listItem = origin.target;
+  listItem.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 addTaskButton.addEventListener('click', addTask);
+
+taskList.addEventListener('click', highlight);
