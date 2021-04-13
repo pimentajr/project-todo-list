@@ -81,10 +81,33 @@ function doubleTaskEvent(e) {
 }
 
 function upTaskEvent() {
-  const selected = document.querySelector('.selected');
-  const up = selected.previousSibling;
-  up.replaceWith(selected);
-  selected.replaceWith(up);
+  const slt = document.querySelector('.selected');
+  const up = slt.previousSibling;
+  if (up) {
+    const sltext = slt.innerText;
+    const sltcls = slt.className;
+    const uptext = up.innerText;
+    const upcls = up.className;
+    up.innerText = sltext;
+    up.className = sltcls;
+    slt.innerText = uptext;
+    slt.className = upcls;
+  }
+}
+
+function downTaskEvent() {
+  const slt = document.querySelector('.selected');
+  const down = slt.nextSibling;
+  if (down) {
+    const sltext = slt.innerText;
+    const sltcls = slt.className;
+    const downtext = down.innerText;
+    const downcls = down.className;
+    down.innerText = sltext;
+    down.className = sltcls;
+    slt.innerText = downtext;
+    slt.className = downcls;
+  }
 }
 
 loadTasks();
@@ -95,7 +118,7 @@ endedTasks.addEventListener('click', endedTasksEvent);
 salveTasks.addEventListener('click', salveTasksEvent);
 
 upTask.addEventListener('click', upTaskEvent);
-// downTask.addEventListener('click', salveTaskEvent);
+downTask.addEventListener('click', downTaskEvent);
 
 listTask.addEventListener('click', clickTaskEvent);
 listTask.addEventListener('dblclick', doubleTaskEvent);
