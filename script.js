@@ -64,8 +64,11 @@ getTasksList();
 function moveUpTask() {
   const btnMoveTaskUp = document.querySelector('#mover-cima');
   btnMoveTaskUp.addEventListener('click', () => {
-    if (selectedTask[0].previousSibling !== null && selectedTask) {
-      listTask.insertBefore(selectedTask[0], selectedTask[0].previousSibling);
+    const selectedCurrentTask = document.getElementsByClassName('selected')[0];
+    if (selectedCurrentTask) {
+      if (selectedCurrentTask.previousSibling !== null && selectedCurrentTask) {
+        listTask.insertBefore(selectedCurrentTask, selectedCurrentTask.previousSibling);
+      }
     }
   });
 }
@@ -73,8 +76,11 @@ function moveUpTask() {
 function moveDownTask() {
   const btnMoveTaskDown = document.querySelector('#mover-baixo');
   btnMoveTaskDown.addEventListener('click', () => {
-    if (selectedTask[0].nextElementSibling !== null && selectedTask) {
-      listTask.insertBefore(selectedTask[0].nextElementSibling, selectedTask[0]);
+    const selectedCurrentTask = document.getElementsByClassName('selected')[0];
+    if (selectedCurrentTask) {
+      if (selectedCurrentTask.nextElementSibling !== null && selectedCurrentTask) {
+        listTask.insertBefore(selectedCurrentTask.nextElementSibling, selectedCurrentTask);
+      }
     }
   });
 }
