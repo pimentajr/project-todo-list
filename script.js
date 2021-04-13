@@ -2,7 +2,6 @@
 window.onload = function(){
   // plot items
   taskList.innerHTML = fullListParsed;
-  console.log(fullListParsed)
 }
 
 //// Save Tasks
@@ -36,9 +35,9 @@ taskInput.value = '';
 taskList.addEventListener('click',function(event) {
 let listItem = document.getElementsByTagName('li');
 for (key of listItem){
-  key.style.backgroundColor= '';
+  key.classList.remove('selected');
 }
-event.target.style.backgroundColor = 'rgb(128, 128, 128)'})
+event.target.classList.add('selected')})
 
 //// Strike-Unstrike Item
 taskList.addEventListener('dblclick',function(event){
@@ -54,8 +53,62 @@ function removeAllItems() {
 function removeCompleted() {
   let completedTasks = document.getElementsByClassName('completed'); 
   while (completedTasks.length > 0) {
-    console.log(completedTasks[0])
     taskList.removeChild(completedTasks[0]);
   }
 }
 
+
+////// Move Item
+// define Selected Index
+let selectedIndex = 0;
+function finditemIndex() {
+  selectedColor = document.querySelector('.selected');
+  if (!selectedColor) {
+    return;
+  }
+  taskItems = document.getElementsByTagName('li');
+  let selectedColorStyle = window.getComputedStyle(selectedColor).getPropertyValue('background-color');
+  taskItemColor =
+  selectedIndex = 0;
+  for (let i = 0; window.getComputedStyle(taskItems[i]).getPropertyValue('background-color') !== selectedColorStyle; i += 1) {
+    selectedIndex = i + 1; 
+  }
+  return selectedIndex;
+}
+
+//// Move items upwards
+function moveUpList() {
+  finditemIndex()
+  if (!selectedColor) {
+    return;
+  }
+  if (selectedIndex === 0) {
+    return;
+  } else {
+    let backupItem = taskItems[selectedIndex - 1];
+    taskItems[selectedIndex].innerHTML = taskItems[selectedIndex].innerHTML;
+    taskList.insertBefore(backupItem,taskItems[selectedIndex+1]);
+  }
+}
+
+//// Move items upwards
+function moveDownList() {
+  finditemIndex()
+  if (!selectedColor) {
+    return;
+  }
+  if (selectedIndex === taskItems.length -1) {
+    return;
+  } else {
+    let backupItem = taskItems[selectedIndex + 1];
+    taskItems[selectedIndex].innerHTML = taskItems[selectedIndex].innerHTML;
+    taskList.insertBefore(backupItem,taskItems[selectedIndex]);
+  }
+}
+
+// recuperar lista identificar a lista de li
+
+// recuperar a posição do elemento com classe selected
+// memoria = posição i -1
+// remover memória da lista
+// inserir memória na posição i
