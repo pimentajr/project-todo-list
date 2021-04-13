@@ -1,9 +1,10 @@
 const buttonForTaskCreation = document.getElementById('criar-tarefa');
 const inputTextElement = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-const tasks = document.getElementsByClassName('tasks');
+let tasks = document.getElementsByClassName('tasks');
 const resetButton = document.getElementById('apaga-tudo');
 const deleteEndedTasksButton = document.getElementById('remover-finalizados');
+const saveButton = document.getElementById('salvar-tarefas');
 
 function addTask() {
   const task = inputTextElement.value;
@@ -11,7 +12,6 @@ function addTask() {
   const TaskElement = document.createElement('li');
   taskList.appendChild(TaskElement).className = 'tasks';
   taskList.lastChild.innerText = task;
-  console.log(taskList.lastChild);
 }
 
 function taskSelector(event) {
@@ -48,12 +48,22 @@ function deleteEndedTasks() {
   }
 }
 
+function saveState() {
+  localStorage.setItem('tasks', taskList.innerHTML);
+}
+
+function retrieveState() {
+  taskList.innerHTML = localStorage.getItem('tasks');
+}
+
 function addListeners() {
   buttonForTaskCreation.addEventListener('click', addTask);
   taskList.addEventListener('click', taskSelector);
   taskList.addEventListener('dblclick', setStatus);
   resetButton.addEventListener('click', resetAll);
   deleteEndedTasksButton.addEventListener('click', deleteEndedTasks);
+  saveButton.addEventListener('click', saveState);
 }
 
 addListeners();
+retrieveState();
