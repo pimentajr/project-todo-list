@@ -20,6 +20,10 @@ header {
   text-align: center;
 }
 
-.selectLi{
-  background-color: rgb(128 , 128 , 128);
+#selectLi {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
 }
