@@ -7,8 +7,11 @@ const entrada = document.getElementById('texto-tarefa');
 let li = tags('li');
 const limparTudo = document.getElementById('apaga-tudo');
 const removerSelec = document.getElementById('remover-selecionado');
+const cima = document.getElementById('mover-cima');
+const finalizados = document.getElementById('remover-finalizados');
+
 function tarefaConcluida(event) {
-  event.target.classList.toogle('completed');
+  event.target.classList.add('completed');
 }
 
 function selecionaClasse(event) {
@@ -57,6 +60,22 @@ function remover() {
   }
 }
 removerSelec.addEventListener('click', remover);
+
+function removerFinalizados() {
+  const liItem = document.querySelectorAll('.completed');
+  for (let index = 0; index < liItem.length; index += 1) {
+    liItem[index].parentNode.removeChild(liItem[index]);
+  }
+}
+finalizados.addEventListener('click', removerFinalizados);
+
+function paraCima() {
+  const liItem = document.querySelectorAll('.itens');
+  for (let index = 0; index < liItem.length; index += 1) {
+    liItem[index] = liItem[index + 1];
+  }
+}
+cima.addEventListener('click', paraCima);
 
 window.onload = function carregar() {
   while (li > 0) {
