@@ -3,12 +3,14 @@ const buttonTask = document.querySelector('#criar-tarefa');
 
 function addNewTask() {
   const task = addTask.value;
-  const ulList = document.querySelector('.list-task');
+  const olList = document.querySelector('.list-task');
   const listLiTask = document.createElement('li');
   const list = document.createTextNode(task);
   listLiTask.appendChild(list);
-  ulList.appendChild(listLiTask);
+  olList.appendChild(listLiTask);
 
   addTask.value = ''; // limpar campo
 }
 buttonTask.addEventListener('click', addNewTask);
+
+
