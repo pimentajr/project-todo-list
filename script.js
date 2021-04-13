@@ -4,6 +4,8 @@ const btnCreateTask = document.getElementById('criar-tarefa');
 const btnDeleteTasks = document.getElementById('apaga-tudo');
 const btnDeleteCompletedTasks = document.getElementById('remover-finalizados');
 const btnSaveTasks = document.getElementById('salvar-tarefas');
+const btnUp = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
 
 jobList.innerHTML = localStorage.getItem('list');
 
@@ -27,10 +29,7 @@ function addTask() {
   const taskToBeAdded = document.createElement('li');
   taskToBeAdded.innerText = taskNameInput.value;
   taskToBeAdded.setAttribute('class', 'task');
-  //taskToBeAdded.addEventListener('click', changeBackgroundColorTask);
-  //taskToBeAdded.addEventListener('dblclick', completedTask);
   jobList.appendChild(taskToBeAdded);
-
   taskNameInput.value = '';
 }
 
@@ -62,3 +61,21 @@ function saveCurrentList() {
 }
 
 btnSaveTasks.addEventListener('click', saveCurrentList);
+
+// sobe e desce a tarefa de prioridade.
+function moveTaskDown() {
+  let selectedTask = document.getElementById('selectedTask');
+  if (selectedTask.nextElementSibling) {
+    jobList.insertBefore(selectedTask.nextElementSibling, selectedTask);
+  }
+}
+
+function moveTaskUp() {
+  let selectedTask = document.getElementById('selectedTask');
+  if (selectedTask.previousElementSibling) {
+  selectedTask.insertAdjacentElement('afterend', selectedTask.previousElementSibling);
+  }    
+}
+
+btnDown.addEventListener('click', moveTaskDown);
+btnUp.addEventListener('click', moveTaskUp);
