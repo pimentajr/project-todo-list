@@ -15,6 +15,9 @@ function printSelectedItem(event) {
   const changeBg = event.target;
   if (document.querySelector('.selected') === null) {
     changeBg.classList.add('selected');
+  } else {
+    document.querySelector('.selected').classList.remove('selected');
+    changeBg.classList.add('selected');
   }
 }
 
