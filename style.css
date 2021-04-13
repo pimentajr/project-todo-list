@@ -32,8 +32,8 @@ main {
   background-color: gray;
 }
 
-.done {
-  text-decoration: line-through;
+.completed {
+  text-decoration: line-through solid black;
 }
 
 li {

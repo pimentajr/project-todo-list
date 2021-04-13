@@ -23,10 +23,10 @@ function printSelectedItem(event) {
 
 function taskDone(event) {
   const done = event.target;
-  if (done.className !== 'done' && done.className === 'selected') {
-    done.className = 'done';
+  if (done.className !== 'completed' && done.className === 'selected') {
+    done.className = 'completed';
   } else {
-    done.classList.remove('done');
+    done.classList.remove('completed');
   }
 }
 
