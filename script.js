@@ -1,7 +1,8 @@
 const task = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('ol');
 const apagar = document.querySelector('#apaga-tudo');
-const apagarFinalizados = document.querySelector("#remover-finalizados")
+const apagarFinalizados = document.querySelector('#remover-finalizados');
+const salvarTarefa = document.querySelector('#salvar-tarefas');
 
 task.addEventListener('click', () => {
   let captura = '';
@@ -36,8 +37,16 @@ apagar.addEventListener('click', () => {
 
 apagarFinalizados.addEventListener('click', () => {
   const list = document.querySelectorAll('.completed');
-  console.log(list);
   for (let index = 0; index < list.length; index += 1) {
     list[index].remove();
   }
 });
+
+function salvaTarefa() {/* refatorar  */
+  salvarTarefa.addEventListener('click', () => {
+    localStorage.setItem('task', ol.innerHTML);
+  });
+  const local = localStorage.getItem('task');
+  console.log(local);
+  ol.innerHTML = local;
+} salvaTarefa();
