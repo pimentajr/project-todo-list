@@ -6,6 +6,7 @@ const btnCompleted = document.querySelector('#remover-finalizados');
 const btnSave = document.querySelector('#salvar-tarefas');
 const btnUp = document.querySelector('#mover-cima');
 const btnDown = document.querySelector('#mover-baixo');
+const btnRmv = document.querySelector('#remover-selecionado');
 
 // Adiciona nova tarefa
 function addTask(text) {
@@ -91,4 +92,10 @@ btnDown.addEventListener('click', () => {
   if (taskSelected && taskSelected.nextElementSibling) {
     taskList.insertBefore(taskSelected.nextElementSibling, taskSelected);
   }
+});
+
+// Remove tarefa selecionada
+btnRmv.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected) taskSelected.remove();
 });
