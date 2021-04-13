@@ -24,13 +24,12 @@ function completedItem(event) {
 
 // 5. 6.
 function criarTarefa() {
-  const list = document.getElementById('lista-tarefas');
   const inputList = document.getElementById('texto-tarefa');
   if (inputList.value !== '') {
     const lItem = document.createElement('li');
     lItem.innerText = inputList.value;
     lItem.classList.add('list-item');
-    list.appendChild(lItem);
+    oList.appendChild(lItem);
     inputList.value = '';
     lItem.addEventListener('click', selectItem);
     lItem.addEventListener('dblclick', completedItem);
@@ -120,9 +119,9 @@ div.appendChild(buttonApagarTudo);
 
 // 12.
 function salvarTarefas() {
-  const list = document.getElementById('lista-tarefas').innerHTML;
-  if (list !== null) {
-    localStorage.setItem('lista', list);
+  const listHTML = document.getElementById('lista-tarefas').innerHTML;
+  if (listHTML !== null) {
+    localStorage.setItem('lista', listHTML);
   }
 }
 const buttonsalvarTarefas = document.createElement('button');
