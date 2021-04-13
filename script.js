@@ -31,6 +31,37 @@ function clearCompleted() {
   }
 }
 
+function saveList() {
+  const tasks = taskList.children;
+  const size = tasks.length;
+  const saveInfo = [];
+  for (let index = 0; index < size; index += 1) {
+    saveInfo.push(tasks[index].innerText);
+    if (tasks[index].classList.contains('completed')) {
+      saveInfo.push('true');
+    } else {
+      saveInfo.push('false');
+    }
+  }
+  localStorage.setItem('list', saveInfo);
+}
+
+function loadList() {
+  const list = localStorage.getItem('list');
+  const array = list.split(',');
+  for (let index = 0; index < array.length; index += 2) {
+    const element = document.createElement('li');
+    element.innerText = array[index];
+    element.classList.add('tarefa');
+    element.addEventListener('click', SelectTask);
+    element.addEventListener('dblclick', CompleteTask);
+    if (array[index + 1] === 'true') {
+      element.classList.add('completed');
+    }
+    taskList.appendChild(element);
+  }
+}
+
 function CreateTask() {
   const element = document.createElement('li');
   const text = document.getElementById('texto-tarefa').value;
@@ -40,8 +71,6 @@ function CreateTask() {
   element.addEventListener('dblclick', CompleteTask);
   taskList.appendChild(element);
   document.getElementById('texto-tarefa').value = '';
-  // let criado = document.querySelector('tarefa');
-  // criado.addEventListener('click',SelectTask);
 }
 
 function addEventCreateTask() {
@@ -59,8 +88,15 @@ function addEventClearCompleted() {
   button.addEventListener('click', clearCompleted);
 }
 
+function addEventSaveList() {
+  const button = document.getElementById('salvar-tarefas');
+  button.addEventListener('click', saveList);
+}
+
 window.onload = function load() {
   addEventCreateTask();
   addEventClearAll();
   addEventClearCompleted();
+  addEventSaveList();
+  loadList();
 };
