@@ -6,6 +6,15 @@ function selectTask(event) {
   event.target.classList.add('selected');
 }
 
+function doubleClickToComplete(event) {
+  const captureTask = document.querySelectorAll('.tarefa');
+  if (captureTask.className !== 'completed') {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
+  }
+}
+
 function addTask() {
   const userInput = document.getElementById('texto-tarefa').value;
   const typed = userInput;
@@ -13,6 +22,7 @@ function addTask() {
   const task = document.createElement('li');
   task.classList.add('tarefa');
   task.addEventListener('click', selectTask);
+  task.addEventListener('dblclick', doubleClickToComplete);
   listTask.appendChild(task);
   task.innerHTML = typed;
   document.getElementById('texto-tarefa').value = '';
