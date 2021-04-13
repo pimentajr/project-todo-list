@@ -64,10 +64,9 @@ function createListItem() {
 function clickColorList(event) {
   const listElem = document.querySelectorAll('#list-item');
   for (let index = 0; index < listElem.length; index += 1) {
-    listElem[index].style.background = 'white'; // Task 8
-    list.style.background = 'white';
+    listElem[index].classList.remove('selected'); // Task 8
     const aux = event;
-    aux.target.style.background = 'rgb(128, 128, 128)';
+    aux.target.classList.add('selected');
   }
 }
 
@@ -125,12 +124,26 @@ function saveItem() {
   localStorage.setItem('list', loadList.innerHTML);
 }
 
+// Task 13
+
+// Task 14
+const deleteTaskBtn = create('button');
+deleteTaskBtn.id = 'remover-selecionado';
+deleteTaskBtn.innerText = 'Remove Item';
+add(body, deleteTaskBtn);
+
+function removeListItem() {
+  const selected = document.querySelector('.selected');
+  list.removeChild(selected);
+}
+
 // start function
 function start() {
   buttonCreate.addEventListener('click', createListItem);
   removeButton.addEventListener('click', removeList);
   removeCompButton.addEventListener('click', removeCompleted);
   saveButton.addEventListener('click', saveItem);
+  deleteTaskBtn.addEventListener('click', removeListItem);
   list.addEventListener('click', clickColorList);
   list.addEventListener('dblclick', completedEvent);
 }

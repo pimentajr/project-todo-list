@@ -1,9 +1,9 @@
-* {
-  background: white;
-}
-
 .completed {
   text-decoration: line-through solid black;
+}
+
+.selected {
+  background: rgb(128, 128, 128);
 }
 
 header {
@@ -36,6 +36,7 @@ li {
   border: 0.5px inset darkgrey;
   width: 365px;
   padding: 1px 5px;
+  margin-left: -10px;
 }
 
 #criar-tarefa {
@@ -66,6 +67,15 @@ li {
 }
 
 #salvar-tarefas {
+  border: 1px inset black;
+  border-radius: 10px;
+  background: darkslateblue;
+  color: white;
+  margin-left: 5px;
+  padding: 3px 10px;
+}
+
+#remover-selecionado {
   border: 1px inset black;
   border-radius: 10px;
   background: darkslateblue;
