@@ -6,10 +6,11 @@ function removeAllTasks() {
   }
 }
 
-function clearAll() {
-  const size = taskList.childElementCount;
-  for (let index = 0; index < size; index += 1) {
-    taskList.removeChild(taskList.lastElementChild);
+function removeCompletedTasks() {
+  const listOl = document.getElementById('lista-tarefas');
+  const completedLi = document.getElementsByClassName('completed');
+  for (let index = completedLi.length - 1; index >= 0; index -= 1) {
+    listOl.removeChild(completedLi[index]);
   }
 }
 
@@ -27,8 +28,6 @@ function doubleClickToComplete(event) {
     event.target.classList.add('completed');
   }
 }
-
-
 
 function addTask() {
   const userInput = document.getElementById('texto-tarefa').value;
@@ -52,7 +51,14 @@ function clickButtonRemove() {
   const buttonRemove = document.getElementById('apaga-tudo');
   buttonRemove.addEventListener('click', removeAllTasks);
 }
+
+function clickButtonRemoveCompleted() {
+  const buttonRemoveCompleted = document.getElementById('remover-finalizados');
+    buttonRemoveCompleted.addEventListener('click', removeCompletedTasks);
+}
+
 window.onload = function load() {
   clickButtonTask();
   clickButtonRemove();
+  clickButtonRemoveCompleted();
 };
