@@ -13,6 +13,7 @@ function assigmentList() {
   listHolder.id = 'lista-tarefas';
 }
 assigmentList();
+const locateList = document.querySelector('#lista-tarefas');
 
 function buttonCreat(id, innertext) {
   const buttonHolder = document.createElement('button');
@@ -26,7 +27,6 @@ buttonCreat('apaga-tudo', 'DeleteAllAssignments');
 buttonCreat('remover-finalizados', 'DeleteAllRisk');
 
 function creatNewAssignmentOnList() {
-  const locateList = document.querySelector('#lista-tarefas');
   const newAssigment = document.createElement('li');
   locateList.appendChild(newAssigment);
   newAssigment.className = ('assigments');
@@ -67,17 +67,15 @@ function riskAssignment(event) {
 }
 // Ajuda do plantão.
 function riskAssignmentOnList() {
-  const locateList = document.querySelector('#lista-tarefas');
   locateList.addEventListener('dblclick', riskAssignment);
 }
 riskAssignmentOnList();
 
 function deleteAllAssignments() {
-  const locatelist = document.querySelector('#lista-tarefas');
   const locatebutton = document.querySelector('#apaga-tudo');
   function listdelete() {
-    for (let index = 0; index < locatelist.childNodes.length; index += 1) {
-      locatelist.childNodes[index].remove();
+    for (let index = 0; index < locateList.childNodes.length; index += 1) {
+      locateList.childNodes[index].remove();
     }
   }
   locatebutton.addEventListener('click', listdelete);
