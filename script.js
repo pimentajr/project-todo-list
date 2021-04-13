@@ -1,7 +1,7 @@
 const addTask = document.getElementById('criar-tarefa');
 const listTasks = document.getElementById('lista-tarefas');
 
-// Adiciona tarefa.
+// Button Adiciona tarefa.
 function addNewTalks() {
   addTask.addEventListener('click', () => {
     const textTalks = document.getElementById('texto-tarefa');
@@ -37,3 +37,13 @@ function streakItemList() {
   });
 }
 streakItemList();
+
+// Button limpar lista inteira
+const clearMylist = document.getElementById('lista-tarefas');
+const buttonClear = document.getElementById('apaga-tudo');
+function clearList() {
+  clearMylist.innerHTML = '';
+}
+buttonClear.addEventListener('click', clearList);
+
+// Button remove itens da lista finalizados
