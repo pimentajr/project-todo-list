@@ -2,8 +2,6 @@
 const newTask = document.querySelector('#texto-tarefa');
 const clickCreateTask = document.getElementById('criar-tarefa');
 const allList = document.querySelector('#lista-tarefas');
-const grayColor = 'rgb(128, 128, 128)';
-const saveButton = document.getElementById('salvar-tarefas');
 
 function addingTask() {
   clickCreateTask.addEventListener('click', () => {
@@ -19,20 +17,21 @@ function addingTask() {
 }
 addingTask();
 
-// Requisito 7 e 8 - Colocar fundo cinza em itens clicados
+// Requisito 7 e 8 - Colocar fundo cinza no item clicado e mudar quando clicar em outro item
+const grayColor = 'rgb(128, 128, 128)';
 function grayItem() {
   allList.addEventListener('click', (eventoDeOrigem1) => {
     const clickedItem = eventoDeOrigem1.target;
-    const whiteList = document.querySelectorAll('li');
-    for (let index = 0; index < whiteList.length; index += 1) {
-      whiteList[index].style.backgroundColor = 'white';
+    const theList = document.querySelectorAll('li');
+    for (let index = 0; index < theList.length; index += 1) {
+      theList[index].style.backgroundColor = 'white';
     }
     clickedItem.style.backgroundColor = grayColor;
   });
 }
 grayItem();
 
-// Requisito 9 - Riscar o item duas vezes com double click
+// Requisito 9 - Riscar o item duas vezes com double click e tirar quando dar double click novamente
 function crossOff() {
   allList.addEventListener('dblclick', (eventoDeOrigem) => {
     const dblClickedItem = eventoDeOrigem.target;
@@ -74,6 +73,7 @@ function removeCheckedTasks() {
 removeCheckedTasks();
 
 // Requisito 12 - Salvar tarefas
+const saveButton = document.getElementById('salvar-tarefas');
 function storageItens() {
   saveButton.addEventListener('click', () => {
     localStorage.setItem('Tarefas', allList.innerHTML);
@@ -81,7 +81,7 @@ function storageItens() {
   const savedList = localStorage.getItem('Tarefas');
   if (savedList) allList.innerHTML = savedList;
   // https://stackoverflow.com/questions/8860654/javascript-single-line-if-statement-best-syntax-this-alternative
-  // Plantão dia 12/04 uso da condicional de existência
+  // Plantão dia 12/04 uso da condicional de existência, Jean Esteves e Carol Silva
 }
 storageItens();
 
@@ -111,3 +111,17 @@ function moveDown() {
   });
 }
 moveDown();
+
+// Requisito 14 - Botão
+function removeTask() {
+  const removeButton = document.getElementById('remover-selecionado');
+  removeButton.addEventListener('click', () => {
+    const allItens = document.querySelectorAll('li');
+    for (let index = 0; index < allItens.length; index += 1) {
+      if (allItens[index].style.backgroundColor === grayColor) {
+        allList.removeChild(allItens[index]);
+      }
+    }
+  });
+}
+removeTask();
