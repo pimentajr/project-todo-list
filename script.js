@@ -68,9 +68,6 @@ buttonSave.addEventListener('click', buttonSaved);
 const buttonUp = document.getElementById('mover-cima');
 const buttonDown = document.getElementById('mover-baixo');
 
-if()
-
-
 // Button remove itens da lista selecionados pintados
 const buttonClearSelected = document.getElementById('remover-selecionado');
 function clearItenSelected() {
