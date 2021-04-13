@@ -101,7 +101,7 @@ const buttonDown = document.querySelector('#mover-baixo')
 buttonDown.addEventListener('click', function(){
   const selected = document.getElementById('list-color')
   const li = document.querySelectorAll('li')
-  if(selected !== li[li.length-1]){
+  if(selected !== li[li.length-1] && selected){
     const selectedInner = selected.innerText
   const selectedClass = selected.className
   const nextElClass = selected.nextElementSibling.className
