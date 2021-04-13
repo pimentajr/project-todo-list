@@ -20,8 +20,9 @@ function color() {
   for (let index = 0; index < toDoListItens.length; index += 1) {
     toDoListItens[index].addEventListener('click', function backgroundColorItem(event) {
       const itemSelected = document.querySelectorAll('.backgroundItem');
-      for (let index = 0; index < itemSelected.length; index += 1)
-      itemSelected[index].classList.remove('backgroundItem');
+      for (let index2 = 0; index2 < itemSelected.length; index2 += 1) {
+        itemSelected[index2].classList.remove('backgroundItem');
+      }
       event.target.classList.add('backgroundItem');
     });
   }
