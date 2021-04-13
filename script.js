@@ -1,14 +1,30 @@
 const listOfTasks = document.querySelector('#lista-tarefas');
 
-document.querySelector('#criar-tarefa').addEventListener('click', () => {
+function makeTask(textTask) {
   const task = document.createElement('li');
-  const input = document.querySelector('#texto-tarefa');
 
-  task.innerText = input.value;
+  task.innerText = textTask;
   task.classList.add('task');
-  input.value = '';
 
   listOfTasks.appendChild(task);
+}
+
+function loadStorage() {
+  if (localStorage.taskList) {
+    listOfTasks.innerHTML = localStorage.taskList;
+  }
+}
+
+window.onload = () => {
+  loadStorage();
+};
+
+document.querySelector('#criar-tarefa').addEventListener('click', () => {
+  const input = document.querySelector('#texto-tarefa');
+  const text = input.value;
+
+  makeTask(text);
+  input.value = '';
 });
 
 document.querySelector('#apaga-tudo').addEventListener('click', () => {
@@ -21,6 +37,11 @@ document.querySelector('#remover-finalizados').addEventListener('click', () => {
   while (listOfTasks.querySelector('.completed')) {
     listOfTasks.removeChild(listOfTasks.querySelector('.completed'));
   }
+});
+
+// Font: https://stackoverflow.com/questions/19225682/can-i-save-innerhtml-of-an-element-to-html5-local-storage/19225883
+document.querySelector('#salvar-tarefas').addEventListener('click', () => {
+  localStorage.taskList = listOfTasks.innerHTML;
 });
 
 listOfTasks.addEventListener('click', (event) => {
