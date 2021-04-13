@@ -10,6 +10,8 @@ function bindListeners() {
     .addEventListener('click', onClickButtonAdd);
   document.querySelector('#apaga-tudo')
     .addEventListener('click', onClickButtonClearList);
+  document.querySelector('#remover-finalizados')
+    .addEventListener('click', clearCompletedTasks);
 
   taskList.addEventListener('click', onClickTask);
   taskList.addEventListener('dblclick', onDoubleClickTask);
@@ -25,6 +27,10 @@ function onClickButtonAdd() {
 
 function onClickButtonClearList() {
   clearAllTasks();
+}
+
+function onClickButtonClearCompletedTasks() {
+  clearCompletedTasks();
 }
 
 function addTaskToList(task) {
@@ -60,4 +66,11 @@ function onDoubleClickTask(event) {
 
 function clearAllTasks() {
   taskList.innerHTML = '';
+}
+
+function clearCompletedTasks() {
+  const completedTasks = taskList.querySelectorAll('.completed');
+  completedTasks.forEach((element) => {
+    taskList.removeChild(element);
+  });
 }
