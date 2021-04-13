@@ -95,7 +95,7 @@ function removeList() {
 
 // Task 11
 const removeCompButton = create('button');
-removeCompButton.id = 'remove-finalizados';
+removeCompButton.id = 'remover-finalizados';
 removeCompButton.innerText = 'Remover Finalizados';
 add(body, removeCompButton);
 
