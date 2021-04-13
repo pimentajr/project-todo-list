@@ -16,6 +16,10 @@ button.addEventListener('click', function(){
 })
 
 list.addEventListener('click', function(event){
+  let listItem = document.querySelectorAll('li')
+  for(let index = 0; index < listItem.length; index +=1){
+    listItem[index].removeAttribute('id')
+  }
   const li = event.target
-  li.style.backgroundColor = 'rgb(128, 128, 128)'
+  li.setAttribute('id', 'list-color')
 })
