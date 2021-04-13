@@ -3,6 +3,7 @@ const inptText = document.querySelector('#texto-tarefa');
 const btnAdd = document.getElementById('criar-tarefa');
 const clear = document.getElementById('apaga-tudo');
 const btnFinalized = document.getElementById('remover-finalizados');
+const btnDelete = document.getElementById('remover-selecionado');
 
 function makingList() {
   const mkLi = document.createElement('li');
@@ -23,7 +24,6 @@ function liBackColor(event) {
     event.target.classList.add('selected');
   }
 }
-    
 
 list.addEventListener ('click', liBackColor);
 
@@ -45,12 +45,20 @@ function liDone(evento) {
 
 list.addEventListener('dblclick', liDone);
 
-
-function clearFinalized () {
-const complet = document.querySelectorAll('li.completed');
-  for (i = 0; i < complet.length; i += 1) {
+function clearFinalized() {
+  const complet = document.querySelectorAll('li.completed');
+  for (let i = 0; i < complet.length; i += 1) {
     complet[i].remove();
   }
 }
 
-btnFinalized.addEventListener ('click', clearFinalized);
+btnFinalized.addEventListener('click', clearFinalized);
+
+function rmvSelected() {
+  const delOne = document.querySelectorAll('.selected');
+  for (let i = 0; i < delOne.length; i += 1) {
+    delOne[i].remove();
+  }
+}
+
+btnDelete.addEventListener('click', rmvSelected);
