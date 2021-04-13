@@ -76,7 +76,9 @@ function completedEvent(event) {
   const listElem = document.querySelectorAll('#list-item');
   for (let index = 0; index < listElem.length; index += 1) {
     const aux = event;
-    aux.target.classList.add('completed');
+    if (aux.target.classList.contains('completed')) {
+      aux.target.classList.remove('completed');
+    } else aux.target.classList.add('completed');
   }
 }
 
