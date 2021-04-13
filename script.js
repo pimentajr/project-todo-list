@@ -120,11 +120,11 @@ function moveItens() {
 }
 moveItens();
 
-// Adiciona botão pra remover a seleção do item 
+// Adiciona botão pra remover a seleção do item
 function removeSelected() {
   const buttonRemove = document.getElementById('remover-selecionado');
   buttonRemove.addEventListener('click', () => {
-    let itemSelected = document.querySelector('.selected');
+    const itemSelected = document.querySelector('.selected');
     itemSelected.remove(itemSelected.parentElement);
   });
 }
