@@ -4,6 +4,8 @@ const btnDeleteList = document.querySelector('#apaga-tudo');
 const btnDeleteCompleted = document.querySelector('#remover-finalizados');
 const btnDeleteSelected = document.querySelector('#remover-selecionado');
 const btnSaveTasks = document.querySelector('#salvar-tarefas');
+const btnTop = document.querySelector('#mover-cima');
+const btnBot = document.querySelector('#mover-baixo');
 
 function paintSelectedELement(event) {
   const element = event.target;
@@ -73,17 +75,48 @@ btnDeleteCompleted.addEventListener('click', () => {
 });
 
 btnDeleteSelected.addEventListener('click', () => {
-  const listItem = document.querySelectorAll('.selected');
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].remove();
-  }
+  const listItem = document.querySelector('.selected');
+
+  listItem.remove();
 });
 
 btnSaveTasks.addEventListener('click', () => {
-  const htmlData = document.querySelector('html').innerHTML;
-  localStorage.setItem('listItems', htmlData);
+  const olData = document.querySelector('ol').innerHTML;
+
+  localStorage.setItem('listItems', olData);
 });
 
-window.onload = function() {
-  document.querySelector('html').innerHTML = localStorage.getItem('listItems');
+btnTop.addEventListener('click', () => {
+  if (document.querySelector('.selected') !== null) {
+    const elementIndex = indexOfNode(document.querySelector('.selected'));
+
+    if (elementIndex !== 0) {
+      const element = document.querySelectorAll('#list-item')[elementIndex];
+      const list = document.querySelector('#lista-tarefas');
+
+      element.remove();
+      list.insertBefore(element, list.childNodes[elementIndex - 1]);
+    }
+  }
+});
+
+btnBot.addEventListener('click', () => {
+  if (document.querySelector('.selected') !== null) {
+    const elementIndex = indexOfNode(document.querySelector('.selected'));
+    const itemsLength = document.querySelectorAll('#list-item').length;
+
+    if (elementIndex <= itemsLength) {
+      const element = document.querySelectorAll('#list-item')[elementIndex];
+      const list = document.querySelector('#lista-tarefas');
+
+      element.remove();
+      list.insertBefore(element, list.childNodes[elementIndex + 1]);
+    }
+  }
+});
+
+window.onload = () => {
+  if (localStorage.getItem('listItems') !== null) {
+    document.querySelector('ol').innerHTML = localStorage.getItem('listItems');
+  }
 };
