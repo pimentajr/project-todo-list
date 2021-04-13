@@ -64,17 +64,17 @@ btnSaveTasks.addEventListener('click', saveCurrentList);
 
 // sobe e desce a tarefa de prioridade.
 function moveTaskDown() {
-  let selectedTask = document.getElementById('selectedTask');
-  if (selectedTask.nextElementSibling) {
+  const selectedTask = document.getElementById('selectedTask');
+  if (selectedTask && selectedTask.nextElementSibling) {
     jobList.insertBefore(selectedTask.nextElementSibling, selectedTask);
   }
 }
 
 function moveTaskUp() {
-  let selectedTask = document.getElementById('selectedTask');
-  if (selectedTask.previousElementSibling) {
-  selectedTask.insertAdjacentElement('afterend', selectedTask.previousElementSibling);
-  }    
+  const selectedTask = document.getElementById('selectedTask');
+  if (selectedTask && selectedTask.previousElementSibling) {
+    selectedTask.insertAdjacentElement('afterend', selectedTask.previousElementSibling);
+  }
 }
 
 btnDown.addEventListener('click', moveTaskDown);
