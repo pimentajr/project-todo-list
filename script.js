@@ -113,7 +113,7 @@ function returnSavedItems() {
 
 returnSavedItems();
 
-// move item para cima, dentro da lista
+// move item para cima, dentro da lista : https://stackoverflow.com/questions/9732624/how-to-swap-dom-child-nodes-in-javascript
 function moveUpTask() {
   let getMoveUpButton = document.querySelector('#mover-cima');
 
@@ -140,3 +140,15 @@ function moveDownTask() {
   })
 }
 moveDownTask();
+
+// remove tarefa selecionada
+function removeSelectedTask() {
+  let removeTaskButton = document.querySelector('#remover-selecionado');
+
+  removeTaskButton.addEventListener('click', function() {
+    let selectedClass = document.querySelector('.selected');
+    selectedClass.remove();
+  })
+}
+
+removeSelectedTask();
