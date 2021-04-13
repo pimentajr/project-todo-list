@@ -23,3 +23,12 @@ list.addEventListener('click', function(event){
   const li = event.target
   li.setAttribute('id', 'list-color')
 })
+
+list.addEventListener('dblclick', function(event){
+  const li = event.target
+  if(li.classList.contains('completed')){
+    li.classList.remove('completed')
+  } else{
+    li.classList.add('completed')
+  }
+})
