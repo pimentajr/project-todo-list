@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Lato, sans-serif;
@@ -6,10 +6,10 @@
   background-color: black;
 }
 
-.selected{
-  background-color: rgb(128, 128, 128);
+.selected {
+  background-color: gray;
 }
 
-.completed{
-  text-decoration: line-through solid rgb(0, 0, 0);
+.completed {
+  text-decoration: line-through solid black;
 }

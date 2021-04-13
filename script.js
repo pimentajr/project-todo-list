@@ -7,6 +7,8 @@ const removeCompleted = document.getElementById('remover-finalizados');
 const completedToDos = document.getElementsByClassName('completed');
 const saveAll = document.getElementById('salvar-tarefas');
 const removeSelected = document.getElementById('remover-selecionado');
+const moveUp = document.getElementById('mover-cima');
+const moveDown = document.getElementById('mover-baixo');
 
 function addToDo() {
   const toDo = document.createElement('li');
@@ -36,9 +38,11 @@ function toDoCompleted(element) {
 }
 
 function removeAllToDos() {
-  for (let index = 0; index < toDos.length; index = 0) {
-    toDoList.removeChild(toDos[index]);
-    localStorage.clear();
+  if(toDos.length > 0){
+    for (let index = 0; index < toDos.length; index = 0) {
+      toDoList.removeChild(toDos[index]);
+      localStorage.clear();
+    }
   }
 }
 
@@ -80,12 +84,40 @@ function reloadToDos() {
   }
 }
 
+function toDoMoveUp() {
+  for (let index = 0; index < toDos.length; index += 1) {
+    if(toDos[index] === document.querySelector('.selected')){
+      if (index === 0) {
+        toDoList.insertBefore(toDos[index], toDos[toDos.length]);
+        toDoList.insertBefore(toDos[toDos.length], toDos[index]);
+      } else {
+        toDoList.insertBefore(toDos[index], toDos[index - 1]);
+      }
+    }
+  }
+}
+
+function toDoMoveDown() {
+  for (let index = 0; index < toDos.length; index += 1) {
+    if(toDos[index] === document.querySelector('.selected')){
+      if (index === (toDos.length - 1)) {
+        toDoList.insertBefore(toDos[index], toDos[0]);
+      } else {
+        toDoList.insertBefore(toDos[index], toDos[index + 1].nextSibling);
+        break;
+      }
+    }
+  }
+}
+
 window.onload = function () {
   if (localStorage.length > 0) {
     reloadToDos();
   }
 };
 
+moveDown.addEventListener('click', toDoMoveDown);
+moveUp.addEventListener('click', toDoMoveUp);
 removeSelected.addEventListener('click', removeSelectedToDo);
 saveAll.addEventListener('click', saveToDos);
 removeCompleted.addEventListener('click', removeCompletedToDos);
