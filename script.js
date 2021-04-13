@@ -3,7 +3,7 @@
  */
 function createTask(text) {
   const task = document.createElement('li');
-  task.classList.add = 'task';
+  task.classList.add('task');
   task.innerHTML = text;
   return task;
 }
@@ -22,7 +22,22 @@ function addTask() {
   }
 }
 
+function addClassSelected(event) {
+  const selected = document.querySelectorAll('.selected');
+  for (let index = 0; index < selected.length; index += 1) {
+    selected[index].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
+
+function addClassCompleted(event) {
+  event.target.classList.add('completed');
+}
+
 window.onload = function init() {
   const button = document.querySelector('#criar-tarefa');
   button.addEventListener('click', addTask);
+  const listItems = document.getElementById('lista-tarefas');
+  listItems.addEventListener('click', addClassSelected);
+  listItems.addEventListener('dblclick', addClassCompleted);
 };
