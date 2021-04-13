@@ -1,18 +1,18 @@
 body {
-  background-color: rgb(45, 127, 189);
+  background-color: rgb(45 , 127 , 189);
 }
 
 header {
-  color: rgb(230, 156, 30);
+  color: rgb(230 , 156 , 30);
   text-shadow: 2px 2px black;
 }
 
 #texto-tarefa {
-  background-color: rgb(230, 156, 30);
+  background-color: rgb(230 , 156 , 30);
 }
 
 #funcionamento {
-  color: rgb(230, 156, 30);
+  color: rgb(230 , 156 , 30);
   text-shadow: 2px 2px black;
 
 }
@@ -20,7 +20,7 @@ header {
 #criar-tarefa {
   height: 22px;
   width: 100px;
-  background-color: rgb(230, 156, 30);
+  background-color: rgb(230 , 156 , 30);
 
 }
 
@@ -36,5 +36,5 @@ header {
 #apaga-tudo {
   height: 22px;
   width: 110px;
-  background-color: rgb(230, 156, 30);
+  background-color: rgb(230 , 156 , 30);
 }
