@@ -12,7 +12,6 @@ const sortOrder = 'asc';
 function Task() {
   this.title = '';
   this.addedOn = Date.now();
-  this.prettyAddedOn = new Date().toLocaleString(locale, prettyDateOptions);
 }
 
 // Might be useful to get all input field values in views with
