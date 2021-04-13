@@ -38,24 +38,40 @@ function addBtnNewItem() {
 }
 addBtnNewItem();
 
-// Cria função que limpa os destaques da lista
-function allItemsWhite() {
+// Cria função que remove a classe dada como parâmetro
+function removeAllClass(classToRemove) {
   const itens = document.querySelectorAll('.item');
   for (let index = 0; index < itens.length; index += 1) {
-    itens[index].className = 'item';
+    itens[index].classList.remove(classToRemove);
   }
 }
 
-// Cria função com evento ao clicar nos itens criados
+// Cria função que adiciona classe highlight a um dos itens e remove dos outros
 function clickItem() {
   const itens = document.querySelectorAll('.item');
   for (let index = 0; index < itens.length; index += 1) {
     itens[index].addEventListener('click', () => {
-      allItemsWhite();
+      removeAllClass('highlight');
       itens[index].classList.add('highlight');
     });
   }
 }
+
+// Cria função que adiciona ou remove a classe completed
+function itemCheck() {
+  const items = document.querySelectorAll('.item');
+  for (let index = 0; index < items.length; index += 1) {
+    items[index].addEventListener('dblclick', () => {
+      if(items[index].className.includes('completed') == false) {
+        items[index].classList.add('completed');
+      } else {
+        items[index].classList.remove('completed');
+      }
+    });
+  }
+}
+itemCheck()
+
 
 // Adiciona função ao botão Adicionar
 function addItem() {
@@ -68,7 +84,8 @@ function addItem() {
     document.querySelector('#lista-tarefas').appendChild(itemList);
     document.querySelector('#texto-tarefa').value = '';
     clickItem();
-  })
+    itemCheck();
+  });
 }
 addItem();
 
@@ -87,3 +104,23 @@ function addOl() {
   document.querySelector('#secondsection').appendChild(ol);
 }
 addOl();
+
+// Cria função que apaga todos itens da lista
+function clean() {
+  let list = document.querySelectorAll('.item');
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].remove();
+  }
+}
+
+// Cria botão que chama função clean
+function cleanButton() {
+  const button = document.createElement('button');
+  button.id = 'apaga-tudo';
+  button.innerText = 'Limpar';
+  document.querySelector('#firstsection').appendChild(button);
+  button.addEventListener('click', () => {
+    clean();
+  });
+}
+cleanButton ();
