@@ -7,9 +7,9 @@ document.getElementById('criar-tarefa').addEventListener('click', function() {
 document.getElementById('lista-tarefas').addEventListener('click', function (event) {
     if (document.getElementsByClassName('selected').length > 0) {
         document.getElementsByClassName('selected')[0].classList.remove('selected');
-        event.target.className = 'selected';
+        event.target.classList.toggle('selected');
     } else {
-        event.target.className = 'selected';
+        event.target.classList.toggle('selected');
     }
 })
 
