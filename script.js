@@ -8,6 +8,7 @@ const mainProject = document.getElementById('main');
 // Pegando botões
 const button = document.getElementById('criar-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
+const removeThroughLine = document.getElementById('remover-finalizados');
 // Criar uma função que adiciona um elemento na tela
 
 // Função que limpa input - Será usada na sunção inputTask
@@ -62,4 +63,15 @@ function removeList() {
 // Adicioanr evento ao botaão com id apara-tudo com função de apagar li
 clearButton.addEventListener('click', removeList);
 
-// Terminar requisito 10. Nao estou conseguindo apagar todos das as li de uma vez.
+// ex11
+// Função que remove itens riscados
+
+// Primeiro criar uma forma de capturar os itens que estejma riscados
+const listItenThroughLine = document.getElementsByClassName('completed');
+
+// Desenvelver forma de remover itens riscados
+
+// Encapsular forma em função
+
+// Adicionar função ao botão
+

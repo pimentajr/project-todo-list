@@ -20,7 +20,7 @@ header {
 #funcionamento {
   font-style: italic;
 }
-
+/* 
 #criar-tarefa {
   color: black;
 }
@@ -30,6 +30,10 @@ header {
 }
 
 #texto-tarefa {
+  color: black;
+} */
+
+.buttons {
   color: black;
 }
 
