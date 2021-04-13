@@ -46,32 +46,23 @@ function removeAllClass(classToRemove) {
   }
 }
 
-// Cria função que adiciona classe highlight a um dos itens e remove dos outros
-function clickItem() {
-  const itens = document.querySelectorAll('.item');
-  for (let index = 0; index < itens.length; index += 1) {
-    itens[index].addEventListener('click', () => {
-      removeAllClass('highlight');
-      itens[index].classList.add('highlight');
-    });
-  }
+// Cria função que adiciona classe highlight ao evento e remove dos outros
+function clickItem (event) {
+  removeAllClass('highlight');
+  event.target.classList.add('highlight');
 }
 
 // Cria função que adiciona ou remove a classe completed
-function itemCheck() {
-  const items = document.querySelectorAll('.item');
-  for (let index = 0; index < items.length; index += 1) {
-    items[index].addEventListener('dblclick', () => {
-      if(items[index].className.includes('completed') == false) {
-        items[index].classList.add('completed');
-      } else {
-        items[index].classList.remove('completed');
-      }
-    });
+function toggleCompletedTask(event) {
+  if (event.target.className.includes('completed') === false) {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
   }
+  // Verifica se event.target possui a classe completed
+  // Se possuir, retira essa classe
+  // Senão, adiciona essa classe
 }
-itemCheck()
-
 
 // Adiciona função ao botão Adicionar
 function addItem() {
@@ -81,10 +72,10 @@ function addItem() {
     const itemList = document.createElement('li');
     itemList.className = 'item';
     itemList.innerText = valueItem;
+    itemList.addEventListener('dblclick', toggleCompletedTask);
+    itemList.addEventListener('click',clickItem),
     document.querySelector('#lista-tarefas').appendChild(itemList);
     document.querySelector('#texto-tarefa').value = '';
-    clickItem();
-    itemCheck();
   });
 }
 addItem();
@@ -107,7 +98,7 @@ addOl();
 
 // Cria função que apaga todos itens da lista
 function clean() {
-  let list = document.querySelectorAll('.item');
+  const list = document.querySelectorAll('.item');
   for (let index = 0; index < list.length; index += 1) {
     list[index].remove();
   }
@@ -123,4 +114,4 @@ function cleanButton() {
     clean();
   });
 }
-cleanButton ();
+cleanButton();
