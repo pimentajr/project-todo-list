@@ -1,8 +1,8 @@
 function createP() {
   /// função que cria o paragrafo do titulo
-  let slctDiv = document.querySelector('#paragraph');
-  let crtElement = document.createElement('p');
-  let newCnt = 'Clique duas vezes em um item para marcá-lo como completo';
+  const slctDiv = document.querySelector('#paragraph');
+  const crtElement = document.createElement('p');
+  const newCnt = 'Clique duas vezes em um item para marcá-lo como completo';
   crtElement.setAttribute('id', 'funcionamento');
   crtElement.innerText = newCnt;
   slctDiv.appendChild(crtElement);
@@ -12,8 +12,8 @@ createP();
 
 function createLi() {
   /// funçao que cria a lista
-  var slctDiv = document.getElementById('list');
-  var crtElement = document.createElement('ol');
+  let slctDiv = document.getElementById('list');
+  let crtElement = document.createElement('ol');
   crtElement.setAttribute('id', 'lista-tarefas');
   crtElement.setAttribute('onclick', 'infos()');
   crtElement.addEventListener('dblclick', dbclick);
@@ -24,10 +24,10 @@ createLi();
 
 function createTask() {
   /// função que adiciona o item na lista
-  var input = document.querySelector('#texto-tarefa');
-  var textInput = input.value;
-  var list = document.querySelector('#lista-tarefas');
-  var createLi = document.createElement('li');
+  const input = document.querySelector('#texto-tarefa');
+  let textInput = input.value;
+  const list = document.querySelector('#lista-tarefas');
+  let createLi = document.createElement('li');
   createLi.classList.add('item');
   createLi.innerText = textInput;
   list.appendChild(createLi);
@@ -36,8 +36,8 @@ function createTask() {
 
 function infos() {
   /// função que seleciona o item na lista
-  let clear = document.getElementsByClassName('selected');
-  let lenght = clear.length;
+  const clear = document.getElementsByClassName('selected');
+  const lenght = clear.length;
   if (lenght >= 1) {
     document.querySelector('.selected').classList.remove('selected');
   }
@@ -55,7 +55,7 @@ function dbclick() {
 
 function clearList() {
   /// função que limpa a lista
-  var list = document.querySelector('ol');
+  const list = document.querySelector('ol');
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
@@ -63,8 +63,8 @@ function clearList() {
 
 function clearFinish() {
   /// função que limpa as tarefas completas
-  var listF = document.querySelectorAll('.completed');
-  var tamanho = listF.length;
+  const listF = document.querySelectorAll('.completed');
+  const tamanho = listF.length;
   for (let i = 0; i < tamanho; i += 1) {
     listF[i].remove();
   }
@@ -72,7 +72,7 @@ function clearFinish() {
 
 function removeSelected() {
   /// função que remove o item selecionado
-  var selecteds = document.querySelector('.selected');
+  const selecteds = document.querySelector('.selected');
   selecteds.remove();
 }
 
