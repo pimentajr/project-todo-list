@@ -31,3 +31,11 @@ main {
 .selected {
   background-color: gray;
 }
+
+.done {
+  text-decoration: line-through;
+}
+
+li {
+  cursor: pointer;
+}

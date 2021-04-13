@@ -21,8 +21,18 @@ function printSelectedItem(event) {
   }
 }
 
+function taskDone(event) {
+  const done = event.target;
+  if (done.className !== 'done' && done.className === 'selected') {
+    done.className = 'done';
+  } else {
+    done.classList.remove('done');
+  }
+}
+
 btnAdd.addEventListener('click', () => {
   addLi(formList.value);
 });
 
 taskList.addEventListener('click', printSelectedItem);
+taskList.addEventListener('dblclick', taskDone);
