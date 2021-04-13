@@ -66,12 +66,12 @@ function moverCima() {
   const itensList = document.getElementsByClassName('list-item');
   const index = 0;
   if (selectedItem.length !== 0 && !(itensList[index].className.includes('selected'))) {
-    let aboveElement = selectedItem[index].previousElementSibling;
+    const aboveElement = selectedItem[index].previousElementSibling;
     const bufferText = selectedItem[index].innerText;
     selectedItem[index].innerText = aboveElement.innerText;
     aboveElement.innerText = bufferText;
     aboveElement.classList.add('selected');
-    let belowElement = selectedItem[index].nextElementSibling;
+    const belowElement = selectedItem[index].nextElementSibling;
     belowElement.classList.remove('selected');
   }
 }
@@ -87,12 +87,12 @@ function moverBaixo() {
   const lastIndex = itensList.length - 1;
   const index = 0;
   if (selectedItem.length !== 0 && !(itensList[lastIndex].className.includes('selected'))) {
-    let belowElement = selectedItem[index].nextElementSibling;
+    const belowElement = selectedItem[index].nextElementSibling;
     const bufferText = selectedItem[index].innerText;
     selectedItem[index].innerText = belowElement.innerText;
     belowElement.innerText = bufferText;
     belowElement.classList.add('selected');
-    let aboveElement = selectedItem[index + 1].previousElementSibling;
+    const aboveElement = selectedItem[index + 1].previousElementSibling;
     aboveElement.classList.remove('selected');
   }
 }
