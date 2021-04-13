@@ -5,3 +5,20 @@ header {
 body {
   background-color: lawngreen;
 }
+
+#estilizaDiv {
+  background-color: white;
+  padding: 80px;
+  width: 70%;
+  margin-top: 50px;
+  margin-left: 30px;
+  border-radius: 10px;
+}
+
+#criar-tarefa {
+  width: 75px;
+  height: 23px;
+  background-color: royalblue;
+  color: white;
+  border-radius: 50px;
+}
