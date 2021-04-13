@@ -18,9 +18,9 @@ function clearInput(input) {
 }
 // Criando função que altera o bacckgroud.
 function changeBackground(event) {
-  let listSelected = document.getElementsByClassName('selected');
+  const listSelected = document.getElementsByClassName('selected');
   for (let index = 0; index < listSelected.length; index += 1) {
-      listSelected[index].classList.remove('selected');
+    listSelected[index].classList.remove('selected');
   }
   event.target.classList.add('selected');
 }
@@ -53,5 +53,13 @@ function inputTask() {
 // Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
 button.addEventListener('click', inputTask);
 
-// Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
-// criar a classe completed com a propr
+// ex11
+// Pegar o botão no DOM
+
+// PEgar as li's do DOM
+
+// Criar codigo que apaga li
+
+// Encapsular codigo em uma função
+
+// Adicioanr evento ao botaão com id apara-tudo com função de apagar li
