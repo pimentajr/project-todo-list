@@ -8,9 +8,7 @@ const moveUpTaskBtn = document.querySelector('#mover-cima');
 const moveDownTaskBtn = document.querySelector('#mover-baixo');
 const removeSelectedBtn = document.querySelector('#remover-selecionado');
 
-let allTasks = document.querySelectorAll('#lista-tarefas li');
-
-window.onload = function () {
+window.onload = function savedList() {
   let savedTasks = [];
   let savedTasksClass = [];
   if (localStorage.length !== 0) {
@@ -25,6 +23,11 @@ window.onload = function () {
       tasksList.appendChild(newTaskListItem);
     }
   }
+};
+
+function updateAllTasks() {
+  const allTasks = document.querySelectorAll('#lista-tarefas li');
+  return allTasks;
 }
 
 function addNewTask() {
@@ -37,9 +40,8 @@ function addNewTask() {
   }
 }
 
-function changeTasksBackgndColor(event) {
+function changeTasksBackgndColor(event, allTasks) {
   const targetTask = event.target;
-  allTasks = document.querySelectorAll('#lista-tarefas li');
   for (let index = 0; index < allTasks.length; index += 1) {
     allTasks[index].classList.remove('selected');
     allTasks[index].classList.add('not-selected');
@@ -57,15 +59,13 @@ function taskCompleted(event) {
   }
 }
 
-function clearAllTasks() {
-  allTasks = document.querySelectorAll('#lista-tarefas li');
+function clearAllTasks(allTasks) {
   for (let index = 0; index < allTasks.length; index += 1) {
     tasksList.removeChild(allTasks[index]);
   }
 }
 
-function clearFinishedTasks() {
-  allTasks = document.querySelectorAll('#lista-tarefas li');
+function clearFinishedTasks(allTasks) {
   for (let index = 0; index < allTasks.length; index += 1) {
     if (allTasks[index].classList.contains('completed')) {
       tasksList.removeChild(allTasks[index]);
@@ -73,11 +73,10 @@ function clearFinishedTasks() {
   }
 }
 
-function saveCurrentTasks() {
-  allTasks = document.querySelectorAll('#lista-tarefas li');
+function saveCurrentTasks(allTasks) {
   if (allTasks.length !== 0) {
-    let tasksToSave = [];
-    let classToSave = [];
+    const tasksToSave = [];
+    const classToSave = [];
     for (let index = 0; index < allTasks.length; index += 1) {
       tasksToSave[index] = allTasks[index].innerText;
       classToSave[index] = allTasks[index].className;
@@ -89,34 +88,30 @@ function saveCurrentTasks() {
   }
 }
 
-function moveTaskUp() {
-  allTasks = document.querySelectorAll('#lista-tarefas li');
+function searchTaskPosition(allTasks) {
+  for (let index = 0; index < allTasks.length; index += 1) {
+    if (allTasks[index].classList.contains('selected')) {
+      return index;
+    }
+  }
+}
+
+function moveTaskUp(allTasks) {
   let taskPosition = 0;
   const selectedTask = document.querySelector('.selected');
   if (selectedTask !== null) {
-    for (let index = 0; index < allTasks.length; index += 1) {
-      if (allTasks[index].classList.contains('selected')) {
-        taskPosition = index;
-        break;
-      }
-    }
+    taskPosition = searchTaskPosition(allTasks);
     if (taskPosition !== 0) {
       tasksList.insertBefore(selectedTask, tasksList.childNodes[taskPosition - 1]);
     }
   }
 }
 
-function moveTaskDown() {
-  allTasks = document.querySelectorAll('#lista-tarefas li');
+function moveTaskDown(allTasks) {
   let taskPosition = 0;
   const selectedTask = document.querySelector('.selected');
   if (selectedTask !== null) {
-    for (let index = 0; index < allTasks.length; index += 1) {
-      if (allTasks[index].classList.contains('selected')) {
-        taskPosition = index;
-        break;
-      }
-    }
+    taskPosition = searchTaskPosition(allTasks);
     if (taskPosition !== (allTasks.length - 1)) {
       tasksList.insertBefore(selectedTask, tasksList.childNodes[taskPosition + 2]);
     }
@@ -130,25 +125,31 @@ function clearSelectedTask() {
   }
 }
 
-[createTaskBtn, tasksList, clearAllBtn, removeFinishedBtn, saveTasksBtn, moveUpTaskBtn, moveDownTaskBtn, removeSelectedBtn].forEach((item) => {
+[createTaskBtn, tasksList, clearAllBtn, removeFinishedBtn].forEach((item) => {
   item.addEventListener('click', (event) => {
     if (item === createTaskBtn) {
       addNewTask();
     } else if (item === tasksList) {
-      changeTasksBackgndColor(event);
+      changeTasksBackgndColor(event, updateAllTasks());
     } else if (item === clearAllBtn) {
-      clearAllTasks();
+      clearAllTasks(updateAllTasks());
     } else if (item === removeFinishedBtn) {
-      clearFinishedTasks();
-    } else if (item === saveTasksBtn) {
-      saveCurrentTasks();
+      clearFinishedTasks(updateAllTasks());
+    }
+  });
+});
+
+[saveTasksBtn, moveUpTaskBtn, moveDownTaskBtn, removeSelectedBtn].forEach((item) => {
+  item.addEventListener('click', () => {
+    if (item === saveTasksBtn) {
+      saveCurrentTasks(updateAllTasks());
     } else if (item === moveUpTaskBtn) {
-      moveTaskUp();
+      moveTaskUp(updateAllTasks());
     } else if (item === moveDownTaskBtn) {
-      moveTaskDown();
+      moveTaskDown(updateAllTasks());
     } else if (item === removeSelectedBtn) {
       clearSelectedTask();
-    } 
+    }
   });
 });
 
