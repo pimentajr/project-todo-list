@@ -41,7 +41,7 @@ clearAll.addEventListener('click', clearItem);
 
 function removeCompleted() {
   while (document.querySelector('.completed')) {
-  taskList.removeChild(document.querySelector('.completed'));
+    taskList.removeChild(document.querySelector('.completed'));
   }
 }
 
