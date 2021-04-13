@@ -80,9 +80,23 @@ function removeCompleted() {
   });
 }
 
+function removeSelectedItem() {
+  const button = document.getElementById('remover-selecionado');
+  
+
+  button.addEventListener('click', () => {
+    for (let i = 0; i < list.children.length; i += 1) {
+      if (list.children[i].classList.contains('selected')) {
+        list.removeChild(list.children[i])
+      }
+    }
+  });
+}
+
 addListItem();
 selectItem();
 completeItem();
 removeEverything();
 removeCompleted();
 getList();
+removeSelectedItem();
