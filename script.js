@@ -7,6 +7,7 @@ const saveTasksBtn = document.querySelector('#salvar-tarefas');
 const moveUpTaskBtn = document.querySelector('#mover-cima');
 const moveDownTaskBtn = document.querySelector('#mover-baixo');
 const removeSelectedBtn = document.querySelector('#remover-selecionado');
+const notSelectedClass = 'not-selected';
 
 window.onload = function savedList() {
   let savedTasks = [];
@@ -34,7 +35,7 @@ function addNewTask() {
   if (newTaskInput.value !== '') {
     const newTaskListItem = document.createElement('li');
     newTaskListItem.innerText = newTaskInput.value;
-    newTaskListItem.classList.add('not-selected');
+    newTaskListItem.classList.add(notSelectedClass);
     tasksList.appendChild(newTaskListItem);
     newTaskInput.value = '';
   }
@@ -44,9 +45,9 @@ function changeTasksBackgndColor(event, allTasks) {
   const targetTask = event.target;
   for (let index = 0; index < allTasks.length; index += 1) {
     allTasks[index].classList.remove('selected');
-    allTasks[index].classList.add('not-selected');
+    allTasks[index].classList.add(notSelectedClass);
   }
-  targetTask.classList.remove('not-selected');
+  targetTask.classList.remove(notSelectedClass);
   targetTask.classList.add('selected');
 }
 
