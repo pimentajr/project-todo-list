@@ -86,7 +86,7 @@ function upTaskEvent() {
   const selected = document.querySelector('.selected');
   if (selected) {
     const up = selected.previousSibling;
-    if (up) {
+    if (up.innerText !== undefined) {
       const selectedText = selected.innerText;
       const selectedClass = selected.className;
       const upText = up.innerText;
