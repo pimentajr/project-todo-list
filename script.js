@@ -4,6 +4,8 @@ const list = document.getElementById('lista-tarefas');
 const itemsOfList = document.getElementsByTagName('li');
 const clearAllButton = document.getElementById('apaga-tudo');
 const finishedButton = document.getElementById('remover-finalizados');
+const saveTasks = document.getElementById('salvar-tarefas');
+list.innerHTML = localStorage.getItem('savedTasks');
 
 // Adiciona itens à lista
 // Para adição de enter na lista, foi consultada a documentação em W3Schools sobre ações usando o "Enter"
@@ -68,3 +70,13 @@ function clearSelected() {
   });
 }
 clearSelected();
+
+// Salva tarefas
+function saveList() {
+  saveTasks.addEventListener('click', () => {
+    let tasks = document.getElementById('lista-tarefas').innerHTML; 
+    localStorage.setItem('savedTasks', `${tasks}`);
+  })
+
+}
+saveList();
