@@ -6,8 +6,6 @@ const newItem = document.getElementById('texto-tarefa'); // caixa de texto
 
 const toDoList = document.getElementById('lista-tarefas'); // lista ordenada
 
-/* const createdItem = document.getElementsByTagName('li').innerHTML; */
-
 buttonAdd.addEventListener('click', function addItemList() {
   const itemList = document.createElement('li');
   toDoList.appendChild(itemList);
@@ -29,3 +27,18 @@ function color() {
 }
 
 color();
+
+function completedItem() {
+  const toDoListItens = document.querySelectorAll('#lista-tarefas');
+  for (let index = 0; index < toDoListItens.length; index += 1) {
+    toDoListItens[index].addEventListener('dblclick', function marked(event) {
+      if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
+    });
+  }
+}
+
+completedItem();
