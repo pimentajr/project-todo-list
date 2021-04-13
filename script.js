@@ -48,3 +48,18 @@ function removeCompleted() {
 const buttonClearCompleted = document.getElementById('remover-finalizados');
 
 buttonClearCompleted.addEventListener('click', removeCompleted);
+
+const salveButton = document.getElementById('salvar-tarefas');
+
+  //  consegui com a ajuda de meu colega Luíz Wendel
+function saveTask() {
+  localStorage.setItem('saveTask', taskList.innerHTML);
+}
+
+function load() {
+  taskList.innerHTML = localStorage.getItem('saveTask');
+}
+
+salveButton.addEventListener('click', saveTask);
+
+load ();
