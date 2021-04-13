@@ -12,7 +12,7 @@ const removeSelectedButton = document.getElementById('remover-selecionado');
 let selectedTask = document.getElementsByClassName('selected')[0];
 
 function removeHidden() {
-  if (sessionStorage.length > 2 || listItem.length !== 0) {
+  if (localStorage.length > 2 || listItem.length !== 0) {
     taskList.removeAttribute('hidden');
   }
 }
@@ -74,7 +74,7 @@ inputField.addEventListener('keydown', (event) => {
 });
 
 function clearAll() {
-  sessionStorage.clear();
+  localStorage.clear();
   taskList.innerHTML = '';
   taskList.setAttribute('hidden', 'true');
 }
@@ -90,7 +90,7 @@ function clearCompleted() {
 clearCompletedButton.addEventListener('click', clearCompleted);
 
 function saveTasks() {
-  sessionStorage.clear();
+  localStorage.clear();
   let x;
   for (let i = 0; i < listItem.length; i += 1) {
     if (listItem[i].classList.contains('completed')) {
@@ -98,7 +98,7 @@ function saveTasks() {
     } else {
       x = { [i]: listItem[i].innerText };
     }
-    sessionStorage.setItem(`${[i]}`, JSON.stringify(x));
+    localStorage.setItem(`${[i]}`, JSON.stringify(x));
   }
 }
 
@@ -108,13 +108,13 @@ const allOlElements = document.getElementsByTagName('ol')[0];
 
 function saveOlList() {
   saveTaskButton.addEventListener('click', () => {
-    sessionStorage.setItem('key', allOlElements.innerHTML);
+    localStorage.setItem('key', allOlElements.innerHTML);
   });
 }
 saveOlList();
 
 function getOlList() {
-  allOlElements.innerHTML = sessionStorage.getItem('key');
+  allOlElements.innerHTML = localStorage.getItem('key');
 }
 
 getOlList();
