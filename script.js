@@ -105,3 +105,28 @@ function dellSelectedAll() {
 const dellSelected = document.querySelector('#remover-selecionado');
 
 dellSelected.addEventListener('click', dellSelectedAll);
+
+// botão para salvar os dados da Lista
+
+function creatSaveButton() {
+  const creatSave = document.createElement('button');
+  creatSave.id = 'salvar-tarefas';
+  creatSave.innerHTML = 'Salvar Lista';
+  classPai.appendChild(creatSave);
+}
+
+creatSaveButton();
+
+const buttonSave = document.querySelector('#salvar-tarefas');
+
+function saveList() {
+  buttonSave.addEventListener('click', () => {
+    localStorage.setItem('saveList', list.innerHTML);
+  });
+  const save = localStorage.getItem('saveList');
+  if (save) {
+    list.innerHTML = save;
+  }
+}
+
+saveList();
