@@ -15,15 +15,15 @@ function addToList() {
 addToList();
 
 //const changeListColor = document.getElementsByTagName('li');
-const colorUl = document.getElementById('lista-tarefas');
 function changeColor(evento) {
-  for (let index = 0; index < colorUl.children.length; index +=1) {
-  if (colorUl.children[index] !== evento); {
-      colorUl.children[index].classList.remove('selected');
+  if(evento.target.tagName === 'LI') {
+    for (let index = 0; index < orderList.children.length; index +=1) {
+      if (orderList.children[index] !== evento) {
+          orderList.children[index].classList.remove('selected');
+      } 
+    }
+    evento.target.classList.add('selected');
+  }
 } 
-}
-evento.target.className = 'selected';
-evento.classList.add('selected');
-}
-colorUl.addEventListener('click', changeColor);
+orderList.addEventListener('click', changeColor);
 
