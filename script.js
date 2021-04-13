@@ -10,7 +10,7 @@ criarTarefa.addEventListener('click', () => {
    tarefa.value = '';
 })
 
-//7
+//7 e 8
 function selectedItem() {
     listaTarefa.addEventListener('click', (event) => {
         const evTarget = event.target;
@@ -23,3 +23,17 @@ function selectedItem() {
 }
 
 selectedItem();
+
+//9
+function dbSelectedItem () {
+    listaTarefa.addEventListener('dblclick', (event) => {
+        const evTarget = event.target;
+        if (evTarget.classList.contains('completed')) {
+            evTarget.classList.remove('completed');
+        }
+            evTarget.classList.add('completed');
+        console.log('duplo');
+    })
+}
+
+dbSelectedItem();
