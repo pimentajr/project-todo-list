@@ -5,20 +5,6 @@ const deleteListButton = document.querySelector('#apaga-tudo');
 const finalizedButton = document.querySelector('#remover-finalizados');
 const saveListButton = document.querySelector('#salvar-tarefas');
 
-function recoverList() {
-  const savedList = JSON.parse(localStorage.getItem('savedList'));
-  console.log(savedList);
-
-  for (const task in savedList) {
-    const newTask = document.createElement('li');
-    newTask.innerText = savedList[task][1];
-    newTask.className = savedList[task][2];
-    taskList.appendChild(newTask);
-  }
-}
-
-window.onload = recoverList;
-
 function createTask() {
   const textTask = taskInput.value;
   const newTask = document.createElement('li');
@@ -42,7 +28,12 @@ function taskSelection(task) {
 function completedTask(task) {
   const completedItem = task.target.classList;
   const haveCompleted = completedItem.contains('completed');
-  haveCompleted ? completedItem.remove('completed') : completedItem.add('completed');
+  // haveCompleted ? completedItem.remove('completed') : completedItem.add('completed');
+  if (haveCompleted) {
+    completedItem.remove('completed');
+  } else {
+    completedItem.add('completed');
+  }
 }
 
 function deleteList() {
@@ -59,6 +50,7 @@ function deleteFinalizedTasks() {
   }
 }
 
+/*
 function saveList() {
   const allTasks = document.querySelectorAll('.task');
   const listToSave = [];
@@ -73,6 +65,47 @@ function saveList() {
   console.log(listToSave);
   localStorage.setItem('savedList', JSON.stringify(listToSave));
 }
+
+function recoverList() {
+  const savedList = JSON.parse(localStorage.getItem('savedList'));
+  console.log(savedList);
+
+  for (const task in savedList) {
+    const newTask = document.createElement('li');
+    newTask.innerText = savedList[task][1];
+    newTask.className = savedList[task][2];
+    taskList.appendChild(newTask);
+  }
+}
+*/
+
+function saveList() {
+  const allTasks = document.querySelectorAll('.task');
+  const listToSave = {};
+
+  for (let index = 0; index < allTasks.length; index += 1) {
+    const taskText = allTasks[index].innerText;
+    const taskClass = allTasks[index].className;
+    listToSave[index] = `${taskText},${taskClass}`;
+  }
+  // console.log(listToSave);
+  localStorage.setItem('savedList', JSON.stringify(listToSave));
+}
+
+function recoverList() {
+  const savedList = JSON.parse(localStorage.getItem('savedList'));
+  console.log(savedList.length);
+
+  for (const key in savedList) {
+    const newTask = document.createElement('li');
+    const taskNameAndClass = savedList[key].split(',');
+    newTask.innerText[0] = taskNameAndClass;
+    newTask.className[1] = taskNameAndClass;
+    taskList.appendChild(newTask);
+  }
+}
+
+window.onload = recoverList;
 
 createTaskButton.addEventListener('click', createTask);
 taskList.addEventListener('click', taskSelection);
