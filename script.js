@@ -71,6 +71,7 @@ function clickColorList(event) {
 }
 
 // Task 9
+// classList: https://www.w3schools.com/jsref/prop_element_classlist.asp
 function completedEvent(event) {
   const listElem = document.querySelectorAll('#list-item');
   for (let index = 0; index < listElem.length; index += 1) {
@@ -82,13 +83,12 @@ function completedEvent(event) {
 }
 
 // Task 10
+// Reference: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
 const removeButton = create('button');
 removeButton.id = 'apaga-tudo';
 removeButton.innerText = 'Clear All';
 add(body, removeButton);
 
-// Reference:
-// https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
 function removeList() {
   while (list.hasChildNodes()) {
     list.removeChild(list.firstChild);
@@ -112,6 +112,7 @@ function removeCompleted() {
 }
 
 // Task 12
+// Reference: Trybe Course: Fundamentos do Desenvolvimento Web - Bloco 5 - JavaScript: DOM, Eventos e Web Storage
 const saveButton = create('button');
 saveButton.id = 'salvar-tarefas';
 saveButton.innerText = 'Save Item';
@@ -125,6 +126,7 @@ function saveItem() {
 }
 
 // Task 13
+// Reference: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
 const moveUpBtn = create('button');
 const moveDownBtn = create('button');
 
