@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
-</head>
-<body>
-  <header>Minha Lista de Tarefas</header>
-  <div id="paragraph">
-  </div>
-  <div id="list">
-  </div>
-  <div id='input'>
-    <input type="text" id="texto-tarefa" name="texto-tarefa"/>
-  </div>
-  <div id="button">
-    <button id="criar-tarefa" onclick="createTask()">Criar</button>
-    <button id="apaga-tudo" onclick="clearList()">Limpar</button>
-    <button id="remover-finalizados" onclick="clearFinish()">Limpar finalizados</button>
-    <button id="remover-selecionado" onclick="removeSelected()">Remover item selecionado</button>
-  </div>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>Minha Lista de Tarefas</header>
+    <div id="paragraph"></div>
+    <div id="list"></div>
+    <div id="input">
+      <input type="text" id="texto-tarefa" name="texto-tarefa" />
+    </div>
+    <div id="button">
+      <button id="criar-tarefa" onclick="createTask()">Criar</button>
+      <button id="apaga-tudo" onclick="clearList()">Limpar</button>
+      <button id="remover-finalizados" onclick="clearFinish()">
+        Limpar finalizados
+      </button>
+      <button id="remover-selecionado" onclick="removeSelected()">
+        Remover item selecionado
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
