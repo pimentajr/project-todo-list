@@ -1,3 +1,8 @@
+window.onload = function(){
+  const list = document.querySelector('#lista-tarefas')
+  list.innerHTML = localStorage.lista
+}
+
 const inputArea = document.getElementById('texto-tarefa')
 const button = document.querySelector('#criar-tarefa')
 const list = document.querySelector('#lista-tarefas')
@@ -51,4 +56,10 @@ buttonRemoveDone.addEventListener('click', function(){
       list.removeChild(listItem[index])
     }
   } 
+})
+
+const buttonSave = document.querySelector('#salvar-tarefas')
+
+buttonSave.addEventListener('click', function(){
+  localStorage.setItem('lista', list.innerHTML)
 })
