@@ -10,3 +10,7 @@ header {
 .completed {
   text-decoration: line-through solid black;
 }
+
+ol {
+  display: inline-block;
+}

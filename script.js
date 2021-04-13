@@ -5,6 +5,7 @@ function addTask() {
   taskList.innerHTML = localStorage.getItem('tasks');
   button.addEventListener('click', () => {
     const newTask = document.createElement('li');
+    newTask.className = 'li-task';
     newTask.innerText = task.value;
     taskList.appendChild(newTask);
     task.value = '';
@@ -81,13 +82,11 @@ saveList();
 function moveUp() {
   const upButton = document.getElementById('mover-cima');
   upButton.addEventListener('click', () => {
-    const selected = document.querySelector('.selected');
-    const above = document.querySelector('.selected').previousSibling;
-    if (above !== '') {
-      const storesText = selected.innerText;
-      selected.innerText = above.innerText;
-      above.innerText = storesText;
-      console.log(selected, above);
+    const tasks = document.querySelectorAll('.li-task');
+    for (let i = 0; i < tasks.length; i += 1) {
+      if (tasks[i].previousSibling !== null && tasks[i].className.includes('selected')) {
+        tasks[i].parentNode.insertBefore(tasks[i], tasks[i].previousSibling);
+      }
     }
   });
 }
@@ -97,12 +96,11 @@ moveUp();
 function moveDown() {
   const downButton = document.getElementById('mover-baixo');
   downButton.addEventListener('click', () => {
-    const selected = document.querySelector('.selected');
-    const bellow = document.querySelector('.selected').nextSibling;
-    if (bellow !== '') {
-      const storesText = selected.innerText;
-      selected.innerText = bellow.innerText;
-      bellow.innerText = storesText;
+    const tasks = document.querySelectorAll('.li-task');
+    for (let i = 0; i < tasks.length; i += 1) {
+      if (tasks[i].nextSibling !== null && tasks[i].classList.contains('selected')) {
+        tasks[i].parentNode.insertBefore(tasks[i].nextSibling, tasks[i]);
+      }
     }
   });
 }
