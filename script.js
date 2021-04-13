@@ -28,6 +28,11 @@ buttonClear.id = 'apaga-tudo';
 buttonClear.innerText = 'limpar lista tarefas';
 boxButton.appendChild(buttonClear);
 
+const buttonRemove = document.createElement('button');
+buttonRemove.id = 'remover-finalizados';
+buttonRemove.innerText = 'remover finalizados';
+boxButton.appendChild(buttonRemove);
+
 const listOl = document.createElement('ol');
 listOl.id = 'lista-tarefas';
 body.appendChild(listOl);
@@ -66,4 +71,12 @@ function removeList() {
 
 buttonClear.addEventListener('click', () => {
   removeList();
+});
+
+buttonRemove.addEventListener('click', () => {
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    const classe = completed[index];
+    listOl.removeChild(classe);
+  }
 });

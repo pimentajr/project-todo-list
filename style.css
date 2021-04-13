@@ -4,10 +4,13 @@
 
 #header {
   font-style: italic;
+  font-family: fantasy;
 }
 
 #funcionamento {
   font-style: italic;
+  font-family: fantasy;
+  font-size: 100%;
 }
 
 #texto-tarefa {
@@ -40,6 +43,20 @@
 }
 
 #apaga-tudo {
+  background-color: skyblue;
+  width: 100px;
+  height: 50px;
+  border-style: solid;
+  border-color: mediumvioletred;
+  border-width: 5px;
+  color: purple;
+  font-style: italic;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#remover-finalizados {
   background-color: skyblue;
   width: 100px;
   height: 50px;
