@@ -4,7 +4,7 @@ function tags(elemento) {
 const ol = document.getElementById('lista-tarefas');
 const entrada = document.getElementById('texto-tarefa');
 let li = tags('li');
-const limparTudo = document.getElementById('apagatudo');
+const limparTudo = document.getElementById('apaga-tudo');
 
 function tarefaConcluida(event) {
   event.target.classList.toogle('completed');
