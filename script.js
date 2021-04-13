@@ -22,6 +22,11 @@ button.id = 'criar-tarefa';
 button.innerText = 'adicionar tarefa';
 boxButton.appendChild(button);
 
+const buttonClear = document.createElement('button');
+buttonClear.id = 'apaga-tudo';
+buttonClear.innerText = 'limpar lista tarefas';
+boxButton.appendChild(buttonClear);
+
 const listOl = document.createElement('ol');
 listOl.id = 'lista-tarefas';
 body.appendChild(listOl);
@@ -35,7 +40,6 @@ function addItens() {
     }
     event.target.classList.add('color');
   });
-
   listOl.appendChild(li);
 }
 
@@ -48,4 +52,14 @@ function removeText() {
 button.addEventListener('click', () => {
   addItens();
   removeText();
+});
+
+function removeList() {
+  while (listOl.firstChild) {
+    listOl.removeChild(listOl.firstChild);
+  }
+}
+
+buttonClear.addEventListener('click', () => {
+  removeList();
 });

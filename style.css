@@ -11,12 +11,11 @@
 }
 
 #lista-tarefas {
-  background-color: palevioletred;
+  background-color: salmon;
 }
 
 #criar-tarefa {
   background-color: skyblue;
-  border-radius: 50%;
   width: 100px;
   height: 50px;
   border-style: solid;
@@ -24,10 +23,29 @@
   border-width: 5px;
   color: purple;
   font-style: italic;
-  display: block;
+  display: inline;
   margin-top: 10px;
 }
 
 .color {
   background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+#apaga-tudo {
+  background-color: skyblue;
+  width: 100px;
+  height: 50px;
+  border-style: solid;
+  border-color: mediumvioletred;
+  border-width: 5px;
+  color: purple;
+  font-style: italic;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 20px;
+
 }
