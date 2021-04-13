@@ -9,12 +9,28 @@ funcionamento.innerText = 'Clique duas vezes em um item para marcá-lo como comp
 buttonCriarTarefa.innerText = 'Adicionar';
 
 function adicionarTarefa() {
-  var itemListaTarefa = document.createElement('li');
-
+  let itemListaTarefa = document.createElement('li');
   itemListaTarefa.classList.add('tarefa');
   listaTarefas.appendChild(itemListaTarefa);
   itemListaTarefa.innerText = inputTextoTarefa.value;
   inputTextoTarefa.value = '';
 }
 
+const itensListaTarefa = document.getElementsByClassName('tarefa');
+
+function alteraCorItemListaTarefa(itensListaTarefa) {
+  console.log(document.getElementsByClassName('tarefa-grifada').length)
+  if (document.getElementsByClassName('tarefa-grifada').length === 0) {
+    itensListaTarefa.target.classList.add('tarefa-grifada');
+    document.getElementsByClassName('tarefa-grifada')[0].style.background = 'rgb(128, 128, 128)';
+  } else {
+    document.getElementsByClassName('tarefa-grifada')[0].style.background = 'white';
+    document.getElementsByClassName('tarefa-grifada')[0].classList.remove('tarefa-grifada')
+    itensListaTarefa.target.classList.add('tarefa-grifada');
+    document.getElementsByClassName('tarefa-grifada')[0].style.background = 'rgb(128, 128, 128)';
+  }
+  
+}
+
 buttonCriarTarefa.addEventListener('click', adicionarTarefa);
+listaTarefas.addEventListener('click', alteraCorItemListaTarefa);
