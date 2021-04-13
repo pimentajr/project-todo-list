@@ -7,6 +7,7 @@ const deleteEndedTasksButton = document.getElementById('remover-finalizados');
 const saveButton = document.getElementById('salvar-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
+const deleteSelectedTaskButton = document.getElementById('remover-selecionado');
 
 function addTask() {
   const task = inputTextElement.value;
@@ -96,6 +97,11 @@ function movedown() {
   taskToMove.className = temp;
 }
 
+function removeSelectedTask() {
+  const taskToRemove = document.querySelector('.selected');
+  taskToRemove.remove();
+}
+
 function addListeners() {
   buttonForTaskCreation.addEventListener('click', addTask);
   taskList.addEventListener('click', taskSelector);
@@ -105,6 +111,7 @@ function addListeners() {
   saveButton.addEventListener('click', saveState);
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', movedown);
+  deleteSelectedTaskButton.addEventListener('click', removeSelectedTask);
 }
 
 addListeners();
