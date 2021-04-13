@@ -1,9 +1,9 @@
-const createTask = document.querySelector('#criar-tarefa');
-const listTask = document.querySelector('#lista-tarefas');
-const textTask = document.querySelector('#texto-tarefa');
+const createTask = document.getElementById('criar-tarefa');
+const listTask = document.getElementById('lista-tarefas');
+const textTask = document.getElementById('texto-tarefa');
 
 createTask.addEventListener('click', () => {
-    const createListItem = document.querySelector('li');
+    const createListItem = document.createElement('li');
     createListItem.innerText = textTask.value;
     listTask.appendChild(createListItem);
     textTask.value = '';
