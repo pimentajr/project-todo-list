@@ -39,3 +39,12 @@ function clearAll() {
   });
 }
 clearAll();
+
+function removeFinalizados() {
+  const selectButtonRemoveFinalizados = document.querySelector('#remover-finalizados');
+  selectButtonRemoveFinalizados.addEventListener('click', () => {
+    const finalizados = document.querySelectorAll('.completed');
+    finalizados.forEach((element) => element.remove());
+  });
+}
+removeFinalizados();
