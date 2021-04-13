@@ -25,20 +25,13 @@ function selectedItem() {
 selectedItem();
 
 //9
-function removeComplete() {
-    for (let i = 0; listaTarefa.children.length; i += 1) {
-      listaTarefa.children[i].classList.remove('completed');
-    }
-}
-
 function dbSelectedItem () {
     listaTarefa.addEventListener('dblclick', (event) => {
-        const evTarget = event.target;
-        if (evTarget.classList.contains('completed')) {
-            removeComplete();
+        if (event.target.classList.contains('completed')) {
+          event.target.classList.remove('completed');
+        } else {
+          event.target.classList.add('completed');  
         }
-            evTarget.classList.add('completed');
-        console.log('duplo');
     })
 }
 
