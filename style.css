@@ -9,8 +9,7 @@ body {
 main {
   background-color: rgb(247 , 245 , 234);
   padding: 30px;
-  width: 800px;
-  height: 400px;
+  width: 600px;
   margin: auto;
   border-radius: 10px;
 }
@@ -38,4 +37,9 @@ main {
 
 li {
   cursor: pointer;
+}
+
+#apaga-tudo {
+  margin-top: 5px;
+  display: inline-block;
 }
