@@ -83,3 +83,25 @@ function dellCompleted() {
 }
 
 getClearComplet.addEventListener('click', dellCompleted);
+
+// remover item selecionado.
+
+function createdButtonSelect() {
+  const button2 = document.createElement('button');
+  button2.id = 'remover-selecionado';
+  button2.innerHTML = 'Apagar Selecionado';
+  classPai.appendChild(button2);
+}
+
+createdButtonSelect();
+
+function dellSelectedAll() {
+  const selectedCless = document.querySelectorAll('.selected');
+  for (let index = 0; index < selectedCless.length; index += 1) {
+    selectedCless[index].parentNode.removeChild(selectedCless[index]);
+  }
+}
+
+const dellSelected = document.querySelector('#remover-selecionado');
+
+dellSelected.addEventListener('click', dellSelectedAll);
