@@ -19,6 +19,7 @@ createTaskButton.addEventListener('click', clearInputField);
 const orderedList = document.querySelector('#lista-tarefas');
 
 function changeListItemBackgroundColor(event) {
+  const aux = event;
   const tasklist = document.querySelectorAll('.tasks');
   for (let index = 0; index < tasklist.length; index += 1) {
     if (document.querySelectorAll('.tasks')[index].style.backgroundColor === 'rgb(128, 128, 128)') {
@@ -26,21 +27,22 @@ function changeListItemBackgroundColor(event) {
       tasklist[index].classList.remove('selected');
     }
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  event.target.classList.add('selected');
+  aux.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  aux.target.classList.add('selected');
   if (orderedList.style.backgroundColor = 'rgb(128, 128, 128)') {
-  orderedList.style.backgroundColor = 'transparent';
+    orderedList.style.backgroundColor = 'transparent';
   }
 }
 
 orderedList.addEventListener('click', changeListItemBackgroundColor);
 
 function crossOutCompletedTask(event) {
+  const aux = event;
   const isCompleted = event.target.classList.contains('completed');
   if (isCompleted) {
-    event.target.classList.remove('completed');
+    aux.target.classList.remove('completed');
   } else {
-    event.target.classList.add('completed');
+    aux.target.classList.add('completed');
   }
 }
 
@@ -72,8 +74,7 @@ removeCompletedButton.addEventListener('click', removeCompleted);
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 
 function saveTasksLocalStorage() {
-  let listItems = document.querySelectorAll('.lista-tarefas');
-  localStorage.setItem('listItems', )
+  const listItems = document.querySelectorAll('.lista-tarefas');
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].innerHTML
   }
@@ -84,7 +85,7 @@ saveTasksButton.addEventListener('click', saveTasksLocalStorage);
 const buttonRmvSelected = document.querySelector('#remover-selecionado');
 
 function removeSelectedItems() {
-  const selectedItem = document.querySelector('.selected')
+  const selectedItem = document.querySelector('.selected');
   orderedList.removeChild(selectedItem);
 }
 
