@@ -2,7 +2,7 @@ const addTask = document.getElementById('criar-tarefa');
 const listTasks = document.getElementById('lista-tarefas');
 
 // Adiciona tarefa.
-function teste() {
+function addNewTalks() {
   addTask.addEventListener('click', () => {
     const textTalks = document.getElementById('texto-tarefa');
     const itenTasks = document.createElement('li');
@@ -12,10 +12,10 @@ function teste() {
     textTalks.value = '';
   });
 }
-teste();
+addNewTalks();
 
 // Pinta item da lista, e remove cor do item da lista
-function teste2() {
+function colorItemList() {
   listTasks.addEventListener('click', (event) => {
     const myEvent = event.target;
     const myItenlist = document.getElementsByTagName('li');
@@ -25,13 +25,13 @@ function teste2() {
     myEvent.classList.add('selected');
   });
 }
-teste2();
+colorItemList();
 
 // Risca item da lista.
-function teste3() {
+function streakItemList() {
   listTasks.addEventListener('dblclick', (itemEvent) => {
     const newEvent = itemEvent.target;
     newEvent.classList.toggle('completed');
   });
 }
-teste3();
+streakItemList();
