@@ -4,6 +4,7 @@ const titleParagraph = document.createElement('p');
 const mainContent = document.createElement('main');
 const inputSection = document.createElement('section');
 const taskEntry = document.createElement('input');
+const taskButton = document.createElement('button');
 const listSection = document.createElement('section');
 const ordenedList = document.createElement('ol');
 
@@ -38,6 +39,13 @@ function createsTaskEntry() {
   inputSection.appendChild(taskEntry);
 }
 
+function createsTaskButton() {
+  taskButton.id = 'criar-tarefa';
+  taskButton.type = 'onclick';
+  taskButton.textContent = 'Criar Tarefa'
+  inputSection.appendChild(taskButton);
+}
+
 function createListSection() {
   listSection.id = 'list-section';
   mainContent.appendChild(listSection);
@@ -48,6 +56,19 @@ function createOrdenedList() {
   listSection.appendChild(ordenedList);
 }
 
+function createsElementsInTheList() {
+  const elementList = document.createElement('li');
+  elementList.id = 'task'
+  elementList.textContent = taskEntry.value;
+  ordenedList.appendChild(elementList);
+  taskEntry.value = '';
+}
+
+function taskButtonEvent() {
+  taskButton.addEventListener('click', createsElementsInTheList);
+  // taskEntry.placeholder = 'Digite aqui a nova tarefa';
+}
+
 window.onload = function loadPage() {
   insertTitle();
   insertParagraphToTitle();
@@ -56,4 +77,8 @@ window.onload = function loadPage() {
   createsTaskEntry();
   createListSection();
   createOrdenedList();
+  createsTaskButton();
+  taskButtonEvent();
 };
+
+// continuar do segundo requisito da quinta questão, primeito requisito (criar botão) já realizado!
