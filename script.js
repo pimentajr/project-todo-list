@@ -12,7 +12,7 @@ function addToList () {
 const findList = document.querySelector('#lista-tarefas')
 const countLines = document.getElementsByTagName('li');
 
-findList.addEventListener('click', colorLine);
+// https://stackoverflow.com/questions/8739665/is-background-colornone-valid-css
 
 function colorLine (event) {
   for (index = 0; index < countLines.length; index += 1) {
@@ -20,3 +20,33 @@ function colorLine (event) {
   }
     event.target.style.backgroundColor = 'grey';
 }
+findList.addEventListener('click', colorLine);
+
+findList.addEventListener('dblclick', completedTask);
+
+function completedTask (event) {
+  event.target.classList.toggle('completed');
+}
+
+findList.addEventListener('dblclick', completedTask);
+
+function deleteAll () {
+  while (countLines.length !== 'undefined') {
+  findList.removeChild(findList.childNodes[0])
+  }
+}
+
+// function completedTask (event) {
+//   const trace = event.target;
+//   const lineEffect = window.getComputedStyle(trace).getPropertyValue('text-decoration');
+//   if (lineEffect === 'line-through solid rgb(0, 0, 0)') {
+//     event.target.className = '';
+//   } else {
+//     event.target.className = 'completed';
+//   }
+// }
+// findList.addEventListener('dblclick', completedTask);
+
+// while (countLines.length !== 'undefined') {
+//   li.parentNode.removeChild(li);
+// }
