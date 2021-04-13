@@ -21,9 +21,6 @@ const orderedList = document.querySelector('#lista-tarefas');
 function changeListItemBackgroundColor(event) {
   const aux = event;
   let tasklist = document.querySelectorAll('.tasks');
-  if (orderedList.style.backgroundColor = 'rgb(128, 128, 128)') {
-    orderedList.style.backgroundColor = 'transparent';
-  }
   for (let index = 0; index < tasklist.length; index += 1) {
     if (tasklist[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       tasklist[index].style.backgroundColor = 'transparent';
@@ -32,6 +29,9 @@ function changeListItemBackgroundColor(event) {
   }
   aux.target.style.backgroundColor = 'rgb(128, 128, 128)';
   aux.target.classList.add('selected');
+  if (orderedList.style.backgroundColor = 'rgb(128, 128, 128)') {
+    orderedList.style.backgroundColor = 'transparent';
+  }
 }
 
 orderedList.addEventListener('click', changeListItemBackgroundColor);
