@@ -9,8 +9,10 @@ const completed = document.getElementsByClassName('completed');
 const selected = document.getElementsByClassName('selected');
 const saveButton = document.getElementById('salvar-tarefas');
 const selectedButton = document.getElementById('remover-selecionado');
+const upButton = document.getElementById('mover-cima');
+const downButton = document.getElementById('mover-baixo');
 
-// Add selected class to Li
+// Add selected class to li
 function selectedItem(event) {
   for (let index = 0; index < liItems.length; index += 1) {
     liItems[index] = liItems[index].classList.remove('selected');
@@ -42,6 +44,24 @@ function createAndAddLiItem() {
   orderedList.appendChild(createLi);
   inputText.value = '';
   createLiEventListener();
+}
+
+function moveUpItem() {
+  const selectedLiUp = document.querySelector('.selected');
+  if (!selectedLiUp || liItems[0].classList.contains('selected')) {
+    return;
+  }
+  const upperPosition = selectedLiUp.previousElementSibling;
+  orderedList.insertBefore(selectedLiUp, upperPosition);
+}
+
+function moveDownItem() {
+  const selectedLiDown = document.querySelector('.selected');
+  if (!selectedLiDown || liItems[liItems.length - 1].classList.contains('selected')) {
+    return;
+  }
+  const inferiorPosition = selectedLiDown.nextElementSibling;
+  orderedList.insertBefore(selectedLiDown, inferiorPosition.nextElementSibling);
 }
 
 function deleteAllLiItems() {
@@ -87,6 +107,8 @@ function createEventlisteners() {
   deleteCompletedItem.addEventListener('click', deleteCompletedItems);
   saveButton.addEventListener('click', saveItems);
   selectedButton.addEventListener('click', removeSelectedItem);
+  upButton.addEventListener('click', moveUpItem);
+  downButton.addEventListener('click', moveDownItem);
   createLiEventListener();
 }
 
