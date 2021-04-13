@@ -19,10 +19,12 @@ function colorItemList() {
   listTasks.addEventListener('click', (event) => {
     const myEvent = event.target;
     const myItenlist = document.getElementsByTagName('li');
-    for (let index = 0; index < myItenlist.length; index += 1) {
-      myItenlist[index].classList.remove('selected');
+    if (myEvent.localName === 'li') {
+      for (let index = 0; index < myItenlist.length; index += 1) {
+        myItenlist[index].classList.remove('selected');
+      }
+      myEvent.classList.add('selected');
     }
-    myEvent.classList.add('selected');
   });
 }
 colorItemList();

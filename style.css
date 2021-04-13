@@ -29,3 +29,7 @@ main {
 .selected {
   background-color: gray;
 }
+
+.buttons {
+  padding: 20px;
+}
