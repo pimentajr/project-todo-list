@@ -3,8 +3,7 @@
 const btnTasks = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
-const body = document.querySelector('body');
-
+const navi = document.getElementById('navigation');
 // give selected to a testk
 function selectedTask(event) {  
   const li = event.target;
@@ -45,7 +44,27 @@ function createClearBtn() {
   const button = document.createElement('button');
   button.setAttribute('id', 'apaga-tudo');
   button.innerHTML = 'Limpar lista';
-  body.appendChild(button);
+  navi.appendChild(button);
   button.addEventListener('click', clearTasks);
 }
 createClearBtn();
+
+function clearCompleted() {
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i += 1) {
+    if (li[i].classList.contains('completed')) {
+      li[i].remove();
+    }
+  }
+}
+
+// cria o clear completed task
+function createClearCompletedTaskBtn() {
+  const button = document.createElement('button');
+  button.setAttribute('id', 'remover-finalizados');
+  button.innerHTML = 'Limpar Completos';
+  button.style.marginLeft = '10px';
+  navi.appendChild(button);
+  button.addEventListener('click', clearCompleted);
+}
+createClearCompletedTaskBtn();
