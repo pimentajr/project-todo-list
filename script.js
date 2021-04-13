@@ -42,13 +42,15 @@ function addNewTask() {
 }
 
 function changeTasksBackgndColor(event, allTasks) {
-  const targetTask = event.target;
-  for (let index = 0; index < allTasks.length; index += 1) {
-    allTasks[index].classList.remove('selected');
-    allTasks[index].classList.add(notSelectedClass);
+  if (event.target.nodeName !== 'OL') {
+    const targetTask = event.target;
+    for (let index = 0; index < allTasks.length; index += 1) {
+      allTasks[index].classList.remove('selected');
+      allTasks[index].classList.add(notSelectedClass);
+    }
+    targetTask.classList.remove(notSelectedClass);
+    targetTask.classList.add('selected');
   }
-  targetTask.classList.remove(notSelectedClass);
-  targetTask.classList.add('selected');
 }
 
 function taskCompleted(event) {

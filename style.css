@@ -1,3 +1,8 @@
+body {
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+
 .completed {
   text-decoration: line-through solid black;
 }
@@ -8,4 +13,26 @@
 
 .not-selected {
   background-color: white;
+}
+
+#criar-tarefa {
+  background-color: green;
+}
+
+button {
+  font-weight: 600;
+  background-color: rgb(236, 129, 129);  border-radius: 12px;
+}
+
+#remover-selecionado {
+  background-color: red;
+}
+
+ol {
+  text-align: center;
+  padding-left: 35%;
+}
+
+li {
+  width: fit-content;
 }
