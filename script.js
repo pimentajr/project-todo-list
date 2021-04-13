@@ -16,3 +16,12 @@ function createInputText() {
   div.appendChild(input);
 }
 createInputText();
+
+function createList() {
+  const div2 = document.createElement('div');
+  document.body.appendChild(div2);
+  const list = document.createElement('ol');
+  list.id = 'lista-tarefas';
+  div2.appendChild(list);
+}
+createList();
