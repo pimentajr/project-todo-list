@@ -48,6 +48,12 @@ function addTask() {
   listItem.style = 'font-family: Old Standard TT';
   listItem.innerText = input.value;
   input.value = '';
+  listItem.addEventListener('click', (event) => {
+    if (document.querySelector('.selected') !== null) {
+      document.querySelector('.selected').classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
   orderList.appendChild(listItem);
 }
 button.addEventListener('click', addTask);
