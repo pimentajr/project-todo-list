@@ -5,7 +5,7 @@ const ol = document.getElementById('lista-tarefas');
 const entrada = document.getElementById('texto-tarefa');
 let li = tags('li');
 const limparTudo = document.getElementById('apaga-tudo');
-
+const removerFinaliz = document.getElementById('remover-finalizados');
 function tarefaConcluida(event) {
   event.target.classList.toogle('completed');
 }
@@ -45,21 +45,19 @@ function selecionaClasse(event) {
 }
 li.addEventListener('click', selecionaClasse);
 
-// eslint-disable-next-line no-unused-vars
 function limpaTudo() {
   while (ol.children.length > 0) {
     ol.children[0].remove();
   }
-  limparTudo.addEventListener('click', limpaTudo);
 }
+limparTudo.addEventListener('click', limpaTudo);
 
-// eslint-disable-next-line no-unused-vars
 function remover() {
   for (let index = 0; index < ol.children.length; index += 1) {
     ol.children[index].remove();
   }
-  limparTudo.addEventListener('click', remover);
 }
+removerFinaliz.addEventListener('click', remover);
 
 window.onload = function carregar() {
   while (li > 0) {
