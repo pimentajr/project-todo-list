@@ -1,8 +1,9 @@
 // cria lista de elementos;
 const btnTasks = document.querySelector('#criar-tarefa');
-const listOfTasks = document.querySelector('#lista-tarefas');
+const ol = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
-const taskItem = listOfTasks.childNodes;
+
+// create Lists;
 btnTasks.addEventListener('click', () => {
   const li = document.createElement('li');
   li.innerHTML = inputText.value;
@@ -10,6 +11,13 @@ btnTasks.addEventListener('click', () => {
   if (li.innerHTML === '') {
     alert('Adicone um item');
   } else {
-    listOfTasks.appendChild(li);
+    li.addEventListener('click', selectedTask);
+    ol.appendChild(li);
   }
 });
+
+
+//give selected to a testk
+function selectedTask(event) {
+  console.log(event.target);
+}
