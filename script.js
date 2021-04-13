@@ -35,7 +35,7 @@ divInput.appendChild(input);
 // Cria botão;
 
 const button = document.createElement('button');
-button.id = 'criar-tarefa-btn';
+button.id = 'criar-tarefa';
 button.innerText = 'Criar Tarefa';
 divInput.appendChild(button);
 
@@ -44,11 +44,10 @@ orderList.id = 'lista-tarefas';
 divInput.appendChild(orderList);
 
 function addTask() {
-  const listIten = document.createElement('li');
-  listIten.style = 'font-family: Old Standard TT';
-  listIten.innerText = input.value;
+  const listItem = document.createElement('li');
+  listItem.style = 'font-family: Old Standard TT';
+  listItem.innerText = input.value;
   input.value = '';
-  orderList.appendChild(listIten);
+  orderList.appendChild(listItem);
 }
-
 button.addEventListener('click', addTask);

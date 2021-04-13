@@ -28,10 +28,16 @@
   margin-top: 50px;
 }
 
-#criar-tarefa-btn {
+#criar-tarefa {
   margin-left: 20px;
   border-radius: 10px;
   width: 130px;
   font-family: Old Standard TT, sans-serif;
   font-size: medium;
+}
+
+.selected {
+  background-color: gray;
+  margin-right: 200px;
+  border-radius: 10px;
 }
