@@ -60,11 +60,11 @@ clearAll();
 
 // Apaga selecionados
 function clearSelected() {
- finishedButton.addEventListener('click', () => {
-   let completedList = document.querySelectorAll('.completed');
-   for (i = 0; i < teste.length; i += 1) {
-     completedList[i].remove();
-   }
- });
+  finishedButton.addEventListener('click', () => {
+    const completedList = document.querySelectorAll('.completed');
+    for (let i = 0; i < completedList.length; i += 1) {
+      completedList[i].remove();
+    }
+  });
 }
 clearSelected();
