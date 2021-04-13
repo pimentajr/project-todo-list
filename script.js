@@ -67,11 +67,14 @@ clearButton.addEventListener('click', removeList);
 // Função que remove itens riscados
 
 // Primeiro criar uma forma de capturar os itens que estejma riscados
-const listItenThroughLine = document.getElementsByClassName('completed');
+
 
 // Desenvelver forma de remover itens riscados
-
-// Encapsular forma em função
-
+function deleteThroughLine() {
+  const listItenThroughLine = document.getElementsByClassName('completed');
+  for (let index1 = 0; index1 < listItenThroughLine.length; index1 += 1) {
+      listItenThroughLine[index1].textContent = '';
+  }
+}
 // Adicionar função ao botão
-
+removeThroughLine.addEventListener('click', deleteThroughLine);
