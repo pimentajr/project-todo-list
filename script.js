@@ -11,16 +11,15 @@ const upButton = document.getElementById('mover-cima');
 const removeSelectedButton = document.getElementById('remover-selecionado');
 let selectedTask = document.getElementsByClassName('selected')[0];
 
-function emptyList() {
+function removeHidden() {
   if (sessionStorage.length > 2 || listItem.length !== 0) {
     taskList.removeAttribute('hidden');
   }
 }
-emptyList();
+removeHidden();
 
 function paintTask(event) {
   const el = event.target;
-
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].classList.remove('selected');
   }
@@ -48,7 +47,7 @@ function strikeThroughChanger() {
 function actionMoves() {
   strikeThroughChanger();
   paintTaskChanger();
-  emptyList();
+  removeHidden();
 }
 
 function CreateTask() {
@@ -89,9 +88,9 @@ function clearCompleted() {
 }
 
 clearCompletedButton.addEventListener('click', clearCompleted);
-let lista = [];
 
 function saveTasks() {
+  sessionStorage.clear();
   let x;
   for (let i = 0; i < listItem.length; i += 1) {
     if (listItem[i].classList.contains('completed')) {
@@ -105,44 +104,36 @@ function saveTasks() {
 
 saveTaskButton.addEventListener('click', saveTasks);
 
-function StoragelengthSize() {
-  if (sessionStorage.length > 1) {
-    taskList.innerHTML = '';
-    for (let i = 0; i < sessionStorage.length - 1; i += 1) {
-      lista.push(JSON.parse(sessionStorage[i]));
-    }
-  }
-}
-function sessionToList() {
-  StoragelengthSize();
-  for (let i = 0; i < lista.length; i += 1) {
-    const x = document.createElement('li');
-    x.classList.add('listItem');
-    x.innerText = lista[i][i];
-    if (lista[i].class === 'completed') {
-      x.classList.add('completed');
-    }
+const allOlElements = document.getElementsByTagName('ol')[0];
 
-    taskList.appendChild(x);
-  }
-  lista = [''];
+function saveOlList() {
+  saveTaskButton.addEventListener('click', () => {
+    sessionStorage.setItem('key', allOlElements.innerHTML);
+  });
 }
+saveOlList();
+
+function getOlList() {
+  allOlElements.innerHTML = sessionStorage.getItem('key');
+}
+
+getOlList();
 
 function moveUp() {
-  const el = selectedTask;
-  const index = Array.from(el.parentNode.children).indexOf(el) - 1;
-  const a = listItem[index];
-
-  el.parentNode.insertBefore(el, a);
+  const el = document.querySelector('.selected');
+  if (el !== taskList.children[0] && el) {
+    taskList.insertBefore(el, el.previousSibling);
+  }
 }
 
 upButton.addEventListener('click', moveUp);
 
 function moveDown() {
-  const el = selectedTask;
-  const index = Array.from(el.parentNode.children).indexOf(el) + 2;
-  const b = listItem[index];
-  el.parentNode.insertBefore(el, b);
+  const el = document.querySelector('.selected');
+
+  if (el !== taskList.lastChild && el) {
+    taskList.insertBefore(el.nextSibling, el);
+  }
 }
 
 downButton.addEventListener('click', moveDown);
@@ -155,6 +146,5 @@ function removeSelected() {
 removeSelectedButton.addEventListener('click', removeSelected);
 
 window.onload = () => {
-  sessionToList();
   actionMoves();
 };
