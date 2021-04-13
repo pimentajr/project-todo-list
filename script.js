@@ -80,20 +80,20 @@ function recoverList() {
 
 function moveUp() {
   const currentTask = document.querySelector('.selected');
-  const previousTask = currentTask.previousElementSibling;
 
-  if (currentTask !== taskList.firstChild) {
+  if (currentTask !== null && currentTask !== taskList.firstChild) {
+    const previousTask = currentTask.previousElementSibling;
     previousTask.insertAdjacentElement('beforebegin', currentTask);
   }
 }
 
 function moveDown() {
   const currentTask = document.querySelector('.selected');
-  const nextTask = currentTask.nextElementSibling;
-
-  if (currentTask !== taskList.lastElementChild) {
-    nextTask.insertAdjacentElement('afterend', currentTask);
-  }
+  
+  if (currentTask !== null && currentTask !== taskList.lastElementChild) {
+      const nextTask = currentTask.nextElementSibling;
+      nextTask.insertAdjacentElement('afterend', currentTask);
+    }
 }
 
 window.onload = recoverList;
