@@ -4,6 +4,10 @@ const taskList = document.querySelector('#lista-tarefas');
 const deleteListButton = document.querySelector('#apaga-tudo');
 const finalizedButton = document.querySelector('#remover-finalizados');
 const saveListButton = document.querySelector('#salvar-tarefas');
+const upButton = document.querySelector('#mover-cima');
+const downButton = document.querySelector('#mover-baixo');
+
+// console.log(moveDownButton, moveUpButton)
 
 function createTask() {
   const textTask = taskInput.value;
@@ -59,20 +63,36 @@ function saveList() {
     const taskClass = allTasks[index].className;
     listToSave[index] = `${taskText},${taskClass}`;
   }
-  // console.log(listToSave);
   localStorage.setItem('savedList', JSON.stringify(listToSave));
 }
 
 function recoverList() {
   const savedList = JSON.parse(localStorage.getItem('savedList'));
-  console.log(savedList);
-
+  
   for (const key in savedList) {
     const newTask = document.createElement('li');
     const taskNameAndClass = savedList[key].split(',');
     newTask.innerText = taskNameAndClass[0];
     newTask.className = taskNameAndClass[1];
     taskList.appendChild(newTask);
+  }
+}
+
+function moveUp() {
+  const currentTask = document.querySelector('.selected');
+  const previousTask = currentTask.previousElementSibling;
+
+  if (currentTask !== taskList.firstChild) {
+    previousTask.insertAdjacentElement('beforebegin', currentTask);
+  }
+}
+
+function moveDown() {
+  const currentTask = document.querySelector('.selected');
+  const nextTask = currentTask.nextElementSibling;
+
+  if (currentTask !== taskList.lastElementChild) {
+    nextTask.insertAdjacentElement('afterend', currentTask);
   }
 }
 
@@ -84,3 +104,5 @@ taskList.addEventListener('dblclick', completedTask);
 deleteListButton.addEventListener('click', deleteList);
 finalizedButton.addEventListener('click', deleteFinalizedTasks);
 saveListButton.addEventListener('click', saveList);
+upButton.addEventListener('click', moveUp);
+downButton.addEventListener('click', moveDown);
