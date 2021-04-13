@@ -6,8 +6,7 @@ const finalizedButton = document.querySelector('#remover-finalizados');
 const saveListButton = document.querySelector('#salvar-tarefas');
 const upButton = document.querySelector('#mover-cima');
 const downButton = document.querySelector('#mover-baixo');
-
-// console.log(moveDownButton, moveUpButton)
+const deleteSelectedButoon = document.querySelector('#remover-selecionado');
 
 function createTask() {
   const textTask = taskInput.value;
@@ -68,7 +67,7 @@ function saveList() {
 
 function recoverList() {
   const savedList = JSON.parse(localStorage.getItem('savedList'));
-  
+
   for (const key in savedList) {
     const newTask = document.createElement('li');
     const taskNameAndClass = savedList[key].split(',');
@@ -89,11 +88,19 @@ function moveUp() {
 
 function moveDown() {
   const currentTask = document.querySelector('.selected');
-  
+
   if (currentTask !== null && currentTask !== taskList.lastElementChild) {
-      const nextTask = currentTask.nextElementSibling;
-      nextTask.insertAdjacentElement('afterend', currentTask);
-    }
+    const nextTask = currentTask.nextElementSibling;
+    nextTask.insertAdjacentElement('afterend', currentTask);
+  }
+}
+
+function deleteSelectTask() {
+  const selectedTask = document.querySelector('.selected');
+
+  if (selectedTask !== null) {
+    taskList.removeChild(selectedTask);
+  }
 }
 
 window.onload = recoverList;
@@ -106,3 +113,4 @@ finalizedButton.addEventListener('click', deleteFinalizedTasks);
 saveListButton.addEventListener('click', saveList);
 upButton.addEventListener('click', moveUp);
 downButton.addEventListener('click', moveDown);
+deleteSelectedButoon.addEventListener('click', deleteSelectTask);
