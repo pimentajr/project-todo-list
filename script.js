@@ -1,20 +1,27 @@
 const newDiv = document.querySelector('.new-box');
 
+// create button
+const addButton = document.createElement('button');
+addButton.id = 'criar-tarefa';
+addButton.innerText = 'Adicionar';
+newDiv.appendChild(addButton);
+
 // Desafio 4
 const createOl = document.createElement('ol');
 createOl.id = 'lista-tarefas';
 newDiv.appendChild(createOl);
-console.log();
 
 // Desafio 5
-const addButton = document.createElement('button');
-addButton.id = 'criar-tarefa';
-addButton.innerText = 'Adicionar';
-
-function inputButton() {
+function createTask() {
   const inputItem = document.getElementById('texto-tarefa');
-  newDiv.appendChild(addButton);
 
+  addButton.addEventListener('click', (event) => {
+    const newList = document.createElement('li');
+    createOl.appendChild(newList);
+    newList.innerHTML = inputItem.value;
+    inputItem.value = ''
+    console.log(newList)
+  })
 }
 
-inputButton();
+createTask();
