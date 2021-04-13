@@ -7,11 +7,14 @@
 }
 
 header {
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px inset black;
+  border-radius: 25px;
   text-align: center;
-  margin: 0 10px;
+  margin-left: 10px;
   padding: 5px 0;
+  min-width: 400px;
+  max-width: 400px;
+  color: rgb(39, 38, 38);
 }
 
 #funcionamento {
@@ -28,7 +31,15 @@ header {
   margin-left: 10px;
 }
 
+li {
+  font-size: large;
+  border: 0.5px inset darkgrey;
+  width: 365px;
+  padding: 1px 5px;
+}
+
 #criar-tarefa {
+  border: 1px inset black;
   border-radius: 10px;
   background: darkgreen;
   color: white;
@@ -37,6 +48,7 @@ header {
 }
 
 #apaga-tudo {
+  border: 1px inset black;
   border-radius: 10px;
   background: darkred;
   color: white;
@@ -45,6 +57,7 @@ header {
 }
 
 #remover-finalizados {
+  border: 1px inset black;
   border-radius: 10px;
   background: darkslateblue;
   color: white;

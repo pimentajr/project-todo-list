@@ -65,6 +65,7 @@ function clickColorList(event) {
   const listElem = document.querySelectorAll('#list-item');
   for (let index = 0; index < listElem.length; index += 1) {
     listElem[index].style.background = 'white'; // Task 8
+    list.style.background = 'white';
     const aux = event;
     aux.target.style.background = 'rgb(128, 128, 128)';
   }
