@@ -65,15 +65,11 @@ clearButton.addEventListener('click', removeList);
 
 // ex11
 // Função que remove itens riscados
-
-// Primeiro criar uma forma de capturar os itens que estejma riscados
-
-
-// Desenvelver forma de remover itens riscados
+// desenvolvida com consulta na pagina https://stackoverflow.com/questions/40114681/remove-all-elements-in-the-html-collection
 function deleteThroughLine() {
   const listItenThroughLine = document.getElementsByClassName('completed');
-  for (let index1 = 0; index1 < listItenThroughLine.length; index1 += 1) {
-      listItenThroughLine[index1].textContent = '';
+  for (let index1 = listItenThroughLine.length - 1; index1 >= 0; index1 -= 1) {
+      listItenThroughLine[index1].parentNode.removeChild(listItenThroughLine[index1]);
   }
 }
 // Adicionar função ao botão
