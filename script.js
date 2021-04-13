@@ -19,14 +19,14 @@ function backgroundClassItem(event) {
   for (let index = 0; index < itens.length; index += 1) {
     itens[index].classList.remove('selected');
   }
-  event.target.className = 'selected';
+  event.target.classList.add('selected');
 }
 
 taskList.addEventListener('click', backgroundClassItem);
 
-function risk (event) {
+function riskCompleted (event) {
   event.target.classList.toggle('completed');
 }
 
-taskList.addEventListener('dblclick', risk);
+taskList.addEventListener('dblclick', riskCompleted);
 
