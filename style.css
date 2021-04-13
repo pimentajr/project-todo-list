@@ -1,7 +1,7 @@
 body {
   text-align: center;
-  font-family: "Indie Flower", cursive;
-  background-image: url(https://i.pinimg.com/originals/cc/78/5b/cc785bae66ae4f48d1d2c78dcdc6ec7e.png);
+  font-family: Indie Flower, cursive;
+  background-image: url('https://i.pinimg.com/originals/cc/78/5b/cc785bae66ae4f48d1d2c78dcdc6ec7e.png');
 }
 
 .completed {
@@ -22,7 +22,8 @@ body {
 
 button {
   font-weight: 600;
-  background-color: rgb(236, 129, 129);  border-radius: 12px;
+  background-color: rgb(236 , 129 , 129);
+  border-radius: 12px;
 }
 
 #remover-selecionado {
