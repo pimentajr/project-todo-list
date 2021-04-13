@@ -25,11 +25,17 @@ function selectedItem() {
 selectedItem();
 
 //9
+function removeComplete() {
+    for (let i = 0; listaTarefa.children.length; i += 1) {
+      listaTarefa.children[i].classList.remove('completed');
+    }
+}
+
 function dbSelectedItem () {
     listaTarefa.addEventListener('dblclick', (event) => {
         const evTarget = event.target;
         if (evTarget.classList.contains('completed')) {
-            evTarget.classList.remove('completed');
+            removeComplete();
         }
             evTarget.classList.add('completed');
         console.log('duplo');
@@ -37,3 +43,13 @@ function dbSelectedItem () {
 }
 
 dbSelectedItem();
+
+//10
+const apagar = document.getElementById('apaga-tudo');
+function deleteAll () {
+    apagar.addEventListener('click', () => {
+      listaTarefa.innerHTML = '';
+    })
+}
+
+deleteAll();
