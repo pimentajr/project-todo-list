@@ -2,6 +2,7 @@ const input = document.getElementById('texto-tarefa');
 const addButton = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const itemsOfList = document.getElementsByTagName('li');
+const clearAllButton = document.getElementById('apaga-tudo');
 
 // Adiciona itens à lista
 // Para adição de enter na lista, foi consultada a documentação em W3Schools sobre ações usando o "Enter"
@@ -47,3 +48,11 @@ function addSerrated() {
   });
 }
 addSerrated();
+
+// Questão 10
+function clearAll() {
+  clearAllButton.addEventListener('click', () => {
+    list.innerHTML = '';
+  });
+}
+clearAll();
