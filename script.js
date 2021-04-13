@@ -42,3 +42,12 @@ function completedItem() {
 }
 
 completedItem();
+
+const buttonDelete = document.getElementById('apaga-tudo'); // botão de apagar
+
+buttonDelete.addEventListener('click', function deleteAllList() {
+  const deleteList = document.querySelectorAll('li');
+  for (let index = 0; index < deleteList.length; index += 1) {
+    toDoList.removeChild(deleteList[index]);
+  }
+});
