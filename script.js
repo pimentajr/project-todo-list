@@ -107,8 +107,9 @@ window.onload = reloadList;
 
 function moveUp() {
   const liSelected = document.querySelector('.selected');
-
-  if (liSelected.previousSibling !== null) {
+  if (liSelected === null) {
+    alert('Selecione algum item');
+  } else if (liSelected.previousSibling !== null) {
     liSelected.parentNode.insertBefore(liSelected, liSelected.previousSibling);
   }
 }
@@ -118,7 +119,9 @@ buttonMoverCima.addEventListener('click', moveUp);
 function moveDown() {
   const liSelected = document.querySelector('.selected');
 
-  if (liSelected.nextSibling !== null) {
+  if (liSelected === null) {
+    alert('Selecione algum item');
+  } else if (liSelected.nextSibling !== null) {
     liSelected.parentNode.insertBefore(liSelected.nextSibling, liSelected);
   }
 }
