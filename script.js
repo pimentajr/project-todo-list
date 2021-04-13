@@ -8,6 +8,14 @@ function insertTitle() {
   title.appendChild(titleText);
 }
 
+function insertParagraphToTitle() {
+  const titleParagraph = document.createElement('p');
+  titleParagraph.id = 'funcionamento';
+  titleParagraph.textContent = 'Clique duas vezes em um item para marcá-lo como completo';
+  title.appendChild(titleParagraph);
+}
+
 window.onload = function loadPage() {
   insertTitle();
+  insertParagraphToTitle();
 };
