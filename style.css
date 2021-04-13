@@ -1,9 +1,9 @@
 body {
-  background-color: rgb(81,255,0);
+  background-color: yellowgreen;
 }
 
 #corpo {
-  background-color: rgb(25,185,25);
+  background-color: green;
   border: white solid 5px;
   border-radius: 30px;
   width: auto;

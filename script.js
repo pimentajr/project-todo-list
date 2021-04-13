@@ -11,7 +11,12 @@ const cima = document.getElementById('mover-cima');
 const finalizados = document.getElementById('remover-finalizados');
 
 function tarefaConcluida(event) {
-  event.target.classList.add('completed');
+  if (event.target.classList.contains('itens')) {
+    if (event.target.classList.contains('completed') === true) {
+      event.target.classList.remove('completed');
+    }
+    event.target.classList.add('completed');
+  }
 }
 
 function selecionaClasse(event) {
