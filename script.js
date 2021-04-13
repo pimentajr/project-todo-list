@@ -30,9 +30,17 @@ function completedTask (event) {
 
 findList.addEventListener('dblclick', completedTask);
 
+// https://www.w3schools.com/jsref/met_node_removechild.asp
 function deleteAll () {
   while (countLines.length !== 'undefined') {
-  findList.removeChild(findList.childNodes[0])
+  findList.removeChild(findList.childNodes[0]);
+  }
+}
+
+function deleteDoneTask () {
+  const deleteDoneTask = document.getElementsByClassName('completed');
+  while (deleteDoneTask.length !== 'undefined') {
+   findList.removeChild(deleteDoneTask[0]);
   }
 }
 
