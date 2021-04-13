@@ -19,6 +19,9 @@ function color() {
   const toDoListItens = document.querySelectorAll('#lista-tarefas');
   for (let index = 0; index < toDoListItens.length; index += 1) {
     toDoListItens[index].addEventListener('click', function backgroundColorItem(event) {
+      const itemSelected = document.querySelectorAll('.backgroundItem');
+      for (let index = 0; index < itemSelected.length; index += 1)
+      itemSelected[index].classList.remove('backgroundItem');
       event.target.classList.add('backgroundItem');
     });
   }
