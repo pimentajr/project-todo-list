@@ -26,17 +26,29 @@ toDoList.addEventListener('dblclick', (event) => {
   }
 });
 
-// const clearTaskList = document.getElementById('apaga-tudo');
-// clearTaskList.addEventListener('click', () => {
-//   const clearList = listTask.querySelectorAll('LI');
-//   for (let index = 0; index < clearList.length; index += 1) {
-//     clearList[index].remove();
-//   }
-// });
-const removeFinishedTasks = document.getElementById('remover-finalizados');
+let removeFinishedTasks = document.getElementById('remover-finalizados');
 removeFinishedTasks.addEventListener('click', () => {
-  const clearList = document.querySelectorAll('.completed');
+  let clearList = document.querySelectorAll('.completed');
   for (let index = 0; index < clearList.length; index += 1) {
     clearList[index].remove();
   }
 });
+
+function clearAll() {
+  let clearButton = document.querySelector('#apaga-tudo');
+  clearButton.addEventListener('click', () => {
+    let taskList = document.getElementById('lista-tarefas');
+    taskList.innerHTML = '';
+  });
+}
+ clearAll();
+
+function saveTasks() {
+  let saveList = document.getElementById('salvar-tarefas');
+  saveList.addEventListener('click', () => {
+    console.log('tesste');
+    let listToSave = document.querySelector('#lista-tarefas').innerHTML;
+    localStorage.setItem('tasks', `${listToSave}`);
+  });
+}
+saveTasks();
