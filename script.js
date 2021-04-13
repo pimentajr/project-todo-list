@@ -9,14 +9,10 @@ function storeList() {
 }
 
 function getList() {
-  let myList = window.localStorage.myList;
+  const { myList } = window.localStorage;
 
-  if(!myList) {
-    list.innerHTML = '';
-  }
-  else {
-    list.innerHTML = myList;
-  }
+  if (!myList) list.innerHTML = '';
+  else list.innerHTML = myList;
 }
 
 function addListItem() {
