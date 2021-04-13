@@ -4,6 +4,8 @@
   border: 1px solid black;
   border-radius: 5px;
 }
+
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+  font-size: 15px;
 }
