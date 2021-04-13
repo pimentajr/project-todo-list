@@ -2,6 +2,7 @@ const taskList = document.getElementById('lista-tarefas');
 const btnAdd = document.getElementById('criar-tarefa');
 const btnClearAll = document.getElementById('apaga-tudo');
 const btnDone = document.getElementById('remover-finalizados');
+const saveTask = document.getElementById('salvar-tarefas');
 
 const formList = document.getElementById('texto-tarefa');
 
@@ -55,3 +56,16 @@ taskList.addEventListener('click', printSelectedItem);
 taskList.addEventListener('dblclick', taskDone);
 btnClearAll.addEventListener('click', clearList);
 btnDone.addEventListener('click', clearDone);
+
+function myStorageTask() {
+  localStorage.setItem('itenSave', taskList.innerHTML)
+}
+
+function getStorageTask() {
+  const getSave = localStorage.getItem('itenSave');
+  taskList.innerHTML = getSave;
+}
+
+getStorageTask();
+
+saveTask.addEventListener('click', myStorageTask);
