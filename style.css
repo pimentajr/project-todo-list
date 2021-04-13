@@ -24,9 +24,14 @@ header {
 
 }
 .listItem {
-    height: auto;
-    width: auto;
+  height: auto;
+  width: auto;
 }
 .selected {
-    background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
+}
+#apaga-tudo {
+  height: 22px;
+  width: 110px;
+  background-color: #e69c1e;
 }

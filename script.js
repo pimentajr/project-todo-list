@@ -1,10 +1,10 @@
 const createTask = document.getElementById('criar-tarefa');
 const inputText = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-
+const clearTasks = document.getElementById('apaga-tudo');
 // limpando o input
 function clearInput() {
-    inputText.value = '';
+  inputText.value = '';
 }
 // adicionando nova li
 function newTask() {
@@ -21,8 +21,11 @@ function selectedSwitch(event) {
   eventTarget.className += ' selected';
 }
 
-taskList.addEventListener('click',selectedSwitch);
+function removeLis(){
+  taskList.innerHTML = '';
+  }
 
-
+taskList.addEventListener('click', selectedSwitch);
 createTask.addEventListener('click', newTask);
 createTask.addEventListener('click', clearInput);
+clearTasks.addEventListener('click', removeLis);
