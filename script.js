@@ -10,6 +10,15 @@ function tarefaConcluida(event) {
   event.target.classList.toogle('completed');
 }
 
+function selecionaClasse(event) {
+  const atribuiClasse = document.querySelectorAll('.itens');
+  for (let index = 0; index < atribuiClasse.length; index += 1) {
+    atribuiClasse[index].classList.remove('itens');
+  }
+  event.target.classList.add('itens');
+}
+ol.addEventListener('click', selecionaClasse);
+
 function adicionaCor(event) {
   for (let index = 0; index < ol.length; index += 1) {
     ol.children[index].setAttribute('class', '');
@@ -32,18 +41,6 @@ function adicionar() {
   }
 }
 adicionar();
-
-function selecionaClasse(event) {
-  while (ol.firstChild) {
-    ol.removeChild(ol.lastChild);
-  }
-  const atribuiClasse = document.querySelectorAll('.itens');
-  for (let index = 0; index < atribuiClasse.length; index += 1) {
-    atribuiClasse[index].classList.remove('itens');
-  }
-  event.target.classList.add('itens');
-}
-li.addEventListener('click', selecionaClasse);
 
 function limpaTudo() {
   while (ol.children.length > 0) {
