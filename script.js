@@ -3,6 +3,8 @@ const btnAdd = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btnClear = document.querySelector('#apaga-tudo');
 const btnCompleted = document.querySelector('#remover-finalizados');
+const btnUp = document.querySelector('#mover-cima');
+const btnDown = document.querySelector('#mover-baixo');
 
 // Adiciona nova tarefa
 function addTask(text) {
@@ -31,9 +33,9 @@ input.addEventListener('keydown', (e) => {
 // Seleciona e deseleciona as tarefas
 taskList.addEventListener('click', (event) => {
   if (event.target.tagName === 'LI') {
-    const classCompleted = document.querySelector('.selected');
-    if (classCompleted != null) {
-      classCompleted.classList.remove('selected');
+    const taskSelected = document.querySelector('.selected');
+    if (taskSelected != null) {
+      taskSelected.classList.remove('selected');
     }
     event.target.classList.add('selected');
   }
@@ -55,10 +57,26 @@ btnClear.addEventListener('click', () => {
 
 // Remove somente as tarefas finalizadas
 btnCompleted.addEventListener('click', () => {
-  const classCompleted = document.querySelectorAll('.completed');
-  if (classCompleted != null) {
-    for (let task = 0; task < classCompleted.length; task += 1) {
-      classCompleted[task].remove();
+  const taskCompleted = document.querySelectorAll('.completed');
+  if (taskCompleted != null) {
+    for (let task = 0; task < taskCompleted.length; task += 1) {
+      taskCompleted[task].remove();
     }
+  }
+});
+
+// Move tarefa selecionada para cima
+btnUp.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected && taskSelected.previousElementSibling) {
+    taskSelected.insertAdjacentElement('afterend', taskSelected.previousElementSibling);
+  }
+});
+
+// Move tarefa selecionada para baixo
+btnDown.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected && taskSelected.nextElementSibling) {
+    taskList.insertBefore(taskSelected.nextElementSibling, taskSelected);
   }
 });
