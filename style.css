@@ -1,5 +1,74 @@
+body {
+  background-color: rgb(0 , 59 , 54);
+  font-family: Roboto, sans-serif;
+  color: rgb(27 , 32 , 33);
+  font-weight: 400;
+}
+
+h1 {
+  font-family: Fjalla One, sans-serif;
+  margin-bottom: -15px;
+}
+
+header {
+  margin-bottom: 35px;
+}
+
+#funcionamento {
+  font-style: italic;
+  font-weight: 200;
+}
+
+#container {
+  background-color: rgb(236 , 229 , 240);
+  border-radius: 25px;
+  width: 1000px;
+  padding: 20px;
+  margin-left: 13px;
+  margin-top: 25px;
+}
+
+#button-container {
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
 button {
-  border-radius: 10%;
+  border-radius: 25px;
+  border: 0;
+  margin-left: 10px;
+  padding: 5px 15px;
+  background-color: rgb(149 , 25 , 12);
+  color: white;
+  font-weight: 600;
+}
+
+:focus {
+  outline: none;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 300px;
+}
+
+#criar-tarefa {
+  background-color: rgb(16 , 126 , 125);
+}
+
+#mover-cima , #mover-baixo {
+  background-color: rgb(233 , 138 , 21);
+}
+
+#salvar-tarefas {
+  background-color: rgb(59 , 79 , 46);
+}
+
+input:focus {
+  outline: none;
+  border-color: rgb(16 , 126 , 125);
+  box-shadow: 0 0 6px rgb(16 , 126 , 125);
 }
 
 .selected {
@@ -8,4 +77,5 @@ button {
 
 .completed {
   text-decoration: line-through solid black;
+  color: rgb(54 , 59 , 60);
 }

@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </header>
-  <input id="texto-tarefa" type="text">
-  <ol id="lista-tarefas"></ol>
-  <button id="criar-tarefa">+</button>
-  <button id="apaga-tudo">Limpar tudo.</button>
-  <button id="remover-finalizados">Limpar finalizadas.</button>
-  <button id="salvar-tarefas">Salvar.</button>
-  <button id="mover-cima">Para cima.</button>
-  <button id="mover-baixo">Para baixo.</button>
-  <button id="remover-selecionado">Limpar Selecionado.</button>
-  <script src="script.js"></script>
+  <div id="container">
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <input id="texto-tarefa" type="text">
+    <button id="criar-tarefa">New Task</button>
+    <ol id="lista-tarefas"></ol>
+    <div id="button-container">
+      <button id="mover-cima">Move Up</button>
+      <button id="mover-baixo">Move Down</button>
+      <button id="apaga-tudo">Clear All</button>
+      <button id="remover-finalizados">Clear Completed</button>
+      <button id="remover-selecionado">Clear Selected</button>
+      <button id="salvar-tarefas">Save</button>
+    </div>
+    <script src="script.js"></script>
+  </div>
+  
 </body>
 </html>
