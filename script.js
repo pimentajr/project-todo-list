@@ -82,12 +82,41 @@ function removeCompleted() {
 
 function removeSelectedItem() {
   const button = document.getElementById('remover-selecionado');
-  
 
   button.addEventListener('click', () => {
     for (let i = 0; i < list.children.length; i += 1) {
       if (list.children[i].classList.contains('selected')) {
-        list.removeChild(list.children[i])
+        list.removeChild(list.children[i]);
+      }
+    }
+  });
+}
+
+function moveDown() {
+  const listItem = document.getElementsByTagName('li');
+  const buttonDown = document.getElementById('mover-baixo');
+
+  buttonDown.addEventListener('click', () => {
+    for (let i = listItem.length - 1; i >= 0; i -= 1) {
+      if (listItem[i].classList.value.includes('selected') && i !== (listItem.length - 1)) {
+        let save = listItem[i].outerHTML;
+        listItem[i].outerHTML = listItem[i + 1].outerHTML;
+        listItem[i + 1].outerHTML = save;
+      }
+    }
+  });
+}
+
+function moveUp() {
+  const listItem = document.getElementsByTagName('li');
+  const buttonUp = document.getElementById('mover-cima');
+
+  buttonUp.addEventListener('click', () => {
+    for (let i = 0; i < listItem.length; i += 1) {
+      if (listItem[i].classList.value.includes('selected') && i !== 0) {
+        let save = listItem[i].outerHTML;
+        listItem[i].outerHTML = listItem[i - 1].outerHTML;
+        listItem[i - 1].outerHTML = save;
       }
     }
   });
@@ -100,3 +129,6 @@ removeEverything();
 removeCompleted();
 getList();
 removeSelectedItem();
+moveDown();
+moveUp();
+
