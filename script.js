@@ -2,11 +2,13 @@ const getInput = document.querySelector('#texto-tarefa');
 const getOl = document.querySelector('#lista-tarefas');
 const getBtn = document.querySelector('#criar-tarefa');
 const getLi = document.getElementsByTagName('li');
+const getClear = document.getElementById('apaga-tudo');
 
 function addTask() {
   getBtn.addEventListener('click', () => {
     const createLi = document.createElement('li');
     if (getInput.value !== '') {
+      createLi.className = 'list';
       createLi.innerText = getInput.value;
       getOl.appendChild(createLi);
     }
@@ -39,3 +41,10 @@ function riskTask() {
   });
 }
 riskTask();
+
+function clearAll() {
+  getClear.addEventListener('click', () => {
+    getOl.innerText = '';
+  });
+}
+clearAll();
