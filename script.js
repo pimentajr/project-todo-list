@@ -63,3 +63,37 @@ const buttonSave = document.querySelector('#salvar-tarefas')
 buttonSave.addEventListener('click', function(){
   localStorage.setItem('lista', list.innerHTML)
 })
+
+const buttonRemoveSelected = document.querySelector('#remover-selecionado')
+
+buttonRemoveSelected.addEventListener('click', function(){
+  let listItem = document.querySelectorAll('li')
+  for(let index =0; index < listItem.length; index+=1){
+    if(listItem[index].id === 'list-color'){
+      list.removeChild(listItem[index])
+    }
+  }
+})
+
+
+// const buttonUp = document.querySelector('#mover-cima')
+
+// buttonUp.addEventListener('click', function(){
+//   const li = document.querySelectorAll('li')
+//   for(let index = 0; index < li.length; index += 1){
+//     if(li[index].id === 'list-color' && index !==0){
+//       let teste = li[index].innerHTML
+//       let teste2 = li[index -1].innerHTML
+      
+//       li[index].innerHTML = teste2
+//       li[index - 1].innerHTML = teste
+//       li[index].removeAttribute('id', 'list-color')
+//       li[index -1].setAttribute('id', 'list-color')
+
+//       console.log(teste2)
+//       console.log(teste)
+//     }
+//   }
+// })
+
+
