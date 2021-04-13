@@ -79,6 +79,8 @@ saveList();
 
 // 13 Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 
+// Requisito 13 finalizado com ajuda do Matheus Alexandre.
+
 function moveUp() {
   const upButton = document.getElementById('mover-cima');
   upButton.addEventListener('click', () => {
