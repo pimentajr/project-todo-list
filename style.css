@@ -23,5 +23,8 @@ header {
 
 .completed {
   text-decoration: line-through solid  black;
+}
 
+#apaga-tudo {
+  font-family: Courier, monospace;
 }

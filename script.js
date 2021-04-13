@@ -32,10 +32,19 @@ function selectListItens() {
   listItens.addEventListener('click', toColorIten);
   listItens.addEventListener('dblclick', markElement);
 }
+function eraseList() {
+  const parentyList = document.getElementById('lista-tarefas');
+  parentyList.innerHTML = '';
+}
+function deleteList() {
+  const buttonDeletelist = document.getElementById('apaga-tudo');
+  buttonDeletelist.addEventListener('click', eraseList);
+}
 
 function loadWindow() {
   addElementTable();
   selectListItens();
+  deleteList();
 }
 
 window.onload = loadWindow;
