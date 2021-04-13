@@ -1,5 +1,6 @@
 const addTask = document.getElementById('criar-tarefa');
 const clearTasks = document.getElementById('apaga-tudo');
+const endedTasks = document.getElementById('remover-finalizados');
 const inputTask = document.getElementById('texto-tarefa');
 const listTask = document.getElementById('lista-tarefas');
 
@@ -16,11 +17,20 @@ function clearTasksEvent() {
   }
 }
 
+function endedTasksEvent() {
+  const enders = document.getElementsByClassName('completed');
+  while (enders.length) {
+    enders[0].remove();
+  }
+}
+
 function clickTaskEvent(e) {
   const task = e.target;
   const cls = task.className;
   const selected = document.querySelector('.selected');
-  selected.removeAttribute('class');
+  if (selected) {
+    selected.removeAttribute('class');
+  }
 
   if (cls === '') {
     task.className = 'selected';
@@ -42,5 +52,6 @@ function doubleTaskEvent(e) {
 
 addTask.addEventListener('click', addTaskEvent);
 clearTasks.addEventListener('click', clearTasksEvent);
+endedTasks.addEventListener('click', endedTasksEvent);
 listTask.addEventListener('click', clickTaskEvent);
 listTask.addEventListener('dblclick', doubleTaskEvent);
