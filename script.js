@@ -1,4 +1,6 @@
-let taskBoard = document.getElementById('lista-tarefas');
+let taskList = document.getElementById('lista-tarefas');
+
+taskList.innerHTML = sessionStorage.getItem('list');
 
 // 5 - 
 document.getElementById('criar-tarefa').addEventListener('click', criaTarefa)
@@ -13,7 +15,7 @@ function criaTarefa(event) {
 // Insights de alguns PRs dos colegas <3
 // 7, 8 
 let liItems = document.getElementsByTagName('li');
-taskBoard.addEventListener('click', escolhidos)
+taskList.addEventListener('click', escolhidos)
 function escolhidos(event) {
 	for (let index = 0; index < liItems.length; index += 1) {
 		liItems[index].classList.remove('pickedItem');
@@ -22,7 +24,7 @@ function escolhidos(event) {
 };
 
 // 9 -
-taskBoard.addEventListener('dblclick', completadas)
+taskList.addEventListener('dblclick', completadas)
 function completadas(event) {			
 	if (event.target.classList.contains('completed')) {
 		event.target.classList.remove('completed');				
@@ -35,15 +37,21 @@ function completadas(event) {
 // 10 -
 document.getElementById('apaga-tudo').addEventListener('click', limpaLista)
 function limpaLista(event) {
-	while (taskBoard.lastChild) {
-		taskBoard.removeChild(taskBoard.lastChild);
+	while (taskList.lastChild) {
+		taskList.removeChild(taskList.lastChild);
 	}
 };
 
-// 11 - 
+// 11 - NAO TA FUNCIONANDO
 document.getElementById('remover-finalizados').addEventListener('click', removeCompletedTasks);
 function removeCompletedTasks(event) {
-	while (taskBoard.lastChild.classList.contains('completed')) {
-		taskBoard.removeChild(taskBoard.lastChild);
+	while (taskList.lastChild.classList.contains('completed')) {
+		taskList.removeChild(taskList.lastChild);
 	}	
+}
+
+// 12 - Também com insights dos colegas.
+document.getElementById('salvar-tarefas').addEventListener('click', salvaLista);
+function salvaLista() {	
+		sessionStorage.setItem('list', taskList.innerHTML);		
 }

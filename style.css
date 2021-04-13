@@ -1,6 +1,16 @@
+body {
+  text-align: center;
+}
+
 #criar-tarefa {
-  width: 70px;
-  height: 40px;
+  width: auto;
+  height: auto;
+  margin-left: 20px;
+}
+
+li {
+  height: auto;
+  width: auto;
 }
 
 .pickedItem {
