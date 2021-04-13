@@ -1,6 +1,8 @@
 const buttom = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const lista = document.querySelector('#lista-tarefas');
+const clearButtom = document.querySelector('#apaga-tudo');
+const removeCompleted = document.querySelector('#remover-finalizados');
 
 function addList() {
   buttom.addEventListener('click', () => {
@@ -35,6 +37,28 @@ function completedList() {
   });
 }
 
+function clearList() {
+  clearButtom.addEventListener('click', () => {
+    let lis = document.querySelectorAll('li');
+    for (let index = 0; index < lis.length; index += 1) {
+      lis[index].remove('li');
+    }
+  });
+}
+
+function completedRemove() {
+removeCompleted.addEventListener('click', () => {
+  let lis = document.querySelectorAll('.completed');
+  for (let index = 0; index < lis.length; index += 1) {
+    if (lis[index].classList.contains('completed')) {
+      lis[index].remove('li')
+    }
+  }
+})
+}
+
+completedRemove();
+clearList();
 completedList();
 backGroundGray();
 addList();
