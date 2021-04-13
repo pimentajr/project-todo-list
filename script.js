@@ -18,7 +18,6 @@ createButton('mover-cima', 'Up');
 createButton('mover-baixo', 'Down');
 createButton('salvar-tarefas', 'Salvar Lista');
 
-
 const buttonADD = document.querySelector('#criar-tarefa');
 
 // Função para pegar o valor do input e colocar dentro de uma li
@@ -129,5 +128,3 @@ function movedown() {
 const pgdn = document.querySelector('#mover-baixo');
 
 pgdn.addEventListener('click', movedown);
-
-
