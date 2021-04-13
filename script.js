@@ -46,3 +46,11 @@ function selectTasks() {
   });
 }
 selectTasks();
+
+function itemCompleted() {
+  selectList.addEventListener('dblclick', (element) => {
+    const eventTarget = element.target;
+    eventTarget.classList.toggle('complete');
+  });
+}
+itemCompleted();

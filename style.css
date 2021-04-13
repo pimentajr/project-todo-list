@@ -31,3 +31,7 @@ li {
 .selected {
   background-color: gray;
 }
+
+.complete {
+  text-decoration: line-through solid black;
+}
