@@ -62,11 +62,11 @@ function createListItem() {
 // Task 7
 function clickColorList(event) {
   const listElem = document.querySelectorAll('#list-item');
+  const aux = event;
+  if (aux.target === list) return null; // conditional to not select the list, thanks to Panta's help
   for (let index = 0; index < listElem.length; index += 1) {
     listElem[index].classList.remove('selected'); // Task 8
-    const aux = event;
     aux.target.classList.add('selected');
-    if (aux.target === list) aux.target.classList.remove('selected');
   }
 }
 
@@ -126,6 +126,7 @@ function saveItem() {
 
 // Task 13
 // Reference: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
+// Trybe Course: Fundamentos do Desenvolvimento Web - Bloco 5 - JavaScript: DOM, Eventos e Web Storage
 const moveUpBtn = create('button');
 const moveDownBtn = create('button');
 
