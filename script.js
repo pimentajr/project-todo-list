@@ -1,4 +1,5 @@
 const body = document.querySelector('body');
+body.id = 'body';
 const header = document.createElement('header');
 header.innerText = 'Minha Lista de Tarefas';
 header.id = 'header';
@@ -39,6 +40,9 @@ function addItens() {
       document.querySelector('.color').classList.remove('color');
     }
     event.target.classList.add('color');
+  });
+  li.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
   });
   listOl.appendChild(li);
 }
