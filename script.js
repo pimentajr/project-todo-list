@@ -1,11 +1,12 @@
 function tags(elemento) {
   return document.createElement(elemento);
 }
+
 const ol = document.getElementById('lista-tarefas');
 const entrada = document.getElementById('texto-tarefa');
 let li = tags('li');
 const limparTudo = document.getElementById('apaga-tudo');
-const removerFinaliz = document.getElementById('remover-finalizados');
+const removerSelec = document.getElementById('remover-selecionado');
 function tarefaConcluida(event) {
   event.target.classList.toogle('completed');
 }
@@ -50,11 +51,12 @@ function limpaTudo() {
 limparTudo.addEventListener('click', limpaTudo);
 
 function remover() {
-  for (let index = 0; index < ol.children.length; index += 1) {
-    ol.children[index].remove();
+  const liItem = document.querySelectorAll('.itens');
+  for (let index = 0; index < liItem.length; index += 1) {
+    liItem[index].parentNode.removeChild(liItem[index]);
   }
 }
-removerFinaliz.addEventListener('click', remover);
+removerSelec.addEventListener('click', remover);
 
 window.onload = function carregar() {
   while (li > 0) {
