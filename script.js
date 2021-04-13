@@ -125,6 +125,8 @@ function saveItem() {
 }
 
 // Task 13
+const moveUp = create('button');
+const moveDown = create('button');
 
 // Task 14
 const deleteTaskBtn = create('button');
