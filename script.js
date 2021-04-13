@@ -41,7 +41,7 @@ clearAll.addEventListener('click', clearItem);
 
 function removeCompleted() {
   const completed = document.getElementsByClassName('completed');
-  while (completed) {  //  meu primeiro while
+  while (completed) {
     taskList.removeChild(completed[0]);
   }
    
