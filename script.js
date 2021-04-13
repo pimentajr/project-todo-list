@@ -116,7 +116,7 @@ div.appendChild(buttonApagarTudo);
 
 // 12.
 function salvarTarefas() {
-  const listHTML = document.getElementById('lista-tarefas').innerHTML;
+  const listHTML = document.querySelector('#lista-tarefas').innerHTML;
   if (listHTML !== null) {
     localStorage.setItem('lista', listHTML);
   }
