@@ -6,6 +6,7 @@ const removeFinishedBtn = document.querySelector('#remover-finalizados');
 const saveTasksBtn = document.querySelector('#salvar-tarefas');
 const moveUpTaskBtn = document.querySelector('#mover-cima');
 const moveDownTaskBtn = document.querySelector('#mover-baixo');
+const removeSelectedBtn = document.querySelector('#remover-selecionado');
 
 let allTasks = document.querySelectorAll('#lista-tarefas li');
 
@@ -20,7 +21,7 @@ window.onload = function () {
     for (let index = 0; index < savedTasks.length; index += 1) {
       const newTaskListItem = document.createElement('li');
       newTaskListItem.innerText = savedTasks[index];
-      newTaskListItem.classList.add(savedTasksClass[index]);
+      newTaskListItem.className = savedTasksClass[index];
       tasksList.appendChild(newTaskListItem);
     }
   }
@@ -66,7 +67,7 @@ function clearAllTasks() {
 function clearFinishedTasks() {
   allTasks = document.querySelectorAll('#lista-tarefas li');
   for (let index = 0; index < allTasks.length; index += 1) {
-    if (allTasks[index].className === 'completed') {
+    if (allTasks[index].classList.contains('completed')) {
       tasksList.removeChild(allTasks[index]);
     }
   }
@@ -118,7 +119,11 @@ function moveTaskDown() {
   }
 }
 
-[createTaskBtn, tasksList, clearAllBtn, removeFinishedBtn, saveTasksBtn, moveUpTaskBtn, moveDownTaskBtn].forEach((item) => {
+function clearSelectedTask() {
+
+}
+
+[createTaskBtn, tasksList, clearAllBtn, removeFinishedBtn, saveTasksBtn, moveUpTaskBtn, moveDownTaskBtn, removeSelectedBtn].forEach((item) => {
   item.addEventListener('click', (event) => {
     if (item === createTaskBtn) {
       addNewTask();
@@ -134,6 +139,8 @@ function moveTaskDown() {
       moveTaskUp();
     } else if (item === moveDownTaskBtn) {
       moveTaskDown();
+    } else if (item === moveDownTaskBtn) {
+      clearSelectedTask();
     } 
   });
 });
