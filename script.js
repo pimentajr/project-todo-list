@@ -22,3 +22,11 @@ document.getElementById('apaga-tudo').addEventListener('click', function() {
         document.getElementById('lista-tarefas').removeChild(document.getElementById('lista-tarefas').firstChild);
     }
 })
+
+document.getElementById('remover-finalizados').addEventListener('click', function () {
+    while (document.querySelectorAll('.completed'))
+        document.getElementById('lista-tarefas').removeChild(document.querySelectorAll('.completed')[0])
+    
+    
+    
+})
