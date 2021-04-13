@@ -10,7 +10,6 @@ function addTask() {
     newTask.innerText = task.value;
     taskList.appendChild(newTask);
     task.value = '';
-    if (button === '');
   });
 }
 
