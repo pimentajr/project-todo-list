@@ -6,6 +6,7 @@ const btnFinalized = document.getElementById('remover-finalizados');
 
 function makingList() {
   const mkLi = document.createElement('li');
+  mkLi.className = 'listItem';
   mkLi.innerHTML = inptText.value;
   list.appendChild(mkLi);
   inptText.value = '';
@@ -14,39 +15,42 @@ function makingList() {
 btnAdd.addEventListener('click', makingList);
 
 function liBackColor(event) {
-  if (event.target.tagName === 'LI') {
-    const selected = document.querySelector('li.selected');
-    if(selected) selected.className= '';
-    event.target.className= 'selected';
+  const select = document.querySelectorAll('.selected');
+  if (event.target.classList.contains('listItem')) {
+    for (let i = 0; i < select.length; i += 1) {
+      select[i].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
   }
 }
+    
 
-list.addEventListener('click', liBackColor);
+list.addEventListener ('click', liBackColor);
 
 function clearAll() {
   list.innerHTML = '';
 }
 
-clear.addEventListener('click', clearAll);
+clear.addEventListener ('click', clearAll);
 
 function liDone(evento) {
-  if (evento.target.tagName === 'LI') {
-    const completed = document.querySelectorAll('li.completed');
-    if(completed) completed.className= 'completed';
-    evento.target.className= 'completed';
+  if (evento.target.classList.contains('listItem')) {
+    if (evento.target.classList.contains('completed') === true) {
+      evento.target.classList.remove('completed');
+    } else {
+      evento.target.classList.add('completed');
+    }
   }
 }
 
 list.addEventListener('dblclick', liDone);
 
 
- function clearFinalized () {
+function clearFinalized () {
 const complet = document.querySelectorAll('li.completed');
   for (i = 0; i < complet.length; i += 1) {
     complet[i].remove();
   }
 }
 
-
-btnFinalized.addEventListener('click', clearFinalized);
-
+btnFinalized.addEventListener ('click', clearFinalized);
