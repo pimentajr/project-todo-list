@@ -15,11 +15,7 @@ function selectedTask(event) {
 
 // give completed to a task
 function completedTask(event) {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
+  event.target.classList.toggle('completed');
 }
 
 // create Lists;
