@@ -6,6 +6,8 @@ const salveTasks = document.getElementById('salvar-tarefas');
 const upTask = document.getElementById('mover-cima');
 const downTask = document.getElementById('mover-baixo');
 
+const removeTask = document.getElementById('remover-selecionado');
+
 const inputTask = document.getElementById('texto-tarefa');
 const listTask = document.getElementById('lista-tarefas');
 
@@ -81,37 +83,42 @@ function doubleTaskEvent(e) {
 }
 
 function upTaskEvent() {
-  const slt = document.querySelector('.selected');
-  if (slt) {
-    const up = slt.previousSibling;
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    const up = selected.previousSibling;
     if (up) {
-      const sltext = slt.innerText;
-      const sltcls = slt.className;
-      const uptext = up.innerText;
-      const upcls = up.className;
-      up.innerText = sltext;
-      up.className = sltcls;
-      slt.innerText = uptext;
-      slt.className = upcls;
+      const selectedText = selected.innerText;
+      const selectedClass = selected.className;
+      const upText = up.innerText;
+      const upClass = up.className;
+      up.innerText = selectedText;
+      up.className = selectedClass;
+      selected.innerText = upText;
+      selected.className = upClass;
     }
   }
 }
 
 function downTaskEvent() {
-  const slt = document.querySelector('.selected');
-  if (slt) {
-    const down = slt.nextSibling;
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    const down = selected.nextSibling;
     if (down) {
-      const sltext = slt.innerText;
-      const sltcls = slt.className;
-      const downtext = down.innerText;
-      const downcls = down.className;
-      down.innerText = sltext;
-      down.className = sltcls;
-      slt.innerText = downtext;
-      slt.className = downcls;
+      const selectedText = selected.innerText;
+      const selectedClass = selected.className;
+      const downText = down.innerText;
+      const downClass = down.className;
+      down.innerText = selectedText;
+      down.className = selectedClass;
+      selected.innerText = downText;
+      selected.className = downClass;
     }
   }
+}
+
+function removeTaskEvent() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
 }
 
 loadTasks();
@@ -123,6 +130,8 @@ salveTasks.addEventListener('click', salveTasksEvent);
 
 upTask.addEventListener('click', upTaskEvent);
 downTask.addEventListener('click', downTaskEvent);
+
+removeTask.addEventListener('click', removeTaskEvent);
 
 listTask.addEventListener('click', clickTaskEvent);
 listTask.addEventListener('dblclick', doubleTaskEvent);
