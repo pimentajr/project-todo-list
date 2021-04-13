@@ -1,6 +1,7 @@
 body {
   text-align: center;
   font-family: 'Indie Flower', cursive;
+  background-image: url(https://i.pinimg.com/originals/cc/78/5b/cc785bae66ae4f48d1d2c78dcdc6ec7e.png);
 }
 
 .completed {
@@ -35,4 +36,5 @@ ol {
 
 li {
   width: fit-content;
+  margin-top: 18px;
 }
