@@ -1,4 +1,4 @@
-http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-text-box-in-javascript.php#:~:text=To%20extract%20the%20information%20which,entered%20into%20this%20text%20box.
+// http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-text-box-in-javascript.php#:~:text=To%20extract%20the%20information%20which,entered%20into%20this%20text%20box.
 function addToList () {
   var task = document.querySelector('#texto-tarefa');
   var addTask = task.value;
@@ -32,14 +32,14 @@ findList.addEventListener('dblclick', completedTask);
 
 // https://www.w3schools.com/jsref/met_node_removechild.asp
 function deleteAll () {
-  while (countLines.length !== 'undefined') {
+  while (countLines.length > 0) {
   findList.removeChild(findList.childNodes[0]);
   }
 }
 
 function deleteDoneTask () {
   const deleteDoneTask = document.getElementsByClassName('completed');
-  while (deleteDoneTask.length !== 'undefined') {
+  while (deleteDoneTask.length > 0) {
    findList.removeChild(deleteDoneTask[0]);
   }
 }
@@ -54,7 +54,3 @@ function deleteDoneTask () {
 //   }
 // }
 // findList.addEventListener('dblclick', completedTask);
-
-// while (countLines.length !== 'undefined') {
-//   li.parentNode.removeChild(li);
-// }

@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  background-color: rgb(250, 222, 197)
 }
 
 ol {
@@ -10,4 +11,30 @@ ol {
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+
+#remover-finalizados{
+  background-color: rgb(255, 185, 167);
+  border-radius: 20px;
+}
+
+#apaga-tudo {
+  background-color: rgb(248, 144, 144);
+  border-radius: 20px;
+}
+
+#task-box{
+  border: 3px solid brown;
+  opacity: 0.5;
+  border-radius: 20px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+#texto-tarefa {
+  border-radius: 20px;
+  background-color: rgb(250, 222, 197)
 }

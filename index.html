@@ -6,23 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel='stylesheet' href='style.css'>
-</head>
 
+<body>
+</head>
 <header>Minha Lista de Tarefas</header>
 
 <h4 id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</h4>
-
-<body>
-  <input id='texto-tarefa' type='text'>
+<input id='texto-tarefa' type='text'>
   <button onclick='addToList()' id='criar-tarefa'>Adicionar à lista</button>
-  
-  <div>
+
+  <div id='task-box'>
     <ol id='lista-tarefas'>
     </ol>
   </div>
+
   <button onclick='deleteAll()' id='apaga-tudo'>Apagar tudo</button>
   <button onclick='deleteDoneTask()' id='remover-finalizados'>Remove tarefa realizada</button>
   
+  <script src='script.js'></script>
 </body>
-<script src='script.js'></script>
 </html>
