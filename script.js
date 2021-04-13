@@ -21,7 +21,6 @@ function noSelectedToDoLi() {
   for (let index = 0; index < toDoLi.length; index += 1) {
     if (!toDoLi[index].classList.contains('no-selected')) {
       toDoLi[index].classList.add('no-selected');
-      toDoLi[index].style.backgroundColor = 'white';
     }
   }
 }
@@ -30,8 +29,17 @@ function SelectedToDoLi(event) {
   noSelectedToDoLi();
   if (event.target.classList.contains('no-selected')) {
     event.target.classList.remove('no-selected');
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
   }
 }
 
 listaDeTarefasOl.addEventListener('click', SelectedToDoLi);
+
+function completedToDo(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+listaDeTarefasOl.addEventListener('dblclick', completedToDo);
