@@ -1,4 +1,4 @@
-/*const createTaskButton = document.querySelector('#criar-tarefa');
+const createTaskButton = document.querySelector('#criar-tarefa');
 const taskInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const deleteListButton = document.querySelector('#apaga-tudo');
@@ -70,8 +70,8 @@ function recoverList() {
   for (const key in savedList) {
     const newTask = document.createElement('li');
     const taskNameAndClass = savedList[key].split(',');
-    newTask.innerText[0] = taskNameAndClass;
-    newTask.className[1] = taskNameAndClass;
+    newTask.innerText = taskNameAndClass[0];
+    newTask.className = taskNameAndClass[1];
     taskList.appendChild(newTask);
   }
 }
@@ -84,4 +84,3 @@ taskList.addEventListener('dblclick', completedTask);
 deleteListButton.addEventListener('click', deleteList);
 finalizedButton.addEventListener('click', deleteFinalizedTasks);
 saveListButton.addEventListener('click', saveList);
-*/
