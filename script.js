@@ -56,7 +56,8 @@ deleteEveryTask();
 removeFinishedTask.addEventListener('click', () => {
   const finishedTasks = document.querySelectorAll('li');
   for (let index = 0; index < finishedTasks.length; index += 1) {
-    if (finishedTasks[index].className === 'lis completed' || finishedTasks[index].className === 'lis item completed') {
+    let fTask = finishedTasks[index].className;
+    if (fTask === 'lis completed' || fTask === 'lis item completed') {
       finishedTasks[index].remove();
     }
   }
@@ -84,7 +85,7 @@ removeEverySavedTask.addEventListener('click', () => {
 buttonUp.addEventListener('click', () => {
   const li = document.querySelector('.item');
   if (li !== olId.children[0] && li) {
-    olId.insertBefore(li, li.previousSibling); 
+    olId.insertBefore(li, li.previousSibling);
   }
 });
 
@@ -98,7 +99,6 @@ buttonDown.addEventListener('click', () => {
 function removeSelectedTask() {
   removeSelectedTaskButton.addEventListener('click', () => {
     const liSelected = document.querySelector('.item');
-    console.log(liSelected);
     liSelected.remove();
   });
 }
