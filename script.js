@@ -40,11 +40,9 @@ function clearItem() {
 clearAll.addEventListener('click', clearItem);
 
 function removeCompleted() {
-  const completed = document.getElementsByClassName('completed');
-  while (completed) {
-    taskList.removeChild(completed[0]);
+  while (document.querySelector('.completed')) {
+  taskList.removeChild(document.querySelector('.completed'));
   }
-   
 }
 
 const buttonClearCompleted = document.getElementById('remover-finalizados');
