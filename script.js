@@ -76,6 +76,6 @@ moveDown.addEventListener('click', () => {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem && selectedItem !== taskOList.lastChild) {
     const nextSib = selectedItem.nextSibling;
-    nextSib.insertAdjacentElement('afterend',selectedItem);
+    nextSib.insertAdjacentElement('afterend', selectedItem);
   }
 });
