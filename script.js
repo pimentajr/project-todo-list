@@ -57,3 +57,10 @@ function removeSelected() {
   });
 }
 removeSelected();
+
+const btnSave = document.querySelector('#salvar-tarefas');
+btnSave.addEventListener('click', () => {
+  const listItems = document.querySelectorAll('.item-lista');
+  localStorage.setItem(listItems, selectList.innerHTML);
+});
+selectList.innerHTML = localStorage.getItem('listItems');
