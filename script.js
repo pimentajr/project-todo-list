@@ -23,7 +23,7 @@ buttonDellAllTasks.addEventListener('click', deleteTasks);
 // selecionar item - alterando fundo para cinza
 function SelectedTask(event) {
   const itemSelected = olList.childNodes;
-  for (let i = 1; i < itemSelected.length; i += 1) {
+  for (let i = 1; i <= itemSelected.length; i += 1) {
     if (itemSelected[i].classList.contains('selected')) {
       itemSelected[i].classList.remove('selected');
     }
