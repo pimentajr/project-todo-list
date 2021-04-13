@@ -34,7 +34,18 @@ const clearAll = document.getElementById('apaga-tudo');
 
 function clearItem() {
   taskList.innerHTML = '';
-  //https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+  //  https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
 }
 
 clearAll.addEventListener('click', clearItem);
+
+function removeCompleted() {
+  let completed = document.getElementsByClassName('completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    completed[index].innerHTML = '';
+  }
+}
+
+const buttonClearCompleted = document.getElementById('remover-finalizados');
+
+buttonClearCompleted.addEventListener('click', removeCompleted);
