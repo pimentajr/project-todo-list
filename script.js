@@ -10,8 +10,8 @@ function addTarefa() {
   listaTarefa.appendChild(novaTarefa);
 
   campoTexto.value = '';
-
 }
+
 const botao = document.getElementById('criar-tarefa');
 botao.addEventListener('click', addTarefa);
 
@@ -24,4 +24,9 @@ listaTarefa.addEventListener('click', (event) => {
     }
     event.target.classList.add('corFundo');
   }
-});
+})
+
+listaTarefa.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed')
+})
+
