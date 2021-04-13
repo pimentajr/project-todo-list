@@ -1,15 +1,16 @@
-const taskList = document.querySelector('#lista-tarefas');
+let taskList;
 
 window.onload = () => {
-  function bindListeners() {
-    document.querySelector('#criar-tarefa')
-      .addEventListener('click', onClickAddButton);
-
-    taskList.addEventListener('click', onClickTask);
-  }
-
+  taskList = document.querySelector('#lista-tarefas');
   bindListeners();
 };
+
+function bindListeners() {
+  document.querySelector('#criar-tarefa')
+    .addEventListener('click', onClickAddButton);
+
+  taskList.addEventListener('click', onClickTask);
+}
 
 function onClickAddButton() {
   const taskText = document.querySelector('#texto-tarefa');
