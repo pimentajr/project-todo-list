@@ -18,3 +18,12 @@ ol.addEventListener('click', (evento) => {
   }
   eve.classList.add('select');
 });
+
+ol.addEventListener('dblclick', (evento) => {
+  const eve = evento.target;
+  if (eve.classList.contains('completed')) {
+    eve.classList.remove('completed');
+  } else {
+    eve.classList.add('completed');
+  }
+});
