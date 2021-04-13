@@ -5,6 +5,8 @@ const apagaTudo = document.querySelector('#apaga-tudo');
 const removerFinalizados = document.querySelector('#remover-finalizados');
 const removerSelecionado = document.querySelector('#remover-selecionado');
 const salvarTarefas = document.querySelector('#salvar-tarefas');
+const buttonMoverCima = document.querySelector('#mover-cima');
+const buttonMoverBaixo = document.querySelector('#mover-baixo');
 
 // 5. Clicar o botão com id="criar-tarefa" faz o conteúdo ir para o final da lista
 // 6. Ordene os itens da lista de tarefas por ordem de criação
@@ -100,6 +102,28 @@ function reloadList() {
 }
 
 window.onload = reloadList;
+
+// 13. Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+
+function moveUp() {
+  const liSelected = document.querySelector('.selected');
+
+  if (liSelected.previousSibling !== null) {
+    liSelected.parentNode.insertBefore(liSelected, liSelected.previousSibling);
+  }
+}
+
+buttonMoverCima.addEventListener('click', moveUp);
+
+function moveDown() {
+  const liSelected = document.querySelector('.selected');
+
+  if (liSelected.nextSibling !== null) {
+    liSelected.parentNode.insertBefore(liSelected.nextSibling, liSelected);
+  }
+}
+
+buttonMoverBaixo.addEventListener('click', moveDown);
 
 // BONUS - 14. Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
 
