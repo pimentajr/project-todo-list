@@ -32,3 +32,12 @@ list.addEventListener('dblclick', function(event){
     li.classList.add('completed')
   }
 })
+
+const buttonErase = document.querySelector('#apaga-tudo')
+
+buttonErase.addEventListener('click', function(){
+  let listItem = document.querySelectorAll('li')
+  for(let index =0; index < listItem.length; index+=1){
+    list.removeChild(listItem[index])
+  }
+})
