@@ -6,6 +6,7 @@ const btnDeleteCompletedTasks = document.getElementById('remover-finalizados');
 const btnSaveTasks = document.getElementById('salvar-tarefas');
 const btnUp = document.getElementById('mover-cima');
 const btnDown = document.getElementById('mover-baixo');
+const btnDeleteTask = document.getElementById('remover-selecionado');
 
 jobList.innerHTML = localStorage.getItem('list');
 
@@ -62,7 +63,7 @@ function saveCurrentList() {
 
 btnSaveTasks.addEventListener('click', saveCurrentList);
 
-// sobe e desce a tarefa de prioridade.
+// Sobe e desce a tarefa de prioridade.
 function moveTaskDown() {
   const selectedTask = document.getElementById('selectedTask');
   if (selectedTask && selectedTask.nextElementSibling) {
@@ -79,3 +80,14 @@ function moveTaskUp() {
 
 btnDown.addEventListener('click', moveTaskDown);
 btnUp.addEventListener('click', moveTaskUp);
+
+// Remove tarefa selecionada.
+
+function deleteSelectedTask() {
+  const selectedTask = document.getElementById('selectedTask');
+  if (selectedTask) {
+  selectedTask.remove();
+  }
+}
+
+btnDeleteTask.addEventListener('click', deleteSelectedTask);
