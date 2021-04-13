@@ -49,7 +49,7 @@ function checkClassList(element) {
     if (classList[index] === 'completed') {
       classCompleted += 1;
     }
-  }
+  };
   return classCompleted;
 }
 
@@ -62,7 +62,7 @@ function defineAsCompleted() {
     } else {
       event.target.classList.add('completed');
     }
-  })
+  });
 }
 
 defineAsCompleted();
@@ -74,7 +74,7 @@ function eraseAllTasks() {
   getEraseButton.addEventListener('click', function () {
     const getListItems = document.querySelector('#lista-tarefas');
     getListItems.innerHTML = '';
-  })
+  });
 }
 
 eraseAllTasks();
