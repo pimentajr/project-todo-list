@@ -4,14 +4,14 @@
 }
 
 body {
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(225 , 225 , 225);
   font-family: Roboto, sans-serif;
 }
 
 a {
-  color: rgb(56, 56, 56);
+  color: rgb(56 , 56 , 56);
   text-decoration: none;
-  transition: color .5s ease;
+  transition: color 0.5s ease;
 }
 
 a:hover {
@@ -23,7 +23,7 @@ h1 {
   font-size: 50px;
   font-weight: 300;
   text-align: center;
-  margin-top:30px;
+  margin-top: 30px;
 }
 
 p {
@@ -31,12 +31,12 @@ p {
 }
 
 #container {
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(236 , 236 , 236);
   width: 70%;
   padding: 50px;
   margin: auto;
   margin-top: 30px;
-  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.541);
+  box-shadow: 1px 1px 3px rgba(128 , 128 , 128 , 0.541);
 }
 
 .middle {
@@ -44,17 +44,17 @@ p {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid black;
 }
 
-input, button {
-  background-color: rgb(236, 236, 236);
-  color: rgb(79, 79, 79);
+input , button {
+  background-color: rgb(236 , 236 , 236);
+  color: rgb(79 , 79 , 79);
   height: 25px;
   padding: 5px;
-  border: solid 1px rgb(155, 155, 155);
+  border: solid 1px rgb(155 , 155 , 155);
   border-radius: 2px;
-  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.253);
+  box-shadow: 1px 1px 3px rgba(128 , 128 , 128 , 0.253);
 }
 
 input {
@@ -68,7 +68,7 @@ button {
   cursor: pointer;
 }
 
-button:focus, input:focus {
+button:focus , input:focus {
   outline: solid 1px grey;
 }
 
