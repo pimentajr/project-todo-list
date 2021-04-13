@@ -37,11 +37,21 @@ function scratchTask(event) {
   }
 }
 
+// Requisito 10
+const deleteButton = document.getElementById('apaga-tudo');
+
+function clearTaskList() {
+  while (taskList.lastElementChild) {
+    taskList.removeChild(taskList.lastChild);
+  }
+}
+
 // Ativar as funções e botões da página:
 function start() {
   addTaskButton.addEventListener('click', addTaskToTaskList);
   taskList.addEventListener('click', changeClickedTaskBackgroundColor);
   taskList.addEventListener('dblclick', scratchTask);
+  deleteButton.addEventListener('click', clearTaskList);
 }
 
 window.onload = start;
