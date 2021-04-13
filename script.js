@@ -46,12 +46,23 @@ function clearTaskList() {
   }
 }
 
+// Requisito 11
+const deleteFinishedTasksButton = document.getElementById('remover-finalizados');
+
+function deleteFinishedTasks() {
+  const finishedTasks = document.getElementsByClassName('completed');
+  while (finishedTasks.length > 0) {
+    finishedTasks[0].parentNode.removeChild(finishedTasks[0]);
+  }
+}
+
 // Ativar as funções e botões da página:
 function start() {
   addTaskButton.addEventListener('click', addTaskToTaskList);
   taskList.addEventListener('click', changeClickedTaskBackgroundColor);
   taskList.addEventListener('dblclick', scratchTask);
   deleteButton.addEventListener('click', clearTaskList);
+  deleteFinishedTasksButton.addEventListener('click', deleteFinishedTasks);
 }
 
 window.onload = start;
