@@ -57,7 +57,25 @@ taskOList.innerHTML = localStorage.getItem('tasks');
 
 const removeSelectBttn = document.querySelector('#remover-selecionado');
 
-removeSelectBttn.addEventListener('click', () =>{
+removeSelectBttn.addEventListener('click', () => {
   const selectedItems = document.querySelector('.selected');
   selectedItems.remove();
+});
+
+const moveUp = document.querySelector('#mover-cima');
+moveUp.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem !== taskOList.childNodes[0]) {
+    const previousSibItem = selectedItem.previousSibling;
+    taskOList.insertBefore(selectedItem, previousSibItem);
+  }
+});
+
+const moveDown = document.querySelector('#mover-baixo');
+moveDown.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem !== taskOList.lastChild) {
+    const nextSib = selectedItem.nextSibling;
+    nextSib.insertAdjacentElement('afterend',selectedItem);
+  }
 });
