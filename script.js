@@ -32,3 +32,10 @@ function deleteCompleted() {
 }
 
 document.getElementById('remover-finalizados').addEventListener('click', deleteCompleted)
+
+function deleteSelected() {
+    const selected = document.querySelector('.selected');
+    selected.remove();
+}
+
+document.querySelector('#remover-selecionado').addEventListener('click', deleteSelected);
