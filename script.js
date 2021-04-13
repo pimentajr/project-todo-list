@@ -1,6 +1,7 @@
 const addListButton = document.getElementById('criar-tarefa');
 const inputList = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
+const clearButton = document.getElementById('apaga-tudo');
 
 addListButton.addEventListener('click', () => {
   const elementLi = document.createElement('li');
@@ -41,3 +42,8 @@ function throughLine() {
   });
 }
 throughLine();
+
+function clearList() {
+  orderedList.innerHTML = '';
+}
+clearButton.addEventListener('click', clearList);

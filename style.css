@@ -26,3 +26,7 @@
 .completed {
   text-decoration: line-through;
 }
+
+#apaga-tudo {
+  border-radius: 10%;
+}
