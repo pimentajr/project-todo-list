@@ -22,12 +22,13 @@ function changeBackground(event) {
   for (let index = 0; index < listSelected.length; index += 1) {
       listSelected[index].classList.remove('selected');
   }
-  event.target.className = 'selected';
+  event.target.classList.add('selected');
 }
 
 function throughLine(event) {
-  console.log('foi');
+  event.target.classList.toggle('completed');
 }
+
 // Função para colocar input na lista
 function inputTask() {
   // pegar o valor do input no dom
