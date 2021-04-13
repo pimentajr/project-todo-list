@@ -1,14 +1,13 @@
-function addTask() {
-  const getInput = document.querySelector('#texto-tarefa');
-  const getOl = document.querySelector('#lista-tarefas');
-  const getBtn = document.querySelector('#criar-tarefa');
+const getInput = document.querySelector('#texto-tarefa');
+const getOl = document.querySelector('#lista-tarefas');
+const getBtn = document.querySelector('#criar-tarefa');
+const getLi = document.getElementsByTagName('li');
 
+function addTask() {
   getBtn.addEventListener('click', () => {
     const createLi = document.createElement('li');
     if (getInput.value !== '') {
       createLi.innerText = getInput.value;
-      createLi.className = 'list';
-      createLi.style.backgroundColor = 'white';
       getOl.appendChild(createLi);
     }
     if (getInput.value) {
@@ -19,15 +18,12 @@ function addTask() {
 addTask();
 
 function change() {
-  const getList = document.querySelector('#lista-tarefas');
-  getList.addEventListener('click', (event) => {
+  getOl.addEventListener('click', (event) => {
     const e = event.target;
-    // console.log(getList);
-    console.log(e.style.backgroundColor);
-    if (e.style.backgroundColor !== 'rgb(128, 128, 128)') {
-      e.style.backgroundColor = 'rgb(128, 128, 128)';
-      // console.log(e);
+    for (let i = 0; i < getLi.length; i += 1) {
+      getLi[i].classList.remove('selected');
     }
+    e.classList.add('selected');
   });
 }
 change();
