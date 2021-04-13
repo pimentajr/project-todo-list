@@ -5,8 +5,12 @@ document.getElementById('criar-tarefa').addEventListener('click', function() {
     document.getElementById('texto-tarefa').value = ''
 })
 document.getElementById('lista-tarefas').addEventListener('click', function (event) {
-    event.target.classList.toggle('selected');
-
+    if (document.getElementsByClassName('selected').length > 0) {
+        document.getElementsByClassName('selected')[0].classList.remove('selected');
+        event.target.className = 'selected';
+    } else {
+        event.target.className = 'selected';
+    }
 })
 
 document.getElementById('lista-tarefas').addEventListener('dblclick', function (event) {
