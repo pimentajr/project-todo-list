@@ -1,6 +1,7 @@
 const textoTarefa = document.querySelector('#texto-tarefa');
 const criarTarefa = document.querySelector('#criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
+const tarefas = listaTarefas.children;
 
 function addTarefaClick() {
   const tarefa = document.createElement('li');
@@ -10,6 +11,7 @@ function addTarefaClick() {
   listaTarefas.appendChild(tarefa);
 
   textoTarefa.value = '';
+  textoTarefa.focus();
 }
 
 function addTarefaKeypress(event) {
@@ -28,8 +30,8 @@ criarTarefa.addEventListener('click', addTarefaClick);
 textoTarefa.addEventListener('keypress', addTarefaKeypress);
 
 function removerSelecao() {
-  for (let index = 0; index < listaTarefas.children.length; index += 1) {
-    listaTarefas.children[index].classList.remove('selected');
+  for (let index = 0; index < tarefas.length; index += 1) {
+    tarefas[index].classList.remove('selected');
   }
 }
 
@@ -42,32 +44,33 @@ function selecionarTarefa(event) {
   }
 }
 
-listaTarefas.addEventListener('click', selecionarTarefa);
-
-let completed = false;
-
 function completarTarefa(event) {
   const element = event.target;
 
-  if (element.className.includes('tarefa')) {
-    if (!completed) {
-      element.classList.add('completed');
-      completed = true;
-    } else {
-      element.classList.remove('completed');
-      completed = false;
-    }
-  }
+  element.classList.toggle('completed');
 }
 
+listaTarefas.addEventListener('click', selecionarTarefa);
 listaTarefas.addEventListener('dblclick', completarTarefa);
 
 const apagaTudo = document.querySelector('#apaga-tudo');
 
 function apagarTudo() {
-  for (let index = (listaTarefas.children.length - 1); index >= 0; index -= 1) {
-    listaTarefas.removeChild(listaTarefas.children[index]);
+  for (let index = (tarefas.length - 1); index >= 0; index -= 1) {
+    listaTarefas.removeChild(tarefas[index]);
   }
 }
 
 apagaTudo.addEventListener('click', apagarTudo);
+
+const removeFinalizados = document.querySelector('#remover-finalizados');
+
+function removerFinalizados() {
+  for (let index = (tarefas.length - 1); index >= 0; index -= 1) {
+    if (tarefas[index].className.includes('completed')) {
+      listaTarefas.removeChild(tarefas[index]);
+    }
+  }
+}
+
+removeFinalizados.addEventListener('click', removerFinalizados);
