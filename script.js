@@ -8,7 +8,8 @@ const completedTasks = document.getElementsByClassName('completed');
 const saveTaskButton = document.getElementById('salvar-tarefas');
 const downButton = document.getElementById('mover-baixo');
 const upButton = document.getElementById('mover-cima');
-let selectedTask;
+const removeSelectedButton = document.getElementById('remover-selecionado');
+let selectedTask = document.getElementsByClassName('selected')[0];
 
 function emptyList() {
   if (sessionStorage.length > 2 || listItem.length !== 0) {
@@ -66,6 +67,7 @@ function CreateTask() {
 }
 
 inputButton.addEventListener('click', CreateTask);
+
 inputField.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     CreateTask();
@@ -73,6 +75,7 @@ inputField.addEventListener('keydown', (event) => {
 });
 
 function clearAll() {
+  sessionStorage.clear();
   taskList.innerHTML = '';
   taskList.setAttribute('hidden', 'true');
 }
@@ -86,6 +89,7 @@ function clearCompleted() {
 }
 
 clearCompletedButton.addEventListener('click', clearCompleted);
+let lista = [];
 
 function saveTasks() {
   let x;
@@ -97,12 +101,10 @@ function saveTasks() {
     }
     sessionStorage.setItem(`${[i]}`, JSON.stringify(x));
   }
-
-  //   const xd = { name: 'John', class: 'completed' };
-  //   sessionStorage.setItem('xd', JSON.stringify(xd));
-  //   const obj = JSON.parse(sessionStorage.xd);
 }
-let lista = [];
+
+saveTaskButton.addEventListener('click', saveTasks);
+
 function StoragelengthSize() {
   if (sessionStorage.length > 1) {
     taskList.innerHTML = '';
@@ -130,9 +132,8 @@ function moveUp() {
   const el = selectedTask;
   const index = Array.from(el.parentNode.children).indexOf(el) - 1;
   const a = listItem[index];
-  if (index > -1) {
-    el.parentNode.insertBefore(el, a);
-  }
+
+  el.parentNode.insertBefore(el, a);
 }
 
 upButton.addEventListener('click', moveUp);
@@ -146,8 +147,14 @@ function moveDown() {
 
 downButton.addEventListener('click', moveDown);
 
+function removeSelected() {
+  const el = selectedTask;
+  el.parentNode.removeChild(el);
+}
+
+removeSelectedButton.addEventListener('click', removeSelected);
+
 window.onload = () => {
   sessionToList();
   actionMoves();
 };
-saveTaskButton.addEventListener('click', saveTasks);
