@@ -8,9 +8,18 @@ function removeAllTasks() {
 }
 
 function removeCompletedTasks() {
-  const completedLi = document.getElementsByClassName('completed');
-  for (let index = completedLi.length - 1; index >= 0; index -= 1) {
+  const completedLi = document.querySelectorAll('.completed');
+  // => Se for fazer com o getElementsByClassName por algum motivo ele atualiza o length e precisa ser feito um for que le ao contrario dessa forma
+  // for (let index = completedLi.length - 1; index >= 0; index -= 1) {
+  for (let index = 0; index < completedLi.length; index += 1) {
     getOlList.removeChild(completedLi[index]);
+  }
+}
+
+function removeSelectedTask() {
+  const selectedTask = document.querySelectorAll('.selected');
+  for (let index = 0; index < selectedTask.length; index += 1) {
+    getOlList.removeChild(selectedTask[index]);
   }
 }
 
@@ -56,8 +65,14 @@ function clickButtonRemoveCompleted() {
   buttonRemoveCompleted.addEventListener('click', removeCompletedTasks);
 }
 
+function clickButtonRemoveSelected() {
+  const buttonRemoveSelected = document.getElementById('remover-selecionado');
+  buttonRemoveSelected.addEventListener('click', removeSelectedTask);
+}
+
 window.onload = function load() {
   clickButtonTask();
   clickButtonRemove();
   clickButtonRemoveCompleted();
+  clickButtonRemoveSelected();
 };
