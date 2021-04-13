@@ -17,7 +17,7 @@ addNewTask();
 // remove selected class e cor de fundo
 function removeBackgroundColor() {
   const getSelectedColor = document.querySelectorAll('.selected');
-  
+
   if (getSelectedColor.length > 0) {
     for (let index = 0; index < getSelectedColor.length; index += 1) {
       getSelectedColor[index].style.backgroundColor = 'white';
@@ -43,7 +43,7 @@ changeTaskBackground();
 function defineAsCompleted() {
   const taskList = document.querySelector('#lista-tarefas');
 
-  taskList.addEventListener('dblclick', function(event) {
+  taskList.addEventListener('dblclick', function (event) {
     if (checkClassList(event.target) >= 1) {
       event.target.classList.remove('completed');
     } else {
@@ -71,7 +71,7 @@ function checkClassList(element) {
 function eraseAllTasks() {
   const getEraseButton = document.querySelector('#apaga-tudo');
 
-  getEraseButton.addEventListener('click', function() {
+  getEraseButton.addEventListener('click', function () {
     const getListItems = document.querySelector('#lista-tarefas');
     getListItems.innerHTML = '';
   })
@@ -83,7 +83,7 @@ eraseAllTasks();
 function eraseCompletedTasks() {
   let getEraseCompletedButton = document.querySelector('#remover-finalizados');
 
-  getEraseCompletedButton.addEventListener('click', function() {
+  getEraseCompletedButton.addEventListener('click', function () {
     let getCompletedTasks = document.querySelectorAll('.completed');
     for (let index = 0; index < getCompletedTasks.length; index += 1) {
       getCompletedTasks[index].remove();
@@ -93,3 +93,50 @@ function eraseCompletedTasks() {
 
 eraseCompletedTasks();
 
+// salva todas as tarefas em localStorage
+function saveAllTasksStorage() {
+  let saveTasksButton = document.querySelector('#salvar-tarefas');
+
+  saveTasksButton.addEventListener('click', function () {
+    let taskList = document.querySelector('ol');
+    localStorage.setItem('list', taskList.innerHTML);
+  })
+}
+
+saveAllTasksStorage();
+
+// retorna items salvos
+function returnSavedItems() {
+  let taskList = document.querySelector('ol');
+  taskList.innerHTML = localStorage.getItem('list');
+}
+
+returnSavedItems();
+
+// move item para cima, dentro da lista
+function moveUpTask() {
+  let getMoveUpButton = document.querySelector('#mover-cima');
+
+  getMoveUpButton.addEventListener('click', function () {
+    let elementToChange = document.querySelector('.selected');
+    let elementBefore = elementToChange.previousSibling;
+    if (elementBefore) {
+      elementToChange.parentElement.insertBefore(elementToChange, elementBefore);
+    }
+  })
+}
+moveUpTask();
+
+// move item para baixo, dentro da lista
+function moveDownTask() {
+  let getMoveDownButton = document.querySelector('#mover-baixo');
+
+  getMoveDownButton.addEventListener('click', function () {
+    let elementToChange = document.querySelector('.selected');
+    let elementAfter = elementToChange.nextSibling;
+    if (elementAfter) {
+      elementToChange.parentElement.insertBefore(elementAfter, elementToChange);
+    }
+  })
+}
+moveDownTask();
