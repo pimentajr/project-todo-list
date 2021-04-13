@@ -2,6 +2,7 @@
 const taskList = document.getElementById('lista-tarefas');
 const btnsContainer = document.getElementById('btns-container');
 const createTask = document.getElementById('criar-tarefa');
+const savedListStorage = localStorage.getItem('savedListStorage');
 
 // Cria um novo item da lista OL e limpa o campo de input
 function createNewTask() {
@@ -45,23 +46,60 @@ function riskItem() {
 }
 riskItem();
 
-// Adiciona um botão que ao ser clicado, apaga toda a lista
+// Ao clicar no botão, apaga toda a lista, e apaga o local Storage
 function clearTasks() {
   const clearButton = document.getElementById('apaga-tudo');
   clearButton.addEventListener('click', () => {
     taskList.innerHTML = '';
+    localStorage.clear();
   });
 }
 clearTasks();
 
-// Adiciona um botão que ao ser clicado, remove os itens marcados
+// Ao clicar no botão, apaga os itens marcados
 function removeCompletedTasks() {
   const remTasksButton = document.getElementById('remover-finalizados');
   remTasksButton.addEventListener('click', () => {
-    let selectedTask = document.getElementsByClassName('completed').length;
+    const selectedTask = document.getElementsByClassName('completed').length;
     for (let index = 0; index < selectedTask; index += 1) {
       taskList.removeChild(document.querySelector('.completed'));
     }
   });
-} 
+}
 removeCompletedTasks();
+
+// Ao clicar no botão, salva as tarefas
+function saveTasks() {
+  const saveButton = document.getElementById('salvar-tarefas');
+  saveButton.addEventListener('click', () => {
+    localStorage.clear();
+    localStorage.savedListStorage = taskList.innerHTML; 
+    alert('Sua lista foi salva!');
+  });
+}
+saveTasks();
+
+// Remove as classes selected e completed adicionadas aos itens
+function removeClasses() {
+  const itemSelected = document.querySelector('.selected');
+  if (itemSelected) itemSelected.classList.remove('selected');
+  const itemsCompleted = document.querySelectorAll('.completed');
+  if (itemsCompleted.length > 0) {
+    for (let index = 0; index < itemsCompleted.length; index += 1) {
+      itemsCompleted[index].classList.remove('completed');
+    }
+  }
+}
+
+// Restaura a lista ao carregar o site
+function restoreTasks() {
+  taskList.innerHTML = savedListStorage;
+  removeClasses();
+}
+
+// Lista de funções que serão carregadas ao abrir o site
+function loadsite() {
+  restoreTasks();
+  if (savedListStorage) alert('Lista carregada com sucesso!');
+}
+window.onload = loadsite;
