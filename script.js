@@ -1,6 +1,7 @@
 const botao = document.getElementById('criar-tarefa');
 const listatarefa = document.getElementById('lista-tarefas');
 const apagatudo = document.getElementById('apaga-tudo')
+const removefinal = document.getElementById('remover-finalizados')
 
 botao.addEventListener('click', function createtext() {
 let novo = listatarefa.appendChild(document.createElement('li'))
@@ -29,5 +30,12 @@ listatarefa.addEventListener('dblclick',function sublinha(event) {
 
    apagatudo.addEventListener('click', function clearall() {
     listatarefa.innerHTML = '';
+  })
+
+  removefinal.addEventListener('click', function final() {
+  let complet = document.getElementsByClassName('completed');
+   for (let index = 0; index < complet.length; index+=1) {
+     complet[index].remove();
+   } 
   })
  
