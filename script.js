@@ -26,10 +26,22 @@ function changeClickedTaskBackgroundColor(event) {
   }
 }
 
+// Requisito 9
+function scratchTask(event) {
+  const selectedTask = event.target;
+
+  if (selectedTask.classList.contains('completed')) {
+    selectedTask.classList.remove('completed');
+  } else {
+    selectedTask.classList.add('completed');
+  }
+}
+
 // Ativar as funções e botões da página:
 function start() {
   addTaskButton.addEventListener('click', addTaskToTaskList);
   taskList.addEventListener('click', changeClickedTaskBackgroundColor);
+  taskList.addEventListener('dblclick', scratchTask);
 }
 
 window.onload = start;
