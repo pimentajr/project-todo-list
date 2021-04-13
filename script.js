@@ -62,3 +62,43 @@ function load() {
 
 salveButton.addEventListener('click', saveTask);
 load();
+
+const upButton = document.getElementById('mover-cima');
+
+//  https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+//  Ele vai de um a um por que lis que contem a class selected é apenas 1
+function up() {
+  const lis = document.getElementsByTagName('li');
+  for (let index = 0; index < lis.length; index += 1) {
+    if (lis[index].classList.contains('selected')
+    && lis[index].previousElementSibling !== null) {
+      const lisIndex = lis[index];
+      taskList.insertBefore(lisIndex, lisIndex.previousElementSibling);
+    }
+  }
+}
+
+upButton.addEventListener('click', up);
+
+const downButtonm = document.getElementById('mover-baixo');
+
+// Se incremento ele vai direto para a última posição, preciso fazer o caminho reverso de subir! Com o decremento vai de um a um.
+function down() {
+  const lis = document.getElementsByTagName('li');
+  for (let index = lis.length -1; index < lis.length; index -= 1) {
+    if (lis[index].classList.contains('selected') && lis[index].nextElementSibling !== null) {
+      const lisIndex = lis[index];
+      taskList.insertBefore(lisIndex.nextElementSibling, lisIndex);
+    } 
+  }
+}
+
+downButtonm.addEventListener('click', down);
+
+const delSelected = document.getElementById('remover-selecionado');
+
+function removeSelected() {
+  taskList.removeChild(document.getElementsByClassName('selected')[0]);
+}
+
+delSelected.addEventListener('click', removeSelected);
