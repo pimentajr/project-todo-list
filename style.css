@@ -1,11 +1,18 @@
 header {
   text-align: center;
+  background-color: #2ec18c;
+}
+
+#title{
+  margin-bottom: -20px;
 }
 
 #funcionamento{
   text-align: center;
+  color: rgb(102, 102, 102);
 }
 
 #adicionarTarefa {
   text-align: center;
 }
+
