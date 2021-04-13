@@ -78,7 +78,9 @@ const botaoMoveCima = document.querySelector('#mover-cima');
 
 botaoMoveCima.onclick = function moverParaCima() {
   const tarefaSelecionada = document.querySelector('.selected');
-  listaTarefas.insertBefore(tarefaSelecionada.previousSibling, tarefaSelecionada.nextSibling);
+  if (tarefaSelecionada) {
+    listaTarefas.insertBefore(tarefaSelecionada.previousSibling, tarefaSelecionada.nextSibling);
+  }
 };
 
 const botaoMoveBaixo = document.querySelector('#mover-baixo');
