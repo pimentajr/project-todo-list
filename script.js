@@ -1,5 +1,4 @@
 let taskBoard = document.getElementById('lista-tarefas');
-let liItems = document.getElementsByTagName('li');
 
 // 5 - 
 document.getElementById('criar-tarefa').addEventListener('click', criaTarefa)
@@ -13,6 +12,7 @@ function criaTarefa(event) {
 
 // Insights de alguns PRs dos colegas <3
 // 7, 8 
+let liItems = document.getElementsByTagName('li');
 taskBoard.addEventListener('click', escolhidos)
 function escolhidos(event) {
 	for (let index = 0; index < liItems.length; index += 1) {
@@ -24,14 +24,12 @@ function escolhidos(event) {
 // 9 -
 taskBoard.addEventListener('dblclick', completadas)
 function completadas(event) {			
-	for (let index = 0; index < liItems.length; index += 1) {
-		if (event.target.classList.contains('completed')) {
-			event.target.classList.remove('completed');			
-		} else {
-		event.target.classList.add('completed');
-		}
-		console.log(event.target)
-	}	
+	if (event.target.classList.contains('completed')) {
+		event.target.classList.remove('completed');				
+	}	else {
+	event.target.classList.add('completed');
+	console.log(event.target)
+}
 }
 
 // 10 -
