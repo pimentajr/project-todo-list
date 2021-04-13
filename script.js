@@ -2,6 +2,7 @@ const addListButton = document.getElementById('criar-tarefa');
 const inputList = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 const clearButton = document.getElementById('apaga-tudo');
+const clearCompletedButton = document.getElementById('remover-finalizados');
 
 addListButton.addEventListener('click', () => {
   const elementLi = document.createElement('li');
@@ -47,3 +48,11 @@ function clearList() {
   orderedList.innerHTML = '';
 }
 clearButton.addEventListener('click', clearList);
+
+function clearCompleted() {
+  const completedItems = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedItems.length; index += 1) {
+    completedItems[index].remove();
+  }
+}
+clearCompletedButton.addEventListener('click', clearCompleted);
