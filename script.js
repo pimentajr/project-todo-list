@@ -38,6 +38,7 @@ list.addEventListener('click', (event) => {
 });
 
 // add classe class complet
+/** Ajudado pelo Tales e Jean e o Marlon */
 function doubleClikc() {
   list.addEventListener('dblclick', (event) => {
     const myEvent = event.target;
@@ -105,7 +106,8 @@ function getSave() {
     list.innerHTML = save;
   }
 }
-
+// Mover para baixo e para cima
+/** Jean Me ajudou a concluir ela. */
 const pgUp = document.querySelector('#mover-cima');
 const listLi = document.getElementsByTagName('li');
 
