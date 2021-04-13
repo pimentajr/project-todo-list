@@ -85,24 +85,35 @@ removeButton.id = 'apaga-tudo';
 removeButton.innerText = 'Apaga Tudo';
 add(body, removeButton);
 
-// Referece:
+// Reference:
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
 function removeList() {
-  const listRemove = document.querySelector('#lista-tarefas');
-  while (listRemove.hasChildNodes()) {
+  while (list.hasChildNodes()) {
     list.removeChild(list.firstChild);
   }
 }
 
 // Task 11
-function removeCompleted() {
+const removeCompButton = create('button');
+removeCompButton.id = 'remove-finalizados';
+removeCompButton.innerText = 'Remover Finalizados';
+add(body, removeCompButton);
 
+// Reference:
+// https://stackoverflow.com/questions/4777077/removing-elements-by-class-name
+
+function removeCompleted() {
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    list.removeChild(completed[index]);
+  }
 }
 
 // start function
 function start() {
   buttonCreate.addEventListener('click', createListItem);
   removeButton.addEventListener('click', removeList);
+  removeCompButton.addEventListener('click', removeCompleted);
   list.addEventListener('click', clickColorList);
   list.addEventListener('dblclick', completedEvent);
 }

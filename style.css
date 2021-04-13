@@ -37,9 +37,16 @@ header {
 }
 
 #apaga-tudo {
-  display: block;
   border-radius: 10px;
   background: darkred;
+  color: white;
+  margin-left: 10px;
+  padding: 3px 10px;
+}
+
+#remove-finalizados {
+  border-radius: 10px;
+  background: darkslateblue;
   color: white;
   margin-left: 10px;
   padding: 3px 10px;
