@@ -16,6 +16,8 @@ createButton('remover-finalizados', 'Apagar os concluidos!');
 createButton('remover-selecionado', 'Apagar Selecionado');
 createButton('mover-cima', 'Up');
 createButton('mover-baixo', 'Down');
+createButton('salvar-tarefas', 'Salvar Lista');
+
 
 const buttonADD = document.querySelector('#criar-tarefa');
 
@@ -84,16 +86,6 @@ const dellSelected = document.querySelector('#remover-selecionado');
 dellSelected.addEventListener('click', dellSelectedAll);
 
 // botão para salvar os dados da Lista
-
-function creatSaveButton() {
-  const creatSave = document.createElement('button');
-  creatSave.id = 'salvar-tarefas';
-  creatSave.innerHTML = 'Salvar Lista';
-  classPai.appendChild(creatSave);
-}
-
-creatSaveButton();
-
 const buttonSave = document.querySelector('#salvar-tarefas');
 
 function saveList() {
@@ -102,10 +94,12 @@ function saveList() {
 
 function getSave() {
   const save = localStorage.getItem('saveList');
-  if (save) {
-    list.innerHTML = save;
-  }
+  list.innerHTML = save;
 }
+
+getSave();
+
+buttonSave.addEventListener('click', saveList);
 // Mover para baixo e para cima
 /** Jean Me ajudou a concluir ela. */
 const pgUp = document.querySelector('#mover-cima');
@@ -136,6 +130,4 @@ const pgdn = document.querySelector('#mover-baixo');
 
 pgdn.addEventListener('click', movedown);
 
-getSave();
 
-buttonSave.addEventListener('click', saveList);
