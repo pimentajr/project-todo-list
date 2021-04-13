@@ -2,20 +2,20 @@
   margin: 0;
   padding: 6px;
   color: white;
-  font-family: 'Comfortaa', cursive;
+  font-family: Comfortaa, cursive;
 }
 
 .selected {
-  background-color: gray;
+  background-color: gray
 }
 
 body {
   margin: 50px;
-  background-color: rgb(184, 255, 251);
+  background-color: rgb(184, 255, 251)
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid white;
 }
 
 ol {
@@ -50,7 +50,7 @@ main {
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #ca1e1e;
+  border-top: 5px solid rgb(202, 30, 30);
 }
 
 .warning {
@@ -60,14 +60,14 @@ main {
 button {
   padding: 4px;
   border-radius: 3px;
-  background-color: #12123d;
+  background-color: rgb(18, 18, 61);
   font-weight: bold;
 }
 
 input {
-  background-color: #cf1212;
+  background-color: rgb(207, 18, 18);
 }
 
 .save {
-  background-color: green;
+  background-color: rgb(0, 128, 0);
 }

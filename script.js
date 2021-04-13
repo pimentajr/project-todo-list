@@ -75,7 +75,7 @@ function saveTasks() {
   saveButton.addEventListener('click', () => {
     localStorage.clear();
     localStorage.savedListStorage = taskList.innerHTML;
-    console.log('Sua lista foi salva!');
+    alert('Sua lista foi salva!');
   });
 }
 saveTasks();
@@ -95,7 +95,7 @@ function restoreTasks() {
 // Lista de funções que serão carregadas ao abrir o site
 function loadsite() {
   restoreTasks();
-  if (savedListStorage) console.log('Lista carregada com sucesso!');
+  if (savedListStorage) alert('Lista carregada com sucesso!');
 }
 window.onload = loadsite;
 
@@ -105,7 +105,6 @@ function moveItens() {
     const items = document.getElementsByClassName('item');
     const itemSelected = document.querySelector('.selected');
     if (itemSelected && (itemSelected !== items[0])) {
-      console.log('move item pra cima');
       taskList.insertBefore(itemSelected, itemSelected.previousElementSibling);
     }
   });
@@ -113,7 +112,6 @@ function moveItens() {
     const items = document.getElementsByClassName('item');
     const itemSelected = document.querySelector('.selected');
     if (itemSelected && (itemSelected !== items[items.length - 1])) {
-      console.log('move item pra baixo');
       taskList.insertBefore(itemSelected, itemSelected.nextElementSibling.nextElementSibling);
     }
   });
