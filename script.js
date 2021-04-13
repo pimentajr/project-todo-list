@@ -64,10 +64,20 @@ function clickColorList(event) {
   }
 }
 
+// Task 9
+function completedEvent(event) {
+  const listElem = document.querySelectorAll('#list-item');
+  for (let index = 0; index < listElem.length; index += 1) {
+    const aux = event;
+    aux.target.classList.add('completed');
+  }
+}
+
 // start function
 function start() {
   button.addEventListener('click', createListItem);
   list.addEventListener('click', clickColorList);
+  list.addEventListener('dblclick', completedEvent);
 }
 
 // window.onload
