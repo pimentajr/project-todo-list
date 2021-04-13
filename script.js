@@ -75,41 +75,6 @@ buttonRemoveSelected.addEventListener('click', function(){
   }
 })
 
-// const buttonUp = document.querySelector('#mover-cima')
-
-// buttonUp.addEventListener('click', function(){
-//   const li = document.querySelectorAll('li')
-//   for(let index = 0; index < li.length; index += 1){
-//     if(li[index].id === 'list-color' && index !==0){
-//       let elemento1 = document.querySelector(`#lista-tarefas li:nth-child(${index+1})`)
-//       let elemento2 = document.querySelector(`#lista-tarefas li:nth-child(${index})`)
-
-//       document.querySelector(`#lista-tarefas li:nth-child(${index+1})`) = elemento2
-      
-//       console.log(elemento1)
-//       console.log(elemento2)
-//     }
-//   }
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const buttonUp = document.querySelector('#mover-cima')
 
 buttonUp.addEventListener('click', function(){
@@ -134,25 +99,21 @@ buttonUp.addEventListener('click', function(){
 const buttonDown = document.querySelector('#mover-baixo')
 
 buttonDown.addEventListener('click', function(){
+  const selected = document.getElementById('list-color')
   const li = document.querySelectorAll('li')
-  for(let index = 0; index < li.length; index += 1){
-    if(li[index].id === 'list-color' && index !==li.length-1){
-      let x = li[index].innerHTML
-      let x2 = li[index +1].innerHTML
-      let xClass = li[index].className
-      let x2Class = li[index +1].className
+  if(selected !== li[li.length-1]){
+    const selectedInner = selected.innerText
+  const selectedClass = selected.className
+  const nextElClass = selected.nextElementSibling.className
 
-      console.log(xClass)
-      console.log(x2Class)
-      
-      li[index].innerHTML = x2
-      li[index + 1].innerHTML = x
-      li[index].removeAttribute('id', 'list-color')
-      li[index+1].setAttribute('id', 'list-color')
-      li[index].className = x2Class
-      li[index + 1].className = xClass
+  selected.innerText = selected.nextElementSibling.innerHTML
+  selected.className = nextElClass
+  selected.nextElementSibling.innerHTML = selectedInner
+  selected.nextElementSibling.className = selectedClass
+  selected.nextElementSibling.setAttribute('id', 'list-color')
+  selected.removeAttribute('id')
     }
   }
-})
+)
 
 
