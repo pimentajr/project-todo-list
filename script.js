@@ -144,7 +144,7 @@ add(mainDiv, moveDownBtn);
 function moveDown() {
   const selected = document.querySelector('.selected');
   if (selected && selected.nextElementSibling) {
-    loadList.insertBefore(selected.nextElementSibling, selected);
+    list.insertBefore(selected.nextElementSibling, selected);
   }
 }
 
