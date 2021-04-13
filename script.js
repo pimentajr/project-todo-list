@@ -132,7 +132,7 @@ function moveDownTask() {
 
   getMoveDownButton.addEventListener('click', function () {
     let elementToChange = document.querySelector('.selected');
-    if (elementToChange.nextSibling) {
+    if (elementToChange !== null && elementToChange.nextSibling !== null) {
       elementToChange.parentElement.insertBefore(elementToChange.nextSibling, elementToChange);
     }
   })
