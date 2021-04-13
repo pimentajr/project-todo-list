@@ -78,7 +78,7 @@ const botaoMoveCima = document.querySelector('#mover-cima');
 
 botaoMoveCima.onclick = function moverParaCima() {
   const tarefaSelecionada = document.querySelector('.selected');
-  if (tarefaSelecionada.previousSibling) {
+  if (tarefaSelecionada && tarefaSelecionada.previousSibling) {
     listaTarefas.insertBefore(tarefaSelecionada.previousSibling, tarefaSelecionada.nextSibling);
   }
 };
@@ -87,7 +87,7 @@ const botaoMoveBaixo = document.querySelector('#mover-baixo');
 
 botaoMoveBaixo.onclick = function moverParaBaixo() {
   const tarefaSelecionada = document.querySelector('.selected');
-  if (tarefaSelecionada.nextSibling) {
+  if (tarefaSelecionada && tarefaSelecionada.nextSibling) {
     listaTarefas.insertBefore(tarefaSelecionada.nextSibling, tarefaSelecionada);
   }
 };
