@@ -1,8 +1,5 @@
 .selected {
   background-color: rgb(128, 128, 128);
-  width: 100px;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 
 .completed {

@@ -16,6 +16,7 @@ function selectedTask(event) {
 // give completed to a task
 function completedTask(event) {
   event.target.classList.toggle('completed');
+  console.log(event.target)
 }
 
 // create Lists;
