@@ -99,7 +99,7 @@ function moveDown() {
   buttonDown.addEventListener('click', () => {
     for (let i = listItem.length - 1; i >= 0; i -= 1) {
       if (listItem[i].classList.value.includes('selected') && i !== (listItem.length - 1)) {
-        let save = listItem[i].outerHTML;
+        const save = listItem[i].outerHTML;
         listItem[i].outerHTML = listItem[i + 1].outerHTML;
         listItem[i + 1].outerHTML = save;
       }
@@ -114,7 +114,7 @@ function moveUp() {
   buttonUp.addEventListener('click', () => {
     for (let i = 0; i < listItem.length; i += 1) {
       if (listItem[i].classList.value.includes('selected') && i !== 0) {
-        let save = listItem[i].outerHTML;
+        const save = listItem[i].outerHTML;
         listItem[i].outerHTML = listItem[i - 1].outerHTML;
         listItem[i - 1].outerHTML = save;
       }
@@ -131,4 +131,3 @@ getList();
 removeSelectedItem();
 moveDown();
 moveUp();
-
