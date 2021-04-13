@@ -20,17 +20,22 @@ function addTask() {
 function taskSelector(event) {
   for (let index = 0; index < tasks.length; index += 1) {
     const classes = tasks[index].classList;
+    if (event.target.classList.contains('list-container')) {
+      return;
+    }
     if (classes.contains('selected')) {
       tasks[index].classList.remove('selected');
     }
   }
-
   const targetTask = event.target;
   targetTask.classList.add('selected');
 }
 
 function setStatus(event) {
   const targetTask = event.target;
+  if (targetTask.classList.contains('list-container')) {
+    return;
+  }
   if (targetTask.classList.contains('completed')) {
     targetTask.classList.remove('completed');
     return;

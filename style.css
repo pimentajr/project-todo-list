@@ -1,5 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: cadetblue;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  font-family: Bangers, sans-serif;
+  display: block;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 15px;
+}
+
+main {
+  font-family: Patrick Hand, sans-serif;
+  display: block;
+}
+
+ol {
+  list-style-position: inside;
+  display: block;
+  background-color: rgba(231 , 228 , 180 , 0.931);
+  width: auto;
+  text-align: left;
+  padding: 0 20px;
+  border-radius: 5px;
+  margin: 0;
+}
+
+#task-board {
+  display: block;
+  text-align: justify;
+  width: 90%;
+  margin: 20px auto;
+  padding: 15px;
+  height: fit-content;
+}
+
+#move-controls {
+  display: block;
+  text-align: center;
+}
+
+#title {
+  font-size: 50px;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+}
+
+#texto-tarefa {
+  width: 290px;
+  height: 23px;
+  text-align: center;
+  font-family: Bangers, monospace;
+  border-radius: 8px;
+}
+
+#funcionamento {
+  margin-top: 0;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+}
+
+#input-area {
+  display: block;
+  margin: 8px auto;
+  text-align: center;
+}
+
+#mover-cima div {
+  width: 0;
+  height: 0;
+  padding: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid black;
+}
+
+#mover-baixo div {
+  width: 0;
+  height: 0;
+  padding: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid black;
+}
+
+#control-panel {
+  text-align: center;
+  margin: 15px auto;
+  width: 90%;
+}
+
+.move-button {
+  display: inline-block;
+  background-color: rgb(231 , 189 , 233);
+  margin: 0 auto;
+  border-radius: 3px;
+  padding: 3px 50px 5px;
+}
+
+.move-button:active {
+  background-color: blueviolet;
+}
+
+.control-button {
+  background-color: rgb(231 , 189 , 233);
+  margin: 0 auto;
+  border-radius: 3px;
+  padding: 4px 20px 5px;
+  font-family: Bangers, sans-serif, monospace;
+}
+
+.control-button:active {
+  background-color: blueviolet;
+}
+
+.tasks {
+  margin: 0;
+  font-size: 20px;
+}
+
 .selected {
   background-color: gray;
+  color: aliceblue;
 }
 
 .completed {

@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>To Do List</title>
   </head>
   <body>
     <header>
-      <h1>Minha Lista de Tarefas</h1>
+      <h1 id="title">Minha Lista de Tarefas</h1>
       <p id="funcionamento">
         Clique duas vezes em um item para marcá-lo como completo
       </p>
@@ -22,22 +32,28 @@
           id="texto-tarefa"
           placeholder="O que vamos fazer hoje ?"
         />
-        <button id="criar-tarefa">Vamos lá!</button>
+        <button class="control-button" id="criar-tarefa">Vamos lá!</button>
       </div>
-
-      <div id="move-controls">
-        <button id="mover-cima">Mover Acima</button>
-        <button id="mover-baixo">Mover Abaixo</button>
-      </div>
-
-      <ol id="lista-tarefas">
-      </ol>
 
       <div id="control-panel">
-        <button id="apaga-tudo">Recomeçar</button>
-        <button id="remover-finalizados">Remover Finalizados</button>
-        <button id="salvar-tarefas">Save</button>
-        <button id="remover-selecionado">Remover Tarefa Selecionada</button>
+        <button class="control-button" id="salvar-tarefas">Salvar Lista</button>
+        <button class="control-button" id="apaga-tudo">Recomeçar</button>
+        <button class="control-button" id="remover-finalizados">Remover Finalizados</button>
+        <button class="control-button" id="remover-selecionado">Remover Tarefa Selecionada</button>
+      </div>
+      <div id="task-board">
+
+        <ol id="lista-tarefas" class="list-container"></ol>
+
+        <div id="move-controls">
+          <button id="mover-cima" class="move-button">
+            <div></div>
+          </button>
+          <button id="mover-baixo" class="move-button">
+            <div></div>
+          </button>
+
+        </div>
       </div>
     </main>
     <script src="script.js"></script>
