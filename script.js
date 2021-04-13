@@ -44,7 +44,7 @@ function createListSection() {
 }
 
 function createOrdenedList() {
-  ordenedList.id = 'lista-tarefa';
+  ordenedList.id = 'lista-tarefas';
   listSection.appendChild(ordenedList);
 }
 
