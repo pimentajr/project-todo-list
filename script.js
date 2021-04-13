@@ -25,7 +25,9 @@ function createsMainContent() {
 
 function createsTaskEntry() {
   taskEntry.id = 'texto-tarefa';
-  mainContent.appendChild(taskEntry);  
+  taskEntry.type = 'text';
+  taskEntry.placeholder = 'Digite aqui a nova tarefa';
+  mainContent.appendChild(taskEntry);
 }
 
 window.onload = function loadPage() {
