@@ -31,6 +31,11 @@ function clearCompleted() {
   }
 }
 
+function clearSelected() {
+  const selected = document.querySelector('.selected');
+  taskList.removeChild(selected);
+}
+
 function saveList() {
   const tasks = taskList.children;
   const size = tasks.length;
@@ -48,7 +53,7 @@ function saveList() {
 
 function loadList() {
   const list = localStorage.getItem('list');
-  if (list === null || list === ''){
+  if (list === null || list === '') {
     return;
   }
   const array = list.split(',');
@@ -96,10 +101,16 @@ function addEventSaveList() {
   button.addEventListener('click', saveList);
 }
 
+function addEventClearSelected() {
+  const button = document.getElementById('remover-selecionado');
+  button.addEventListener('click', clearSelected);
+}
+
 window.onload = function load() {
   addEventCreateTask();
   addEventClearAll();
   addEventClearCompleted();
   addEventSaveList();
+  addEventClearSelected();
   loadList();
 };
