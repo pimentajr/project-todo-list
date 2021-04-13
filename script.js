@@ -5,7 +5,6 @@ const buttonDellAllTasks = document.querySelector('#apaga-tudo');
 
 function addNewTask() {
   const task = addTask.value;
-  const olList = document.querySelector('#lista-tarefas');
   const listLiTask = document.createElement('li');
   const list = document.createTextNode(task);
   listLiTask.appendChild(list);
@@ -26,7 +25,7 @@ function SelectedTask(event) {
   const itemSelected = olList.childNodes;
   for (let i = 1; i < itemSelected.length; i += 1) {
     if (itemSelected[i].classList.contains('selected')) {
-      itemSelected[i].classList.remove('selected')
+      itemSelected[i].classList.remove('selected');
     }
     event.target.classList.add('selected');
   }
