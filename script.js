@@ -1,3 +1,4 @@
+// 5 - 
 document.getElementById('criar-tarefa').addEventListener('click', function(event) {
   let li = document.createElement('li');
 	let newTask = document.getElementById('texto-tarefa').value;
@@ -6,11 +7,12 @@ document.getElementById('criar-tarefa').addEventListener('click', function(event
 	document.getElementById('texto-tarefa').value = '';
 })
 
+// Insights de alguns PRs dos colegas <3
+// 7, 8 
 document.getElementById('lista-tarefas').addEventListener('click', function(event) {
-	let listItems = document.getElementsByTagName('li');
-	if (listItems = event.target) {
-		listItems.style.backgroundColor = 'rgb(128, 128, 128)';
+	let liItems = document.getElementsByTagName('li');
+	for (let index = 0; index < liItems.length; index += 1) {
+		liItems[index].classList.remove('pickedItem');
 	}
-})
-
-
+	event.target.classList.add('pickedItem');
+});
