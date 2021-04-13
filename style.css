@@ -1,3 +1,8 @@
+body {
+  padding: 20px;
+  background: linear-gradient(90deg, rgb(250, 250, 250) 0%, rgba(226,226,226,1) 100%);
+  font-family: 'Montserrat', sans-serif;
+}
 
 .liTask {
   font-size: 14px;  
@@ -5,4 +10,21 @@
 
 .selected {
   background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.container{
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.4);
+}
+
+button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
 }
