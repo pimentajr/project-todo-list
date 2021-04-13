@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    background-image: url(https://images.freeimages.com/images/large-previews/29f/background-1639314.jpg);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+li {
+    margin: auto;
+    width: 40%;
+}
+
