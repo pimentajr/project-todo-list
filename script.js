@@ -36,6 +36,24 @@ function clearSelected() {
   taskList.removeChild(selected);
 }
 
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (selected.previousElementSibling === null) {
+    return;
+  }
+  const previous = selected.previousElementSibling;
+  taskList.insertBefore(selected, previous);
+}
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  if (selected.nextElementSibling === null) {
+    return;
+  }
+  const next = selected.nextElementSibling;
+  taskList.insertBefore(next, selected);
+}
+
 function saveList() {
   const tasks = taskList.children;
   const size = tasks.length;
@@ -106,11 +124,23 @@ function addEventClearSelected() {
   button.addEventListener('click', clearSelected);
 }
 
+function addEventMoveUp() {
+  const button = document.getElementById('mover-cima');
+  button.addEventListener('click', moveUp);
+}
+
+function addEventMoveDown() {
+  const button = document.getElementById('mover-baixo');
+  button.addEventListener('click', moveDown);
+}
+
 window.onload = function load() {
   addEventCreateTask();
   addEventClearAll();
   addEventClearCompleted();
   addEventSaveList();
   addEventClearSelected();
+  addEventMoveUp();
+  addEventMoveDown();
   loadList();
 };
