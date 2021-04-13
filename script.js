@@ -41,9 +41,10 @@ btnDeleteTasks.addEventListener('click', deleteAllTasks);
 
 // Deleta tarefas completadas.
 function deleteCompletedTasks() {
-  for (let tarefa = 0; tarefa < jobList.children.length; tarefa += 1) {
+  for (let tarefa = 0; tarefa <= jobList.children.length; tarefa += 1) {
     if (jobList.children[tarefa].classList[1] === 'completed') {
       jobList.children[tarefa].remove();
+      tarefa = 0;
     }
   }
 }
