@@ -40,16 +40,12 @@ const buttonCriarTarefa = document.getElementById('criar-tarefa');
 buttonCriarTarefa.addEventListener('click', criarTarefa);
 
 // 4.
+const oList = document.createElement('ol');
+oList.setAttribute('id', 'lista-tarefas');
 if (localStorage.lista !== undefined) {
-  const oList = document.createElement('ol');
-  oList.setAttribute('id', 'lista-tarefas');
   oList.innerHTML = localStorage.lista;
-  div.appendChild(oList);
-} else {
-  const oList = document.createElement('ol');
-  oList.setAttribute('id', 'lista-tarefas');
-  div.appendChild(oList);
 }
+div.appendChild(oList);
 
 // 14.
 function removerSelecionado() {
