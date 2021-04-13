@@ -141,7 +141,7 @@ add(mainDiv, moveDownBtn);
 // Reference: https://www.w3schools.com/jsref/met_node_insertbefore.asp
 function moveDown() {
   const selected = document.querySelector('.selected');
-  if (selected) {
+  if (selected && selected.nextElementSibling) {
     loadList.insertBefore(selected.nextElementSibling, selected);
   }
 }
@@ -149,7 +149,7 @@ function moveDown() {
 // Reference: https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
 function moveUp() {
   const selected = document.querySelector('.selected');
-  if (selected) {
+  if (selected && selected.previousElementSibling) {
     selected.insertAdjacentElement('afterend', selected.previousElementSibling);
   }
 }
