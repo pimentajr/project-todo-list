@@ -62,3 +62,11 @@ cleanButton.addEventListener('click', function cleanListButton(){
   let locateOl = document.querySelector('ol');
   locateOl.innerHTML = null;
 })
+
+let cleanCompletedButton = document.querySelector('#remover-finalizados');
+cleanCompletedButton.addEventListener('click', function cleanListCompletedButton() {
+  let locateLi = document.querySelectorAll('.completed');
+  for (let i = 0; i < locateLi.length; i +=1) {
+    locateLi[i].style.display = 'none';
+  }
+})
