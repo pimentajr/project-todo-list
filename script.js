@@ -46,12 +46,12 @@ function backGroundColorChangeOnClick() {
 }
 
 function riskAssignment(event) {
-  const string = 'assigments';
+  let string = 'assigments'
   if (event.target.classList.contains(string)) {
-    event.target.classList.toggle('completed');
-  }
+    event.target.classList.toggle('completed')
+  } 
 }
-// Luiz Wendel me ajudo no plantão
+  // Luiz Wendel me ajudou.
 function riskAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
   locateList.addEventListener('dblclick', riskAssignment);
@@ -69,3 +69,5 @@ function buttonAssignmentCreat() {
   locateButton.addEventListener('click', creatNewAssigment);
 }
 buttonAssignmentCreat();
+
+
