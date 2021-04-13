@@ -8,20 +8,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Minha Lista de Tarefas</h1></header>
-   <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  
-  <div id="botoes">
-    <input id="texto-tarefa" name = 'entrada' type="text">
-    <button id="criar-tarefa" type="button" value = 'Adicionar' onclick="adicionar()">Adicionar</button>
-  </div>
-     
-  <div id = 'lista'>
-    <ol id="lista-tarefas"></ol>
-  </div>
+  <div id = 'corpo'>
+    <header><h1>Minha Lista de Tarefas</h1></header>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    
+    <div id="botoes">
+      <input id="texto-tarefa" name = 'entrada' type="text">
+      <button id="criar-tarefa" type="button" value = 'Adicionar' onclick = " adicionar()">Adicionar</button>
+    </div>
+      
+    <div id = 'lista'>
+      <ol id="lista-tarefas"></ol>
+    </div>
 
-  <div id = 'comandos'></div>
-    <button id = 'remover'>X</button>
-  <script src="script.js"></script>
+    <div id = 'comandos'></div>
+      <button id = 'remover' onclick = " remover()">X</button>
+      <button id = 'cima' onclick = " paraCima()">↑</button>
+      <button id = 'baixo' onclick = " paraBaixo()">↓</button>
+      <button id = 'limpaCompleto' onclick = " limpaTudo()">Limpar Completos</button>
+      <button id = 'limpaLista' type="reset" onclick = " limparLista()">Limpas Lista</button>
+      <button id = 'salvar' onclick = " salvar()">Salvar Lista</button>
+    <script src="script.js"></script>
+  </div>
 </body>
 </html>

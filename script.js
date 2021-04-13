@@ -1,47 +1,58 @@
-const botao = document.querySelector('#criar-tarefa');
-const ol = document.getElementById('lista-tarefas');
-const entrada = document.getElementById('texto-tarefa');
-const comandos = document.getElementById('comandos');
-
-//cria elementos
 function tags(elemento) {
   return document.createElement(elemento);
 }
-//cria a li e adiciona como filha de ol
-function criarLi(texto) {
-  let li = tags('li');
-  li.setAttribute('index', texto);
+
+const ol = document.getElementById('lista-tarefas');
+const entrada = document.getElementById('texto-tarefa');
+let li = tags('li');
+const limparTudo = document.getElementById('limpaCompleto');
+
+function tarefaConcluida(event) {
+  event.target.classList.toogle('completed');
+}
+
+function adicionaCor(event) {
+  for (let index = 0; index < ol.length; index += 1) {
+    ol.children[index].setAttribute('class', '');
+  }
+  event.target.setAttribute('class', 'itens');
+}
+
+function criarLi() {
+  li = tags('li');
+  li.setAttribute('class', 'itens');
   li.appendChild(document.createTextNode(entrada.value));
+  li.addEventListener('click', adicionaCor);
+  li.addEventListener('dblclick', tarefaConcluida);
   ol.appendChild(li);
-  return entrada.value = '';
+  entrada.value = '';
 }
-//Adiciona o texto criado acionando o botao Adicionar
+
 function adicionar() {
-  if (entrada.value != '') {
-    texto = entrada;
-    idTexto = ol.childElementCount;
-    li = criarLi(idTexto);
-    
+  if (entrada.value !== '') {
+    criarLi();
   }
 }
+adicionar();
 
-//Contador do botão remover que busca o index a ser removido
-function removeItem(idTexto) {
+function selecionaClasse(event) {
+  for (let index = 0; index < ol.length; index += 1) {
+    li[index].classList.remove('itens');
+  }
+  event.target.classList.add('itens');
+}
+li.addEventListener('click', selecionaClasse);
+
+function limpaTudo() {
+  while (ol.children.length > 0) {
+    ol.children[0].remove();
+  }
+}
+limparTudo.addEventListener('click', limpaTudo);
+
+function remover() {
   for (let index = 0; index < ol.children.length; index += 1) {
-    if (ol.children[index].getAttribute('itens') == idTexto) {
-      ol.children[index].remove();
-    }
+    ol.children[index].remove();
   }
 }
-
-
-function botaoRemover(idTexto) {
-  let botaoRemove = document.getElementById('remover');
-  botaoRemove.setAttribute('onclick', 'removeItem('+idTexto+')');
-  return botaoRemove;
-}
-
-
-window.onload = function carregar() {
-
-};
+limparTudo.addEventListener('click', remover);
