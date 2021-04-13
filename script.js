@@ -21,9 +21,6 @@ function changeBackgroundListColor(listaTarefa) {
         listas[index].id = '';
       }
       const eTarget = event.target;
-      if (eTarget.id.parentNode === 'moviment-buttons') {
-        console.log('certo')
-      }
       eTarget.style.backgroundColor = 'rgb(128, 128, 128)';
       eTarget.id = 'selected';
       const movimentButtons = document.getElementById('moviment-buttons');
