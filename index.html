@@ -6,13 +6,15 @@
   <title>Lista de Tarefas</title>
 </head>
 <body>
-  <header>Minha Lista de Tarefas</header>
-  <div>
-    <p id='funcionamento'>
-      Clique duas vezes em um item para marcá-lo como completo
-    </p>
-  </div>
+<div id='wrapper'>
 
+
+
+  
+  <header><h1>Minha Lista de Tarefas</h1>
+  </header>
+ 
+  <p id='instruction'> Insira no campo abaixo a tarefa a ser adicionada.</p>
   <section id='insert-jobs'>
     <input id='texto-tarefa' type='text'>
   </section>
@@ -22,29 +24,40 @@
     </ol>
   </section>
 
-  <section id='button-container'>
+  <div>
+    <p id='funcionamento'>
+      Clique duas vezes em um item para marcá-lo como completo
+    </p>
+  </div>
+
+  <div id='button-container'>
     <button id='criar-tarefa' type='button'>Criar tarefa</button>
     <button id='apaga-tudo'>
-      Apaga tarefas
+      Apagar tarefas
     </button>
     <button id='remover-finalizados'>
       Remover tarefas finalizadas
     </button>
-    <button id='salvar-tarefas'>
-      Salvar tarefas
-    </button>
+  </div>
+  
+  <div id='second-row'>
     <button id='mover-cima'>
-      UP
+      Mover tarefa para cima
     </button>
     <button id='mover-baixo'>
-      DOWN
+      Mover tarefa para baixo
+    </button>
+  </div>
+  
+  <div id='third-row'>
+    <button id='salvar-tarefas'>
+      Salvar tarefas
     </button>
     <button id='remover-selecionado'>
       Remover tarefa selecionada
     </button>
-  </section>
-  
-
+  </div>
+</div>
   <script src='script.js'></script>
 </body>
 </html>

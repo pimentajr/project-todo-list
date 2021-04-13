@@ -55,7 +55,8 @@ clearJobs();
 
 function removeFinishedJobs() {
   finishedJobs.addEventListener('click', () => {
-    for (let index = jobItems.length - 1; index > 0; index -= 1) {
+    for (let index = jobItems.length - 1; index > -1; index -= 1) {
+      console.log(index);
       if (jobItems[index].classList.contains('completed')) {
         const deleteItem = jobItems[index];
         jobItems[0].parentNode.removeChild(deleteItem);

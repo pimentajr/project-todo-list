@@ -1,7 +1,60 @@
+body {
+  background-image: url('background2.jpg');
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
 .selected {
   background-color: gray;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+#funcionamento {
+  text-align: center;
+  font-style: italic;
+}
+
+#insert-jobs {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+#instruction {
+ text-align: center;
+}
+
+ol {
+  width: 40%;
+  margin: auto;
+}
+
+#button-container {
+  text-align: center;
+}
+
+#second-row {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#third-row {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#wrapper {
+  margin-top: 40px;
+  background-color: rgb(202, 177, 157);
+  padding: 10px 10px;
+  border-radius: 10%;
+  display: inline-block;
+  border-style:dotted
+
 }
