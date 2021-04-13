@@ -50,7 +50,7 @@ dltSlctdButton.addEventListener('click', function() {
   for (let i = 0; i < getSelecteds.length; i += 1) {
     getLista.removeChild(getSelecteds[i]);
   }
-})
+});
 
 // funcao botao salvar lista
 const getSaveBtn = document.querySelector('#salvar-tarefas');
@@ -59,7 +59,24 @@ getSaveBtn.addEventListener('click', function() {
   localStorage.setItem('lista', getLista.innerHTML)
 });
 
+// funcao botao mover pra cima
+const movUpBtn = document.querySelector('#mover-cima');
+movUpBtn.addEventListener('click', function () {
+  const getSelected = document.querySelector('#selected');
+  const posB4 = getSelected.previousElementSibling;
+  if (getSelected && posB4 !== null) {
+    getLista.insertBefore(getSelected, posB4);
+  }
+});
 
-
+// funcao botao mover pra baixo
+const movDwnBtn = document.querySelector('#mover-baixo');
+movDwnBtn.addEventListener('click', function () {
+  const getSelected = document.querySelector('#selected');
+  const posAft = getSelected.nextElementSibling;
+  if (getSelected && posAft !== null) {
+    getLista.insertBefore(posAft, getSelected);
+  }
+});
 
 
