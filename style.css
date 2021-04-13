@@ -5,3 +5,37 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+header {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 10px;
+  padding: 5px 0;
+}
+
+#funcionamento {
+  margin-left: 10px;
+}
+
+#texto-tarefa {
+  width: 380px;
+  height: 15px;
+  margin-left: 10px;
+}
+
+#criar-tarefa {
+  border-radius: 10px;
+  background: darkgreen;
+  color: white;
+  margin-left: 10px;
+  padding: 3px 10px;
+}
+
+#apaga-tudo {
+  border-radius: 10px;
+  background: darkred;
+  color: white;
+  margin-left: 5px;
+  padding: 3px 10px;
+}

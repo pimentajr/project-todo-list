@@ -13,6 +13,7 @@ const { body } = document;
 const header = create('header');
 add(body, header);
 
+header.id = 'header';
 header.innerHTML = '<b>Minha Lista de Tarefas</b>';
 header.style.fontSize = '20px';
 
@@ -37,11 +38,11 @@ list.id = 'lista-tarefas';
 // list.style.listStyleType = 'none';
 
 // Task 5
-const button = create('button');
-add(body, button);
+const buttonCreate = create('button');
+add(body, buttonCreate);
 
-button.id = 'criar-tarefa';
-button.innerText = 'Criar Tarefa';
+buttonCreate.id = 'criar-tarefa';
+buttonCreate.innerText = 'Criar Tarefa';
 
 function createListItem() {
   const listItensAux = create('li');
@@ -73,9 +74,25 @@ function completedEvent(event) {
   }
 }
 
+// Task 10
+const removeButton = create('button');
+removeButton.id = 'apaga-tudo';
+removeButton.innerText = 'Apaga Tudo';
+add(body, removeButton);
+
+// Referece:
+// https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
+function removeList() {
+  const listRemove = document.querySelector('#lista-tarefas');
+  while (listRemove.hasChildNodes()) {
+    list.removeChild(list.firstChild);
+  }
+}
+
 // start function
 function start() {
-  button.addEventListener('click', createListItem);
+  buttonCreate.addEventListener('click', createListItem);
+  removeButton.addEventListener('click', removeList);
   list.addEventListener('click', clickColorList);
   list.addEventListener('dblclick', completedEvent);
 }
