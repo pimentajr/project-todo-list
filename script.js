@@ -18,12 +18,27 @@ create.addEventListener('click', addTasks);
 // 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)
 // 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
 
-function addBackgroundColor(event) {
+function addBackgroundColor() {
   list.addEventListener('click', (event) => {
     for (index = 0; index < items.length; index += 1) {
       items[index].classList.remove('selecionado');
     }
     event.target.classList.add('selecionado');
-  })
+  });
 }
 addBackgroundColor();
+
+// 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
+
+function scratch() {
+  list.addEventListener('dblclick', (event) => {
+      if (event.target.classList.contains('completed') === true) {
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
+  });
+}
+scratch();
+
+
