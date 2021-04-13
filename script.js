@@ -1,10 +1,8 @@
 function selectTask(event) {
-  
   const getTask = document.querySelector('.selected');
   if (getTask !== null) {
     getTask.classList.remove('selected');
   } event.target.classList.add('selected');
-  
 }
 
 function doubleClickToComplete(event) {
