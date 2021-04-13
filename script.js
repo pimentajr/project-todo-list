@@ -49,7 +49,33 @@ function doneItem() {
     let currentElement = doneItens[i];
     currentElement.parentNode.removeChild(currentElement);
   }
+  handleSaveList();
 }
+
+function handleSaveList() {
+  const olElement = document.querySelector('ol');
+  localStorage.setItem('todolist', olElement.innerHTML);
+  // let itemsArray = [];
+  // const listItems = document.getElementsByClassName('listItem');
+  // for (let i = 0; i < listItems.length; i += 1) {
+  //   let currentElement = listItems[i];
+  //   itemsArray.push(currentElement.innerText);
+  // }
+  // localStorage.setItem('items', JSON.stringify(itemsArray));
+}
+
+function loadElements() {
+  const olElement = document.querySelector('ol');
+  olElement.innerHTML = localStorage.getItem('todolist');
+  const allItems = document.getElementsByClassName('listItem');
+  for (let i = 0; i < allItems.length; i += 1) {
+    allItems[i].addEventListener('click', changeColor);
+    allItems[i].addEventListener('dblclick', lineThrough);
+  }
+}
+
+const saveList = document.getElementById('salvar-tarefas');
+saveList.addEventListener('click', handleSaveList);
 
 const doneButtom = document.getElementById('remover-finalizados');
 doneButtom.addEventListener('click', doneItem);
@@ -59,3 +85,5 @@ deleteButtom.addEventListener('click', deleteItem);
 
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addButton);
+
+loadElements();
