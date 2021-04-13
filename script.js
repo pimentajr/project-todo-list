@@ -1,4 +1,6 @@
 const task = document.querySelector('#criar-tarefa');
+const ol = document.querySelector('ol');
+const apagar = document.querySelector('#apaga-tudo');
 
 task.addEventListener('click', () => {
   let captura = '';
@@ -9,7 +11,6 @@ task.addEventListener('click', () => {
   captura.value = '';
 });
 
-const ol = document.querySelector('ol');
 ol.addEventListener('click', (evento) => {
   const eve = evento.target;
   const li = document.getElementsByTagName('li');
@@ -27,3 +28,9 @@ ol.addEventListener('dblclick', (evento) => {
     eve.classList.add('completed');
   }
 });
+
+apagar.addEventListener('click', () => {
+  ol.innerHTML = '';
+});
+
+
