@@ -14,14 +14,15 @@ function assigmentList() {
 }
 assigmentList();
 
-function buttonCreat() {
+function buttonCreat(id,innertext) {
   const buttonHolder = document.createElement('button');
   const buttonHolderPlacement = document.querySelector('#section-interactive');
-  buttonHolder.id = 'criar-tarefa';
-  buttonHolder.innerHTML = 'newAssigment';
+  buttonHolder.id = id;
+  buttonHolder.innerHTML = innertext;
   buttonHolderPlacement.appendChild(buttonHolder);
 }
-buttonCreat();
+buttonCreat('criar-tarefa', 'newAssignment');
+buttonCreat('apaga-tudo', 'DeleteAllAssignments');
 
 function creatNewAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
@@ -51,10 +52,20 @@ function riskAssignment(event) {
     event.target.classList.toggle('completed');
   }
 }
-// Luiz Wendel me ajudou.
+// Ajuda do plantão.
 function riskAssignmentOnList() {
   const locateList = document.querySelector('#lista-tarefas');
   locateList.addEventListener('dblclick', riskAssignment);
+}
+
+function deleteAllAssignments() {
+  const locatelist = document.querySelector('#lista-tarefas');
+  const locatebutton = document.querySelector('#apaga-tudo');
+  function listdelete () {
+    locatelist.parentElement.removeChild(locatelist);
+    assigmentList();
+  }
+  locatebutton.addEventListener('click', listdelete);
 }
 
 function buttonAssignmentCreat() {
@@ -65,7 +76,9 @@ function buttonAssignmentCreat() {
     textAssigment.value = '';
     backGroundColorChangeOnClick();
     riskAssignmentOnList();
+    deleteAllAssignments()
   }
   locateButton.addEventListener('click', creatNewAssigment);
 }
 buttonAssignmentCreat();
+
