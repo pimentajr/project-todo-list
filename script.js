@@ -23,9 +23,11 @@ function changeListItemBackgroundColor(event) {
   for (let index = 0; index < tasklist.length; index += 1) {
     if (document.querySelectorAll('.tasks')[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       tasklist[index].style.backgroundColor = 'transparent';
+      tasklist[index].classList.remove('selected');
     }
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.add('selected');
   if (orderedList.style.backgroundColor = 'rgb(128, 128, 128)') {
   orderedList.style.backgroundColor = 'transparent';
   }
@@ -79,10 +81,11 @@ function saveTasksLocalStorage() {
 
 saveTasksButton.addEventListener('click', saveTasksLocalStorage);
 
-const buttonRmvSelected = document.querySelector('#remover-finalizados');
+const buttonRmvSelected = document.querySelector('#remover-selecionado');
 
 function removeSelectedItems() {
-
+  const selectedItem = document.querySelector('.selected')
+  orderedList.removeChild(selectedItem);
 }
 
 buttonRmvSelected.addEventListener('click', removeSelectedItems);
