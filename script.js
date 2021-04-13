@@ -1,23 +1,37 @@
 const addTask = document.getElementById('criar-tarefa');
 const listTasks = document.getElementById('lista-tarefas');
 
-addTask.addEventListener('click', () => {
-  const textTalks = document.getElementById('texto-tarefa');
-  const itenTasks = document.createElement('li');
-  itenTasks.className = 'myTasks';
-  itenTasks.innerText = textTalks.value;
-  listTasks.appendChild(itenTasks);
-  textTalks.value = '';
-});
+// Adiciona tarefa.
+function teste() {
+  addTask.addEventListener('click', () => {
+    const textTalks = document.getElementById('texto-tarefa');
+    const itenTasks = document.createElement('li');
+    localStorage.setItem('inputNew', textTalks.value);
+    itenTasks.innerText = localStorage.getItem('inputNew');
+    listTasks.appendChild(itenTasks);
+    textTalks.value = '';
+  });
+}
+teste();
 
-listTasks.addEventListener('click', (event) => {
-  const myEvent = event.target;
-  for (let index = 0; index < listTasks.children.length; index += 1) {
-    if (listTasks.children[index] !== myEvent) {
-      listTasks.children[index].style.backgroundColor = 'white';
-      listTasks.children[index].classList.remove('selected');
+// Pinta item da lista, e remove cor do item da lista
+function teste2() {
+  listTasks.addEventListener('click', (event) => {
+    const myEvent = event.target;
+    const myItenlist = document.getElementsByTagName('li');
+    for (let index = 0; index < myItenlist.length; index += 1) {
+      myItenlist[index].classList.remove('selected');
     }
-  }
-  myEvent.classList.add('selected');
-  myEvent.style.backgroundColor = 'rgb(128, 128, 128)';
-});
+    myEvent.classList.add('selected');
+  });
+}
+teste2();
+
+// Risca item da lista.
+function teste3() {
+  listTasks.addEventListener('dblclick', (itemEvent) => {
+    const newEvent = itemEvent.target;
+    newEvent.classList.toggle('completed');
+  });
+}
+teste3();
