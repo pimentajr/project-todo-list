@@ -76,8 +76,12 @@ function completedEvent(event) {
   for (let index = 0; index < listElem.length; index += 1) {
     const aux = event;
     if (aux.target.style.textDecoration === 'line-through solid black') {
+      aux.target.classList.remove('completed');
       aux.target.style.textDecoration = null;
-    } else aux.target.style.textDecoration = 'line-through solid black';
+    } else {
+      aux.target.classList.add('completed');
+      aux.target.style.textDecoration = 'line-through solid black';
+    }
   }
 }
 
