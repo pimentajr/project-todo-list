@@ -10,6 +10,7 @@ function bindListeners() {
     .addEventListener('click', onClickAddButton);
 
   taskList.addEventListener('click', onClickTask);
+  taskList.addEventListener('dblclick', onDoubleClickTask);
 }
 
 function onClickAddButton() {
@@ -45,4 +46,8 @@ function unselectAllTasksUnless(task) {
     if (element === task) return;
     element.classList.remove('selected');
   });
+}
+
+function onDoubleClickTask(event) {
+  event.target.classList.toggle('completed');
 }
