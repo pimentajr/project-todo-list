@@ -50,18 +50,7 @@ deleteDoneBttn.addEventListener('click', () => {
 const saveBttn = document.querySelector('#salvar-tarefas');
 
 saveBttn.addEventListener('click', () => {
-    localStorage.setItem('tasks', taskOList.innerHTML);
-  // const getLi = document.querySelectorAll('li');
-  // const getTasks = document.querySelector('#lista-tarefas').innerHTML;
-  // for (let index = 0; index < getLi.length; index += 1) {
-  //   localStorage.setItem(index, getTasks);
-  // }
-
+  localStorage.setItem('tasks', taskOList.innerHTML);
 });
+
 taskOList.innerHTML = localStorage.getItem('tasks');
-// const getTasks = localStorage.length;
-// for (let getItemIndex = 0; getItemIndex < getTasks; getItemIndex +=1){
-//   const createLi = document.createElement('li');
-//   createLi.innerHTML = localStorage.getItem(getItemIndex);
-//   taskOList.appendChild(createLi);
-// }
