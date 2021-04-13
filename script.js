@@ -44,15 +44,29 @@ button.id = 'criar-tarefa';
 button.innerText = 'Criar Tarefa';
 
 function createListItem() {
-  const listItens = create('li');
-  add(list, listItens);
-  listItens.innerText = input.value;
+  const listItensAux = create('li');
+  listItensAux.id = 'list-item';
+  add(list, listItensAux);
+  listItensAux.innerText = input.value;
   input.value = null;
+}
+
+// Task 6
+// ordem padrão...
+
+// Task 7
+function clickColorList(event) {
+  const listElem = document.querySelectorAll('#list-item');
+  for (let index = 0; index < listElem.length; index += 1) {
+    const aux = event;
+    aux.target.style.background = 'rgb(128, 128, 128)';
+  }
 }
 
 // start function
 function start() {
   button.addEventListener('click', createListItem);
+  list.addEventListener('click', clickColorList);
 }
 
 // window.onload
