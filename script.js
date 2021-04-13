@@ -14,15 +14,16 @@ function createTaskList(text) {
   itenLi.innerHTML = text;
   taskList.appendChild(itenLi);
 }
+const classTask = 'task-selected';
 
 taskList.addEventListener('click', (event) => {
   const addSelected = event.target;
   const selectedSearch = document.querySelector('.task-selected');
   if (selectedSearch === null) {
-    addSelected.classList.add('task-selected');
+    addSelected.classList.add(classTask);
   } else if (selectedSearch !== null) {
-    selectedSearch.classList.remove('task-selected');
-    addSelected.classList.add('task-selected');
+    selectedSearch.classList.remove(classTask);
+    addSelected.classList.add(classTask);
   }
 });
 
@@ -87,7 +88,7 @@ downBtn.addEventListener('click', () => {
     const currentLi = selectedListSeacrh[index];
     if (currentLi.nextSibling === null) {
       break;
-    } else if (currentLi.className.includes('task-selected')) {
+    } else if (currentLi.className.includes(classTask)) {
       currentLi.parentNode.insertBefore(currentLi.nextSibling, currentLi);
     }
   }
