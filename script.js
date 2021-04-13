@@ -1,4 +1,4 @@
-function createP(){
+function createP(){ /// função que cria o paragrafo do titulo
   var slctDiv = document.querySelector('#paragraph')
   var crtElement = document.createElement('p')
   var newCnt = 'Clique duas vezes em um item para marcá-lo como completo'
@@ -9,7 +9,7 @@ function createP(){
 
 createP()
 
-function createLi(){
+function createLi(){ /// funçao que cria a lista
   var slctDiv = document.getElementById('list')
   var crtElement = document.createElement('ol')
   crtElement.setAttribute('id', 'lista-tarefas')
@@ -20,38 +20,36 @@ function createLi(){
 
 createLi()
 
-function createTask(){
+function createTask(){ /// função que adiciona o item na lista
   var input = document.querySelector('#texto-tarefa')
   var textInput = input.value;
   var list = document.querySelector('#lista-tarefas')
   var createLi = document.createElement('li')
-  createLi.className = 'item'
+  createLi.classList.add('item')
   createLi.innerText = textInput
   list.appendChild(createLi)
   input.value = ''
 }
 
-function infos(){
+function infos(){ /// função que seleciona o item na lista
   let clear = document.getElementsByClassName('selected')
   let lenght = clear.length
   if (lenght >= 1){
-    document.querySelector('.selected').className = 'item'
+    document.querySelector('.selected').classList.remove('selected')
   }
-  if (event.target.className === 'item completed'){
-    event.target.className = 'item completed selected'
-  } else {
-    event.target.setAttribute('class','item selected')
-    document.querySelector('.selected')
+  event.target.classList.add('selected')
+}
+
+function dbclick(){ /// função que marca como completo ou desmarca
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed')
+  } else{
+    event.target.classList.add('completed')
   }
 }
 
-function dbclick(){
-  if (event.target.className === 'item completed'){
-    event.target.className = 'item'
-  } else {
-    event.target.className = 'item completed'
-  }
-}
+// crtElement.setAttribute('onclick', 'infos()')
+// crtElement.addEventListener('dblclick', dbclick)
 
 
 
