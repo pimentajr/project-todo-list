@@ -17,18 +17,22 @@ buttonNewJob.addEventListener('click', function () {
 // Colocar fundo cinza em um item clicado
 ordenedList.addEventListener('click', function (event) {
   const itensList = document.querySelectorAll('.clicked');
-  for (let index = 0; index < itensList.length; index += 1) {
-    itensList[index].classList.remove('clicked');
+  if (event.target.classList.contains('Item-List')) {
+    for (let index = 0; index < itensList.length; index += 1) {
+     itensList[index].classList.remove('clicked');
+    }
+    event.target.classList.add('clicked');
   }
-  event.target.classList.add('clicked');
 });
 
 // Coloca um line-trough no item clicado 2x
 ordenedList.addEventListener('dblclick', function (event) {
-  if (event.target.classList.contains('completed') === true) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
+  if (event.target.classList.contains('Item-List')) {
+    if (event.target.classList.contains('completed') === true) {
+     event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
   }
 });
 
