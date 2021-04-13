@@ -1,6 +1,6 @@
 function elementFromInput() {
   const inputText = document.getElementById('texto-tarefa');
-  const listTask = document.getElementById('lista-tarefas');
+  const listTask = document.querySelector('#lista-tarefas');
   const createdIl = document.createElement('li');
   createdIl.innerText = inputText.value;
   listTask.appendChild(createdIl);
