@@ -2,18 +2,23 @@ const list = document.querySelector('#lista-tarefas');
 const inputV = document.querySelector('#texto-tarefa');
 const classPai = document.querySelector('.button');
 
-// Add Button
-function createButton() {
-  const creatB = document.createElement('button');
-  creatB.id = 'criar-tarefa';
-  creatB.className = 'list';
-  creatB.innerHTML = 'Adicionar Item a Lista';
-  classPai.appendChild(creatB);
+// Add Buttons
+function createButton(idName, htmlText) {
+  const creat = document.createElement('button');
+  creat.id = idName;
+  creat.innerHTML = htmlText;
+  classPai.appendChild(creat);
 }
 
-createButton();
+createButton('criar-tarefa', 'Adicionar Item a Lista');
+createButton('apaga-tudo', 'Deletar a lista');
+createButton('remover-finalizados', 'Apagar os concluidos!');
+createButton('remover-selecionado', 'Apagar Selecionado');
+createButton('mover-cima', 'Up');
+createButton('mover-baixo', 'Down');
 
 const buttonADD = document.querySelector('#criar-tarefa');
+
 // Função para pegar o valor do input e colocar dentro de uma li
 buttonADD.addEventListener('click', () => {
   const creatLi = document.createElement('li');
@@ -32,6 +37,7 @@ list.addEventListener('click', (event) => {
   event.target.classList.add('selected');
 });
 
+// add classe class complet
 function doubleClikc() {
   list.addEventListener('dblclick', (event) => {
     const myEvent = event.target;
@@ -45,16 +51,6 @@ function doubleClikc() {
 
 doubleClikc();
 
-// button
-function deleteAll() {
-  const del = document.createElement('button');
-  del.id = 'apaga-tudo';
-  del.innerHTML = 'Apagar Tudo!';
-  classPai.appendChild(del);
-}
-
-deleteAll();
-
 const delAll = document.querySelector('#apaga-tudo');
 
 delAll.addEventListener('click', () => {
@@ -63,16 +59,7 @@ delAll.addEventListener('click', () => {
   }
 });
 
-// button de deletar os completos
-function buttonClearCompleted() {
-  const buttonClear = document.createElement('button');
-  buttonClear.id = 'remover-finalizados';
-  buttonClear.innerHTML = 'Apagar os concluidos!';
-  classPai.appendChild(buttonClear);
-}
-
-buttonClearCompleted();
-
+// add função para deletar
 const getClearComplet = document.querySelector('#remover-finalizados');
 
 function dellCompleted() {
@@ -83,17 +70,6 @@ function dellCompleted() {
 }
 
 getClearComplet.addEventListener('click', dellCompleted);
-
-// remover item selecionado.
-
-function createdButtonSelect() {
-  const button2 = document.createElement('button');
-  button2.id = 'remover-selecionado';
-  button2.innerHTML = 'Apagar Selecionado';
-  classPai.appendChild(button2);
-}
-
-createdButtonSelect();
 
 function dellSelectedAll() {
   const selectedCless = document.querySelectorAll('.selected');
@@ -120,13 +96,44 @@ creatSaveButton();
 const buttonSave = document.querySelector('#salvar-tarefas');
 
 function saveList() {
-  buttonSave.addEventListener('click', () => {
-    localStorage.setItem('saveList', list.innerHTML);
-  });
+  localStorage.setItem('saveList', list.innerHTML);
+}
+
+function getSave() {
   const save = localStorage.getItem('saveList');
   if (save) {
     list.innerHTML = save;
   }
 }
 
-saveList();
+const pgUp = document.querySelector('#mover-cima');
+const listLi = document.getElementsByTagName('li');
+
+function moveup() {
+  for (let index = 0; index < listLi.length; index += 1) {
+    if (listLi[index].classList.contains('selected')
+    && listLi[index].previousElementSibling !== null) {
+      const listIndex = listLi[index];
+      list.insertBefore(listIndex, listIndex.previousElementSibling);
+    }
+  }
+}
+
+pgUp.addEventListener('click', moveup);
+
+function movedown() {
+  for (let index = listLi.length - 1; index >= 0; index -= 1) {
+    if (listLi[index].classList.contains('selected')
+    && listLi[index].nextElementSibling !== null) {
+      const listIndex2 = listLi[index];
+      list.insertBefore(listIndex2.nextElementSibling, listIndex2);
+    }
+  }
+}
+const pgdn = document.querySelector('#mover-baixo');
+
+pgdn.addEventListener('click', movedown);
+
+getSave();
+
+buttonSave.addEventListener('click', saveList);
