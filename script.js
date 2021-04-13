@@ -1,3 +1,11 @@
+window.onload = function() {
+    for (let index = 0; index < localStorage.length; index +=1 ) {
+       let keyValue = localStorage.getItem(JSON.stringify(index))
+       let liCriadaOnload = document.createElement('li');
+       liCriadaOnload.innerText = keyValue;
+       document.getElementById('lista-tarefas').appendChild(liCriadaOnload);
+    }
+}
 document.getElementById('criar-tarefa').addEventListener('click', function() {
     let liCriada = document.createElement('li');
     liCriada.innerText = document.getElementById('texto-tarefa').value;
@@ -39,3 +47,14 @@ function deleteSelected() {
 }
 
 document.querySelector('#remover-selecionado').addEventListener('click', deleteSelected);
+
+function saveList() {
+    const liList = document.querySelectorAll('li');
+    for (let index = 0; index < liList.length; index += 1) {
+        let keyString = JSON.stringify(index);
+        let valueString = liList[index].innerText;
+        localStorage.setItem(keyString, valueString);
+    }
+}
+
+document.querySelector('#salvar-tarefas').addEventListener('click', saveList);
