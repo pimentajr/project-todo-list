@@ -12,8 +12,8 @@ createP();
 
 function createLi() {
   /// funçao que cria a lista
-  let slctDiv = document.getElementById('list');
-  let crtElement = document.createElement('ol');
+  const slctDiv = document.getElementById('list');
+  const crtElement = document.createElement('ol');
   crtElement.setAttribute('id', 'lista-tarefas');
   crtElement.setAttribute('onclick', 'infos()');
   crtElement.addEventListener('dblclick', dbclick);
@@ -25,9 +25,9 @@ createLi();
 function createTask() {
   /// função que adiciona o item na lista
   const input = document.querySelector('#texto-tarefa');
-  let textInput = input.value;
+  const textInput = input.value;
   const list = document.querySelector('#lista-tarefas');
-  let createLi = document.createElement('li');
+  const createLi = document.createElement('li');
   createLi.classList.add('item');
   createLi.innerText = textInput;
   list.appendChild(createLi);
