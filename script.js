@@ -6,6 +6,9 @@ const cleanerButton = document.getElementById('apaga-tudo');
 const clearCompletedButton = document.getElementById('remover-finalizados');
 const completedTasks = document.getElementsByClassName('completed');
 const saveTaskButton = document.getElementById('salvar-tarefas');
+const downButton = document.getElementById('mover-baixo');
+const upButton = document.getElementById('mover-cima');
+let selectedTask;
 
 function emptyList() {
   if (sessionStorage.length > 2 || listItem.length !== 0) {
@@ -15,11 +18,13 @@ function emptyList() {
 emptyList();
 
 function paintTask(event) {
-  const el = event;
+  const el = event.target;
+
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].classList.remove('selected');
   }
-  el.target.classList.toggle('selected');
+  el.classList.toggle('selected');
+  [selectedTask] = [document.getElementsByClassName('selected')[0]];
 }
 
 function paintTaskChanger() {
@@ -119,8 +124,27 @@ function sessionToList() {
     taskList.appendChild(x);
   }
   lista = [''];
-  console.log(lista);
 }
+
+function moveUp() {
+  const el = selectedTask;
+  const index = Array.from(el.parentNode.children).indexOf(el) - 1;
+  const a = listItem[index];
+  if (index > -1) {
+    el.parentNode.insertBefore(el, a);
+  }
+}
+
+upButton.addEventListener('click', moveUp);
+
+function moveDown() {
+  const el = selectedTask;
+  const index = Array.from(el.parentNode.children).indexOf(el) + 2;
+  const b = listItem[index];
+  el.parentNode.insertBefore(el, b);
+}
+
+downButton.addEventListener('click', moveDown);
 
 window.onload = () => {
   sessionToList();
