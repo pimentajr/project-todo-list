@@ -1,10 +1,12 @@
+const taskList = document.querySelector('#lista-tarefas');
+
+
 // adiciona tarefa a partir do click no botão
 function addNewTask() {
   const insertTaskButton = document.querySelector('#criar-tarefa');
-  let taskContent = document.querySelector('#texto-tarefa');
+  const taskContent = document.querySelector('#texto-tarefa');
 
   insertTaskButton.addEventListener('click', function () {
-    const taskList = document.querySelector('#lista-tarefas');
     const newTask = document.createElement('li');
     newTask.innerText = taskContent.value;
     taskList.appendChild(newTask);
@@ -28,7 +30,6 @@ function removeBackgroundColor() {
 
 // altera cor de fundo do item da lista
 function changeTaskBackground() {
-  const taskList = document.querySelector('#lista-tarefas');
 
   taskList.addEventListener('click', function (event) {
     removeBackgroundColor();
@@ -38,21 +39,6 @@ function changeTaskBackground() {
 }
 
 changeTaskBackground();
-
-// risca item utilizando dois clicks
-function defineAsCompleted() {
-  const taskList = document.querySelector('#lista-tarefas');
-
-  taskList.addEventListener('dblclick', function (event) {
-    if (checkClassList(event.target) >= 1) {
-      event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
-    }
-  })
-}
-
-defineAsCompleted();
 
 // verifica se um determinado elemento possui a classe completed
 function checkClassList(element) {
@@ -66,6 +52,20 @@ function checkClassList(element) {
   }
   return classCompleted;
 }
+
+// risca item utilizando dois clicks
+function defineAsCompleted() {
+
+  taskList.addEventListener('dblclick', function (event) {
+    if (checkClassList(event.target) >= 1) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  })
+}
+
+defineAsCompleted();
 
 // apaga todas os items da lista de tarefa
 function eraseAllTasks() {
@@ -132,7 +132,7 @@ function moveDownTask() {
 
   getMoveDownButton.addEventListener('click', function () {
     let elementToChange = document.querySelector('.selected');
-    if (elementToChange.nextSibling !== null) {
+    if (elementToChange.nextSibling) {
       elementToChange.parentElement.insertBefore(elementToChange.nextSibling, elementToChange);
     }
   })
@@ -143,7 +143,7 @@ moveDownTask();
 function removeSelectedTask() {
   let removeTaskButton = document.querySelector('#remover-selecionado');
 
-  removeTaskButton.addEventListener('click', function() {
+  removeTaskButton.addEventListener('click', function () {
     let selectedClass = document.querySelector('.selected');
     selectedClass.remove();
   })
