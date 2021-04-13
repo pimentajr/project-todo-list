@@ -46,10 +46,10 @@ function removeAllClass(classToRemove) {
   }
 }
 
-// Cria função que adiciona classe highlight ao evento e remove dos outros
+// Cria função que adiciona classe selected ao evento e remove dos outros
 function clickItem (event) {
-  removeAllClass('highlight');
-  event.target.classList.add('highlight');
+  removeAllClass('selected');
+  event.target.classList.add('selected');
 }
 
 // Cria função que adiciona ou remove a classe completed
@@ -127,3 +127,23 @@ function removeCompletedButton() {
   })
 }
 removeCompletedButton()
+
+// Cria função que remove o item selecionado
+function deleteSelected() {
+  const selectedItems = document.querySelectorAll('.selected')
+  for (let index = 0; index < selectedItems.length; index += 1) {
+    selectedItems[index].remove();
+  }
+}
+
+function removeSelectedButton() {
+  const button = document.createElement('button');
+  button.id = 'remover-selecionado';
+  button.innerText = 'Remover';
+  document.querySelector('#firstsection').appendChild(button);
+  button.addEventListener('click', () => {
+    deleteSelected()
+  })
+}
+removeSelectedButton()
+
