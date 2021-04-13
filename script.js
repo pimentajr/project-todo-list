@@ -63,6 +63,11 @@ function clearFinish(){ /// função que limpa as tarefas completas
   }
 }
 
+function removeSelected(){
+  var selecteds = document.querySelector('.selected')
+  selecteds.remove();
+}
+
 
 // if(listF.length){
 //   listF[listF.length-1].remove();
