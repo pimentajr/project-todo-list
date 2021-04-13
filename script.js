@@ -11,16 +11,21 @@ function addTask() {
   if (text !== '') {
     const listItem = document.createElement('li');
     listItem.innerText = text;
+    listItem.className = 'listItem';
     taskList.appendChild(listItem);
     inputBlank();
   }
 }
 
 function highlight(origin) {
-  const listItem = origin.target;
-  listItem.style.backgroundColor = 'rgb(128, 128, 128)';
+  const itemList = document.getElementsByClassName('listItem');
+  for (let index = 0; index < itemList.length; index += 1) {
+    const item = itemList[index];
+    item.className = 'listItem';
+  }
+  const listItemOrigin = origin.target;
+  listItemOrigin.className = 'listItem selectLi';
 }
 
 addTaskButton.addEventListener('click', addTask);
-
 taskList.addEventListener('click', highlight);
