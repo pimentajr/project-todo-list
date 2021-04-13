@@ -27,15 +27,6 @@ function getInputFieldsFrom(container) {
   return inputFields;
 }
 
-function buildMainTaskListViewItem(task) {
-  const taskListItem = document.createElement('li');
-
-  taskListItem.classList.add('task');
-  taskListItem.id = `task-${task.addedOn}`;
-  taskListItem.innerHTML = task.title;
-  mainTaskListView.appendChild(taskListItem);
-}
-
 function isNumber(element) {
   if (element - (element - 1) === 1) {
     return true;
@@ -68,48 +59,5 @@ function sortTaskList(taskListArray) {
   }
 }
 
-function updateMainTaskListView() {
-  const retrievedTaskList = sessionStorage.getItem('taskList');
-
-  if (!retrievedTaskList) {
-    return;
-  }
-
-  const taskListArray = JSON.parse(retrievedTaskList);
-  sortTaskList(taskListArray);
-
-  mainTaskListView.innerHTML = '';
-  for (let index = 0; index < taskListArray.length; index += 1) {
-    const task = taskListArray[index];
-    buildMainTaskListViewItem(task);
-  }
-}
-
-function updateStorage(task) {
-  const retrievedTaskList = sessionStorage.getItem('taskList');
-
-  if (!retrievedTaskList) {
-    sessionStorage.setItem('taskList', JSON.stringify([task]));
-  } else {
-    const taskListArray = JSON.parse(retrievedTaskList);
-
-    taskListArray.push(task);
-    sessionStorage.setItem('taskList', JSON.stringify(taskListArray));
-  }
-}
-
-function addTask(event) {
-  const task = new Task();
-  const inputFieldsFromAddTaskForm = getInputFieldsFrom('#add-task-form');
-
-  task.title = inputFieldsFromAddTaskForm[0].value;
-  updateStorage(task);
-  updateMainTaskListView();
-  inputFieldsFromAddTaskForm[0].value = '';
-  event.preventDefault();
-}
-
 window.onload = () => {
-  updateMainTaskListView();
-  addTaskForm.addEventListener('submit', addTask);
 };
