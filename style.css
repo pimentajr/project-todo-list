@@ -1,0 +1,7 @@
+#lista-tarefas {
+  background-color: aqua;
+}
+
+.selected {
+  background-color: grey;
+}
