@@ -14,7 +14,7 @@ ol.addEventListener('click', (evento) => {
   const eve = evento.target;
   const li = document.getElementsByTagName('li');
   for (let index = 0; index < li.length; index += 1) {
-		li[index].classList.remove('select');
+    li[index].classList.remove('select');
   }
-	eve.classList.add('select');
+  eve.classList.add('select');
 });
