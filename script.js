@@ -14,9 +14,9 @@ getButton.addEventListener('click', function () {
 getLista.addEventListener('click', function (event) {
   const getLiItems = getLista.childNodes;
   for (let i = 0; i < getLiItems.length; i += 1) {
-    getLiItems[i].style.backgroundColor = 'white';
+    getLiItems[i].id = '';
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.id = 'selected';
 });
 
 // funcao doubleclick para riscar item
@@ -42,5 +42,17 @@ dltCmpltButton.addEventListener('click', function () {
     getLista.removeChild(getComplets[i]);
   }
 });
+
+// funcao botao que apaga selecionados
+const dltSlctdButton = document.querySelector('#remover-selecionado');
+dltSlctdButton.addEventListener('click', function() {
+  const getSelecteds = document.querySelectorAll('#selected');
+  for (let i = 0; i < getSelecteds.length; i += 1) {
+    getLista.removeChild(getSelecteds[i]);
+  }
+})
+
+
+
 
 
