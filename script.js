@@ -53,12 +53,11 @@ function inputTask() {
 // Apos tudo ser transformado em uma função devemos adicionar essa função ao evento click no botão Adicionar
 button.addEventListener('click', inputTask);
 
-// ex11
+// ex10
 // Função para apagar li
 function removeList() {
-  for (let index =0; index < taskList.childElementCount; index += 1) {
-    taskList.removeChild(taskList.lastChild);
-  }
+  // Consulta ao https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+  taskList.textContent = '';
 }
 // Adicioanr evento ao botaão com id apara-tudo com função de apagar li
 clearButton.addEventListener('click', removeList);
