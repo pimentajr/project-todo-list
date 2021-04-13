@@ -98,31 +98,28 @@ function saveTasks() {
   //   const obj = JSON.parse(sessionStorage.xd);
 }
 let lista = [];
-// function StoragelengthSize() {
-//   if (sessionStorage.length > 1) {
-//     taskList.innerHTML = '';
-//     for (let i = 0; i < sessionStorage.length - 1; i += 1) {
-//       lista.push(JSON.parse(sessionStorage[i]))
-//   }
-// }
-
-function sessionToList() {
+function StoragelengthSize() {
   if (sessionStorage.length > 1) {
     taskList.innerHTML = '';
     for (let i = 0; i < sessionStorage.length - 1; i += 1) {
       lista.push(JSON.parse(sessionStorage[i]));
-      const x = document.createElement('li');
-      x.classList.add('listItem');
-      x.innerText = lista[i][i];
-      if (lista[i].class === 'completed') {
-        x.classList.add('completed');
-      }
-      //   x.innerText = sessionStorage.getItem(i);
-      taskList.appendChild(x);
     }
-    lista = [''];
-    console.log(lista);
   }
+}
+function sessionToList() {
+  StoragelengthSize();
+  for (let i = 0; i < lista.length; i += 1) {
+    const x = document.createElement('li');
+    x.classList.add('listItem');
+    x.innerText = lista[i][i];
+    if (lista[i].class === 'completed') {
+      x.classList.add('completed');
+    }
+
+    taskList.appendChild(x);
+  }
+  lista = [''];
+  console.log(lista);
 }
 
 window.onload = () => {
