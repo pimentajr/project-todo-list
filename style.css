@@ -14,7 +14,7 @@ header {
   padding: 5px 0;
   min-width: 400px;
   max-width: 400px;
-  color: rgb(39, 38, 38);
+  color: black;
 }
 
 #funcionamento {
@@ -61,6 +61,15 @@ li {
   border-radius: 10px;
   background: darkslateblue;
   color: white;
-  margin-left: 10px;
+  margin-left: 5px;
+  padding: 3px 10px;
+}
+
+#salvar-tarefas {
+  border: 1px inset black;
+  border-radius: 10px;
+  background: darkslateblue;
+  color: white;
+  margin-left: 5px;
   padding: 3px 10px;
 }

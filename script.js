@@ -47,7 +47,7 @@ const buttonCreate = create('button');
 add(mainDiv, buttonCreate);
 
 buttonCreate.id = 'criar-tarefa';
-buttonCreate.innerText = 'Criar Tarefa';
+buttonCreate.innerText = 'Create';
 
 function createListItem() {
   const listItensAux = create('li');
@@ -83,7 +83,7 @@ function completedEvent(event) {
 // Task 10
 const removeButton = create('button');
 removeButton.id = 'apaga-tudo';
-removeButton.innerText = 'Apaga Tudo';
+removeButton.innerText = 'Clear All';
 add(body, removeButton);
 
 // Reference:
@@ -97,7 +97,7 @@ function removeList() {
 // Task 11
 const removeCompButton = create('button');
 removeCompButton.id = 'remover-finalizados';
-removeCompButton.innerText = 'Remover Finalizados';
+removeCompButton.innerText = 'Clear Completed';
 add(body, removeCompButton);
 
 // Reference:
@@ -110,11 +110,25 @@ function removeCompleted() {
   }
 }
 
+// Task 12
+const saveButton = create('button');
+saveButton.id = 'salvar-tarefas';
+saveButton.innerText = 'Save Item';
+add(body, saveButton);
+
+const loadList = document.getElementById('lista-tarefas');
+loadList.innerHTML = localStorage.getItem('list');
+
+function saveItem() {
+  localStorage.setItem('list', loadList.innerHTML);
+}
+
 // start function
 function start() {
   buttonCreate.addEventListener('click', createListItem);
   removeButton.addEventListener('click', removeList);
   removeCompButton.addEventListener('click', removeCompleted);
+  saveButton.addEventListener('click', saveItem);
   list.addEventListener('click', clickColorList);
   list.addEventListener('dblclick', completedEvent);
 }
