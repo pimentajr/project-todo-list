@@ -87,12 +87,12 @@ storageItens();
 
 // Requisito 13 - Botões para mover para cima e para baixo
 function moveUp() {
-  let allItens = document.querySelectorAll('li');
   const moveUpButton = document.getElementById('mover-cima');
   moveUpButton.addEventListener('click', () => {
+    const allItens = document.querySelectorAll('li');
     for (let index = 1; index < allItens.length; index += 1) {
       if (allItens[index].style.backgroundColor === grayColor) {
-        allList.insertBefore(allItens[index], allItens[(index-1)]);
+        allList.insertBefore(allItens[index], allItens[(index - 1)]);
       }
     }
   });
@@ -100,20 +100,14 @@ function moveUp() {
 moveUp();
 
 function moveDown() {
-  let allItens = document.querySelectorAll('li');
   const moveDownButton = document.getElementById('mover-baixo');
   moveDownButton.addEventListener('click', () => {
+    const allItens = document.querySelectorAll('li');
     for (let index = 0; index < (allItens.length - 1); index += 1) {
       if (allItens[index].style.backgroundColor === grayColor) {
-        allList.insertBefore(allItens[index+1], allItens[index]);
+        allList.insertBefore(allItens[index + 1], allItens[index]);
       }
     }
   });
 }
 moveDown();
-     
-
-
-
-
-
