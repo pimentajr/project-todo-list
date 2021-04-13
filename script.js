@@ -94,3 +94,33 @@ function carregarLista() {
 salvaTarefas.addEventListener('click', salvarTarefas);
 
 carregarLista();
+
+const moveParaBaixo = document.querySelector('#mover-baixo');
+const moveParaCima = document.querySelector('#mover-cima');
+
+function moverParaBaixo() {
+  const tarefaSelecionada = document.querySelector('.selected');
+
+  if (tarefaSelecionada) {
+    const proximoElemento = tarefaSelecionada.nextElementSibling;
+
+    if (proximoElemento !== null) {
+      proximoElemento.insertAdjacentElement('afterend', tarefaSelecionada);
+    }
+  }
+}
+
+function moverParaCima() {
+  const tarefaSelecionada = document.querySelector('.selected');
+
+  if (tarefaSelecionada) {
+    const elementoAnterior = tarefaSelecionada.previousElementSibling;
+
+    if (elementoAnterior !== null) {
+      listaTarefas.insertBefore(tarefaSelecionada, elementoAnterior);
+    }
+  }
+}
+
+moveParaBaixo.addEventListener('click', moverParaBaixo);
+moveParaCima.addEventListener('click', moverParaCima);
