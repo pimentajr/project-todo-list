@@ -3,6 +3,8 @@ const taskNameInput = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
 const btnDeleteTasks = document.getElementById('apaga-tudo');
 const btnDeleteCompletedTasks = document.getElementById('remover-finalizados');
+const btnSaveTaskList = document.getElementById('salvar-tarefas');
+const btnTeste = document.getElementById('teste');
 
 function changeBackgroundColorTask(event) {
   for (let tarefa = 0; tarefa < jobList.children.length; tarefa += 1) {
@@ -48,3 +50,19 @@ function deleteCompletedTasks() {
 }
 
 btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTasks);
+
+// Salva a lista no PC do usuário.
+function saveList() {
+  localStorage.clear();
+  for (let existingTask = 0; existingTask < jobList.children.length; existingTask += 1) {
+    localStorage.setItem('list', jobList.innerHTML);
+  }
+}
+
+btnSaveTaskList.addEventListener('click', saveList);
+
+btnTeste.addEventListener('click', printLocalStorage);
+
+window.onload = function retrieveTasks() {
+  jobList.innerHTML = localStorage.getItem('list');
+}
