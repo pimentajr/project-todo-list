@@ -22,11 +22,9 @@ function changeItemColor(evento) {
 for (let index = 0; index < colorUl.children.length; index +=1) {
     if (colorUl.children[index] !== evento.target){
         colorUl.children[index].style.backgroundColor = 'transparent';
-        colorUl.children[index].classList.remove('selected');
     }
 }
    evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
-   evento.target.classList.add('selected')
 }
 colorUl.addEventListener('click', changeItemColor);
 changeItemColor ();
