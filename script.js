@@ -54,6 +54,7 @@ function defineAsCompleted() {
 
 defineAsCompleted();
 
+// verifica se um determinado elemento possui a classe completed
 function checkClassList(element) {
   let classList = element.classList;
   let classCompleted = 0;
@@ -66,6 +67,7 @@ function checkClassList(element) {
   return classCompleted;
 }
 
+// apaga todas os items da lista de tarefa
 function eraseAllTasks() {
   const getEraseButton = document.querySelector('#apaga-tudo');
 
@@ -76,3 +78,18 @@ function eraseAllTasks() {
 }
 
 eraseAllTasks();
+
+// apaga todos os items com classe completed
+function eraseCompletedTasks() {
+  const getEraseCompletedButton = document.querySelector('#remover-finalizados');
+
+  getEraseCompletedButton.addEventListener('click', function() {
+    let getCompletedTasks = document.getElementsByClassName('completed');
+    for (index = 0; index < getCompletedTasks.length; index += 1) {
+      getCompletedTasks[index].remove();
+    }
+  })
+}
+
+eraseCompletedTasks();
+
