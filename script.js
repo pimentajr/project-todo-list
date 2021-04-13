@@ -3,6 +3,8 @@ const taskList = document.getElementById('lista-tarefas');
 const btnsContainer = document.getElementById('btns-container');
 const createTask = document.getElementById('criar-tarefa');
 const savedListStorage = localStorage.getItem('savedListStorage');
+const upMove = document.getElementById('mover-cima');
+const downMove = document.querySelector('#mover-baixo');
 
 // Cria um novo item da lista OL e limpa o campo de input
 function createNewTask() {
@@ -22,7 +24,7 @@ createNewTask();
 function taskSelector() {
   taskList.addEventListener('click', (event) => {
     const selectedItem = event.target;
-    const previouSelectedItem = document.querySelector('.selected');
+    const previouSelectedItem = document.querySelector('.selected');;
     if (previouSelectedItem) {
       previouSelectedItem.classList.remove('selected');
     }
@@ -74,14 +76,14 @@ function saveTasks() {
   saveButton.addEventListener('click', () => {
     localStorage.clear();
     localStorage.savedListStorage = taskList.innerHTML;
-    alert('Sua lista foi salva!');
+    console.log('Sua lista foi salva!');
   });
 }
 saveTasks();
 
 // Remove as classes selected e completed adicionadas aos itens
 function removeClasses() {
-  const itemSelected = document.querySelector('.selected');
+  let itemSelected = document.querySelector('.selected');
   if (itemSelected) itemSelected.classList.remove('selected');
 }
 
@@ -94,6 +96,27 @@ function restoreTasks() {
 // Lista de funções que serão carregadas ao abrir o site
 function loadsite() {
   restoreTasks();
-  if (savedListStorage) alert('Lista carregada com sucesso!');
+  if (savedListStorage) console.log('Lista carregada com sucesso!');
 }
-window.onload = loadsite;
+window.onload = loadsite
+
+// Leva os itens para cima ou para baixo
+function moveItens() {
+  upMove.addEventListener('click', () => {
+    let items = document.getElementsByClassName('item');
+    const itemSelected = document.querySelector('.selected');
+    if (itemSelected && (itemSelected !== items[0])) {
+      console.log('move item pra cima');
+      taskList.insertBefore(itemSelected, itemSelected.previousElementSibling);
+    }
+  });
+  downMove.addEventListener('click', () => {
+    let items = document.getElementsByClassName('item');
+    const itemSelected = document.querySelector('.selected');
+    if (itemSelected && (itemSelected !== items[items.length - 1])) {
+      console.log('move item pra baixo');
+      taskList.insertBefore(itemSelected, itemSelected.nextElementSibling.nextElementSibling);
+    }
+  });
+}
+moveItens();
