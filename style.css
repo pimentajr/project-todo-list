@@ -18,8 +18,12 @@ header {
   margin-left: 10px;
 }
 
+#main {
+  display: inline-block;
+}
+
 #texto-tarefa {
-  width: 380px;
+  width: 200px;
   height: 15px;
   margin-left: 10px;
 }
@@ -33,9 +37,10 @@ header {
 }
 
 #apaga-tudo {
+  display: block;
   border-radius: 10px;
   background: darkred;
   color: white;
-  margin-left: 5px;
+  margin-left: 10px;
   padding: 3px 10px;
 }

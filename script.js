@@ -25,8 +25,13 @@ descrp.id = 'funcionamento';
 descrp.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 
 // Task 3
+
+const mainDiv = create('div');
+mainDiv.id = 'main';
+add(body, mainDiv);
+
 const input = create('input');
-add(body, input);
+add(mainDiv, input);
 
 input.id = 'texto-tarefa';
 
@@ -39,7 +44,7 @@ list.id = 'lista-tarefas';
 
 // Task 5
 const buttonCreate = create('button');
-add(body, buttonCreate);
+add(mainDiv, buttonCreate);
 
 buttonCreate.id = 'criar-tarefa';
 buttonCreate.innerText = 'Criar Tarefa';
@@ -87,6 +92,11 @@ function removeList() {
   while (listRemove.hasChildNodes()) {
     list.removeChild(list.firstChild);
   }
+}
+
+// Task 11
+function removeCompleted() {
+
 }
 
 // start function
