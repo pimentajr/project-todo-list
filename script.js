@@ -86,7 +86,7 @@ btnUp.addEventListener('click', moveTaskUp);
 function deleteSelectedTask() {
   const selectedTask = document.getElementById('selectedTask');
   if (selectedTask) {
-  selectedTask.remove();
+    selectedTask.remove();
   }
 }
 
