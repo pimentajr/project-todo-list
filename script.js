@@ -54,14 +54,7 @@ function clickItem (event) {
 
 // Cria função que adiciona ou remove a classe completed
 function toggleCompletedTask(event) {
-  if (event.target.className.includes('completed') === false) {
-    event.target.classList.add('completed');
-  } else {
-    event.target.classList.remove('completed');
-  }
-  // Verifica se event.target possui a classe completed
-  // Se possuir, retira essa classe
-  // Senão, adiciona essa classe
+  event.target.classList.toggle("completed")
 }
 
 // Adiciona função ao botão Adicionar
@@ -115,3 +108,22 @@ function cleanButton() {
   });
 }
 cleanButton();
+
+// Cria função que apaga os itens realizados da lista
+function finish() {
+  const completedItems = document.querySelectorAll('.completed')
+  for (let index = 0; index < completedItems.length; index += 1) {
+    completedItems[index].remove();
+  }
+}
+// Criar um botão que remove os itens finalizados
+function removeCompletedButton() {
+  const button = document.createElement('button');
+  button.id = 'remover-finalizados';
+  button.innerText = 'Finalizar';
+  document.querySelector('#firstsection').appendChild(button);
+  button.addEventListener('click', () => {
+    finish()
+  })
+}
+removeCompletedButton()
