@@ -1,4 +1,3 @@
-
 // referencia para a manipulação do input 'https://www.w3schools.com/jsref/dom_obj_text.asp'
 // limpa a barra de inserir texto
 function clearTextInput() {
@@ -9,7 +8,7 @@ function clearTextInput() {
 function unselectLi() {
   const createLiArray = document.querySelectorAll('li');
   for ( let i = 0; i < createLiArray.length; i += 1) {
-    createLiArray[i].addEventListener('click',function removebackground() {
+    createLiArray[i].addEventListener('click', function removebackground() {
       const itemListSelected = document.querySelector('.selected');
       if (itemListSelected !== null) {
         itemListSelected.classList.remove('selected');
@@ -18,12 +17,12 @@ function unselectLi() {
   }
 }
 
-//adiciona destaque ao item selecionado
+// adiciona destaque ao item selecionado
 function selectLi() {
   const createLiArray = document.querySelectorAll('li');
   for ( let i = 0; i < createLiArray.length; i += 1) {
     createLiArray[i].addEventListener('click', function backgroundChange() {
-      createLiArray[i].className = 'selected';
+      createLiArray[i].classList.add('selected');
     })
   }
 }
@@ -43,27 +42,17 @@ if (inputCamp !== ''){
   clearTextInput();
   unselectLi();
   selectLi();
+
   function lineCompleted() {
     let locateSelectedItens = document.querySelectorAll('li');
-      if (locateSelectedItens.length !== 0) {
-        for(let i = 0; i < locateSelectedItens.length; i += 1){
-          locateSelectedItens[i].addEventListener('dblclick', function dubleClickAction() {
-            locateSelectedItens[i].classList.add('completed');
-          })
-        }
-      }
+    for(let i = 0; i < locateSelectedItens.length; i += 1){
+      locateSelectedItens[i].addEventListener('dblclick', function dubleClickAction() {
+          // testar o toggle
+            locateSelectedItens[i].classList.toggle('completed');
+        })
+
+    }
   }
-  function unlineCompleted() {
-    let locateSelectedItens = document.querySelectorAll('li');
-      if (locateSelectedItens.length !== 0) {
-        for(let i = 0; i < locateSelectedItens.length; i += 1){
-          locateSelectedItens[i].addEventListener('dblclick', function dubleClickAction() {
-            locateSelectedItens[i].classList.remove('completed');
-          })
-        }
-      }
-  }
-  unlineCompleted();
   lineCompleted();
 }
 });
