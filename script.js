@@ -50,7 +50,7 @@ selectTasks();
 function itemCompleted() {
   selectList.addEventListener('dblclick', (element) => {
     const eventTarget = element.target;
-    eventTarget.classList.toggle('complete');
+    eventTarget.classList.toggle('completed');
   });
 }
 itemCompleted();

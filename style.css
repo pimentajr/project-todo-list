@@ -32,6 +32,6 @@ li {
   background-color: gray;
 }
 
-.complete {
+.completed {
   text-decoration: line-through solid black;
 }
