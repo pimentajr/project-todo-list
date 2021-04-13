@@ -52,6 +52,13 @@ dltSlctdButton.addEventListener('click', function() {
   }
 })
 
+// funcao botao salvar lista
+const getSaveBtn = document.querySelector('#salvar-tarefas');
+getLista.innerHTML = localStorage.getItem('lista');
+getSaveBtn.addEventListener('click', function() {
+  localStorage.setItem('lista', getLista.innerHTML)
+});
+
 
 
 
