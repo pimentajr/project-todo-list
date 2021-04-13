@@ -1,5 +1,24 @@
 const list = document.getElementById('lista-tarefas');
 
+function storeList() {
+  const button = document.getElementById('salvar-tarefas');
+
+  button.addEventListener('click', () => {
+    window.localStorage.myList = list.innerHTML;
+  });
+}
+
+function getList() {
+  let myList = window.localStorage.myList;
+
+  if(!myList) {
+    list.innerHTML = '';
+  }
+  else {
+    list.innerHTML = myList;
+  }
+}
+
 function addListItem() {
   const button = document.getElementById('criar-tarefa');
   const input = document.getElementById('texto-tarefa');
@@ -10,6 +29,7 @@ function addListItem() {
     listItem.innerText = input.value;
     list.appendChild(listItem);
     input.value = '';
+    storeList();
   });
 }
 
@@ -37,6 +57,7 @@ function completeItem() {
     } else if (e.target.className !== 'tarefa completed') {
       e.target.classList.add('completed');
     }
+    storeList();
   });
 }
 
@@ -45,12 +66,13 @@ function removeEverything() {
 
   button.addEventListener('click', () => {
     list.innerHTML = '';
+    storeList();
   });
 }
 
 function removeCompleted() {
   const button = document.getElementById('remover-finalizados');
-  let completed = document.getElementsByClassName('completed');
+  const completed = document.getElementsByClassName('completed');
 
   button.addEventListener('click', () => {
     while (completed.length > 0) {
@@ -58,6 +80,7 @@ function removeCompleted() {
       list.removeChild(completed[i]);
       i += 1;
     }
+    storeList();
   });
 }
 
@@ -66,3 +89,4 @@ selectItem();
 completeItem();
 removeEverything();
 removeCompleted();
+getList();
