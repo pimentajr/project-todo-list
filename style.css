@@ -1,15 +1,19 @@
 header {
   text-align: center;
-  background-color: #2ec18c;
+  background-color: rgb(46 , 193 , 140);
+  margin-left: -0.47em;
+  margin-right: -0.47em;
+  margin-top: -1.31em;
+  border: 1px solid rgb(46 , 193 , 140);
 }
 
-#title{
+#title {
   margin-bottom: -20px;
 }
 
-#funcionamento{
+#funcionamento {
   text-align: center;
-  color: rgb(102, 102, 102);
+  color: rgb(66 , 66 , 66);
 }
 
 #adicionarTarefa {
