@@ -11,7 +11,8 @@ const button = document.getElementById('criar-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
 const removeThroughLine = document.getElementById('remover-finalizados');
 const saveButoon = document.getElementById('salvar-tarefas');
-
+const previousButoon = document.getElementById('mover-cima');
+const nextButoon = document.getElementById('mover-baixo');
 // Carregando o conteudo do localStorage na page
 // PEgar o local storage
 // Atribuir a lista
@@ -78,3 +79,28 @@ function saveList() {
   localStorage.setItem('list', taskList.innerHTML);
 }
 saveButoon.addEventListener('click', saveList);
+
+// 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+// Esse mover pra cima e pra baixo pode ser feito com enxsublin ou previews.
+// O que faz aparentar o selecionado é a class selected. Fazer o comando mover o selected para o seu irmao proximo ou anterior
+
+// O que será verificado:
+//Será verificado que, dado que diversos elementos foram acrescentados à lista, movimentá-los de formas diversas os deixa nas posições esperadas
+// Pega a classe selecionada e da um toggle para trocar.
+let selectedButton = document.getElementsByClassName('selected');
+
+
+// Passa selecionado para o proximo botão.
+// Adiciona escutador para responder ao click do botão correto.
+
+
+
+
+
+//Será verificado que, caso algum elemento esteja finalizado, este status deve persistir ainda que se mova o elemento
+
+//Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botões não altera a lista
+
+//Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
+
+//Caso especial! Será verificado que, caso se tente subir o elemento no topo da lista ou, caso se tente descer o último elemento da lista, esta não deve ser alterada
