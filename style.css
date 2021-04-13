@@ -1,8 +1,9 @@
 body {
-  background-color: rgb(81, 255, 0);
+  background-color: rgb(81,255,0);
 }
+
 #corpo {
-  background-color: rgb(25, 185, 25);
+  background-color: rgb(25,185,25);
   border: white solid 5px;
   border-radius: 30px;
   width: auto;
@@ -11,11 +12,12 @@ body {
 #comandos {
   display: inline-block;
   margin-left: 150px;
-  
 }
+
 .completed {
   text-decoration: line-through;
 }
+
 .itens {
   background-color: grey;
 }

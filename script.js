@@ -61,13 +61,13 @@ function remover() {
 }
 removerSelec.addEventListener('click', remover);
 
-function removerFinalizados() {
+function limparLista() {
   const liItem = document.querySelectorAll('.completed');
   for (let index = 0; index < liItem.length; index += 1) {
     liItem[index].parentNode.removeChild(liItem[index]);
   }
 }
-finalizados.addEventListener('click', removerFinalizados);
+finalizados.addEventListener('click', limparLista);
 
 function paraCima() {
   const liItem = document.querySelectorAll('.itens');
