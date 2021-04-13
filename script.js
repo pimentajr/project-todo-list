@@ -8,3 +8,6 @@ function criacaoDeTarefas() {
   lista.appendChild(item);
   input.value = '';
 }
+function apagaTudo() {
+    lista.innerHTML = '';
+}
