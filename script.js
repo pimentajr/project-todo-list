@@ -76,4 +76,38 @@ function finished(){
 }
 finished();
 
+function buttonClear(clearName){
+
+  let button = document.createElement('button');
+  button.id = 'apaga-tudo';
+  button.innerText = clearName;
+  section1.appendChild(button);
+
+  button.addEventListener('click',function(){
+ 
+    let items = document.querySelectorAll('.list-item');
+
+    for(let index = 0; index < items.length; index += 1) {
+      items[index].parentNode.removeChild(items[index]);
+    }
+  })
+}
+
+buttonClear('Limpar Lista');
+
+function buttonFinished(finishedName){
+  let buttonF = document.createElement('button');
+  buttonF.id = 'remover-finalizados';
+  buttonF.innerText = finishedName;
+  section1.appendChild(buttonF);
+
+  buttonF.addEventListener('click',function(){
+    let finishedItems = document.querySelectorAll('.completed');
+    for(let index = 0; index < finishedItems.length; index +=1){
+      finishedItems[index].parentNode.removeChild(finishedItems[index]);
+    }
+  })
+}
+buttonFinished('Remover Finalizados');
+
 

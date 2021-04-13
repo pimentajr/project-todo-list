@@ -29,6 +29,5 @@ font-size: 16px;
 
 .completed{
   text-decoration: line-through;
-  background-color: aqua;
   color: rgb(0, 0, 0); 
 }
