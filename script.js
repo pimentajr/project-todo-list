@@ -3,6 +3,7 @@ const addButton = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const itemsOfList = document.getElementsByTagName('li');
 const clearAllButton = document.getElementById('apaga-tudo');
+const finishedButton = document.getElementById('remover-finalizados');
 
 // Adiciona itens à lista
 // Para adição de enter na lista, foi consultada a documentação em W3Schools sobre ações usando o "Enter"
@@ -49,10 +50,21 @@ function addSerrated() {
 }
 addSerrated();
 
-// Questão 10
+// Apaga tudo
 function clearAll() {
   clearAllButton.addEventListener('click', () => {
     list.innerHTML = '';
   });
 }
 clearAll();
+
+// Apaga selecionados
+function clearSelected() {
+ finishedButton.addEventListener('click', () => {
+   let completedList = document.querySelectorAll('.completed');
+   for (i = 0; i < teste.length; i += 1) {
+     completedList[i].remove();
+   }
+ });
+}
+clearSelected();
