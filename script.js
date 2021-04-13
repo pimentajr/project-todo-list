@@ -93,14 +93,16 @@ function moveTaskUp() {
   allTasks = document.querySelectorAll('#lista-tarefas li');
   let taskPosition = 0;
   const selectedTask = document.querySelector('.selected');
-  for (let index = 0; index < allTasks.length; index += 1) {
-    if (allTasks[index].classList.contains('selected')) {
-      taskPosition = index;
-      break;
+  if (selectedTask !== null) {
+    for (let index = 0; index < allTasks.length; index += 1) {
+      if (allTasks[index].classList.contains('selected')) {
+        taskPosition = index;
+        break;
+      }
     }
-  }
-  if (taskPosition !== 0) {
-    tasksList.insertBefore(selectedTask, tasksList.childNodes[taskPosition - 1]);
+    if (taskPosition !== 0) {
+      tasksList.insertBefore(selectedTask, tasksList.childNodes[taskPosition - 1]);
+    }
   }
 }
 
@@ -108,14 +110,16 @@ function moveTaskDown() {
   allTasks = document.querySelectorAll('#lista-tarefas li');
   let taskPosition = 0;
   const selectedTask = document.querySelector('.selected');
-  for (let index = 0; index < allTasks.length; index += 1) {
-    if (allTasks[index].classList.contains('selected')) {
-      taskPosition = index;
-      break;
+  if (selectedTask !== null) {
+    for (let index = 0; index < allTasks.length; index += 1) {
+      if (allTasks[index].classList.contains('selected')) {
+        taskPosition = index;
+        break;
+      }
     }
-  }
-  if (taskPosition !== (allTasks.length - 1)) {
-    tasksList.insertBefore(selectedTask, tasksList.childNodes[taskPosition + 2]);
+    if (taskPosition !== (allTasks.length - 1)) {
+      tasksList.insertBefore(selectedTask, tasksList.childNodes[taskPosition + 2]);
+    }
   }
 }
 
