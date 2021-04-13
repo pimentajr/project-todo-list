@@ -1,16 +1,16 @@
 * {
-	text-align: center;
+  text-align: center;
 }
 
 .itlist {
-	height: 40px;
-	font-size: 20px;
+  height: 40px;
+  font-size: 20px;
 }
 
 .active {
-	background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 .completed {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
