@@ -5,9 +5,10 @@ const listItem = document.getElementsByClassName('listItem');
 const cleanerButton = document.getElementById('apaga-tudo');
 const clearCompletedButton = document.getElementById('remover-finalizados');
 const completedTasks = document.getElementsByClassName('completed');
+const saveTaskButton = document.getElementById('salvar-tarefas');
 
 function emptyList() {
-  if (listItem.length !== 0) {
+  if (sessionStorage.length > 2 || listItem.length !== 0) {
     taskList.removeAttribute('hidden');
   }
 }
@@ -18,7 +19,7 @@ function paintTask(event) {
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].classList.remove('selected');
   }
-  el.target.classList.add('selected');
+  el.target.classList.toggle('selected');
 }
 
 function paintTaskChanger() {
@@ -38,15 +39,18 @@ function strikeThroughChanger() {
   }
 }
 
+function actionMoves() {
+  strikeThroughChanger();
+  paintTaskChanger();
+  emptyList();
+}
+
 function CreateTask() {
   const x = document.createElement('li');
   x.setAttribute('class', 'listItem');
   x.innerText = inputField.value;
-
   taskList.appendChild(x);
-  paintTaskChanger();
-  emptyList();
-  strikeThroughChanger();
+  actionMoves();
 
   if (x.innerText === '') {
     alert('ERRO');
@@ -72,3 +76,29 @@ function clearCompleted() {
 }
 
 clearCompletedButton.addEventListener('click', clearCompleted);
+
+function saveTasks() {
+  for (let i = 0; i < listItem.length; i += 1) {
+    const x = String(i);
+    const y = String(listItem[i].innerText);
+    sessionStorage.setItem(`${x}`, `${y}`);
+  }
+}
+
+function sessionToList() {
+  if (sessionStorage.length > 1) {
+    taskList.innerHTML = '';
+    for (let i = 0; i < sessionStorage.length - 1; i += 1) {
+      const x = document.createElement('li');
+      x.setAttribute('class', 'listItem');
+      x.innerText = sessionStorage.getItem(i);
+      taskList.appendChild(x);
+    }
+  }
+}
+
+window.onload = () => {
+  sessionToList();
+  actionMoves();
+};
+saveTaskButton.addEventListener('click', saveTasks);
