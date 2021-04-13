@@ -3,6 +3,9 @@ const taskNameInput = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
 const btnDeleteTasks = document.getElementById('apaga-tudo');
 const btnDeleteCompletedTasks = document.getElementById('remover-finalizados');
+const btnSaveTasks = document.getElementById('salvar-tarefas');
+
+jobList.innerHTML = localStorage.getItem('list');
 
 function changeBackgroundColorTask(event) {
   for (let tarefa = 0; tarefa < jobList.children.length; tarefa += 1) {
@@ -16,13 +19,16 @@ function completedTask(event) {
   event.target.classList.toggle('completed');
 }
 
+jobList.addEventListener('click', changeBackgroundColorTask);
+jobList.addEventListener('dblclick', completedTask);
+
 // Adiciona a task ao clicar no botao.
 function addTask() {
   const taskToBeAdded = document.createElement('li');
   taskToBeAdded.innerText = taskNameInput.value;
   taskToBeAdded.setAttribute('class', 'task');
-  taskToBeAdded.addEventListener('click', changeBackgroundColorTask);
-  taskToBeAdded.addEventListener('dblclick', completedTask);
+  //taskToBeAdded.addEventListener('click', changeBackgroundColorTask);
+  //taskToBeAdded.addEventListener('dblclick', completedTask);
   jobList.appendChild(taskToBeAdded);
 
   taskNameInput.value = '';
@@ -35,6 +41,7 @@ function deleteAllTasks() {
   while (jobList.children.length > 0) {
     jobList.children[0].remove();
   }
+  localStorage.clear();
 }
 
 btnDeleteTasks.addEventListener('click', deleteAllTasks);
@@ -48,3 +55,10 @@ function deleteCompletedTasks() {
 }
 
 btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTasks);
+
+// Salva a lista no locaStorage.
+function saveCurrentList() {
+  localStorage.setItem('list', jobList.innerHTML);
+}
+
+btnSaveTasks.addEventListener('click', saveCurrentList);
