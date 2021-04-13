@@ -4,7 +4,6 @@ function clearSelected() {
   const clearItem = document.querySelectorAll('#todo');
   for (let index = 0; index < clearItem.length; index += 1) {
     clearItem[index].style.backgroundColor = null;
-    clearItem[index].classList.remove('bgColor-gray');
   }
 }
 
@@ -12,7 +11,6 @@ function changeBgColor(event) {
   clearSelected();
   const task = event.target;
   task.style.backgroundColor = 'rgb(128,128,128)';
-  task.classList.add('bgColor-gray');
 }
 
 function checkListItem(event) {
@@ -48,7 +46,7 @@ function findCheckedItem() {
   const li = document.querySelectorAll('#todo');
   for (let index = 0; index < li.length; index += 1) {
     if (li[index].classList.contains('completed')) {
-      ol.removeChild(li[index]);
+      li[index].remove();
     }
   }
 }
@@ -61,7 +59,7 @@ function removeCheckedItem() {
 function findSelected() {
   const toDoItem = document.querySelectorAll('#todo');
   for (let index = 0; index < toDoItem.length; index += 1) {
-    if (toDoItem[index].classList.contains('bgColor-gray')) {
+    if (toDoItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       ol.removeChild(toDoItem[index]);
     }
   }
