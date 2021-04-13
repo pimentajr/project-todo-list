@@ -13,7 +13,12 @@ criarTarefa.addEventListener('click', () => {
 //7
 function selectedItem() {
     listaTarefa.addEventListener('click', (event) => {
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        const evTarget = event.target;
+        const itemSelecionado = document.querySelector('.selected');
+        if (itemSelecionado) {
+            itemSelecionado.classList.remove('selected');
+        } 
+        evTarget.classList.add('selected');
     })
 }
 
