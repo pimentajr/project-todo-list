@@ -51,7 +51,7 @@ buttonClearCompleted.addEventListener('click', removeCompleted);
 
 const salveButton = document.getElementById('salvar-tarefas');
 
-  //  consegui com a ajuda de meu colega Luíz Wendel
+//  consegui com a ajuda de meu colega Luíz Wendel
 function saveTask() {
   localStorage.setItem('saveTask', taskList.innerHTML);
 }
@@ -62,4 +62,4 @@ function load() {
 
 salveButton.addEventListener('click', saveTask);
 
-load ();
+load();
