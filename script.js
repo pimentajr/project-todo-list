@@ -33,7 +33,6 @@ function selectedLiItem(event) {
 const taskList = document.getElementById('lista-tarefas');
 taskList.addEventListener('click', selectedLiItem);
 
-
 // ->> Ajuda da Mih
 function doneTask(event) {
   const completedTask = event.target.classList.contains('completed');
@@ -57,12 +56,11 @@ const cleanButton = document.getElementById('apaga-tudo');
 cleanButton.addEventListener('click', cleanList);
 
 function removeCompleted() {
-  const finished = document.getElementsByClassName('completed');
-  for (let index = 0; index < finished.length; index++) {
-    const completedList = document.getElementById('lista-tarefas');
-    completedList.removeChild(finished[index]);
+  const finished = document.querySelectorAll('.completed');
+  for (let index = 0; index < finished.length; index += 1) {
+    finished[index].remove();
   }
 }
 
 const finishButton = document.getElementById('remover-finalizados');
-finishButton.addEventListener('click',removeCompleted);
+finishButton.addEventListener('click', removeCompleted);
