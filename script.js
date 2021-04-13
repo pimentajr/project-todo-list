@@ -20,7 +20,6 @@ function adicionaCor(event) {
 
 function criarLi() {
   li = tags('li');
-  li.setAttribute('class', 'itens');
   li.appendChild(document.createTextNode(entrada.value));
   li.addEventListener('click', adicionaCor);
   li.addEventListener('dblclick', tarefaConcluida);
@@ -36,8 +35,9 @@ function adicionar() {
 adicionar();
 
 function selecionaClasse(event) {
-  for (let index = 0; index < ol.length; index += 1) {
-    li[index].classList.remove('itens');
+  const atribuiClasse = document.querySelectorAll('.itens');
+  for (let index = 0; index < atribuiClasse.length; index += 1) {
+    atribuiClasse[index].classList.remove('itens');
   }
   event.target.classList.add('itens');
 }
@@ -56,3 +56,8 @@ function remover() {
   }
 }
 limparTudo.addEventListener('click', remover);
+
+window.onload = function carregar() {
+  const itensLista = document.getElementsByClassName('itens');
+  itensLista.style.backgroundColor = 'green';
+};

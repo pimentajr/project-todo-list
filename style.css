@@ -1,5 +1,5 @@
 #corpo {
-  background-color: rgb(39, 114, 43);
+  background-color: green;
   border-radius: 30px;
   width: 800px;
 }
@@ -13,6 +13,9 @@
   background-color: grey;
 }
 
+.itens2 {
+  background-color:green;
+}
 
 h1 {
   text-align: center;
@@ -25,6 +28,7 @@ p {
 #botoes {
   margin-left: 80px;
 }
+
 #criar-tarefa {
   border-radius: 30px;
 }
