@@ -24,13 +24,13 @@ function completedItem(event) {
 
 // 5. 6.
 function criarTarefa() {
-  const listar = document.getElementsByTagName('ol');
+  const listar = document.getElementById('lista-tarefas');
   const inputList = document.getElementById('texto-tarefa');
   if (inputList.value !== '') {
     const lItem = document.createElement('li');
     lItem.innerText = inputList.value;
     lItem.classList.add('list-item');
-    listar[0].appendChild(lItem);
+    listar.appendChild(lItem);
     inputList.value = '';
     lItem.addEventListener('click', selectItem);
     lItem.addEventListener('dblclick', completedItem);
@@ -63,11 +63,11 @@ div.appendChild(buttonRemoverSelecionado);
 
 // 13.
 function moverCima() {
-  const selectedItem = document.getElementsByClassName('selected');
-  if (selectedItem.length !== 0) {
-    const index = 0;
-    selectedItem[index].parentElement.removeChild(selectedItem[index]);
-  }
+  // const selectedItem = document.getElementsByClassName('selected');
+  // if (selectedItem.length !== 0) {
+  //   const index = 0;
+  //   selectedItem[index].parentElement.removeChild(selectedItem[index]);
+  // }
 }
 const buttonMoverCima = document.createElement('button');
 buttonMoverCima.setAttribute('id', 'mover-cima');
