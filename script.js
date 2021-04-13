@@ -6,6 +6,7 @@ const text = document.getElementById('texto-tarefa');
 const list = document.getElementById('lista-tarefas');
 const create = document.getElementById('criar-tarefa');
 const items = document.getElementsByTagName('li');
+const eraser = document.getElementById('apaga-tudo');
 
 function addTasks() {
   const tasks = document.createElement('li');
@@ -41,4 +42,12 @@ function scratch() {
 }
 scratch();
 
+// 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
+
+function removeItem() {
+  eraser.addEventListener('click', (event) => {
+    list.innerHTML = '';
+  })
+}
+removeItem();
 
