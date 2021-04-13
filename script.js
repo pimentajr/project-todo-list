@@ -119,7 +119,7 @@ function moveUpTask() {
 
   getMoveUpButton.addEventListener('click', function () {
     let elementToChange = document.querySelector('.selected');
-    if (elementToChange.previousSibling) {
+    if (elementToChange !== null && elementToChange.previousSibling !== null) {
       elementToChange.parentElement.insertBefore(elementToChange, elementToChange.previousSibling);
     }
   })
