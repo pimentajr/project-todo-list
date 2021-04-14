@@ -7,6 +7,7 @@ const list = document.getElementById('lista-tarefas');
 const create = document.getElementById('criar-tarefa');
 const items = document.getElementsByTagName('li');
 const eraser = document.getElementById('apaga-tudo');
+const remove = document.getElementById('remover-finalizados');
 
 function addTasks() {
   const tasks = document.createElement('li');
@@ -33,21 +34,34 @@ addBackgroundColor();
 
 function scratch() {
   list.addEventListener('dblclick', (event) => {
-      if (event.target.classList.contains('completed') === true) {
-        event.target.classList.remove('completed');
-      } else {
-        event.target.classList.add('completed');
-      }
+    if (event.target.classList.contains('completed') === true) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
   });
 }
 scratch();
 
 // 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
 
-function removeItem() {
-  eraser.addEventListener('click', (event) => {
+function removeList() {
+  eraser.addEventListener('click', () => {
     list.innerHTML = '';
-  })
+  });
 }
-removeItem();
+removeList();
 
+// 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista:
+
+function eraseCompleted() {
+remove.addEventListener('click', () => {
+const complete = document.querySelectorAll('.completed');
+  if (complete != null) {
+    for (let index2 = 0; index2 < complete.length; index2 += 1) {
+        complete[index2].remove();
+      }
+    }
+  });
+}
+eraseCompleted();
