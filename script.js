@@ -9,7 +9,7 @@ const addButton = document.querySelector('#criar-tarefa');
 const taskForm = document.querySelector('#input-task-container');
 const rootElement = document.querySelector('body');
 
-function addTaskAndChangeBackgroundColor() {
+function addTask() {
   const task = inputField.value;
   const listItem = document.createElement('li');
 
@@ -42,6 +42,10 @@ function strikeListItem(event) {
   }
 }
 
+function cleanListItems() {
+
+}
+
 rootElement.addEventListener('click', changeBackgroundColor);
 rootElement.addEventListener('dblclick', strikeListItem);
-addButton.addEventListener('click', addTaskAndChangeBackgroundColor);
+addButton.addEventListener('click', addTask);
