@@ -69,7 +69,7 @@ const upButton = document.getElementById('mover-cima');
 
 function up() {
   const lisSelected = document.getElementsByClassName('selected')[0];
-  if (lisSelected !== null && lisSelected.previousElementSibling !== null) {
+  if (lisSelected !== null && lisSelected.previousSibling !== null) {
     taskList.insertBefore(lisSelected, lisSelected.previousElementSibling);
   }
 }
@@ -80,7 +80,7 @@ const downButtonm = document.getElementById('mover-baixo');
 
 function down() {
   const lisSelected = document.getElementsByClassName('selected')[0];
-  if (lisSelected !== null && lisSelected.nextElementSibling !== null) {
+  if (lisSelected !== null && lisSelected.nextSibling !== null) {
     taskList.insertBefore(lisSelected.nextElementSibling, lisSelected);
   }
 }
