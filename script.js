@@ -8,6 +8,7 @@ const taskList = document.querySelector('#lista-tarefas');
 const addButton = document.querySelector('#criar-tarefa');
 const taskForm = document.querySelector('#input-task-container');
 const rootElement = document.querySelector('body');
+const deleteButton = document.querySelector('#apaga-tudo');
 
 function addTask() {
   const task = inputField.value;
@@ -43,9 +44,18 @@ function strikeListItem(event) {
 }
 
 function cleanListItems() {
-
+  const taskListItems = taskList.children;
+  console.log(taskList);
+  if (taskListItems.length !== 0) {
+    while (taskList.firstChild) {
+      taskList.firstChild.remove();
+    }
+  }
 }
+
+//cleanListItems();
 
 rootElement.addEventListener('click', changeBackgroundColor);
 rootElement.addEventListener('dblclick', strikeListItem);
 addButton.addEventListener('click', addTask);
+deleteButton.addEventListener('click', cleanListItems);
