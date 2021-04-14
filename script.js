@@ -16,9 +16,9 @@ function addTask() {
     inputBlank();
   }
 }
+const itemList = document.getElementsByClassName('listItem');
 
 function highlight(origin) {
-  const itemList = document.getElementsByClassName('listItem');
   for (let index = 0; index < itemList.length; index += 1) {
     const item = itemList[index];
     item.id = '';
@@ -35,6 +35,31 @@ function completedTask(origin) {
     listItemOrigin.className = 'listItem completed';
   }
 }
+
+const cleanButton = document.getElementById('apaga-tudo');
+
+function clearTaskList() {
+  const itemList2 = document.getElementsByClassName('listItem').length;
+  for (let index = 0; index < itemList2; index += 1) {
+    const item2 = itemList[0];
+    taskList.removeChild(item2);
+  }
+}
+
+cleanButton.addEventListener('click', clearTaskList);
+
+const cleanCompletedButton = document.getElementById('remover-finalizados');
+const completedList = document.getElementsByClassName('completed');
+
+function clearCompletedList() {
+  const completedListL = document.getElementsByClassName('completed').length;
+  for (let index = 0; index < completedListL; index += 1) {
+    const item3 = completedList[0];
+    taskList.removeChild(item3);
+  }
+}
+
+cleanCompletedButton.addEventListener('click', clearCompletedList);
 
 addTaskButton.addEventListener('click', addTask);
 taskList.addEventListener('click', highlight);
