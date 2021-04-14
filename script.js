@@ -53,7 +53,9 @@ function inputTask() {
   clearInput(document.getElementById('texto-tarefa'));
 }
 button.addEventListener('click', inputTask);
-
+for (let item of taskList) {
+  item.addEventListener('click', inputTask)
+}
 // ex10
 // Função para apagar li
 function removeList() {
@@ -86,21 +88,14 @@ saveButoon.addEventListener('click', saveList);
 
 // O que será verificado:
 //Será verificado que, dado que diversos elementos foram acrescentados à lista, movimentá-los de formas diversas os deixa nas posições esperadas
-// Pega a classe selecionada e da um toggle para trocar.
-let selectedButton = document.getElementsByClassName('selected');
-
-
-// Passa selecionado para o proximo botão.
-// Adiciona escutador para responder ao click do botão correto.
-
-
-
-
+// Pega o elemento selecionadoe mover ele para cima com previous element e para baixo com next.
+// primeiro pega elemento selecionado. 
+const selectedElement = document.getElementsByClassName('selected')[0];
 
 //Será verificado que, caso algum elemento esteja finalizado, este status deve persistir ainda que se mova o elemento
 
 //Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botões não altera a lista
 
-//Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
-
+/* Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
+verifica se ele tem alguem depois deleteThroughLine. Se sim colocar ele depois desse algume. Se não null */
 //Caso especial! Será verificado que, caso se tente subir o elemento no topo da lista ou, caso se tente descer o último elemento da lista, esta não deve ser alterada
