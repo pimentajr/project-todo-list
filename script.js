@@ -6,6 +6,7 @@ const clearCompletedButton = document.getElementById('remover-finalizados');
 const saveButton = document.getElementById('salvar-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
+const removeSelectedButton = document.getElementById('remover-selecionado');
 
 addListButton.addEventListener('click', () => {
   const elementLi = document.createElement('li');
@@ -66,3 +67,25 @@ function saveToDoList() {
   localStorage.setItem('savedList', orderedList.innerHTML);
 }
 saveButton.addEventListener('click', saveToDoList);
+
+function moveUpLi() {
+  const selected = document.querySelector('.selected');
+  if (selected !== null && selected.previousElementSibling !== null) {
+    orderedList.insertBefore(selected, selected.previousSibling);
+  }
+}
+moveUpButton.addEventListener('click', moveUpLi);
+
+function moveDownLi() {
+  const selected = document.querySelector('.selected');
+  if (selected !== null && selected.nextElementSibling !== null) {
+    orderedList.insertBefore(selected, selected.nextElementSibling.nextElementSibling);
+  }
+}
+moveDownButton.addEventListener('click', moveDownLi);
+
+function clearSelected() {
+  const selectedItem = document.querySelector('.selected');
+  selectedItem.remove();
+}
+removeSelectedButton.addEventListener('click', clearSelected);
