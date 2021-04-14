@@ -7,6 +7,7 @@ const saveTask = document.getElementById('salvar-tarefas');
 const formList = document.getElementById('texto-tarefa');
 const btnMoveUp = document.getElementById('mover-cima');
 const btnMoveDown = document.getElementById('mover-baixo');
+const btnSelected = document.getElementById('remover-selecionado');
 //  Functions
 function addLi(textForm) {
   const item = document.createElement('li');
@@ -23,6 +24,13 @@ function printSelectedItem(event) {
   } else {
     document.querySelector('.selected').classList.remove('selected');
     changeBg.classList.add('selected');
+  }
+}
+
+function clearSelected() {
+  const itensSelected = document.querySelectorAll('.selected');
+  for (let index = 0; index < itensSelected.length; index += 1) {
+    taskList.removeChild(itensSelected[index]);
   }
 }
 
@@ -77,6 +85,7 @@ btnClearAll.addEventListener('click', clearList);
 btnDone.addEventListener('click', clearDone);
 btnMoveUp.addEventListener('click', moveUpItem);
 btnMoveDown.addEventListener('click', moveDownItem);
+btnSelected.addEventListener('click', clearSelected);
 
 function myStorageTask() {
   localStorage.setItem('itenSave', taskList.innerHTML);
