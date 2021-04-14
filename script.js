@@ -80,8 +80,8 @@ const downButtonm = document.getElementById('mover-baixo');
 
 function down() {
   const lisSelected = document.getElementsByClassName('selected')[0];
-  if (lisSelected.nextElementSibling !== null) {
-    taskList.insertBefore(lisSelected.nextElementSibling, lisSelected);
+  if (lisSelected.nextSibling !== null) {
+    taskList.insertBefore(lisSelected.nextSibling, lisSelected);
   }
 }
 
