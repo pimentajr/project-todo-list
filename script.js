@@ -98,18 +98,16 @@ getList();
 
 function upMove() {
   const selected = document.querySelector('.selected');
-  if (selected.previousElementSibling === null) {
-    return false;
+  if (selected && selected.previousElementSibling) {
+    ol.insertBefore(selected, selected.previousElementSibling);
   }
-  ol.insertBefore(selected, selected.previousElementSibling);
 }
 
 function downMove() {
   const selected = document.querySelector('.selected');
-  if (selected.nextElementSibling === null) {
-    return false;
+  if (selected && selected.nextElementSibling) {
+    ol.insertBefore(selected.nextElementSibling, selected);
   }
-  ol.insertBefore(selected.nextElementSibling, selected);
 }
 
 // cria butoes de mover
@@ -144,6 +142,3 @@ function createBtnClearSelected() {
 }
 createBtnClearSelected();
 
-window.onload = function() {
-  document.querySelector('.selected').classList.remove('selected');
-}
