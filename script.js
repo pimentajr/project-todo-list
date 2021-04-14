@@ -23,4 +23,17 @@ function selectTask(event) {
 }
 tasks.addEventListener('click', selectTask);
 
+let click = 0;
+function completed(event) {
+  if (click == 0) {
+    event.target.classList.add('completed');
+    click = 1;
+  } else {
+    event.target.classList.remove('completed');
+    click = 0;
+  }
+
+}
+tasks.addEventListener('dblclick', completed);
+
 
