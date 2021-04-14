@@ -83,11 +83,11 @@ apagaTudo.innerText = 'Apaga Tudo';
 divInputs2.appendChild(apagaTudo);
 
 function deleteAll() {
-  apagaTudo.addEventListener('click', (evento) => {
+  apagaTudo.addEventListener('click', () => {
     const listaOrdenada = document.querySelectorAll('li');
     for (let index = 0; index < listaOrdenada.length; index += 1) {
-      if (orderList[index].classList.contains('completed')) {
-        evento.target.remove(listaOrdenada);
+      if (listaOrdenada[index].classList.contains('completed') === true) {
+        listaOrdenada[index].remove();
       }
     }
   });
