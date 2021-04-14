@@ -5,7 +5,9 @@ function gerar() {
   const item = document.createElement('li');
   item.appendChild(document.createTextNode(textoTarefa.value));
   lista.appendChild(item);
-  console.log(textoTarefa.value);
+  textoTarefa.value = '';    
 }
 const criarTarefa = document.getElementById('criar-tarefa');
 criarTarefa.addEventListener('click', gerar);
+
+
