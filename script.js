@@ -1,3 +1,4 @@
+const noSelected = 'no-selected';
 const buttonCreateList = document.getElementById('criar-tarefa');
 const toDoOl = document.querySelector('#lista-tarefas');
 const inputToDo = document.querySelector('#texto-tarefa');
@@ -8,7 +9,7 @@ const deletedCompleted = document.querySelector('#remover-finalizados');
 function createNewToDo(toDo) {
   const newLi = document.createElement('li');
   toDoOl.appendChild(newLi);
-  newLi.className = 'no-selected';
+  newLi.className = noSelected;
   newLi.innerText = toDo;
   inputToDo.value = '';
 }
@@ -21,16 +22,16 @@ buttonCreateList.addEventListener('click', createListToDo);
 
 function noSelectedToDoLi() {
   for (let index = 0; index < toDoLi.length; index += 1) {
-    if (!toDoLi[index].classList.contains('no-selected')) {
-      toDoLi[index].classList.add('no-selected');
+    if (!toDoLi[index].classList.contains(noSelected)) {
+      toDoLi[index].classList.add(noSelected);
     }
   }
 }
 
 function SelectedToDoLi(event) {
   noSelectedToDoLi();
-  if (event.target.classList.contains('no-selected')) {
-    event.target.classList.remove('no-selected');
+  if (event.target.classList.contains(noSelected)) {
+    event.target.classList.remove(noSelected);
   }
 }
 

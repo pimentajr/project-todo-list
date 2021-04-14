@@ -1,17 +1,71 @@
-body {
-  background-color: white;
+#toDo {
+  background-color: lightsteelblue;
+  max-height: 700px;
+  max-width: 700px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 3%;
+  padding-bottom: 3%;
+}
+
+header {
+  margin: auto;
+  padding-top: 2%;
+}
+
+index {
+  text-align: center;
+  margin-left: 5px;
+  padding: 5%;
+  margin: auto;
+}
+
+button {
+  font-family: monospace;
+  background-color: lightyellow;
+  padding: 0.75%;
+  border-radius: 5px;
+  margin: auto;
+}
+
+button:hover {
+  background-color: limegreen;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+p {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  text-align: center;
+  font-size: larger;
+}
+
+h1 {
+  font-family: monospace;
+  margin: auto;
+  text-align: center;
 }
 
 li {
   background-color: rgb(128, 128, 128);
-  color: white;
+  color: blue;
+  font-family: monospace;
+  font-size: large;
+  max-width: 85%;
+  border-radius: 5px;
+  border: solid lightsteelblue 1px;
 }
 
 .no-selected {
   background-color: white;
   color: black;
+  font-family: monospace;
+  font-size: large;
 }
 
-.completed{
+.completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
