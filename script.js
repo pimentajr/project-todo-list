@@ -112,8 +112,6 @@ function downMove() {
   ol.insertBefore(selected.nextElementSibling, selected);
 }
 
-
-
 // cria butoes de mover
 function createMoveBtns() {
   const up = document.createElement('button');
@@ -130,3 +128,22 @@ function createMoveBtns() {
   up.addEventListener('click', upMove)
 }
 createMoveBtns();
+
+function removeSelected() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+}
+
+function createBtnClearSelected() {
+  const button = document.createElement('button');
+  button.setAttribute('id', 'remover-selecionado');
+  button.innerHTML = 'Remove Item';
+  button.style.marginLeft = '10px';
+  navi.appendChild(button);
+  button.addEventListener('click', removeSelected)
+}
+createBtnClearSelected();
+
+window.onload = function() {
+  document.querySelector('.selected').classList.remove('selected');
+}
