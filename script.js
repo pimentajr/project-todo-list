@@ -41,16 +41,14 @@ function createList() {
 }
 createList();
 
-function backgroundList() {
-  const getList = document.querySelector('#lista-tarefas');
+function backgroundList(event) {
+  const getListItem = document.querySelectorAll('li');
+  const targetItem = event.target;
 
-  getList.addEventListener('click', (colorChange) => {
-    const getItemList = document.querySelector('li');
-    const evtColor = colorChange.target;
-    if (evtColor.className === 'item') {
-      evtColor.className += ' selected';
-    }
-    console.log(getItemList);
-  });
+  for (let index = 0; index < getListItem.length; index += 1) {
+    getListItem[index].classList.remove('selected');
+  }
+  targetItem.classList.add('selected');
 }
-backgroundList();
+const list = document.querySelector('#lista-tarefas');
+list.addEventListener('click', backgroundList);
