@@ -68,3 +68,25 @@ function createClearCompletedTaskBtn() {
   button.addEventListener('click', clearCompleted);
 }
 createClearCompletedTaskBtn();
+
+// salva tasks
+function saveTasks() {
+  localStorage.setItem('listas', ol.innerHTML);
+}
+
+// cria save button
+function createSaveBtn() {
+  const buttonSave = document.createElement('button');
+  buttonSave.setAttribute('id', 'salvar-tarefas');
+  buttonSave.innerHTML = 'Salvar Tarefas';
+  buttonSave.style.marginLeft = '10px';
+  navi.appendChild(buttonSave);
+  buttonSave.addEventListener('click', saveTasks)
+}
+createSaveBtn();
+
+function getList() {
+  ol.innerHTML = localStorage.getItem('listas');
+}
+
+getList();
