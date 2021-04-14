@@ -66,11 +66,7 @@ click();
 
 function dblclick() {
   orderList.addEventListener('dblclick', (event) => {
-    if (event.target.classList.contains('completed')) {
-      event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
-    }
+    event.target.classList.toggle('completed');
   });
 }
 dblclick();
