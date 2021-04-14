@@ -25,13 +25,31 @@ list.id = 'lista-tarefas';
 body.appendChild(list);
 
 function getText() {
-    const itemList = document.createElement('li');
-    itemList.className = 'item-list';
+  const itemList = document.createElement('li');
+  itemList.className = 'item-list';
 
-    let getInput = input.value;
-    itemList.innerHTML = getInput;
-    list.appendChild(itemList);
-    input.value = '';
+  const getInput = input.value;
+  itemList.innerHTML = getInput;
+  list.appendChild(itemList);
+  input.value = '';
 }
-
 btn.addEventListener('click', getText);
+
+function addColor() {
+  const item = document.querySelectorAll('.item-list');
+  for (let index = 0; index < item.length; index += 1) {
+    let color = item[index];
+    color.addEventListener('click', (event) => {
+      event.target.classList.add.className = 'seleted'
+    })
+  }
+}
+addColor();
+
+const ordenedList = document.querySelector('#lista-tarefas');
+
+function selectItem(event) {
+  const target = event.target;
+  target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+ordenedList.addEventListener('click', selectItem);
