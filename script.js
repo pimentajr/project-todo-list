@@ -25,20 +25,18 @@ function SelectedTask(event) {
   const selectTask = document.querySelector('.selected');
   if (selectTask !== null) {
     selectTask.classList.remove('selected');
-    console.log(selectTask);
   }
   event.target.classList.add('selected');
-  console.log(event.target);
 }
 olList.addEventListener('click', SelectedTask);
 
-function completedTask(e) {
-  const completTask = document.querySelector('.completed')
-  if (completTask !== null) {
-    completTask.classList.remove('completed');
-    console.log(completTask);
+function completedTask(events) {
+  if (events.target.classList.contains('completed')) {
+    events.target.classList.remove('completed');
+    console.log(events.target);
+  } else {
+    events.target.classList.add('completed');
+    console.log(events.target);
   }
-  e.target.classList.add('completed');
-  console.log(e.target);
 }
 olList.addEventListener('dblclick', completedTask);
