@@ -4,6 +4,7 @@ const btnTasks = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
 const navi = document.getElementById('navigation');
+const body = document.querySelector('body');
 // give selected to a testk
 function selectedTask(event) {  
   const li = event.target;
@@ -81,12 +82,51 @@ function createSaveBtn() {
   buttonSave.innerHTML = 'Salvar Tarefas';
   buttonSave.style.marginLeft = '10px';
   navi.appendChild(buttonSave);
-  buttonSave.addEventListener('click', saveTasks)
+  buttonSave.addEventListener('click', saveTasks);
 }
 createSaveBtn();
 
 function getList() {
   ol.innerHTML = localStorage.getItem('listas');
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i += 1) {
+    li[i].addEventListener('click', selectedTask);
+    li[i].addEventListener('dblclick', completedTask);
+  }
+}
+getList();
+
+function upMove() {
+  const selected = document.querySelector('.selected');
+  if (selected.previousElementSibling === null) {
+    return false;
+  }
+  ol.insertBefore(selected, selected.previousElementSibling);
 }
 
-getList();
+function downMove() {
+  const selected = document.querySelector('.selected');
+  if (selected.nextElementSibling === null) {
+    return false;
+  }
+  ol.insertBefore(selected.nextElementSibling, selected);
+}
+
+
+
+// cria butoes de mover
+function createMoveBtns() {
+  const up = document.createElement('button');
+  up.style.marginLeft = '10px';
+  up.setAttribute('id', 'mover-cima');
+  up.innerHTML = 'up';
+  const down = document.createElement('button');
+  down.style.marginLeft = '10px';
+  down.innerHTML = 'down';
+  down.setAttribute('id', 'mover-baixo');
+  navi.appendChild(up);
+  navi.appendChild(down);
+  down.addEventListener('click', downMove)
+  up.addEventListener('click', upMove)
+}
+createMoveBtns();
