@@ -21,12 +21,3 @@ createTaskButton.addEventListener ('click', function addTask() {
     });
   });
 });
-
-//eraseTasksButton.addEventListener ('click', function rmvTask() {
-//  const rmvtagP = document.removeEventListener
-//  tagP.innerText = textTask.value;
-//  listTask.appendChild(tagP);
-//  textTask.value = '';
-//  tagP.addEventListener('click', function addClass() {
-//    tagP.classList.add('tasks-background-color');
-//  });
