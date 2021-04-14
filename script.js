@@ -10,9 +10,9 @@ addButton.addEventListener('click', () => {
 });
 
 function removeClass(arrayList) {
-  for (let j = 0; j < arrayList.length; j += 1) {
-    if (arrayList[j].classList.contains('selected')) {
-      arrayList[j].classList.remove('selected');
+  for (let i = 0; i < arrayList.length; i += 1) {
+    if (arrayList[i].classList.contains('selected')) {
+      arrayList[i].classList.remove('selected');
     }
   }
 }
@@ -37,11 +37,20 @@ function greyBackground(event) {
   mouseEvent.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
+function scratchItem(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
 function actionList() {
   const itemList = document.querySelectorAll('ol');
   for (let i = 0; i < itemList.length; i += 1) {
     itemList[i].addEventListener('click', removeBackgroundcolor);
     itemList[i].addEventListener('click', greyBackground);
+    itemList[i].addEventListener('dblclick', scratchItem);
   }
 }
 
