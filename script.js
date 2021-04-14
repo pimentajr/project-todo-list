@@ -47,17 +47,17 @@ function removeAllClass(classToRemove) {
 }
 
 // Cria função que adiciona classe selected ao evento e remove dos outros
-function clickItem (event) {
+function clickItem(event) {
   removeAllClass('selected');
   event.target.classList.add('selected');
 }
 
 // Cria função que adiciona ou remove a classe completed
 function toggleCompletedTask(event) {
-  event.target.classList.toggle("completed")
+  event.target.classList.toggle("completed");
 }
 
-// Adiciona função ao botão Adicionar
+// Adiciona função ao botão Adicionar e a cada item criado, adiciona escutadores de eventos
 function addItem() {
   const addButton = document.querySelector('#criar-tarefa');
   addButton.addEventListener('click', () => {
@@ -66,7 +66,7 @@ function addItem() {
     itemList.className = 'item';
     itemList.innerText = valueItem;
     itemList.addEventListener('dblclick', toggleCompletedTask);
-    itemList.addEventListener('click',clickItem),
+    itemList.addEventListener('click',clickItem);
     document.querySelector('#lista-tarefas').appendChild(itemList);
     document.querySelector('#texto-tarefa').value = '';
   });
@@ -111,7 +111,7 @@ cleanButton();
 
 // Cria função que apaga os itens realizados da lista
 function finish() {
-  const completedItems = document.querySelectorAll('.completed')
+  const completedItems = document.querySelectorAll('.completed');
   for (let index = 0; index < completedItems.length; index += 1) {
     completedItems[index].remove();
   }
@@ -124,13 +124,13 @@ function removeCompletedButton() {
   document.querySelector('#firstsection').appendChild(button);
   button.addEventListener('click', () => {
     finish();
-  })
+  });
 }
 removeCompletedButton();
 
 // Cria função que remove o item selecionado
 function deleteSelected() {
-  const selectedItems = document.querySelectorAll('.selected')
+  const selectedItems = document.querySelectorAll('.selected');
   for (let index = 0; index < selectedItems.length; index += 1) {
     selectedItems[index].remove();
   }
@@ -144,21 +144,21 @@ function removeSelectedButton() {
   document.querySelector('#firstsection').appendChild(button);
   button.addEventListener('click', () => {
     deleteSelected();
-  })
+  });
 }
 removeSelectedButton();
 
 // Cria função que seleciona o item anterior
 function up() {
-  let lista = document.querySelectorAll('.item');
-  let last = lista[lista.length -1];
-  let current = document.querySelector('.selected');
+  const lista = document.querySelectorAll('.item');
+  const last = lista[lista.length - 1];
+  const current = document.querySelector('.selected');
   if (last == null) {
-    alert ('adicone uma tarefa');
+    alert('adicone uma tarefa');
   } else if (current == null) {
     last.classList.add('selected');
   } else {
-    let previus = document.querySelector('.selected').previousElementSibling;
+    const previus = document.querySelector('.selected').previousElementSibling;
     if (previus == null) {
       last.classList.add('selected');
       current.classList.remove('selected');
@@ -172,44 +172,44 @@ function up() {
 // Cria botão que irá selecionar o item anterior baixo utilizando up()
 function buttonUp() {
   const button = document.createElement('button');
-  button.id = 'mover-cima'; 
+  button.id = 'mover-cima';
   button.innerText = '⬆';
   document.querySelector('#firstsection').appendChild(button);
   button.addEventListener('click', () => {
     up();
-  })
+  });
 }
 buttonUp();
 
 // Cria função que seleciona o item seguinte
 function down() {
-  let first = document.querySelector('.item');
-  let current = document.querySelector('.selected');
+  const first = document.querySelector('.item');
+  const current = document.querySelector('.selected');
   if (first == null) {
-    alert ('adicone uma tarefa');
+    alert('adicone uma tarefa');
   } else if (current == null) {
+    first.classList.add('selected');
+  } else {
+    const next = document.querySelector('.selected').nextElementSibling;
+    if (next == null) {
       first.classList.add('selected');
+      current.classList.remove('selected');
     } else {
-      let next = document.querySelector('.selected').nextElementSibling;
-      if (next == null) {
-        first.classList.add('selected');
-        current.classList.remove('selected');
-      } else {
-        next.classList.add('selected');
-        current.classList.remove('selected');
-      }
+      next.classList.add('selected');
+      current.classList.remove('selected');
     }
   }
-  
-  // Cria botão que irá selecionar para baixo utilizando down
-  function buttonDown() {
-    const button = document.createElement('button');
-    button.id = 'mover-baixo'; 
-    button.innerText = 'Remover';
-    button.innerText = '⬇';
-    document.querySelector('#firstsection').appendChild(button);
-    button.addEventListener('click', () => {
-      down();
-    })
-  }
-  buttonDown();
+}
+
+// Cria botão que irá selecionar para baixo utilizando down
+function buttonDown() {
+  const button = document.createElement('button');
+  button.id = 'mover-baixo'; 
+  button.innerText = 'Remover';
+  button.innerText = '⬇';
+  document.querySelector('#firstsection').appendChild(button);
+  button.addEventListener('click', () => {
+    down();
+  });
+}
+buttonDown();
