@@ -71,7 +71,7 @@ function up() {
   const lisSelected = document.getElementsByClassName('selected')[0];
   if (lisSelected.previousElementSibling !== null) {
     taskList.insertBefore(lisSelected, lisSelected.previousElementSibling);
-   }
+  }
 }
 
 upButton.addEventListener('click', up);
@@ -80,10 +80,10 @@ const downButtonm = document.getElementById('mover-baixo');
 
 function down() {
   const lisSelected = document.getElementsByClassName('selected')[0];
-   if (lisSelected.nextElementSibling !== null) {
-     taskList.insertBefore(lisSelected.nextElementSibling, lisSelected);
+    if (lisSelected.nextElementSibling !== null) {
+      taskList.insertBefore(lisSelected.nextElementSibling, lisSelected);
     }
-  }
+}
 
 downButtonm.addEventListener('click', down);
 
