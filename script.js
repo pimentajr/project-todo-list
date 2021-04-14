@@ -8,12 +8,13 @@ const dateFormatOptions = {
 };
 const keyToSortBy = 'addedOn';
 const sortOrder = 'asc';
-const storage = 'sessionStorage';
 const databaseStructure = {
   taskList: [],
   mainViewContent: '',
 };
-const database = window[storage];
+const database = window.sessionStorage;
+const savedDatabaseState = window.localStorage;
+const databaseKeys = Object.getOwnPropertyNames(databaseStructure);
 
 function Task() {
   this.title = '';
@@ -62,14 +63,11 @@ function updateDatabaseEntry(key, newValue) {
 function getInputFieldsFrom(container) {
   const inputFields = document.querySelectorAll(`${container} input`);
   const labeledInputFields = {};
-  let inputField;
-  let key;
-  let value;
 
   for (let index = 0; index < inputFields.length; index += 1) {
-    inputField = inputFields[index];
-    key = inputField.name ? inputField.name : inputField.id;
-    value = inputFields[index];
+    const inputField = inputFields[index];
+    const key = inputField.name ? inputField.name : inputField.id;
+    const value = inputFields[index];
     labeledInputFields[key] = value;
   }
 
@@ -99,18 +97,38 @@ function addTaskToTaskList(event) {
   event.preventDefault();
 }
 
-function maySetDatabaseKeyValue(key) {
-  if (database[key] === undefined) {
+function discardSavedDatabaseState() {
+  for (let index = 0; index < databaseKeys.length; index += 1) {
+    const key = databaseKeys[index];
+    savedDatabaseState.setItem(key, JSON.stringify(databaseStructure[key]));
+  }
+}
+
+function saveDatabaseState() {
+  for (let index = 0; index < databaseKeys.length; index += 1) {
+    const key = databaseKeys[index];
+    savedDatabaseState.setItem(key, database[key]);
+  }
+}
+
+function applySavedDatabaseState() {
+  for (let index = 0; index < databaseKeys.length; index += 1) {
+    const key = databaseKeys[index];
+    database.setItem(key, savedDatabaseState[key]);
+  }
+}
+
+function maySetDatabaseKeyValue(key, databaseArea) {
+  if (databaseArea.getItem(key) === undefined) {
     const stringifiedValue = JSON.stringify(databaseStructure[key]);
-    database[key] = stringifiedValue;
+    databaseArea.setItem(key, stringifiedValue);
   }
 }
 
 function initializeDatabase() {
-  const databaseKeys = Object.getOwnPropertyNames(databaseStructure);
-
   for (let index = 0; index < databaseKeys.length; index += 1) {
-    maySetDatabaseKeyValue(databaseKeys[index]);
+    maySetDatabaseKeyValue(databaseKeys[index], database);
+    maySetDatabaseKeyValue(databaseKeys[index], savedDatabaseState);
   }
 }
 // The function below can be used to update the main view in case changes
@@ -128,5 +146,6 @@ function initializeDatabase() {
 window.onload = () => {
   initializeDatabase();
   addTaskForm.addEventListener('submit', addTaskToTaskList);
+  applySavedDatabaseState();
   mainView.innerHTML = getDatabaseEntry('mainViewContent');
 };
