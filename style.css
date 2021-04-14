@@ -46,9 +46,19 @@
   background-color: gray;
   margin-right: 200px;
   border-radius: 10px;
-  width: 520px;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through;
+}
+
+#other-buttons {
+  display: inline-block;
+}
+
+#apaga-tudo {
+  font-family: Old Standard TT, sans-serif;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 30px;
 }

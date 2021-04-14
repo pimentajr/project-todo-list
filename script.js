@@ -64,9 +64,32 @@ function click() {
 }
 click();
 
-function dblclick() {
+function doubleClick() {
   orderList.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
   });
 }
-dblclick();
+doubleClick();
+
+// Cria div para abrigar outros botões;
+
+const divInputs2 = document.createElement('div');
+divInputs2.id = 'other-buttons';
+divMain.appendChild(divInputs2);
+
+const apagaTudo = document.createElement('button');
+apagaTudo.id = 'apaga-tudo';
+apagaTudo.innerText = 'Apaga Tudo';
+divInputs2.appendChild(apagaTudo);
+
+function deleteAll() {
+  apagaTudo.addEventListener('click', (evento) => {
+    const listaOrdenada = document.querySelectorAll('li');
+    for (let index = 0; index < listaOrdenada.length; index += 1) {
+      if (orderList[index].classList.contains('completed')) {
+        evento.target.remove(listaOrdenada);
+      }
+    }
+  });
+}
+deleteAll();
