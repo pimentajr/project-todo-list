@@ -36,54 +36,22 @@ function isNumber(element) {
   return false;
 }
 
-function sortTaskListDesc(taskListArray) {
-  if (isNumber(taskListArray[0][keyToSortBy])) {
-    taskListArray.sort((a, b) => b[keyToSortBy] - a[keyToSortBy]);
+function sortObjectsArrayByKeyDesc(objectsArray) {
+  if (isNumber(objectsArray[0][keyToSortBy])) {
+    objectsArray.sort((a, b) => b[keyToSortBy] - a[keyToSortBy]);
   } else {
-    taskListArray.sort((a, b) => b[keyToSortBy].localeCompare(a[keyToSortBy]));
+    objectsArray.sort((a, b) => b[keyToSortBy].localeCompare(a[keyToSortBy]));
   }
 }
 
-function sortTaskListAsc(taskListArray) {
-  if (isNumber(taskListArray[0][keyToSortBy])) {
-    taskListArray.sort((a, b) => a[keyToSortBy] - b[keyToSortBy]);
+function sortObjectsArrayByKeyAsc(objectsArray) {
+  if (isNumber(objectsArray[0][keyToSortBy])) {
+    objectsArray.sort((a, b) => a[keyToSortBy] - b[keyToSortBy]);
   } else {
-    taskListArray.sort((a, b) => a[keyToSortBy].localeCompare(b[keyToSortBy]));
+    objectsArray.sort((a, b) => a[keyToSortBy].localeCompare(b[keyToSortBy]));
   }
-}
-
-function sortTaskList(taskListArray) {
-  if (sortOrder === 'asc') {
-    sortTaskListAsc(taskListArray);
-  } else {
-    sortTaskListDesc(taskListArray);
-  }
-}
-
-function updateDatabase(task) {
-  const stringifiedDatabase = window[storage].getItem('database');
-  let database = {};
-
-  if (!stringifiedDatabase) {
-    database = { taskList: [task], taskListMainViewCache: '' };
-  } else {
-    database = JSON.parse(stringifiedDatabase);
-    database.taskList.push(task);
-  }
-
-  window[storage].setItem('database', JSON.stringify(database));
-}
-
-function addTask(event) {
-  const newTask = new Task();
-  const addTaskFormInputFields = getInputFieldsFrom('#add-task-form');
-
-  newTask.title = addTaskFormInputFields[0].value;
-  updateDatabase(newTask);
-  addTaskFormInputFields[0].value = '';
-  event.preventDefault();
 }
 
 window.onload = () => {
-  addTaskForm.addEventListener('submit', addTask);
+
 };
