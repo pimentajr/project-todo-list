@@ -86,9 +86,7 @@ function deleteAll() {
   apagaTudo.addEventListener('click', () => {
     const listaOrdenada = document.querySelectorAll('li');
     for (let index = 0; index < listaOrdenada.length; index += 1) {
-      if (listaOrdenada[index].classList.contains('completed') === true) {
-        listaOrdenada[index].remove();
-      }
+      listaOrdenada[index].remove();
     }
   });
 }
