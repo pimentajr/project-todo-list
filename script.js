@@ -16,10 +16,16 @@ function addTaskAndChangeBackgroundColor() {
 
   // add an event listener to new li element created
   if (listItem) {
-    listItem.addEventListener('click', () => {
+    listItem.addEventListener('click', (event) => {
       // set new background onclick
+      const taskListChildren = taskList.children;
       const background = 'rgb(128, 128, 128)';
-      listItem.style.backgroundColor = background;
+      const clickedItem = event.target;
+
+      for (let index = 0; index < taskListChildren.length; index += 1) {
+        taskListChildren[index].style.backgroundColor = '';
+      }
+      clickedItem.style.backgroundColor = background;
     });
   } else {
     console.log(Error('fail'));
