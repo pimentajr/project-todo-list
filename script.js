@@ -1,4 +1,5 @@
 let addButton = document.querySelector('#criar-tarefa');
+let delButton = document.querySelector('#apaga-tudo');
 
 let olTaskList = document.querySelector('#lista-tarefas');
 
@@ -36,4 +37,8 @@ function completed(event) {
 }
 tasks.addEventListener('dblclick', completed);
 
+function deleteAll() {
+  tasks.innerHTML = '';
+}
+delButton.addEventListener('click', deleteAll)
 
