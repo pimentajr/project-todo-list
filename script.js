@@ -90,7 +90,6 @@ function toDoMoveUp() {
       toDoList.insertBefore(toDos[index], toDos[index - 1]);
     }
   }
-  saveToDos();
 }
 
 function toDoMoveDown() {
@@ -100,7 +99,15 @@ function toDoMoveDown() {
       break;
     }
   }
-  saveToDos();
+}
+
+function moveToDos(button){
+  if (button.target === moveUp) {
+    toDoMoveUp();
+  }
+  else if (button.target === moveDown) {
+    toDoMoveDown();
+  }
 }
 
 window.onload = function () {
@@ -109,8 +116,9 @@ window.onload = function () {
   }
 };
 
-moveDown.addEventListener('click', toDoMoveDown);
-moveUp.addEventListener('click', toDoMoveUp);
+addEventListener('click', moveToDos);
+// moveDown.addEventListener('click', toDoMoveDown);
+// moveUp.addEventListener('click', toDoMoveUp);
 removeSelected.addEventListener('click', removeSelectedToDo);
 saveAll.addEventListener('click', saveToDos);
 removeCompleted.addEventListener('click', removeCompletedToDos);
