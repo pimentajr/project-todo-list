@@ -68,7 +68,7 @@ function moveUpItem() {
 }
 
 function moveDownItem() {
-  for (let index = 0; index < lis.length; index += 1) {
+  for (let index = lis.length - 1; index >= 0; index -= 1) {
     if (lis[index].classList.contains('selected') && lis[index].nextElementSibling !== null) {
       taskList.insertBefore(lis[index].nextElementSibling, lis[index]);
     }
