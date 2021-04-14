@@ -1,7 +1,7 @@
 const addTask = document.getElementById('criar-tarefa');
 const listTasks = document.getElementById('lista-tarefas');
 
-// Button Adiciona tarefa.
+// 5 - Button Adiciona tarefa.
 function addNewTalks() {
   addTask.addEventListener('click', () => {
     const textTalks = document.getElementById('texto-tarefa');
@@ -14,7 +14,7 @@ function addNewTalks() {
 }
 addNewTalks();
 
-// Pinta item da lista, e remove cor do item da lista
+// 7 - Pinta item da lista, e remove cor do item da lista. obs: Tive ajuda do Marlon Ramos e Gabriel Pimental
 function colorItemList() {
   listTasks.addEventListener('click', (event) => {
     const myEvent = event.target;
@@ -29,7 +29,7 @@ function colorItemList() {
 }
 colorItemList();
 
-// Risca item da lista.
+// 9 - Risca item da lista.
 function streakItemList() {
   listTasks.addEventListener('dblclick', (itemEvent) => {
     const newEvent = itemEvent.target;
@@ -38,7 +38,7 @@ function streakItemList() {
 }
 streakItemList();
 
-// Button limpar lista inteira
+// 10 - Button limpar lista inteira. Obs: Tive ajuda do Bruno Duarte.
 const clearMylist = document.getElementById('lista-tarefas');
 const buttonClear = document.getElementById('apaga-tudo');
 function clearList() {
@@ -46,7 +46,7 @@ function clearList() {
 }
 buttonClear.addEventListener('click', clearList);
 
-// Button remove itens da lista finalizados
+// 11 - Button remove itens da lista finalizados. Obs: Tive ajuda do Bruno Duarte.
 const buttonFinish = document.getElementById('remover-finalizados');
 function clearItenStrike() {
   const liComp = document.querySelectorAll('.completed');
@@ -56,7 +56,7 @@ function clearItenStrike() {
 }
 buttonFinish.addEventListener('click', clearItenStrike);
 
-// Button Salva lista.
+// 12 - Button Salva lista. Obs: Tive ajuda do Bruno Duarte.
 const buttonSave = document.getElementById('salvar-tarefas');
 clearMylist.innerHTML = localStorage.getItem('list');
 function buttonSaved() {
@@ -64,11 +64,25 @@ function buttonSaved() {
 }
 buttonSave.addEventListener('click', buttonSaved);
 
-// Button Move para cime e Button para baixo
+// 13 - Button Move para cima. Obs: Tive ajuda do Tales Coelho e Alexandre Santos.
 const buttonUp = document.getElementById('mover-cima');
 const buttonDown = document.getElementById('mover-baixo');
+buttonUp.addEventListener('click', () => {
+  const classSelec = document.querySelector('.selected');
+  if (classSelec && classSelec.previousElementSibling) {
+    clearMylist.insertBefore(classSelec, classSelec.previousElementSibling);
+  }
+});
 
-// Button remove itens da lista selecionados pintados
+// 13 - Button Move para baixo. Obs: Tive ajuda do Tales Coelho e Alexandre Santos.
+buttonDown.addEventListener('click', () => {
+  const classSelec = document.querySelector('.selected');
+  if (classSelec && classSelec.nextElementSibling) {
+    clearMylist.insertBefore(classSelec.nextElementSibling, classSelec);
+  }
+});
+
+// 14 - Button remove itens da lista selecionados pintados // Tive ajuda
 const buttonClearSelected = document.getElementById('remover-selecionado');
 function clearItenSelected() {
   const liCompSele = document.querySelectorAll('.selected');
