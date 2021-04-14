@@ -9,5 +9,14 @@ createTaskButton.addEventListener ('click', function addTask() {
   textTask.value = '';
   tagP.addEventListener('click', function addClass() {
     tagP.classList.add('tasks-background-color');
+    tagP.addEventListener('click', function rmvClass() {
+      tagP.classList.remove('tasks-background-color');
+    });
+  });
+  tagP.addEventListener('dblclick', function addRisk() {
+    tagP.classList.add('completed');
+    tagP.addEventListener('dblclick', function rmvRisk() {
+      tagP.classList.remove('completed');
+    });
   });
 });
