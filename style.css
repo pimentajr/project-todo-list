@@ -17,3 +17,7 @@
 #criar-tarefa {
   background-color: green;
 } */
+
+.selected {
+  background-color: gray;
+}
