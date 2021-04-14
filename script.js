@@ -2,14 +2,26 @@
 Project Todo List
 @author Fernando Lasmar
 */
-// Requisito 5
-const adicionarItens = document.getElementById('criar-tarefa');
 
+const adicionarItens = document.getElementById('criar-tarefa');
+const tarefa = document.getElementById('texto-tarefa');
+const lista = document.getElementById('lista-tarefas');
+// Requisito 5
 adicionarItens.addEventListener('click', () => {
-  const tarefa = document.getElementById('texto-tarefa');
-  const lista = document.getElementById('lista-tarefas');
   const criarItem = document.createElement('li');
   criarItem.innerText = tarefa.value;
   lista.appendChild(criarItem);
   tarefa.value = '';
+  tarefa.focus();
+});
+
+// 7
+lista.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') { // para descobrir qual elemento disparou um evento
+    const itemSelecionado = document.querySelector('.selecao');
+    if (itemSelecionado !== null) {
+      itemSelecionado.classList.remove('selecao');
+    }
+    event.target.classList.add('selecao');
+  }
 });
