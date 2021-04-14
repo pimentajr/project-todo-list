@@ -1,4 +1,4 @@
-const textoTarefa = document.getElementById('texto-tarefa');
+const textoTarefa = document.querySelector('input#texto-tarefa');
 
 function gerar() {
   const lista = document.querySelector('ol#lista-tarefas');
