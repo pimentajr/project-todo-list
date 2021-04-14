@@ -1,13 +1,14 @@
 const addTaskForm = document.getElementById('add-task-form');
-const mainTaskListView = document.getElementById('lista-tarefas');
+const taskListMainView = document.getElementById('lista-tarefas');
 const locale = 'pt-BR';
-const prettyDateOptions = {
+const dateFormatOptions = {
   weekday: 'long',
   day: 'numeric',
   month: 'short',
 };
 const keyToSortBy = 'addedOn';
 const sortOrder = 'asc';
+const storage = 'sessionStorage';
 
 function Task() {
   this.title = '';
@@ -59,5 +60,30 @@ function sortTaskList(taskListArray) {
   }
 }
 
+function updateDatabase(task) {
+  const stringifiedDatabase = window[storage].getItem('database');
+  let database = {};
+
+  if (!stringifiedDatabase) {
+    database = { taskList: [task], taskListMainViewCache: '' };
+  } else {
+    database = JSON.parse(stringifiedDatabase);
+    database.taskList.push(task);
+  }
+
+  window[storage].setItem('database', JSON.stringify(database));
+}
+
+function addTask(event) {
+  const newTask = new Task();
+  const addTaskFormInputFields = getInputFieldsFrom('#add-task-form');
+
+  newTask.title = addTaskFormInputFields[0].value;
+  updateDatabase(newTask);
+  addTaskFormInputFields[0].value = '';
+  event.preventDefault();
+}
+
 window.onload = () => {
+  addTaskForm.addEventListener('submit', addTask);
 };
