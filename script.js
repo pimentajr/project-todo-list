@@ -25,7 +25,7 @@ function createTask() {
 
 createTask();
 
-function changeColor(event) {
+function changeBackgroundColor(event) {
   const getLi = document.querySelectorAll('li');
   const targetElement = event.target;
 
@@ -36,4 +36,9 @@ function changeColor(event) {
   targetElement.classList.add('selected');
 }
 
-createOl.addEventListener('click', changeColor);
+createOl.addEventListener('click', changeBackgroundColor);
+
+createOl.addEventListener('dblclick', (event) => {
+  const eventTarget = event.target;
+  eventTarget.classList.toggle('completed');
+}); 
