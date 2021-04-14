@@ -25,6 +25,6 @@ header {
   text-decoration: line-through solid  black;
 }
 
-#apaga-tudo , #remover-finalizados , #salvar-tarefas , #mover-cima , #mover-baixo {
+#apaga-tudo , #remover-finalizados , #salvar-tarefas , #mover-cima , #mover-baixo , #remover-selecionado {
   font-family: Courier, monospace;
 }

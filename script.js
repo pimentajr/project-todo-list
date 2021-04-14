@@ -1,6 +1,5 @@
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 const grayRgb = 'rgb(128, 128, 128)';
-const whiteRgb = 'rgb(255, 255, 255)';
 function elementFromInput() {
   const inputText = document.getElementById('texto-tarefa');
   const listTask = listaDeTarefas;
@@ -18,7 +17,7 @@ function toColorIten(element) {
   const itensFromList = document.getElementsByTagName('li');
   const selectedItem = element.target;
   if (selectedItem.style.backgroundColor === grayRgb) {
-    selectedItem.style.backgroundColor = whiteRgb;
+    selectedItem.style.backgroundColor.innerText = '';
   } else {
     for (let index = 0; index < itensFromList.length; index += 1) {
       itensFromList[index].style.backgroundColor = '';
@@ -107,7 +106,7 @@ function changeItens(inputElement, index, auxClas, parameter) {
     inputElement[index].classList.remove('completed');
   }
   const backColor1 = inputElement[index];
-  backColor1.style.backgroundColor = whiteRgb;
+  backColor1.style.backgroundColor.innerText = '';
   if (auxClas) {
     inputElement[index - parameter].classList.remove('completed');
     inputElement[index - parameter].classList.add('completed');
@@ -151,6 +150,18 @@ function moveDown() {
   const buttonToDown = document.getElementById('mover-baixo');
   buttonToDown.addEventListener('click', toMoveDown);
 }
+function deleteSelected() {
+  const itensFromList2 = document.getElementsByTagName('li');
+  for (let index = 0; index < itensFromList2.length; index += 1) {
+    if (itensFromList2[index].style.backgroundColor === grayRgb) {
+      itensFromList2[index].parentElement.removeChild(itensFromList2[index]);
+    }
+  }
+}
+function removeSelected() {
+  const deleteSelectetMember = document.getElementById('remover-selecionado');
+  deleteSelectetMember.addEventListener('click', deleteSelected);
+}
 function loadWindow() {
   addElementTable();
   selectListItens();
@@ -159,6 +170,7 @@ function loadWindow() {
   setItens();
   moveUp();
   moveDown();
+  removeSelected();
 }
 
 window.onload = loadWindow;
