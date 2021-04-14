@@ -10,7 +10,7 @@ buttonCriarTarefa.addEventListener('click', () => {
 });
 
 const mouseClick = document.querySelectorAll('#lista-tarefas');
-mouseClick.document.addEventListener('click', (event) => {
-  const colorOnClick = event.target;
-  listaDeTarefas = colorOnClick.id;
+mouseClick.document.addEventListener('click', () => {
+  const colorOnClick = document.createElement('li');
+  colorOnClick.style.background = rgb(128, 128, 128);
 });
