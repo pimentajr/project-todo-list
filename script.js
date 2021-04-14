@@ -1,10 +1,14 @@
 const newDiv = document.querySelector('.new-box');
 
-// create button
+// create buttons
 const addButton = document.createElement('button');
 addButton.id = 'criar-tarefa';
 addButton.innerText = 'Adicionar';
 newDiv.appendChild(addButton);
+const eraseButton = document.createElement('button');
+eraseButton.id = 'apaga-tudo';
+eraseButton.innerText = 'Remover';
+newDiv.appendChild(eraseButton);
 
 // Desafio 4
 const createOl = document.createElement('ol');
@@ -38,7 +42,17 @@ function changeBackgroundColor(event) {
 
 createOl.addEventListener('click', changeBackgroundColor);
 
+// Desafio 9: Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item;
 createOl.addEventListener('dblclick', (event) => {
   const eventTarget = event.target;
   eventTarget.classList.toggle('completed');
-}); 
+});
+
+// Desafio 10: Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista;
+const deleteItens = document.querySelector('#apaga-tudo');
+
+deleteItens.addEventListener('click', () => {
+  while (createOl.lastElementChild) {
+    createOl.removeChild(createOl.lastElementChild);
+  }
+});
