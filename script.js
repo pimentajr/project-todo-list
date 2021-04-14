@@ -1,10 +1,13 @@
 const input = document.getElementById('texto-tarefa');
 const addButton = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
-const itemsOfList = document.getElementsByTagName('li');
+const liItems = document.getElementsByTagName('li');
 const clearAllButton = document.getElementById('apaga-tudo');
 const finishedButton = document.getElementById('remover-finalizados');
 const saveTasks = document.getElementById('salvar-tarefas');
+const removeSelectedButton = document.getElementById('remover-selecionado');
+const buttonUp = document.getElementById('mover-cima');
+const buttonDown = document.getElementById('mover-baixo');
 list.innerHTML = localStorage.getItem('savedTasks');
 
 // Adiciona itens à lista
@@ -32,8 +35,8 @@ addToList();
 // Muda cor de fundo ao clicar em um item da lista, mas somente um fica selecionado (requisito 8).
 function changeBackgroundColor() {
   list.addEventListener('click', (event) => {
-    for (let index = 0; index < itemsOfList.length; index += 1) {
-      itemsOfList[index].classList.remove('selecionado');
+    for (let index = 0; index < liItems.length; index += 1) {
+      liItems[index].classList.remove('selecionado');
     }
     event.target.classList.add('selecionado');
   });
@@ -79,3 +82,34 @@ function saveList() {
   });
 }
 saveList();
+
+function moveUpDown() {
+  buttonDown.addEventListener('click', () => { 
+    let li = document.querySelectorAll('li');
+    console.log(li);
+    for (index = 0; index < li.length; index += 1) {
+      if (li[index].classList.contains('selecionado') && li[index].nextSibling !== null) {
+        list.insertBefore(li[index].nextSibling, li[index]);
+      }
+    }
+  });
+}
+  buttonUp.addEventListener('click', () => {
+    let li = document.querySelectorAll('li');
+    for (index = 0; index < li.length; index += 1){
+      if (li[index].classList.contains('selecionado') && li[index].previousSibling !== null) {
+        list.insertBefore(li[index], li[index].previousSibling);
+      }
+    }
+  });
+moveUpDown();
+
+/** Remove tarefa selecionada */
+function removeSelectedTask () {
+  let task = document.getElementsByClassName('selecionado');
+  removeSelectedButton.addEventListener('click', () => {
+    console.log('amém');
+    task[0].remove();
+  });
+}
+removeSelectedTask();
