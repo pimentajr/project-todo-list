@@ -16,7 +16,20 @@ function paintLine() {
         myList[i].classList = 'selected';
       } else {
         nowSelected.classList.remove('selected');
-        myList[i].classList = 'selected';
+        myList[i].classList.add('selected');
+      }
+    });
+  }
+}
+
+function crossOutLine() {
+  const myList = updateList();
+  for (let i = 0; i < myList.length; i += 1) {
+    myList[i].addEventListener('dblclick', () => {
+      if (myList[i].classList.contains('completed')) {
+        myList[i].classList.remove('completed');
+      } else {
+        myList[i].classList.add('completed');
       }
     });
   }
@@ -30,4 +43,7 @@ addButton.addEventListener('click', () => {
   textInput.value = '';
   updateList();
   paintLine();
+  crossOutLine();
 });
+
+crossOutLine();
