@@ -13,7 +13,7 @@
 
 <h4 id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</h4>
 <input id='texto-tarefa' type='text'>
-  <button onclick='addToList()' id='criar-tarefa'>Adicionar à lista</button>
+  <button id='criar-tarefa' onclick='addToList()' >Adicionar à lista</button>
 
   <div id='task-box'>
     <ol id='lista-tarefas'>
@@ -21,7 +21,8 @@
   </div>
 
   <button onclick='deleteAll()' id='apaga-tudo'>Apagar tudo</button>
-  <button onclick='deleteDoneTask()' id='remover-finalizados'>Remove tarefa realizada</button>
+  <button onclick='deleteDoneTask()' id='remover-finalizados'>Remover tarefa realizada</button>
+  <button onclick='saveTasks()' id='saveTasks'>Salvar tarefas</button>
   
   <script src='script.js'></script>
 </body>
