@@ -41,7 +41,7 @@ function deleteList() {
 
   for (let i = 0; i < myList.length; i += 1) {
     delButton.addEventListener('click', () => {
-      myList[i].remove();
+      elementOl.removeChild(myList[i]);
     });
   }
 }
