@@ -82,7 +82,7 @@ function down() {
   const lisSelected = document.getElementsByClassName('selected')[0];
   if (lisSelected.nextElementSibling !== null) {
     taskList.insertBefore(lisSelected.nextElementSibling, lisSelected);
-    }
+  }
 }
 
 downButtonm.addEventListener('click', down);
