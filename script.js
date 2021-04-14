@@ -14,23 +14,45 @@ function addTaskAndChangeBackgroundColor() {
   listItem.innerText = task;
   taskList.appendChild(listItem);
 
-  // add an event listener to new li element created
-  if (listItem) {
-    listItem.addEventListener('click', (event) => {
-      // set new background onclick
-      const taskListChildren = taskList.children;
-      const background = 'rgb(128, 128, 128)';
-      const clickedItem = event.target;
+  // Add an event listener to new li element created
+  // if (listItem) {
+  //   listItem.addEventListener('click', (event) => {
+  //     // Set new background onclick
+  //     const taskListChildren = taskList.children;
+  //     const background = 'rgb(128, 128, 128)';
+  //     const clickedItem = event.target;
+  //     // Set option to select a unique item with new background color
+  //     for (let index = 0; index < taskListChildren.length; index += 1) {
+  //       taskListChildren[index].style.backgroundColor = '';
+  //     }
+  //     clickedItem.style.backgroundColor = background;
+  //   });
 
-      for (let index = 0; index < taskListChildren.length; index += 1) {
-        taskListChildren[index].style.backgroundColor = '';
-      }
-      clickedItem.style.backgroundColor = background;
-    });
-  } else {
-    console.log(Error('fail'));
-  }
+  //   listItem.addEventListener('dblclick', (event) => {
+  //     const clickedItem = event.target;
+
+  //     clickedItem.classList.toggle('completed');
+  //   });
+  // } else {
+  //   console.log(Error('fail'));
+  // }
   taskForm.reset();
 }
 
+const rootElement = document.querySelector('body');
+
+function changeBackgroundColor(event) {
+  const clickedItem = event.target;
+  const taskListChildren = taskList.children;
+  const background = 'rgb(128, 128, 128)';
+  const selector = 'LI';
+  if (clickedItem.tagName === selector) {
+    for (let index = 0; index < taskListChildren.length; index += 1) {
+      taskListChildren[index].style.backgroundColor = '';
+    }
+    clickedItem.style.backgroundColor = background;
+  }
+}
+
+rootElement.addEventListener('click', changeBackgroundColor);
 addButton.addEventListener('click', addTaskAndChangeBackgroundColor);
