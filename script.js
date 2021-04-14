@@ -1,4 +1,4 @@
-//Declaração e link com document HTML
+// Declaração e link com document HTML
 const addTask = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const taskText = document.getElementById('texto-tarefa');
@@ -8,13 +8,13 @@ const completed = document.getElementsByClassName('completed');
 
 // Adicionando Tarefas
 addTask.addEventListener('click', () => {
-    const task = document.createElement('li');
-    task.innerText = taskText.value;
-    taskList.appendChild(task);
-    taskText.value = '';
+  const task = document.createElement('li');
+  task.innerText = taskText.value;
+  taskList.appendChild(task);
+  taskText.value = '';
 });
 
-//Selecionando uma tarefa da Lista
+// Selecionando uma tarefa da Lista
 function selectTask() {
   taskList.addEventListener('click', (event) => {
     const eTarget = event.target;
@@ -29,11 +29,11 @@ function selectTask() {
 // Marcando uma tarefa da lista como feita
 function completedTask() {
   taskList.addEventListener('dblclick', (event) => {
-  const etcList = event.target.classList;
-  if (etcList.contains('completed')) {
-    etcList.remove('completed');
-  } else {
-    etcList.add('completed');
+    const etcList = event.target.classList;
+    if (etcList.contains('completed')) {
+      etcList.remove('completed');
+    } else {
+      etcList.add('completed');
     }
   });
 }
