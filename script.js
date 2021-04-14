@@ -1,5 +1,5 @@
 const addTaskForm = document.getElementById('add-task-form');
-const taskListMainView = document.getElementById('lista-tarefas');
+const mainView = document.getElementById('lista-tarefas');
 const locale = 'pt-BR';
 const dateFormatOptions = {
   weekday: 'long',
@@ -11,7 +11,7 @@ const sortOrder = 'asc';
 const storage = 'sessionStorage';
 const databaseStructure = {
   taskList: [],
-  taskListMainView: '',
+  mainViewContent: '',
 };
 const database = window[storage];
 
@@ -44,14 +44,17 @@ function sortObjectsArrayByKeyAsc(objectsArray) {
   }
 }
 
-function updateDatabaseEntry(entry, newValue) {
-  const stringifiedNewValue = JSON.stringify(newValue);
-
-  database.setItem(entry, stringifiedNewValue);
+function getDatabaseEntry(key) {
+  return JSON.parse(database.getItem(key));
 }
 
-function getDatabaseEntry(entry) {
-  return JSON.parse(database.getItem(entry));
+function updateDatabaseEntry(key, newValue) {
+  const stringifiedNewValue = JSON.stringify(newValue);
+
+  database.setItem(key, stringifiedNewValue);
+  if (key === 'mainViewContent') {
+    mainView.innerHTML = getDatabaseEntry(key);
+  }
 }
 
 // Might be useful to get all input field in views with
@@ -73,7 +76,17 @@ function getInputFieldsFrom(container) {
   return labeledInputFields;
 }
 
-function addTaskToDatabase(event) {
+function addTaskToMainViewContent(task) {
+  const taskItem = document.createElement('li');
+
+  taskItem.id = `task-${task.addedOn}`;
+  taskItem.classList.add('task');
+  taskItem.innerHTML = `${task.title}`;
+  mainView.appendChild(taskItem);
+  updateDatabaseEntry('mainViewContent', mainView.innerHTML);
+}
+
+function addTaskToTaskList(event) {
   const task = new Task();
   const addTaskFormInputFields = getInputFieldsFrom('#add-task-form');
   const currentTaskList = getDatabaseEntry('taskList');
@@ -82,6 +95,7 @@ function addTaskToDatabase(event) {
   currentTaskList.push(task);
   updateDatabaseEntry('taskList', currentTaskList);
   addTaskFormInputFields['task-title'].value = '';
+  addTaskToMainViewContent(task);
   event.preventDefault();
 }
 
@@ -99,8 +113,20 @@ function initializeDatabase() {
     maySetDatabaseKeyValue(databaseKeys[index]);
   }
 }
+// The function below can be used to update the main view in case changes
+// were made to the formatting of the list items in the addTaskToMainViewContent(task).
+//
+// function updateMainViewToNewFormat() {
+//   updateDatabaseEntry('mainViewContent', '');
+//   const taskList = getDatabaseEntry('taskList');
+
+//   for (let index = 0; index < taskList.length; index += 1) {
+//     addTaskToMainViewContent(taskList[index]);
+//   }
+// }
 
 window.onload = () => {
   initializeDatabase();
-  addTaskForm.addEventListener('submit', addTaskToDatabase);
+  addTaskForm.addEventListener('submit', addTaskToTaskList);
+  mainView.innerHTML = getDatabaseEntry('mainViewContent');
 };
