@@ -22,12 +22,23 @@ buttonDellAllTasks.addEventListener('click', deleteTasks);
 
 // selecionar item - alterando fundo para cinza
 function SelectedTask(event) {
-  const itemSelected = olList.childNodes;
-  for (let i = 0; i < itemSelected.length; i += 1) {
-    if (itemSelected[i].classList.contains('selected')) {
-      itemSelected[i].classList.remove('selected');
-    }
-    event.target.classList.add('selected');
+  const selectTask = document.querySelector('.selected');
+  if (selectTask !== null) {
+    selectTask.classList.remove('selected');
+    console.log(selectTask);
   }
+  event.target.classList.add('selected');
+  console.log(event.target);
 }
 olList.addEventListener('click', SelectedTask);
+
+function completedTask(e) {
+  const completTask = document.querySelector('.completed')
+  if (completTask !== null) {
+    completTask.classList.remove('completed');
+    console.log(completTask);
+  }
+  e.target.classList.add('completed');
+  console.log(e.target);
+}
+olList.addEventListener('dblclick', completedTask);
