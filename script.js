@@ -54,5 +54,16 @@ function changeBackgroundColor(event) {
   }
 }
 
+function strikeListItem(event) {
+  const clickedItem = event.target;
+  const selector = 'LI';
+
+  if (clickedItem.tagName === selector) {
+    clickedItem.classList.toggle('completed');
+  }
+}
+
+
 rootElement.addEventListener('click', changeBackgroundColor);
+rootElement.addEventListener('dblclick', strikeListItem);
 addButton.addEventListener('click', addTaskAndChangeBackgroundColor);
