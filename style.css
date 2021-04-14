@@ -14,8 +14,8 @@ header {
 }
 
 .new-box {
-  margin: 140px 320px;
-  width: 600px;
+  margin: 140px 200px;
+  width: 700px;
   padding: 10px 8px 45px 20px;
   border-radius: 2%;
   border: 1px solid black;
@@ -40,8 +40,18 @@ header {
 } */
 
 #criar-tarefa {
-  background-color: green;
-  margin: 5px;
+  /* background-color: green; */
+  margin: 2px;
+  border-radius: 11%;
+}
+
+#apaga-tudo {
+  margin: 2px;
+  border-radius: 11%;
+}
+
+#remover-finalizados {
+  margin: 2px;
   border-radius: 11%;
 }
 

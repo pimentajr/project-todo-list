@@ -1,14 +1,18 @@
 const newDiv = document.querySelector('.new-box');
 
-// create buttons
+// cria botoes dos desafios - refatorar futuramente
 const addButton = document.createElement('button');
 addButton.id = 'criar-tarefa';
-addButton.innerText = 'Adicionar';
+addButton.innerText = 'Adicionar item';
 newDiv.appendChild(addButton);
 const eraseButton = document.createElement('button');
 eraseButton.id = 'apaga-tudo';
-eraseButton.innerText = 'Remover';
+eraseButton.innerText = 'Remover todos os itens';
 newDiv.appendChild(eraseButton);
+const btnRemoveFinished = document.createElement('button');
+btnRemoveFinished.id = 'remover-finalizados';
+btnRemoveFinished.innerText = 'Remover itens finalizados';
+newDiv.appendChild(btnRemoveFinished);
 
 // Desafio 4
 const createOl = document.createElement('ol');
@@ -54,5 +58,15 @@ const deleteItens = document.querySelector('#apaga-tudo');
 deleteItens.addEventListener('click', () => {
   while (createOl.lastElementChild) {
     createOl.removeChild(createOl.lastElementChild);
+  }
+});
+
+// Desafio 11: Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista;
+
+btnRemoveFinished.addEventListener('click', () => {
+  const getCompletedTasks = document.getElementsByClassName('completed');
+
+  for (let index = 0; index < getCompletedTasks.length;) {
+    createOl.removeChild(getCompletedTasks[index]);
   }
 });
