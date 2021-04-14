@@ -10,6 +10,7 @@ const removeSelected = document.getElementById('remover-selecionado');
 const moveUp = document.getElementById('mover-cima');
 const moveDown = document.getElementById('mover-baixo');
 
+
 function addToDo() {
   const toDo = document.createElement('li');
   toDo.classList.add('toDo');
