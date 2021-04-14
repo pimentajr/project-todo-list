@@ -5,7 +5,6 @@ const taskList = document.getElementById('lista-tarefas');
 
 // Pegando o main do DOM
 const mainProject = document.getElementById('main');
-
 // Botões
 const button = document.getElementById('criar-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
@@ -39,6 +38,11 @@ function changeBackground(event) {
 function throughLine(event) {
   event.target.classList.toggle('completed');
 }
+// Adicionando eventos para itens recuperados do localStorage
+for (let index = 0; index < taskList.childElementCount; index += 1) {
+  taskList.childNodes[index].addEventListener('click', changeBackground);
+  taskList.childNodes[index].addEventListener('dblclick', throughLine);
+}
 
 // Função para colocar input na lista
 function inputTask() {
@@ -53,9 +57,8 @@ function inputTask() {
   clearInput(document.getElementById('texto-tarefa'));
 }
 button.addEventListener('click', inputTask);
-for (let item of taskList) {
-  item.addEventListener('click', inputTask)
-}
+
+
 // ex10
 // Função para apagar li
 function removeList() {
@@ -90,7 +93,7 @@ saveButoon.addEventListener('click', saveList);
 //Será verificado que, dado que diversos elementos foram acrescentados à lista, movimentá-los de formas diversas os deixa nas posições esperadas
 // Pega o elemento selecionadoe mover ele para cima com previous element e para baixo com next.
 // primeiro pega elemento selecionado. 
-const selectedElement = document.getElementsByClassName('selected')[0];
+const selectedElement = document.getElementsByClassName('selected');
 
 //Será verificado que, caso algum elemento esteja finalizado, este status deve persistir ainda que se mova o elemento
 
