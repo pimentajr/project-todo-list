@@ -21,7 +21,7 @@ function addToDo() {
 function toDoSelection(element) {
   if (element.target.parentNode === toDoList) {
     if (element.target.classList.contains('selected')) {
-      element.target.classList.remove('selected');
+      // element.target.classList.remove('selected');
     } else if (document.querySelector('.selected') !== null) {
       document.querySelector('.selected').classList.remove('selected');
       element.target.classList.add('selected');
@@ -101,11 +101,10 @@ function toDoMoveDown() {
   }
 }
 
-function moveToDos(button){
+function moveToDos(button) {
   if (button.target === moveUp) {
     toDoMoveUp();
-  }
-  else if (button.target === moveDown) {
+  } else if (button.target === moveDown) {
     toDoMoveDown();
   }
 }
