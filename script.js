@@ -8,3 +8,9 @@ buttonCriarTarefa.addEventListener('click', () => {
   listaDeTarefas.appendChild(novaTarefa);
   textoTarefa.value = '';
 });
+
+const mouseClick = document.querySelectorAll('#lista-tarefas');
+mouseClick.document.addEventListener('click', (event) => {
+  const colorOnClick = event.target;
+  listaDeTarefas = colorOnClick.id;
+});
