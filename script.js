@@ -4,8 +4,14 @@ const btnAdd = document.getElementById('criar-tarefa');
 const clear = document.getElementById('apaga-tudo');
 const btnFinalized = document.getElementById('remover-finalizados');
 const btnDelete = document.getElementById('remover-selecionado');
+const btnSave = document.getElementById('salvar-tarefas');
+const lt = document.getElementsByClassName('listItem');
 
 function makingList() {
+  if (inptText.value === '') {
+    alert('vazio');
+    return false;
+  }
   const mkLi = document.createElement('li');
   mkLi.className = 'listItem';
   mkLi.innerHTML = inptText.value;
@@ -25,13 +31,13 @@ function liBackColor(event) {
   }
 }
 
-list.addEventListener ('click', liBackColor);
+list.addEventListener('click', liBackColor);
 
 function clearAll() {
   list.innerHTML = '';
 }
 
-clear.addEventListener ('click', clearAll);
+clear.addEventListener('click', clearAll);
 
 function liDone(evento) {
   if (evento.target.classList.contains('listItem')) {
@@ -62,3 +68,10 @@ function rmvSelected() {
 }
 
 btnDelete.addEventListener('click', rmvSelected);
+
+function save() {
+  let str = JSON.stringify(list.innerHTML);
+  localStorage.setItem('list', str);
+}
+
+btnSave.addEventListener('click', save);
