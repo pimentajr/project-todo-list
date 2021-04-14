@@ -1,4 +1,4 @@
-* {
+body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -33,7 +33,7 @@ input {
 }
 
 main {
-  min-height: 65vh;
+  min-height: 60vh;
 }
 
 #conteudo-central {
@@ -87,7 +87,28 @@ main {
 
 footer {
   text-align: center;
-  margin-top: 24px;
-  padding-top: 10px;
-  border-top: 1px solid antiquewhite;
+  color: darkred;
+  border-top: 1px dashed darkred;
+  margin-bottom: 10px;
+}
+
+footer span {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 15px;
+  border: darkred 2px dotted;
+}
+
+footer a {
+  color: darkviolet;
+}
+
+footer a:hover {
+  color: lime;
+}
+
+footer i {
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px;
 }
