@@ -35,6 +35,17 @@ function crossOutLine() {
   }
 }
 
+function deleteList() {
+  const myList = updateList();
+  const delButton = document.querySelector('#apaga-tudo');
+
+  for (let i = 0; i < myList.length; i += 1) {
+    delButton.addEventListener('click', () => {
+      myList[i].remove();
+    });
+  }
+}
+
 addButton.addEventListener('click', () => {
   const valueText = document.createTextNode(textInput.value);
   const elementLi = document.createElement('li');
@@ -44,6 +55,8 @@ addButton.addEventListener('click', () => {
   updateList();
   paintLine();
   crossOutLine();
+  deleteList();
 });
 
 crossOutLine();
+deleteList();
