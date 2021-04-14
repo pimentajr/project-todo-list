@@ -21,7 +21,7 @@ function selectTask() {
     const selectedTask = document.querySelector('.selected');
     if (selectedTask) {
       selectedTask.classList.remove('selected');
-    } 
+    }
     eTarget.classList.add('selected');
   });
 }
