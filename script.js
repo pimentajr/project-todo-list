@@ -16,10 +16,11 @@ const countLines = document.getElementsByTagName('li');
 
 function colorLine(event) {
   for (let index = 0; index < countLines.length; index += 1) {
-    countLines[index].style.backgroundColor = 'transparent';
+    countLines[index].className = 'transparent';
   }
-  event.target.style.backgroundColor = 'grey';
+  event.target.classList = 'selected';
 }
+
 findList.addEventListener('click', colorLine);
 
 function completedTask(event) {
@@ -37,8 +38,8 @@ function deleteAll() {
 }
 
 function deleteDoneTask() {
-  const deleteDoneTask = document.getElementsByClassName('completed');
-  while (deleteDoneTask.length > 0) {
+  const completedTask = document.getElementsByClassName('completed');
+  while (completedTask.length > 0) {
     findList.removeChild(deleteDoneTask[0]);
   }
 }
@@ -53,6 +54,18 @@ window.onload = function () {
   findList.innerHTML = savedList;
 };
 
+// function moveUp() {
+  
+// }
+
+// function moveDown() {
+
+// }
+
+function removeSelected() {
+  const selectedLine = document.querySelector('.selected');
+  findList.removeChild(selectedLine);
+}
 // function completedTask (event) {
 //   const trace = event.target;
 //   const lineEffect = window.getComputedStyle(trace).getPropertyValue('text-decoration');

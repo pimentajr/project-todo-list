@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Lista de tarefas</title>
   <link rel='stylesheet' href='style.css'>
 
 <body>
 </head>
 <header>Minha Lista de Tarefas</header>
 
-<h4 id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</h4>
-<input id='texto-tarefa' type='text'>
-  <button id='criar-tarefa' onclick='addToList()' >Adicionar à lista</button>
+<h5 id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</h4>
+  <input id='texto-tarefa' type='text'>
+  <button id='criar-tarefa' onclick='addToList()'>Adicionar à lista</button>
 
   <div id='task-box'>
     <ol id='lista-tarefas'>
@@ -22,8 +22,11 @@
 
   <button onclick='deleteAll()' id='apaga-tudo'>Apagar tudo</button>
   <button onclick='deleteDoneTask()' id='remover-finalizados'>Remover tarefa realizada</button>
+  <button onclick='removeSelected()' id='remover-selecionado'>Remover selecionado</button>
   <button onclick='saveTasks()' id='salvar-tarefas'>Salvar tarefas</button>
-  
+  <button onclick='moveUp()' id='mover-cima'>↑ Mover p/ cima</button>
+  <button onclick='moveDown()' id='mover-baixo'>↓ Mover p/ baixo </button>
+    
   <script src='script.js'></script>
 </body>
 </html>
