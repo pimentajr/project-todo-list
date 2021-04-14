@@ -7,4 +7,4 @@ buttonCriarTarefa.addEventListener('click', () => {
   novaTarefa.innerText = textoTarefa.value;
   listaDeTarefas.appendChild(novaTarefa);
   textoTarefa.value = '';
-})
+});
