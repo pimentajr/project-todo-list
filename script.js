@@ -1,11 +1,13 @@
+//  Global Var
 const taskList = document.getElementById('lista-tarefas');
 const btnAdd = document.getElementById('criar-tarefa');
 const btnClearAll = document.getElementById('apaga-tudo');
 const btnDone = document.getElementById('remover-finalizados');
 const saveTask = document.getElementById('salvar-tarefas');
-
 const formList = document.getElementById('texto-tarefa');
-
+const btnMoveUp = document.getElementById('mover-cima');
+const btnMoveDown = document.getElementById('mover-baixo');
+//  Functions
 function addLi(textForm) {
   const item = document.createElement('li');
   item.innerText = `${textForm}`;
@@ -48,6 +50,23 @@ function clearDone() {
   }
 }
 
+const lis = document.getElementsByTagName('li');
+function moveUpItem() {
+  for (let index = 0; index < lis.length; index += 1) {
+    if (lis[index].classList.contains('selected') && lis[index].previousElementSibling !== null) {
+      taskList.insertBefore(lis[index], lis[index].previousElementSibling);
+    }
+  }
+}
+
+function moveDownItem() {
+  for (let index = 0; index < lis.length; index += 1) {
+    if (lis[index].classList.contains('selected') && lis[index].nextElementSibling !== null) {
+      taskList.insertBefore(lis[index].nextElementSibling, lis[index]);
+    }
+  }
+}
+
 btnAdd.addEventListener('click', () => {
   addLi(formList.value);
 });
@@ -56,9 +75,11 @@ taskList.addEventListener('click', printSelectedItem);
 taskList.addEventListener('dblclick', taskDone);
 btnClearAll.addEventListener('click', clearList);
 btnDone.addEventListener('click', clearDone);
+btnMoveUp.addEventListener('click', moveUpItem);
+btnMoveDown.addEventListener('click', moveDownItem);
 
 function myStorageTask() {
-  localStorage.setItem('itenSave', taskList.innerHTML)
+  localStorage.setItem('itenSave', taskList.innerHTML);
 }
 
 function getStorageTask() {
