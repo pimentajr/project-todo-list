@@ -20,8 +20,8 @@ function addToDo() {
 
 function toDoSelection(element) {
   if (element.target.parentNode === toDoList) {
-    if (element.target.classList.contains('selected')) {
-      // element.target.classList.remove('selected');
+    if (element.target === document.querySelector('.selected')) {
+      element.target.classList.remove('selected');
     } else if (document.querySelector('.selected') !== null) {
       document.querySelector('.selected').classList.remove('selected');
       element.target.classList.add('selected');
