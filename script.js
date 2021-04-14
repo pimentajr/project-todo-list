@@ -3,6 +3,9 @@ const inputList = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 const clearButton = document.getElementById('apaga-tudo');
 const clearCompletedButton = document.getElementById('remover-finalizados');
+const saveButton = document.getElementById('salvar-tarefas');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
 
 addListButton.addEventListener('click', () => {
   const elementLi = document.createElement('li');
@@ -56,3 +59,10 @@ function clearCompleted() {
   }
 }
 clearCompletedButton.addEventListener('click', clearCompleted);
+
+orderedList.innerHTML = localStorage.getItem('savedList');
+
+function saveToDoList() {
+  localStorage.setItem('savedList', orderedList.innerHTML);
+}
+saveButton.addEventListener('click', saveToDoList);
