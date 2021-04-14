@@ -1,4 +1,6 @@
 const listaDeTarefas = document.querySelector('#lista-tarefas');
+const grayRgb = 'rgb(128, 128, 128)';
+const whiteRgb = 'rgb(255, 255, 255)';
 function elementFromInput() {
   const inputText = document.getElementById('texto-tarefa');
   const listTask = listaDeTarefas;
@@ -14,11 +16,15 @@ function addElementTable() {
 }
 function toColorIten(element) {
   const itensFromList = document.getElementsByTagName('li');
-  for (let index = 0; index < itensFromList.length; index += 1) {
-    itensFromList[index].style.backgroundColor = '';
-  }
   const selectedItem = element.target;
-  selectedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (selectedItem.style.backgroundColor === grayRgb) {
+    selectedItem.style.backgroundColor = whiteRgb;
+  } else {
+    for (let index = 0; index < itensFromList.length; index += 1) {
+      itensFromList[index].style.backgroundColor = '';
+    }
+    selectedItem.style.backgroundColor = grayRgb;
+  }
 }
 function markElement(element) {
   const selectedItem = element.target;
@@ -60,7 +66,6 @@ function saveItens() {
     } else {
       allListItens += `${allItens[index].outerText}§`;
     }
-    console.log(allListItens);
   }
   sessionStorage.setItem('liList', `${allListItens}`);
 }
@@ -94,12 +99,66 @@ function setItens() {
   const salvaTarefas = document.getElementById('salvar-tarefas');
   salvaTarefas.addEventListener('click', saveItens);
 }
+function changeItens(inputElement, index, auxClas, parameter) {
+  if (inputElement[index - parameter].classList[0] === 'completed') {
+    inputElement[index].classList.remove('completed');
+    inputElement[index].classList.add('completed');
+  } else {
+    inputElement[index].classList.remove('completed');
+  }
+  const backColor1 = inputElement[index];
+  backColor1.style.backgroundColor = whiteRgb;
+  if (auxClas) {
+    inputElement[index - parameter].classList.remove('completed');
+    inputElement[index - parameter].classList.add('completed');
+  } else {
+    inputElement[index - parameter].classList.remove('completed');
+  }
+  const backColor2 = inputElement[index - parameter];
+  backColor2.style.backgroundColor = grayRgb;
+}
+function toMoveUp() {
+  const listTask = listaDeTarefas.children;
+  for (let index = 1; index < listTask.length; index += 1) {
+    if (listTask[index].style.backgroundColor === grayRgb) {
+      const aux = listTask[index].outerText;
+      const auxClas = (listTask[index].classList[0] === 'completed');
+      changeItens(listTask, index, auxClas, 1);
+      listTask[index].innerText = listTask[index - 1].outerText;
+      listTask[index].classList.innerText = '';
+      listTask[index - 1].innerText = aux;
+    }
+  }
+}
+function moveUp() {
+  const buttonToUp = document.getElementById('mover-cima');
+  buttonToUp.addEventListener('click', toMoveUp);
+}
+function toMoveDown() {
+  const listTask = listaDeTarefas.children;
+  for (let index = listTask.length - 2; index >= 0; index -= 1) {
+    if (listTask[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      const aux = listTask[index].outerText;
+      const auxClas = (listTask[index].classList[0] === 'completed');
+      changeItens(listTask, index, auxClas, -1);
+      listTask[index].innerText = listTask[index + 1].outerText;
+      listTask[index].classList.innerText = '';
+      listTask[index + 1].innerText = aux;
+    }
+  }
+}
+function moveDown() {
+  const buttonToDown = document.getElementById('mover-baixo');
+  buttonToDown.addEventListener('click', toMoveDown);
+}
 function loadWindow() {
   addElementTable();
   selectListItens();
   deleteList();
   concludeItens();
   setItens();
+  moveUp();
+  moveDown();
 }
 
 window.onload = loadWindow;
