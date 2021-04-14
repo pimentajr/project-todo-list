@@ -7,7 +7,7 @@ createTaskButton.addEventListener ('click', function addTask() {
   tagP.innerText = textTask.value;
   listTask.appendChild(tagP);
   textTask.value = '';
-  tagP.addEventListener('click', function backgroundColor() {
-    tagP.style.backgroundColor = 'rgb(128,128,128)';
+  tagP.addEventListener('click', function addClass() {
+    tagP.classList.add('tasks-background-color');
   });
 });
