@@ -1,3 +1,4 @@
+/** Constantes necessárias (botões e etc) */
 const input = document.getElementById('texto-tarefa');
 const addButton = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
@@ -10,9 +11,8 @@ const buttonUp = document.getElementById('mover-cima');
 const buttonDown = document.getElementById('mover-baixo');
 list.innerHTML = localStorage.getItem('savedTasks');
 
-// Adiciona itens à lista
-// Para adição de enter na lista, foi consultada a documentação em W3Schools sobre ações usando o "Enter"
-// Source: https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+/** Para adição de enter na lista, foi consultada a documentação em W3Schools sobre ações usando o "keyup"
+ * Source: https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp */
 function addToList() {
   addButton.addEventListener('click', () => {
     const li = document.createElement('li');
@@ -20,7 +20,7 @@ function addToList() {
     input.value = '';
     list.appendChild(li);
   });
-  // Usando enter
+  /** Event usando enter */
   input.addEventListener('keyup', (event) => {
     if (event.keyCode === 13) {
       const li = document.createElement('li');
@@ -32,7 +32,7 @@ function addToList() {
 }
 addToList();
 
-// Muda cor de fundo ao clicar em um item da lista, mas somente um fica selecionado (requisito 8).
+/** Muda cor de fundo ao clicar em um item da lista, mas somente um fica selecionado (requisito 8). */
 function changeBackgroundColor() {
   list.addEventListener('click', (event) => {
     for (let index = 0; index < liItems.length; index += 1) {
@@ -43,7 +43,7 @@ function changeBackgroundColor() {
 }
 changeBackgroundColor();
 
-// Risca o texto
+/** Risca o texto */
 function addSerrated() {
   list.addEventListener('dblclick', (event) => {
     if (event.target.classList.contains('completed')) {
@@ -55,7 +55,7 @@ function addSerrated() {
 }
 addSerrated();
 
-// Apaga tudo
+/** Apaga tudo */
 function clearAll() {
   clearAllButton.addEventListener('click', () => {
     list.innerHTML = '';
@@ -63,7 +63,7 @@ function clearAll() {
 }
 clearAll();
 
-// Apaga selecionados
+/** Apaga selecionados */
 function clearSelected() {
   finishedButton.addEventListener('click', () => {
     const completedList = document.querySelectorAll('.completed');
@@ -74,7 +74,7 @@ function clearSelected() {
 }
 clearSelected();
 
-// Salva tarefas
+/** Salva tarefas */
 function saveList() {
   saveTasks.addEventListener('click', () => {
     const tasks = document.getElementById('lista-tarefas').innerHTML;
@@ -83,32 +83,33 @@ function saveList() {
 }
 saveList();
 
+/** Para resolver este requisito, foi usada a função .insertBefore para trocar a posição dos itens.
+ * Source: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+ * Com ajuda do colega Alberto Candido eu consegui fazer os comandos de mover cima/baixo */
 function moveUpDown() {
-  buttonDown.addEventListener('click', () => { 
-    let li = document.querySelectorAll('li');
-    console.log(li);
-    for (index = 0; index < li.length; index += 1) {
+  buttonDown.addEventListener('click', () => {
+    const li = document.querySelectorAll('li');
+    for (let index = 0; index < li.length; index += 1) {
       if (li[index].classList.contains('selecionado') && li[index].nextSibling !== null) {
         list.insertBefore(li[index].nextSibling, li[index]);
       }
     }
   });
 }
-  buttonUp.addEventListener('click', () => {
-    let li = document.querySelectorAll('li');
-    for (index = 0; index < li.length; index += 1){
-      if (li[index].classList.contains('selecionado') && li[index].previousSibling !== null) {
-        list.insertBefore(li[index], li[index].previousSibling);
-      }
+buttonUp.addEventListener('click', () => {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selecionado') && li[index].previousSibling !== null) {
+      list.insertBefore(li[index], li[index].previousSibling);
     }
-  });
+  }
+});
 moveUpDown();
 
 /** Remove tarefa selecionada */
-function removeSelectedTask () {
-  let task = document.getElementsByClassName('selecionado');
+function removeSelectedTask() {
+  const task = document.getElementsByClassName('selecionado');
   removeSelectedButton.addEventListener('click', () => {
-    console.log('amém');
     task[0].remove();
   });
 }
