@@ -19,7 +19,7 @@ function createTaskItem() {
   if (createTask.value !== '') {
     taskAdd.innerText = createTask.value;
     taskAdd.classList.add('task');
-    taskAdd.addEventListener('click', changeBackground);
+    //taskAdd.addEventListener('click', changeBackground);
     listOfTasks.appendChild(taskAdd);
     return;
   }
@@ -33,14 +33,14 @@ function clearTextInput() {
 
 //  *da destaque ao item selecionado
 //  !Referencia para a criação'https://github.com/tryber/sd-011-project-todo-list/pull/52'
-function changeBackground(event) {
-  let listSelected = document.getElementsByClassName('selected');
-  for (let index = 0; index < listSelected.length; index += 1) {
-      listSelected[index].classList.remove('selected');
-  }
-  event.target.className = 'selected';
-  event.target.classList.add('selected');
-}
+// function changeBackground(event) {
+//   let listSelected = document.getElementsByClassName('selected');
+//   for (let index = 0; index < listSelected.length; index += 1) {
+//       listSelected[index].classList.remove('selected');
+//   }
+//   event.target.className = 'selected';
+//   event.target.classList.add('selected');
+// }
 
 // todo: marca os itens já realizados com um traço horizontal
 // function completedTask() {
@@ -60,21 +60,21 @@ function cleanAll() {
   }   
 }
     
-  // todo: *Limpa todos os itens que já foram realizados
-    // function cleanAllCompleted() {
-    //   for (let i = 0; i < completedTask.length; i +=1) {
-    //     completedTask[i].remove();
-    //   }
-    // }
+// todo: *Limpa todos os itens que já foram realizados
+  // function cleanAllCompleted() {
+  //   for (let i = 0; i < completedTask.length; i +=1) {
+  //     completedTask[i].remove();
+  //   }
+  // }
     
     
 // *Realiza todas as ações addEventListener
 function readAddEventListener() {    
-    // listOfTasks.addEventListener ("click", selectedTask);
-    buttonTaskCreator.addEventListener('click', createTaskItem);
-    buttonTaskCreator.addEventListener('click', clearTextInput);
-    cleanButton.addEventListener('click', cleanAll);
-    cleanCompletedButton.addEventListener('click', cleanAllCompleted); 
+  // listOfTasks.addEventListener ("click", selectedTask);
+  buttonTaskCreator.addEventListener('click', createTaskItem);
+  buttonTaskCreator.addEventListener('click', clearTextInput);
+  cleanButton.addEventListener('click', cleanAll);
+  cleanCompletedButton.addEventListener('click', cleanAllCompleted); 
 }
 readAddEventListener();
     
