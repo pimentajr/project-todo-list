@@ -3,6 +3,9 @@ const ol = document.querySelector('ol');
 const apagar = document.querySelector('#apaga-tudo');
 const apagarFinalizados = document.querySelector('#remover-finalizados');
 const salvarTarefa = document.querySelector('#salvar-tarefas');
+const buttonUp = document.querySelector('#mover-cima');
+const buttonDown = document.querySelector('#mover-baixo');
+const removeSelecionado = document.querySelector('#remover-selecionado');
 
 task.addEventListener('click', () => {
   let captura = '';
@@ -42,11 +45,29 @@ apagarFinalizados.addEventListener('click', () => {
   }
 });
 
-function salvaTarefa() {/* refatorar  */
+function salvaTarefa() { /* refatorar  */
   salvarTarefa.addEventListener('click', () => {
     localStorage.setItem('task', ol.innerHTML);
   });
   const local = localStorage.getItem('task');
-  console.log(local);
   ol.innerHTML = local;
 } salvaTarefa();
+
+buttonUp.addEventListener('click', () => {
+  const moveTask = document.querySelector('.select');
+  if (moveTask) {
+    moveTask.insertAdjacentElement('afterend', moveTask.previousElementSibling);
+  }
+});
+
+buttonDown.addEventListener('click', () => {
+  const moveTask = document.querySelector('.select');
+  if (moveTask) {
+    moveTask.insertAdjacentElement('beforebegin', moveTask.nextElementSibling);
+  }
+});
+
+removeSelecionado.addEventListener('click', () => {
+  const moveTask = document.querySelector('.select');
+  moveTask.remove();
+});
