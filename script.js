@@ -35,21 +35,14 @@ function getText() {
 }
 btn.addEventListener('click', getText);
 
-function addColor() {
-  const item = document.querySelectorAll('.item-list');
-  for (let index = 0; index < item.length; index += 1) {
-    let color = item[index];
-    color.addEventListener('click', (event) => {
-      event.target.classList.add.className = 'seleted'
-    })
-  }
-}
-addColor();
+const listChange = document.querySelector('#lista-tarefas');
 
-const ordenedList = document.querySelector('#lista-tarefas');
-
-function selectItem(event) {
+function changeColor(event) {
+  const line = document.querySelectorAll('.item-list');
   const target = event.target;
-  target.style.backgroundColor = 'rgb(128, 128, 128)';
+  for(let index = 0; index < line.length; index += 1) {
+    line[index].classList.remove('selected');
+  }
+  target.classList.add('selected');
 }
-ordenedList.addEventListener('click', selectItem);
+listChange.addEventListener('click', changeColor);
