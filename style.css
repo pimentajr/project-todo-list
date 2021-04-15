@@ -14,8 +14,8 @@ header {
 }
 
 .new-box {
-  margin: 140px 200px;
-  width: 700px;
+  margin: 30px 60px;
+  width: 800px;
   padding: 10px 8px 45px 20px;
   border-radius: 2%;
   border: 1px solid black;
@@ -29,18 +29,11 @@ header {
 
 #funcionamento {
   margin-top: 10px;
+  font-size: 18px;
+  font-style: italic;
 }
-
-/* #texto-tarefa {
-
-}
-
-#lista-tarefas {
-
-} */
 
 #criar-tarefa {
-  /* background-color: green; */
   margin: 2px;
   border-radius: 11%;
 }
@@ -51,6 +44,11 @@ header {
 }
 
 #remover-finalizados {
+  margin: 2px;
+  border-radius: 11%;
+}
+
+#salvar-tarefas {
   margin: 2px;
   border-radius: 11%;
 }

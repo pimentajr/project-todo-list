@@ -13,11 +13,17 @@ const btnRemoveFinished = document.createElement('button');
 btnRemoveFinished.id = 'remover-finalizados';
 btnRemoveFinished.innerText = 'Remover itens finalizados';
 newDiv.appendChild(btnRemoveFinished);
+const saveItens = document.createElement('button');
+saveItens.id = 'salvar-tarefas';
+saveItens.innerText = 'Salvar Tarefas';
+newDiv.appendChild(saveItens);
 
 // Desafio 4
 const createOl = document.createElement('ol');
 createOl.id = 'lista-tarefas';
 newDiv.appendChild(createOl);
+
+const getOl = document.getElementById('lista-tarefas');
 
 // Desafio 5 e 6: para realizacao do desafio, tive auxilio dos colegas de turma Julio Filizzola e Rodolfo Ramos;
 function createTask() {
@@ -25,7 +31,7 @@ function createTask() {
 
   addButton.addEventListener('click', () => {
     const newList = document.createElement('li');
-    createOl.appendChild(newList);
+    getOl.appendChild(newList);
     newList.innerHTML = inputItem.value;
     inputItem.value = '';
   });
@@ -40,14 +46,14 @@ function changeBackgroundColor(event) {
   for (let index = 0; index < getLi.length; index += 1) {
     getLi[index].classList.remove('selected');
   }
-  createOl.classList.remove('selected');
+  getOl.classList.remove('selected');
   targetElement.classList.add('selected');
 }
 
-createOl.addEventListener('click', changeBackgroundColor);
+getOl.addEventListener('click', changeBackgroundColor);
 
 // Desafio 9: Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item;
-createOl.addEventListener('dblclick', (event) => {
+getOl.addEventListener('dblclick', (event) => {
   const eventTarget = event.target;
   eventTarget.classList.toggle('completed');
 });
@@ -56,8 +62,8 @@ createOl.addEventListener('dblclick', (event) => {
 const deleteItens = document.querySelector('#apaga-tudo');
 
 deleteItens.addEventListener('click', () => {
-  while (createOl.lastElementChild) {
-    createOl.removeChild(createOl.lastElementChild);
+  while (getOl.lastElementChild) {
+    getOl.removeChild(getOl.lastElementChild);
   }
 });
 
@@ -67,6 +73,18 @@ btnRemoveFinished.addEventListener('click', () => {
   const getCompletedTasks = document.getElementsByClassName('completed');
 
   for (let index = 0; index < getCompletedTasks.length;) {
-    createOl.removeChild(getCompletedTasks[index]);
+    getOl.removeChild(getCompletedTasks[index]);
   }
 });
+
+// Desafio 12:  Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava;
+
+function buttonSave() {
+  saveItens.addEventListener('click', () => {
+    localStorage.setItem(getOl, getOl.innerHTML);
+  });
+  const saved = localStorage.getItem(getOl);
+  getOl.innerHTML = saved;
+}
+
+buttonSave();
