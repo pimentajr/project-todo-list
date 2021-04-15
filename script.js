@@ -65,6 +65,8 @@ function removeCompleted() {
 const finishButton = document.getElementById('remover-finalizados');
 finishButton.addEventListener('click', removeCompleted);
 
+
+//->> Ajuda Hugo Somers, Julio Filizzola.
 function saveList() {
   const createdList = document.getElementById('lista-tarefas').innerHTML;
   localStorage.setItem('lista', createdList);
@@ -78,3 +80,30 @@ let ol = document.getElementById('lista-tarefas');
 let aleatoria = localStorage.getItem('lista');
 
 ol.innerHTML = aleatoria;
+
+//->> Ajuda, Jean Esteves, Juli Filizzola e Hugo Somers
+
+const moveUp = document.getElementById('mover-cima');
+moveUp.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem !== taskList.childNodes[0]) {
+    const previousItem = selectedItem.previousSibling;
+    taskList.insertBefore(selectedItem, previousItem);
+  }
+});
+
+const moveDown = document.querySelector('#mover-baixo');
+moveDown.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem !== taskList.lastChild) {
+    const nextItem = selectedItem.nextSibling;
+    nextItem.insertAdjacentElement('afterend', selectedItem);
+  }
+});
+
+const removeSelectBttn = document.querySelector('#remover-selecionado');
+
+removeSelectBttn.addEventListener('click', () => {
+  const selectedItems = document.querySelector('.selected');
+  selectedItems.remove();
+});
