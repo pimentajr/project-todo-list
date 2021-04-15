@@ -70,3 +70,59 @@
   margin-left: 20px;
 
 }
+
+#salvar-tarefas {
+  background-color: skyblue;
+  width: 100px;
+  height: 50px;
+  border-style: solid;
+  border-color: mediumvioletred;
+  border-width: 5px;
+  color: purple;
+  font-style: italic;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#mover-cima {
+  background-color: skyblue;
+  width: 100px;
+  height: 50px;
+  border-style: solid;
+  border-color: mediumvioletred;
+  border-width: 5px;
+  color: purple;
+  font-style: italic;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#mover-baixo {
+  background-color: skyblue;
+  width: 100px;
+  height: 50px;
+  border-style: solid;
+  border-color: mediumvioletred;
+  border-width: 5px;
+  color: purple;
+  font-style: italic;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#remover-selecionado {
+  background-color: skyblue;
+  width: 100px;
+  height: 50px;
+  border-style: solid;
+  border-color: mediumvioletred;
+  border-width: 5px;
+  color: purple;
+  font-style: italic;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 20px;
+}

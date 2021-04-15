@@ -33,6 +33,26 @@ buttonRemove.id = 'remover-finalizados';
 buttonRemove.innerText = 'remover finalizados';
 boxButton.appendChild(buttonRemove);
 
+const buttonSave = document.createElement('button');
+buttonSave.id = 'salvar-tarefas';
+buttonSave.innerText = 'salvar tarefas ';
+boxButton.appendChild(buttonSave);
+
+const buttonMoveGoUp = document.createElement('button');
+buttonMoveGoUp.id = 'mover-cima';
+buttonMoveGoUp.innerText = 'mover item para cima ';
+boxButton.appendChild(buttonMoveGoUp);
+
+const buttonMoveLow = document.createElement('button');
+buttonMoveLow.id = 'mover-baixo';
+buttonMoveLow.innerText = 'mover item para baixo';
+boxButton.appendChild(buttonMoveLow);
+
+const buttonRemoveCheck = document.createElement('button');
+buttonRemoveCheck.id = 'remover-selecionado';
+buttonRemoveCheck.innerText = 'remover-selecionado ';
+boxButton.appendChild(buttonRemoveCheck);
+
 const listOl = document.createElement('ol');
 listOl.id = 'lista-tarefas';
 body.appendChild(listOl);
@@ -78,5 +98,38 @@ buttonRemove.addEventListener('click', () => {
   for (let index = 0; index < completed.length; index += 1) {
     const classe = completed[index];
     listOl.removeChild(classe);
+  }
+});
+
+// buttonSave.addEventListener('click', function(){
+
+buttonMoveGoUp.addEventListener('click', () => {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    const lis = li[index];
+    if (lis.classList.contains('color')) {
+      listOl.removeChild(lis);
+      listOl.insertBefore(lis, listOl.children[index - 1]);
+    }
+  }
+});
+
+buttonMoveLow.addEventListener('click', () => {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    const lis = li[index];
+    if (lis.classList.contains('color')) {
+      listOl.removeChild(lis);
+      listOl.insertBefore(lis, listOl.children[index + 1]);
+    }
+  }
+});
+
+buttonRemoveCheck.addEventListener('click', () => {
+  const colorCheck = document.querySelectorAll('.color');
+
+  for (let index = 0; index < colorCheck.length; index += 1) {
+    const colors = colorCheck[index];
+    listOl.removeChild(colors);
   }
 });
