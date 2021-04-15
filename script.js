@@ -22,20 +22,16 @@ OL.addEventListener('click', (event) => {
     event.target.classList.add('selected');
   });
 
-
-  //Requisito 08 teste
-  // const getLI = getOL.appendChild;
-  // getLI.addEventListener('click', (event) => {
-  //   event.target.style.backgroundColor = '';
-  //   event.target.style.backgroundColor = 'rgb(128, 128, 128';
-  // });
- 
-
-
-
-
-// Requisito 07 Modo que deu certo
-// const getOL = document.getElementById('lista-tarefas');
-// getOL.addEventListener('click', (event) => {
-//   event.target.style.backgroundColor = 'rgb(128, 128, 128';
-//   });
+//Requisito 10
+function deleteSelectedItem () {
+  listTask.addEventListener('dblclick', (event) => {
+    const eventTarget = event.target;
+    console.log(eventTarget);
+    const riskedItem = document.querySelectorAll('.completed');
+    if (eventTarget.classList.contains('completed')) {
+      eventTarget.classList.remove('completed');
+    }
+      eventTarget.classList.add('completed');
+  })
+}
+deleteSelectedItem();
