@@ -15,7 +15,7 @@ adicionarItens.addEventListener('click', () => {
   tarefa.focus();
 });
 
-// 7
+// 7,8
 lista.addEventListener('click', (event) => {
   if (event.target.tagName === 'LI') { // para descobrir qual elemento disparou um evento
     const itemSelecionado = document.querySelector('.selecao');
@@ -32,3 +32,6 @@ lista.addEventListener('dblclick', (event) => { // duplo click
     event.target.classList.toggle('completed');
   }
 });
+
+// 10
+const limparLista = document.getElementById('apaga-tudo');
