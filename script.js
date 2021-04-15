@@ -1,6 +1,6 @@
 const createTaskButton = document.querySelector('#criar-tarefa');
 
-function addTaskOnList() {
+function addTaskToHtmlList() {
   const textFromInputArea = document.getElementsByTagName('input')[0].value;
   const toDoList = document.createElement('li');
   const toDoOrderedList = document.querySelector('#lista-tarefas');
@@ -13,8 +13,12 @@ function clearInputField() {
   document.getElementsByTagName('input')[0].value = '';
 }
 
-createTaskButton.addEventListener('click', addTaskOnList);
-createTaskButton.addEventListener('click', clearInputField);
+function processInputElement() {
+  addTaskToHtmlList();
+  clearInputField();
+}
+
+createTaskButton.addEventListener('click', processInputElement);
 
 const orderedList = document.querySelector('#lista-tarefas');
 
@@ -73,14 +77,18 @@ removeCompletedButton.addEventListener('click', removeCompleted);
 
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 
+
 function saveTasksLocalStorage() {
-  const listItems = document.querySelectorAll('.lista-tarefas');
-  for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].innerHTML
-  }
+  localStorage.setItem('taskList', orderedList.innerHTML);
 }
 
 saveTasksButton.addEventListener('click', saveTasksLocalStorage);
+
+function retrieveTasksAfterReload() {
+  orderedList.innerHTML = localStorage.getItem('taskList');
+}
+
+retrieveTasksAfterReload();
 
 const buttonRmvSelected = document.querySelector('#remover-selecionado');
 
