@@ -91,3 +91,18 @@ function deleteAll() {
   });
 }
 deleteAll();
+
+const removeFinalizados = document.createElement('button');
+removeFinalizados.id = 'remover-finalizados';
+removeFinalizados.innerText = 'Limpar Completos';
+divInputs2.appendChild(removeFinalizados);
+
+function deleteCompleted() {
+  removeFinalizados.addEventListener('click', () => {
+    const listaOrdenada = document.querySelectorAll('.completed');
+    for (let index = 0; index < listaOrdenada.length; index += 1) {
+      listaOrdenada[index].remove();
+    }
+  });
+}
+deleteCompleted();
