@@ -15,10 +15,10 @@ const countLines = document.getElementsByTagName('li');
 // https://stackoverflow.com/questions/8739665/is-background-colornone-valid-css
 
 function colorLine(event) {
-  for (let index = 0; index < countLines.length; index += 1) {
-    countLines[index].className = 'transparent';
+    for (let index = 0; index < countLines.length; index += 1) {
+    countLines[index].classList.remove ('selected');
   }
-  event.target.classList = 'selected';
+  event.target.classList.add ('selected');
 }
 
 findList.addEventListener('click', colorLine);
@@ -40,7 +40,7 @@ function deleteAll() {
 function deleteDoneTask() {
   const completedTask = document.getElementsByClassName('completed');
   while (completedTask.length > 0) {
-    findList.removeChild(deleteDoneTask[0]);
+    findList.removeChild(completedTask[0]);
   }
 }
 // https://www.w3schools.com/jsref/prop_win_localstorage.asp
