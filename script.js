@@ -61,12 +61,12 @@ function selectTask(event) {
 }
 
 function taskThrough(event) {
-  taskEvent = event.target;
+  const taskEvent = event.target;
   if (taskEvent.classList.contains('completed')) {
     taskEvent.classList.remove('completed');
   } else {
     taskEvent.classList.add('completed');
-  } 
+  }
 }
 
 function createOrdenedList() {
