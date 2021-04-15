@@ -16,7 +16,7 @@ addButton.addEventListener('click', () => {
 });
 
 delListButton.addEventListener('click', () => {
-  let itensList = document.querySelectorAll('#itemList');
+  const itensList = document.querySelectorAll('#itemList');
   for (let i = 0; i < itensList.length; i += 1) {
     itensList[i].parentNode.removeChild(itensList[i]);
   }
