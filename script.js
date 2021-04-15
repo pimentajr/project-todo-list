@@ -88,7 +88,27 @@ saveButoon.addEventListener('click', saveList);
 // primeiro pega elemento selecionado. 
 const previousButoon = document.getElementById('mover-cima');
 const nextButoon = document.getElementById('mover-baixo');
-const selectedElement = document.getElementsByClassName('selected');
+
+function upList() {
+  const selectedElement = document.getElementById('selected');
+  if (selectedElement === selectedElement.parentNode.firstChild) {
+    return null;
+  } else {
+    selectedElement.parentNode.insertBefore(selectedElement, selectedElement.previousElementSibling);
+  }
+}
+
+function downList() {
+  const selectedElement = document.getElementById('selected');
+  if (selectedElement === selectedElement.parentNode.lastChild) {
+    return null;
+  } else {
+    selectedElement.parentNode.insertBefore(selectedElement, selectedElement.nextElementSibling.nextElementSibling);
+  }
+}
+
+previousButoon.addEventListener('click', upList);
+nextButoon.addEventListener('click', downList);
 
 //Será verificado que, caso algum elemento esteja finalizado, este status deve persistir ainda que se mova o elemento
 
