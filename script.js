@@ -55,7 +55,7 @@ function cleanListItems() {
 }
 
 function preventSubmitOnEnter(event) {
-  if (event.keyIdentifier=='U+000A' || event.keyIdentifier=='Enter' || event.keyCode==13) {
+  if (event.keyIdentifier === 'U+000A' || event.keyIdentifier === 'Enter' || event.keyCode === 13) {
     event.preventDefault();
     return false;
   }
@@ -63,20 +63,15 @@ function preventSubmitOnEnter(event) {
 
 function removeFinishedItems() {
   const taskListItems = taskList.children;
-  
+
   for (let index = 0; index < taskListItems.length; index += 1) {
     while (taskListItems[index].className === 'new-item completed') {
       taskListItems[index].remove();
     }
   }
-  // while (taskListItems[index].className === 'new-item completed') {
-  //   taskListItems[index].remove();
-  // }
 }
 
-//removeFinishedItems();
-
-inputField.addEventListener('keydown', preventSubmitOnEnter)
+inputField.addEventListener('keydown', preventSubmitOnEnter);
 rootElement.addEventListener('click', changeBackgroundColor);
 rootElement.addEventListener('dblclick', strikeListItem);
 addButton.addEventListener('click', addTask);
