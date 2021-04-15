@@ -55,6 +55,10 @@ boxButton.appendChild(buttonRemoveCheck);
 
 const listOl = document.createElement('ol');
 listOl.id = 'lista-tarefas';
+if (localStorage.getItem('listaOL') !== null) {
+  const objSalvo = JSON.parse(localStorage.getItem('listaOL'));
+  listOl.innerHTML = objSalvo;
+}
 body.appendChild(listOl);
 
 function addItens() {
@@ -101,13 +105,17 @@ buttonRemove.addEventListener('click', () => {
   }
 });
 
-// buttonSave.addEventListener('click', function(){
+buttonSave.addEventListener('click', () => {
+  const qryOL = document.querySelector('#lista-tarefas');
+  const jsonOL = JSON.stringify(qryOL.innerHTML);
+  localStorage.setItem('listaOL', jsonOL);
+});
 
 buttonMoveGoUp.addEventListener('click', () => {
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) {
     const lis = li[index];
-    if (lis.classList.contains('color')) {
+    if (lis.classList.contains('color') && index > 0) {
       listOl.removeChild(lis);
       listOl.insertBefore(lis, listOl.children[index - 1]);
     }
@@ -118,7 +126,7 @@ buttonMoveLow.addEventListener('click', () => {
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) {
     const lis = li[index];
-    if (lis.classList.contains('color')) {
+    if (lis.classList.contains('color') && index < (li.length - 1)) {
       listOl.removeChild(lis);
       listOl.insertBefore(lis, listOl.children[index + 1]);
     }
