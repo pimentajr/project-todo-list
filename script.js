@@ -19,6 +19,7 @@ function createInputText() {
 }
 
 createInputText();
+
 function createList() {
   const div2 = document.createElement('div');
   document.body.appendChild(div2);
@@ -52,3 +53,29 @@ function backgroundList(event) {
 }
 const list = document.querySelector('#lista-tarefas');
 list.addEventListener('click', backgroundList);
+
+function completed() {
+  const getList = document.querySelector('#lista-tarefas');
+
+  getList.addEventListener('dblclick', (evt) => {
+    evt.target.classList.toggle('completed');
+  });
+}
+completed();
+// function clear() {
+//   const div3 = document.createElement('div');
+//   document.body.appendChild(div3);
+//   div3.className = 'buttons';
+//   const clearButton = document.createElement('button');
+//   clearButton.id = 'apaga-tudo';
+//   clearButton.innerText = 'Apaga tudo';
+//   div3.appendChild(clearButton);
+
+//   const getList
+
+//   clearButton.addEventListener('click', () => {
+
+//   })
+
+// }
+// clear();
