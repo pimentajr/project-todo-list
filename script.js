@@ -60,6 +60,15 @@ function selectTask(event) {
   addEvent.classList.add('selected');
 }
 
+function taskThrough(event) {
+  taskEvent = event.target;
+  if (taskEvent.classList.contains('completed')) {
+    taskEvent.classList.remove('completed');
+  } else {
+    taskEvent.classList.add('completed');
+  } 
+}
+
 function createOrdenedList() {
   ordenedList.id = 'lista-tarefas';
   listSection.appendChild(ordenedList);
@@ -70,6 +79,7 @@ function createsElementsInTheList() {
   elementList.id = 'task';
   elementList.textContent = taskEntry.value;
   elementList.addEventListener('click', selectTask);
+  elementList.addEventListener('dblclick', taskThrough);
   ordenedList.appendChild(elementList);
   taskEntry.value = '';
 }
