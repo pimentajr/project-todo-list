@@ -42,29 +42,29 @@ ordenedList.addEventListener('dblclick', function (event) {
 
 // Botão apagar lista
 buttonCleanList.addEventListener('click', function () {
-  // const itensListClear = document.querySelectorAll('.Item-List');
-  for (let index = 0; index < itensList.length; index += 1) {
-    itensList[index].remove();
+  const itensListClear = document.querySelectorAll('.Item-List');
+  for (let index = 0; index < itensListClear.length; index += 1) {
+    itensListClear[index].remove();
   }
 });
 
 // botão apagar finalizados
 buttonCleanDone.addEventListener('click', function () {
-  // const itensListDone = document.querySelectorAll('.Item-List');
-  for (let index = 0; index < itensList.length; index += 1) {
-    if (itensList[index].classList.contains('completed') === true) {
-      itensList[index].remove();
+  const itensListDone = document.querySelectorAll('.Item-List');
+  for (let index = 0; index < itensListDone.length; index += 1) {
+    if (itensListDone[index].classList.contains('completed') === true) {
+      itensListDone[index].remove();
     }
   }
 });
 
 // Botão para salvar as tarefas
 buttonSaveList.addEventListener('click', function () {
-  // const saveListItens = document.querySelectorAll('.Item-List');
-  for (let index = 0; index < itensList.length; index += 1) {
-    console.log(itensList[index].innerText);
+  const saveListItens = document.querySelectorAll('.Item-List');
+  for (let index = 0; index < saveListItens.length; index += 1) {
+    console.log(saveListItens[index].innerText);
     localStorage.setItem('item' + index, saveListItens[index].innerText);
-    console.log(itensList[index].classList.value);
+    console.log(saveListItens[index].classList.value);
     localStorage.setItem('itemClass' + index, saveListItens[index].classList.value);
   }
 })
@@ -84,24 +84,39 @@ window.onload = function () {
 
 // Botão mover-baixo
 buttonDownItem.addEventListener('click', function () {
-  // console.log(buttonDownItem);
-  let itemClicked = document.querySelectorAll('.clicked')[0];
-  let nextItemClicked = document.querySelectorAll('.clicked')[0].nextSibling;
-  console.log(itemClicked);
-  console.log(nextItemClicked);
-  ordenedList.insertBefore(itemClicked, nextItemClicked.nextSibling);
+//   // console.log(buttonDownItem);
+//   let itemClicked = document.querySelectorAll('.clicked')[0];
+//   let nextItemClicked = document.querySelectorAll('.clicked')[0].nextSibling;
+//   console.log(itemClicked);
+//   console.log(nextItemClicked);
+//   ordenedList.insertBefore(itemClicked, nextItemClicked.nextSibling);
+// });
+let checkItenslistDown = document.getElementsByClassName('Item-List');
+  for (let index = 0; index < checkItenslistDown.length - 1; index += 1) {
+    if (checkItenslistDown[index].classList.contains('clicked')) {
+      let itemClickedDown = checkItenslistDown[index];
+      let nextItemClickedDown = checkItenslistDown[index].nextSibling;
+      console.log(itemClickedDown);
+      console.log(nextItemClickedDown);
+      ordenedList.insertBefore(itemClickedDown, nextItemClickedDown.nextSibling);
+      break;
+    }
+  }
 });
+
 
 // Botão mover-cima
 buttonUpItem.addEventListener('click', function () {
   // console.log(buttonDownItem);
   let checkItenslist = document.getElementsByClassName('Item-List');
-  console.log(checkItenslist);
-  if (checkItenslist[0].classList.contains('clicked') === false) {
-    let itemClicked = document.querySelectorAll('.clicked')[0];
-    let nextItemClicked = document.querySelectorAll('.clicked')[0].previousSibling;
-    console.log(itemClicked);
-    console.log(nextItemClicked);
-    ordenedList.insertBefore(itemClicked, nextItemClicked);
+  for (let index = 1; index < checkItenslist.length; index += 1) {
+    if (checkItenslist[index].classList.contains('clicked')) {
+      let itemClicked = checkItenslist[index];
+      let nextItemClicked = checkItenslist[index].previousSibling;
+      console.log(itemClicked);
+      console.log(nextItemClicked);
+      ordenedList.insertBefore(itemClicked, nextItemClicked);
+    }
   }
+  // console.log(checkItenslist);
 });
