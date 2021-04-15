@@ -51,8 +51,8 @@ function backgroundList(event) {
   }
   targetItem.classList.add('selected');
 }
-const list = document.querySelector('#lista-tarefas');
-list.addEventListener('click', backgroundList);
+const taskList = document.querySelector('#lista-tarefas');
+taskList.addEventListener('click', backgroundList);
 
 function completed() {
   const getList = document.querySelector('#lista-tarefas');
@@ -70,11 +70,19 @@ function clear() {
   clearButton.innerText = 'Apaga tudo';
   div2.appendChild(clearButton);
 
-  const getList = document.querySelector('#lista-tarefas');
-  console.log(getList);
+  const getList = document.getElementById('lista-tarefas');
 
   clearButton.addEventListener('click', () => {
     div2.removeChild(getList);
   });
 }
 clear();
+
+function removeItem() {
+  const div2 = document.querySelector('.listButtons');
+  const clearItem = document.createElement('button');
+  clearItem.id = 'remover-finalizados';
+  clearItem.innerText = 'Remover itens finalizados';
+  div2.appendChild(clearItem);
+}
+removeItem();
