@@ -31,7 +31,6 @@ body {
   margin-left: 25%;
   margin-right: 10%;
   font-size: 30px;
-  background-color: rgba(255, 127, 80, 0.524);
 }
 
 #main {
@@ -77,6 +76,5 @@ footer {
 }
 
 footer:active {
-  color: rgba(255, 127, 80, 0.524);
   font-size: 17px;
 }
