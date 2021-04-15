@@ -19,7 +19,7 @@ body {
 }
 
 .selected {
-  background-color: rgba(128, 128, 128, 0.432);
+  background-color: rgb(128, 128, 128);
 }
 
 .completed {
@@ -93,7 +93,7 @@ li {
   vertical-align: middle;
   border-radius: 4px;
   text-transform: uppercase;
-  background-color: rgba(226, 226, 226, 0.144);
+  background-color: rgba(226 , 226 , 226 , 0.144);
   margin-top: 3px;
   text-align: center;
   list-style: none;
