@@ -66,7 +66,7 @@ function addItem() {
     itemList.className = 'item';
     itemList.innerText = valueItem;
     itemList.addEventListener('dblclick', toggleCompletedTask);
-    itemList.addEventListener('click',clickItem);
+    itemList.addEventListener('click', clickItem);
     document.querySelector('#lista-tarefas').appendChild(itemList);
     document.querySelector('#texto-tarefa').value = '';
   });
@@ -148,8 +148,57 @@ function removeSelectedButton() {
 }
 removeSelectedButton();
 
-// Cria função que seleciona o item anterior
+//Cria função que move o item selecionado para cima
 function up() {
+  const parent = document.querySelector('ol')
+  const selected = document.querySelector('.selected')
+  if (selected == null) {
+    alert('Selecione um item para mover')
+  } else {
+  const previus = document.querySelector('.selected').previousSibling
+  parent.insertBefore(selected, previus)
+  }
+}
+
+// Cria botão que irá selecionar o item anterior baixo utilizando up()
+function buttonUp() {
+  const button = document.createElement('button');
+  button.id = 'mover-cima';
+  button.innerText = '⬆';
+  document.querySelector('#firstsection').appendChild(button);
+  button.addEventListener('click', () => {
+    up();
+  });
+}
+buttonUp();
+
+//Cria função que move o item selecionado para baixo
+function down() {
+  const selected = document.querySelector('.selected')
+  if (selected == null) {
+    alert('Selecione um item para mover')
+  } else {
+    const parent = document.querySelector('ol')
+    const next = document.querySelector('.selected').nextSibling
+    parent.insertBefore(next,selected)
+  }
+}
+
+// Cria botão que irá selecionar para baixo utilizando down
+function buttonDown() {
+  const button = document.createElement('button');
+  button.id = 'mover-baixo';
+  button.innerText = 'Remover';
+  button.innerText = '⬇';
+  document.querySelector('#firstsection').appendChild(button);
+  button.addEventListener('click', () => {
+    down();
+  });
+}
+buttonDown();
+
+// Cria função que seleciona o item anterior, NÃO É REQUISITO, CRIEI ESSA FUNÇÃO EXTRA PARA INCREMENTAR O PROJETO
+function Selectup() {
   const lista = document.querySelectorAll('.item');
   const last = lista[lista.length - 1];
   const current = document.querySelector('.selected');
@@ -169,20 +218,8 @@ function up() {
   }
 }
 
-// Cria botão que irá selecionar o item anterior baixo utilizando up()
-function buttonUp() {
-  const button = document.createElement('button');
-  button.id = 'mover-cima';
-  button.innerText = '⬆';
-  document.querySelector('#firstsection').appendChild(button);
-  button.addEventListener('click', () => {
-    up();
-  });
-}
-buttonUp();
-
-// Cria função que seleciona o item seguinte
-function down() {
+// Cria função que seleciona o item seguinte, NÃO É REQUISITO, CRIEI ESSA FUNÇÃO EXTRA PARA INCREMENTAR O PROJETO
+function Selectdown() {
   const first = document.querySelector('.item');
   const current = document.querySelector('.selected');
   if (first == null) {
@@ -200,16 +237,3 @@ function down() {
     }
   }
 }
-
-// Cria botão que irá selecionar para baixo utilizando down
-function buttonDown() {
-  const button = document.createElement('button');
-  button.id = 'mover-baixo'; 
-  button.innerText = 'Remover';
-  button.innerText = '⬇';
-  document.querySelector('#firstsection').appendChild(button);
-  button.addEventListener('click', () => {
-    down();
-  });
-}
-buttonDown();
