@@ -1,7 +1,27 @@
 const TASK_INPUT = document.querySelector('#texto-tarefa');
 const ADD_TASK_BUTTON = document.querySelector('#criar-tarefa');
 const TASK_LIST = document.querySelector('#lista-tarefas');
-const TASK_LIST_CHILDREN = TASK_LIST.children;
+const REMOVE_ALL_TASKS_BUTTON = document.querySelector('#apaga-tudo');
+const REMOVE_COMPLETED_TASKS_BUTTON = document.querySelector('#remover-finalizados');
+const REMOVE_SELECTED_TASKS_BUTTON = document.querySelector('#remover-selecionado');
+
+REMOVE_ALL_TASKS_BUTTON.addEventListener('click', () => {
+  if (TASK_LIST.children.length) {
+    TASK_LIST.innerHTML = '';
+  }
+});
+
+REMOVE_SELECTED_TASKS_BUTTON.addEventListener('click', () => {
+  [...TASK_LIST.children].find((child) => child.classList.contains('selected')).remove();
+});
+
+REMOVE_COMPLETED_TASKS_BUTTON.addEventListener('click', () => {
+  const isTaskCompleted = (task) => task.classList.contains('completed');
+  [...TASK_LIST.children].reduceRight((acc, child) => {
+    if (isTaskCompleted(child)) child.remove();
+    return 0;
+  }, 0);
+});
 
 ADD_TASK_BUTTON.addEventListener('click', () => {
   const TASK_INPUT_VALUE = TASK_INPUT.value;
@@ -20,16 +40,18 @@ ADD_TASK_BUTTON.addEventListener('click', () => {
 });
 
 function resetSelectedChildren() {
-  [...TASK_LIST_CHILDREN].forEach((child) => {
+  [...TASK_LIST.children].forEach((child) => {
     const CHILD = child;
     CHILD.style.backgroundColor = null;
+    CHILD.classList.remove('selected');
   });
 }
 
-TASK_LIST.addEventListener('click', (e) => {
+TASK_LIST.addEventListener('mousedown', (e) => {
   if (e.target !== this) {
     resetSelectedChildren();
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    e.target.classList.add('selected');
   }
 });
 
