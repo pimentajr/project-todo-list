@@ -27,3 +27,11 @@ function paintGrey() {
 }
 
 paintGrey();
+
+function scratchLine() {
+  list.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+
+scratchLine()
