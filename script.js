@@ -22,6 +22,7 @@ createInputText();
 
 function createList() {
   const div2 = document.createElement('div');
+  div2.className = 'listButtons';
   document.body.appendChild(div2);
   const list = document.createElement('ol');
   list.id = 'lista-tarefas';
@@ -30,7 +31,6 @@ function createList() {
   button.id = 'criar-tarefa';
   button.innerText = 'Adicionar';
   div2.appendChild(button);
-
   button.addEventListener('click', () => {
     const getInput = document.getElementById('texto-tarefa');
     const itemList = document.createElement('li');
@@ -62,20 +62,19 @@ function completed() {
   });
 }
 completed();
-// function clear() {
-//   const div3 = document.createElement('div');
-//   document.body.appendChild(div3);
-//   div3.className = 'buttons';
-//   const clearButton = document.createElement('button');
-//   clearButton.id = 'apaga-tudo';
-//   clearButton.innerText = 'Apaga tudo';
-//   div3.appendChild(clearButton);
 
-//   const getList
+function clear() {
+  const div2 = document.querySelector('.listButtons');
+  const clearButton = document.createElement('button');
+  clearButton.id = 'apaga-tudo';
+  clearButton.innerText = 'Apaga tudo';
+  div2.appendChild(clearButton);
 
-//   clearButton.addEventListener('click', () => {
+  const getList = document.querySelector('#lista-tarefas');
+  console.log(getList);
 
-//   })
-
-// }
-// clear();
+  clearButton.addEventListener('click', () => {
+    div2.removeChild(getList);
+  });
+}
+clear();
