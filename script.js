@@ -44,7 +44,6 @@ function deleteAll() {
 
 delButton.addEventListener('click', deleteAll);
 
-//let complete = document.querySelectorAll('.completed');
 function removeChecked() {
   for (let index = 0; index < tasks.children.length; index += 1) {
     if (tasks.children[index].classList.contains('completed')) {
