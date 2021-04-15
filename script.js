@@ -9,6 +9,7 @@ const addButton = document.querySelector('#criar-tarefa');
 const taskForm = document.querySelector('#input-task-container');
 const rootElement = document.querySelector('body');
 const deleteButton = document.querySelector('#apaga-tudo');
+const finishedButton = document.querySelector('#remover-finalizados');
 
 function addTask() {
   const task = inputField.value;
@@ -53,9 +54,31 @@ function cleanListItems() {
   }
 }
 
-//cleanListItems();
+function preventSubmitOnEnter(event) {
+  if (event.keyIdentifier=='U+000A' || event.keyIdentifier=='Enter' || event.keyCode==13) {
+    event.preventDefault();
+    return false;
+  }
+}
 
+function removeFinishedItems() {
+  const taskListItems = taskList.children;
+  
+  for (let index = 0; index < taskListItems.length; index += 1) {
+    while (taskListItems[index].className === 'new-item completed') {
+      taskListItems[index].remove();
+    }
+  }
+  // while (taskListItems[index].className === 'new-item completed') {
+  //   taskListItems[index].remove();
+  // }
+}
+
+//removeFinishedItems();
+
+inputField.addEventListener('keydown', preventSubmitOnEnter)
 rootElement.addEventListener('click', changeBackgroundColor);
 rootElement.addEventListener('dblclick', strikeListItem);
 addButton.addEventListener('click', addTask);
 deleteButton.addEventListener('click', cleanListItems);
+finishedButton.addEventListener('click', removeFinishedItems);
