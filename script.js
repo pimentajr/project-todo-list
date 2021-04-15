@@ -51,15 +51,15 @@ saveListButton.addEventListener('click', () => {
 
 moveUp.addEventListener('click', () => {
   const selectedTask = document.querySelector(selectedClass);
-  const lista = selectedTask.parentElement;
   if (selectedTask !== null && selectedTask.previousSibling !== null) {
+    const lista = selectedTask.parentElement;
     lista.insertBefore(selectedTask, selectedTask.previousSibling);
   }
 });
 moveDown.addEventListener('click', () => {
   const selectedTask = document.querySelector(selectedClass);
-  const lista = selectedTask.parentElement;
   if (selectedTask !== null && selectedTask.nextSibling !== null) {
+    const lista = selectedTask.parentElement;
     lista.insertBefore(selectedTask, selectedTask.nextSibling.nextSibling);
   }
 });
