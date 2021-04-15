@@ -6,10 +6,13 @@ function addNewTalks() {
   addTask.addEventListener('click', () => {
     const textTalks = document.getElementById('texto-tarefa');
     const itenTasks = document.createElement('li');
-    localStorage.setItem('inputNew', textTalks.value);
-    itenTasks.innerText = localStorage.getItem('inputNew');
-    listTasks.appendChild(itenTasks);
-    textTalks.value = '';
+    if (textTalks.value === '') {
+      alert('Digite uma tarefa');
+    } else {
+      itenTasks.innerText = textTalks.value;
+      listTasks.appendChild(itenTasks);
+      textTalks.value = '';
+    }
   });
 }
 addNewTalks();
