@@ -14,3 +14,16 @@ const addNewTask = () => {
 };
 
 addNewTask();
+
+function paintGrey() {
+  list.addEventListener('click', (event) => {
+    const selected = document.querySelector('.fundo-cinza');
+
+    if (selected != null) {
+      selected.classList.remove('fundo-cinza');
+    }
+    event.target.classList.add('fundo-cinza');
+  });
+}
+
+paintGrey();
