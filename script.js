@@ -2,7 +2,6 @@
 // No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
 // Criando lo para ex 4
 const taskList = document.getElementById('lista-tarefas');
-
 // Pegando o main do DOM
 const mainProject = document.getElementById('main');
 // Botões
@@ -27,11 +26,11 @@ function clearInput(input) {
 
 // Função que altera o background da li selecionada
 function changeBackground(event) {
-  const listSelected = document.getElementsByClassName('selected');
-  for (let index = 0; index < listSelected.length; index += 1) {
-    listSelected[index].classList.remove('selected');
+  let itemList = document.querySelectorAll('.item');
+  for(let element of itemList) {
+    element.id = '';
   }
-  event.target.classList.add('selected');
+  event.target.id = 'selected';
 }
 
 // Função que risca linha 
@@ -48,7 +47,7 @@ for (let index = 0; index < taskList.childElementCount; index += 1) {
 function inputTask() {
   const inputValue = document.getElementById('texto-tarefa').value;
   const itenList = document.createElement('li');
-  itenList.id = 'itenList';
+  itenList.className = 'item';
   itenList.addEventListener('click', changeBackground);
   itenList.addEventListener('dblclick', throughLine);
   itenList.innerText = inputValue;

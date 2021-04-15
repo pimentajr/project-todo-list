@@ -38,7 +38,7 @@ header {
   color: black;
 }
 
-.selected {
+#selected {
   background-color: gray;
 }
 
