@@ -19,7 +19,7 @@ body {
 }
 
 .selected {
-  background-color: gray;
+  background-color: rgba(128, 128, 128, 0.432);
 }
 
 .completed {
@@ -93,13 +93,13 @@ li {
   vertical-align: middle;
   border-radius: 4px;
   text-transform: uppercase;
-  background-color: rgba(226 , 226 , 226 , 0.137);
+  background-color: rgba(226, 226, 226, 0.144);
   margin-top: 3px;
   text-align: center;
   list-style: none;
 }
 
-li:hover, .selected:hover{
+li:hover , .selected:hover {
   box-shadow: rgba(0 , 0 , 0 , 0.144) 0 0 10px;
 }
 
