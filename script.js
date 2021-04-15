@@ -1,7 +1,13 @@
+
 const addButton = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const clearButton = document.querySelector('#apaga-tudo');
-const completedClear = document.querySelector('#remover-finalizados')
+const completedClear = document.querySelector('#remover-finalizados');
+const saveListButton = document.querySelector('#salvar-tarefas');
+function retrieveState() {
+  taskList.innerHTML = localStorage.getItem('tasks');
+}
+retrieveState();
 addButton.addEventListener('click', () => {
   const inputText = document.querySelector('#texto-tarefa').value;
   const listElement = document.createElement('li');
@@ -11,7 +17,6 @@ addButton.addEventListener('click', () => {
   document.querySelector('#texto-tarefa').value = '';
 });
 taskList.addEventListener('click', (event) => {
-  event.target.classList.add('selectedTask');
   const selected = document.querySelectorAll('.selectedTask');
   for (let index = 0; index < selected.length; index += 1) {
     selected[index].classList.remove('selectedTask');
@@ -36,3 +41,9 @@ completedClear.addEventListener('click', () => {
     completedTasks[index].remove();
   }
 });
+function saveList() {
+  localStorage.setItem('tasks', taskList.innerHTML);
+  return;
+}
+
+saveListButton.addEventListener('click', saveList);
