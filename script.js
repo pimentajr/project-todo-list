@@ -25,14 +25,11 @@ function selectTask(event) {
 }
 tasks.addEventListener('click', selectTask);
 
-//let click = 0;
 function completed(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
-    //click = 1;
   } else {
     event.target.classList.add('completed');
-    //click = 0;
   }
 }
 
@@ -45,9 +42,9 @@ function deleteAll() {
 delButton.addEventListener('click', deleteAll);
 
 function removeChecked() {
-  let complet = document.querySelector('.completed');
+  const complet = document.querySelector('.completed');
   if (complet) {
-    for (let index = 0; index < tasks.children.length; ) {
+    for (let index = 0; index < tasks.children.length;) {
       if (tasks.children[index].classList.contains('completed')) {
         tasks.removeChild(tasks.children[index]);
         index = 0;
