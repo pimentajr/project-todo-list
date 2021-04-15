@@ -8,6 +8,7 @@ const create = document.getElementById('criar-tarefa');
 const items = document.getElementsByTagName('li');
 const eraser = document.getElementById('apaga-tudo');
 const remove = document.getElementById('remover-finalizados');
+const saver = document.getElementById('salvar-tarefas');
 
 function addTasks() {
   const tasks = document.createElement('li');
@@ -23,9 +24,9 @@ create.addEventListener('click', addTasks);
 function addBackgroundColor() {
   list.addEventListener('click', (event) => {
     for (index = 0; index < items.length; index += 1) {
-      items[index].classList.remove('selecionado');
+      items[index].classList.remove('selected');
     }
-    event.target.classList.add('selecionado');
+    event.target.classList.add('selected');
   });
 }
 addBackgroundColor();
@@ -54,14 +55,28 @@ removeList();
 
 // 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista:
 
-function eraseCompleted() {
-remove.addEventListener('click', () => {
-const complete = document.querySelectorAll('.completed');
-  if (complete != null) {
-    for (let index2 = 0; index2 < complete.length; index2 += 1) {
+function removeItem() {
+  remove.addEventListener('click', () => {
+    const complete = document.querySelectorAll('.completed');
+      for (let index2 = 0; index2 < complete.length; index2 += 1) {
         complete[index2].remove();
-      }
     }
   });
 }
-eraseCompleted();
+removeItem();
+
+// 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava:
+
+function saveTasks() {
+saver.addEventListener('click', () => {
+  localStorage.setItem('saveTasks', list.innerHTML);
+});
+
+const saver2 = localStorage.getItem('saveTasks');
+if (saver2) {
+  list.innerHTML = saver2
+}
+}
+saveTasks();
+
+
