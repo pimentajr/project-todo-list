@@ -25,3 +25,10 @@ lista.addEventListener('click', (event) => {
     event.target.classList.add('selecao');
   }
 });
+
+// 9
+lista.addEventListener('dblclick', (event) => { // duplo click
+  if (event.target.tagName === 'LI') { // para descobrir qual elemento disparou um evento
+    event.target.classList.toggle('completed');
+  }
+});
