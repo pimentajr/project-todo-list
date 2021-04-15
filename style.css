@@ -63,6 +63,11 @@ header {
   border-radius: 11%;
 }
 
+#remover-selecionado {
+  margin: 2px;
+  border-radius: 11%;
+}
+
 .selected {
   background-color: gray;
 }

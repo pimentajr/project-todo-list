@@ -29,6 +29,22 @@ const saveItens = document.createElement('button');
 saveItens.id = 'salvar-tarefas';
 saveItens.innerText = 'Salvar Tarefas';
 newDiv.appendChild(saveItens);
+// remover selecionado
+const btnRemoveSelected = document.createElement('button');
+btnRemoveSelected.id = 'remover-selecionado';
+btnRemoveSelected.innerText = 'Remover selecionado';
+newDiv.appendChild(btnRemoveSelected);
+
+// function createButtons(elements, nameId, textName) {
+//   const element = document.createElement(elements);
+//   element.id = nameId;
+//   element.innerText = textName;
+
+//   return element;
+// }
+
+// console.log(createButtons('button', 'criar-tarefa', 'Adicionar Item'));
+// const addButton = createButtons();
 
 // Desafio 4
 const createOl = document.createElement('ol');
@@ -136,3 +152,15 @@ function moveDownBtn() {
 }
 
 moveDownBtn();
+
+function removeSelectedTask() {
+  const taskList = getOl;
+  const removeSelected = document.getElementById('remover-selecionado');
+
+  removeSelected.addEventListener('click', () => {
+    const getSelectedClass = document.querySelector('.selected');
+    taskList.removeChild(getSelectedClass);
+  });
+}
+
+removeSelectedTask();
