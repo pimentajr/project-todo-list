@@ -45,10 +45,12 @@ function deleteAll() {
 delButton.addEventListener('click', deleteAll);
 
 function removeChecked() {
-  for (let index = 0; index < tasks.children.length; index += 1) {
+  for (let index = 0; index < tasks.children.length; ) {
     if (tasks.children[index].classList.contains('completed')) {
       tasks.removeChild(tasks.children[index]);
       index = 0;
+    } else {
+      index += 1;
     }
   }
 }
