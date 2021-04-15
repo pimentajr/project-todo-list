@@ -119,3 +119,20 @@ function moveUpBtn() {
 }
 
 moveUpBtn();
+
+function moveDownBtn() {
+  const taskList = getOl;
+  const moveDown = document.getElementById('mover-baixo');
+
+  moveDown.addEventListener('click', () => {
+    const getSelectedClass = document.querySelector('.selected');
+    if (getSelectedClass) {
+      const moveDownPosition = getSelectedClass.nextElementSibling;
+      if (moveDownPosition) {
+        taskList.insertBefore(getSelectedClass, moveDownPosition.nextElementSibling);
+      }
+    }
+  });
+}
+
+moveDownBtn();
