@@ -1,6 +1,7 @@
 const section1 = document.getElementById('section-1');
 
 
+
 function createInput(){
   const inputUser = document.createElement('input');
   inputUser.setAttribute('type','text');
@@ -40,6 +41,7 @@ function createList(){
   section1.appendChild(ol);
 }
 createList();
+const listItems = document.getElementById('lista-tarefas');
 
 function select(){
   
@@ -59,13 +61,7 @@ function finished(){
   
   let boxItems = document.getElementById('lista-tarefas');
 
-    console.log(boxItems);
-
   boxItems.addEventListener('dblclick', function(event){
-
-    console.log('teste');
-
-      console.log(event.target);
 
        if(event.target.classList.contains('completed') === true) {
         event.target.classList.remove('completed'); 
@@ -109,5 +105,36 @@ function buttonFinished(finishedName){
   })
 }
 buttonFinished('Remover Finalizados');
+
+function buttonSave(saveName){
+  let buttonSave = document.createElement('button');
+  buttonSave.id = 'salvar-tarefas';
+  buttonSave.innerText = saveName;
+  section1.appendChild(buttonSave)
+
+  buttonSave.addEventListener('click',function(){
+
+    localStorage.setItem('lista-tarefas',listItems.innerHTML);
+  })
+  const saved = localStorage.getItem('lista-tarefas');
+  listItems.innerHTML = saved;
+}
+buttonSave('Salvar Tarefas');
+
+function buttonCima(){
+  let moverCima = document.createElement('button');
+  moverCima.id = 'mover-cima';
+  moverCima.innerText = 'Mover Para Cima';
+  section1.appendChild(moverCima);
+}
+buttonCima();
+
+function buttonBaixo(){
+  let moverBaixo = document.createElement('button');
+  moverBaixo.id = 'mover-baixo';
+  moverBaixo.innerText = 'Mover Para Baixo';
+  section1.appendChild(moverBaixo);
+}
+buttonBaixo();
 
 
