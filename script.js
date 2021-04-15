@@ -58,7 +58,7 @@ function removeSelected() {
 }
 removeSelected();
 
-/* Ajuda Fillizzola, Victor e Rodolfo */
+/* Ajuda Fillizzola, Vitor e Rodolfo */
 function btnToSave() {
   const btnSave = document.querySelector('#salvar-tarefas');
   btnSave.addEventListener('click', () => {
@@ -67,3 +67,26 @@ function btnToSave() {
   selectList.innerHTML = localStorage.getItem('listItems');
 }
 btnToSave();
+
+/* Ajuda Kaio e Jean */
+function selectorUp() {
+  const btnMoverCima = document.querySelector('#mover-cima');
+  btnMoverCima.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    if (selected && selected.previousSibling) {
+      selectList.insertBefore(selected, selected.previousSibling);
+    }
+  });
+}
+selectorUp();
+
+function selectorDown() {
+  const btnMoverBaixo = document.querySelector('#mover-baixo');
+  btnMoverBaixo.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    if (selected && selected.nextSibling) {
+      selected.parentNode.insertBefore(selected.nextSibling, selected);
+    }
+  });
+}
+selectorDown();

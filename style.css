@@ -43,3 +43,7 @@ li {
 .completed {
   text-decoration: line-through solid black;
 }
+
+button {
+  border-radius: 5px;
+}
