@@ -25,14 +25,14 @@ function selectTask(event) {
 }
 tasks.addEventListener('click', selectTask);
 
-let click = 0;
+//let click = 0;
 function completed(event) {
-  if (click === 0) {
-    event.target.classList.add('completed');
-    click = 1;
-  } else {
+  if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
-    click = 0;
+    //click = 1;
+  } else {
+    event.target.classList.add('completed');
+    //click = 0;
   }
 }
 
@@ -45,12 +45,15 @@ function deleteAll() {
 delButton.addEventListener('click', deleteAll);
 
 function removeChecked() {
-  for (let index = 0; index < tasks.children.length; ) {
-    if (tasks.children[index].classList.contains('completed')) {
-      tasks.removeChild(tasks.children[index]);
-      index = 0;
-    } else {
-      index += 1;
+  let complet = document.querySelector('.completed');
+  if (complet) {
+    for (let index = 0; index < tasks.children.length; ) {
+      if (tasks.children[index].classList.contains('completed')) {
+        tasks.removeChild(tasks.children[index]);
+        index = 0;
+      } else {
+        index += 1;
+      }
     }
   }
 }
