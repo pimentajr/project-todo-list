@@ -5,7 +5,6 @@ const clear = document.getElementById('apaga-tudo');
 const btnFinalized = document.getElementById('remover-finalizados');
 const btnDelete = document.getElementById('remover-selecionado');
 const btnSave = document.getElementById('salvar-tarefas');
-const lt = document.getElementsByClassName('listItem');
 
 function makingList() {
   if (inptText.value === '') {
@@ -70,7 +69,7 @@ function rmvSelected() {
 btnDelete.addEventListener('click', rmvSelected);
 
 function save() {
-  let str = JSON.stringify(list.innerHTML);
+  const str = JSON.stringify(list.innerHTML);
   localStorage.setItem('list', str);
 }
 
