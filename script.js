@@ -54,7 +54,7 @@ function clickItem(event) {
 
 // Cria função que adiciona ou remove a classe completed
 function toggleCompletedTask(event) {
-  event.target.classList.toggle("completed");
+  event.target.classList.toggle('completed');
 }
 
 // Adiciona função ao botão Adicionar e a cada item criado, adiciona escutadores de eventos
@@ -148,16 +148,16 @@ function removeSelectedButton() {
 }
 removeSelectedButton();
 
-//Cria função que move o item selecionado para cima
+// Cria função que move o item selecionado para cima
 function up() {
-  const parent = document.querySelector('ol')
-  const selected = document.querySelector('.selected')
+  const parent = document.querySelector('ol');
+  const selected = document.querySelector('.selected');
   if (selected == null) {
-    alert('Selecione um item para mover')
+    alert('Selecione um item para mover');
   } else {
-  const previus = document.querySelector('.selected').previousSibling
+    const previus = document.querySelector('.selected').previousSibling;
     if (previus !== null) {
-      parent.insertBefore(selected, previus)
+      parent.insertBefore(selected, previus);
     }
   }
 }
@@ -174,16 +174,16 @@ function buttonUp() {
 }
 buttonUp();
 
-//Cria função que move o item selecionado para baixo
+// Cria função que move o item selecionado para baixo
 function down() {
-  const parent = document.querySelector('ol')
-  const selected = document.querySelector('.selected')
+  const parent = document.querySelector('ol');
+  const selected = document.querySelector('.selected');
   if (selected == null) {
-    alert('Selecione um item para mover')
+    alert('Selecione um item para mover');
   } else {
-    const next = document.querySelector('.selected').nextSibling
+    const next = document.querySelector('.selected').nextSibling;
     if (next !== null) {
-      parent.insertBefore(next,selected)
+      parent.insertBefore(next, selected);
     }
   }
 }
@@ -203,8 +203,8 @@ buttonDown();
 // Cria função que salva os toda lista com suas classes
 function save() {
   localStorage.clear();
-  const saved = document.querySelector('#lista-tarefas').innerHTML
-  localStorage.setItem('saved', saved)
+  const saved = document.querySelector('#lista-tarefas').innerHTML;
+  localStorage.setItem('saved', saved);
 }
 
 // Cria botão que salva a lista atual utilizando save()
@@ -214,23 +214,23 @@ function buttonSave() {
   button.innerText = 'Salvar';
   document.querySelector('#firstsection').appendChild(button);
   button.addEventListener('click', () => {
-    save()
-  })
+    save();
+  });
 }
-buttonSave()
+buttonSave();
 
 // Cria função que recarrega toda a lista com suas classes
 function reload() {
   if (localStorage.length > 0) {
-    const list = document.querySelector('#lista-tarefas')
-    list.innerHTML = localStorage.saved
+    const list = document.querySelector('#lista-tarefas');
+    list.innerHTML = localStorage.saved;
   }
 }
 
 // Recarrega os itens ao recarregar a página
 window.onload = () => {
-  reload()  
-}
+  reload();
+};
 
 // Cria função que seleciona o item anterior, NÃO É REQUISITO, CRIEI ESSA FUNÇÃO EXTRA PARA INCREMENTAR O PROJETO
 function Selectup() {
