@@ -1,72 +1,80 @@
-// referencia para a manipulação do input 'https://www.w3schools.com/jsref/dom_obj_text.asp'
-// limpa a barra de inserir texto
+//  !Referencia para a manipulação do input 'https://www.w3schools.com/jsref/dom_obj_text.asp'
+//  !Referencia para o uso de toggle 'https://www.w3schools.com/howto/howto_js_toggle_class.asp'
+
+// *criação de constantes 
+const selectedItens = document.querySelectorAll('.task');
+const createTask = document.querySelector('#texto-tarefa');
+const buttonTaskCreator = document.querySelector('#criar-tarefa');
+const listOfTasks = document.querySelector('#lista-tarefas');
+const cleanButton = document.querySelector('#apaga-tudo');
+const cleanCompletedButton = document.querySelector('#remover-finalizados');
+const completedTask = document.querySelectorAll('.completed');
+const itemListSelected = document.querySelector('.selected');
+
+let returnClassCompleted;
+
+//  *Cria um item na lista
+function createTaskItem() {
+  const taskAdd = document.createElement('li');
+  if (createTask.value !== '') {
+    taskAdd.innerText = createTask.value;
+    taskAdd.classList.add('task');
+    taskAdd.addEventListener('click', changeBackground);
+    listOfTasks.appendChild(taskAdd);
+    return;
+  }
+}
+
+//  *limpa a barra de inserir texto
 function clearTextInput() {
-  document.querySelector('#texto-tarefa').value = '';
+  createTask.value = '';
 }
 
-// remover destaque ao item selecionado
-function unselectLi() {
-  const createLiArray = document.querySelectorAll('li');
-  for ( let i = 0; i < createLiArray.length; i += 1) {
-    createLiArray[i].addEventListener('click', function removebackground() {
-      const itemListSelected = document.querySelector('.selected');
-      if (itemListSelected !== null) {
-        itemListSelected.classList.remove('selected');
-      }
-    })
+
+//  *da destaque ao item selecionado
+//  !Referencia para a criação'https://github.com/tryber/sd-011-project-todo-list/pull/52'
+function changeBackground(event) {
+  let listSelected = document.getElementsByClassName('selected');
+  for (let index = 0; index < listSelected.length; index += 1) {
+      listSelected[index].classList.remove('selected');
   }
+  event.target.className = 'selected';
+  event.target.classList.add('selected');
 }
 
-// adiciona destaque ao item selecionado
-function selectLi() {
-  const createLiArray = document.querySelectorAll('li');
-  for ( let i = 0; i < createLiArray.length; i += 1) {
-    createLiArray[i].addEventListener('click', function backgroundChange() {
-      createLiArray[i].classList.add('selected');
-    })
-  }
+// todo: marca os itens já realizados com um traço horizontal
+// function completedTask() {
+//   for (let i = 0; i < locateSelectedItens.length; i +=1) {
+//     locateSelectedItens[i].classList.toggle('completed');
+//     locateSelectedItens[i].addEventListener('dblclick', completedTask)
+//   }
+
+// }
+
+
+//  *Limpa todos os itens da lista 
+function cleanAll() {
+  let list = document.querySelectorAll('li');
+  for (let i = 0; i < list.length; i +=1) {
+    list[i].remove();
+  }   
 }
-
-const buttonTaskCreate = document.querySelector('#criar-tarefa');
-buttonTaskCreate.addEventListener('click', function buttonAction() {
-// procura pelo que foi digitado no input
-const inputCamp = document.getElementById('texto-tarefa').value;
-// procura pela lista ordenada
-const locateLista = document.querySelector('#lista-tarefas');
-// cria uma linha para a lista
-if (inputCamp !== ''){
-  const createLi = document.createElement('li');
-  createLi.innerText = inputCamp;
-  locateLista.appendChild(createLi);
-  // limpa a caixa de entrada 
-  clearTextInput();
-  unselectLi();
-  selectLi();
-
-  function lineCompleted() {
-    let locateSelectedItens = document.querySelectorAll('li');
-    for(let i = 0; i < locateSelectedItens.length; i += 1){
-      locateSelectedItens[i].addEventListener('dblclick', function dubleClickAction() {
-          // testar o togle 'https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_class'
-          locateSelectedItens[i].classList.toggle('completed');
-      })
-
-    }
-  }
-  lineCompleted();
+    
+  // todo: *Limpa todos os itens que já foram realizados
+    // function cleanAllCompleted() {
+    //   for (let i = 0; i < completedTask.length; i +=1) {
+    //     completedTask[i].remove();
+    //   }
+    // }
+    
+    
+// *Realiza todas as ações addEventListener
+function readAddEventListener() {    
+    // listOfTasks.addEventListener ("click", selectedTask);
+    buttonTaskCreator.addEventListener('click', createTaskItem);
+    buttonTaskCreator.addEventListener('click', clearTextInput);
+    cleanButton.addEventListener('click', cleanAll);
+    cleanCompletedButton.addEventListener('click', cleanAllCompleted); 
 }
-});
-
-let cleanButton = document.querySelector('#apaga-tudo');
-cleanButton.addEventListener('click', function cleanListButton(){
-  let locateOl = document.querySelector('ol');
-  locateOl.innerHTML = null;
-})
-
-let cleanCompletedButton = document.querySelector('#remover-finalizados');
-cleanCompletedButton.addEventListener('click', function cleanListCompletedButton() {
-  let locateLi = document.querySelectorAll('.completed');
-  for (let i = 0; i < locateLi.length; i +=1) {
-    locateLi[i].style.display = 'none';
-  }
-})
+readAddEventListener();
+    
