@@ -69,14 +69,14 @@ taskList.addEventListener('dblclick', (e) => {
   }
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+window.onload = () => {
   const data = localStorage.getItem('listItems');
+  if (!data) return;
   const listItems = JSON.parse(data);
-  console.log(listItems);
-  // listItems.forEach(([item, itemClassName]) => {
-  //   const li = document.createElement('li');
-  //   li.innerText = item.innerText;
-  //   li.className = itemClassName;
-  //   taskList.appendChild(li);
-  // });
-});
+  listItems.forEach(([itemText, itemClassName]) => {
+    const li = document.createElement('li');
+    li.innerText = itemText;
+    li.className = itemClassName;
+    taskList.appendChild(li);
+  });
+};
