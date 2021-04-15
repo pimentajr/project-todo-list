@@ -1,19 +1,5 @@
-// ex 5
-// No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
-// Criando lo para ex 4
+// Carregando itens salvos (localStorage) na page
 const taskList = document.getElementById('lista-tarefas');
-// Pegando o main do DOM
-const mainProject = document.getElementById('main');
-// Botões
-const button = document.getElementById('criar-tarefa');
-const clearButton = document.getElementById('apaga-tudo');
-const removeThroughLine = document.getElementById('remover-finalizados');
-const saveButoon = document.getElementById('salvar-tarefas');
-const previousButoon = document.getElementById('mover-cima');
-const nextButoon = document.getElementById('mover-baixo');
-// Carregando o conteudo do localStorage na page
-// PEgar o local storage
-// Atribuir a lista
 taskList.innerHTML = localStorage.getItem('list');
 
 // ex 12 bonus (2/2)
@@ -37,6 +23,7 @@ function changeBackground(event) {
 function throughLine(event) {
   event.target.classList.toggle('completed');
 }
+
 // Adicionando eventos para itens recuperados do localStorage
 for (let index = 0; index < taskList.childElementCount; index += 1) {
   taskList.childNodes[index].addEventListener('click', changeBackground);
@@ -52,11 +39,13 @@ function inputTask() {
   itenList.addEventListener('dblclick', throughLine);
   itenList.innerText = inputValue;
   taskList.appendChild(itenList);
+  const mainProject = document.getElementById('main');
   mainProject.appendChild(taskList);
   clearInput(document.getElementById('texto-tarefa'));
 }
-button.addEventListener('click', inputTask);
 
+const button = document.getElementById('criar-tarefa');
+button.addEventListener('click', inputTask);
 
 // ex10
 // Função para apagar li
@@ -64,6 +53,8 @@ function removeList() {
   // Consulta ao https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
   taskList.textContent = '';
 }
+
+const clearButton = document.getElementById('apaga-tudo');
 clearButton.addEventListener('click', removeList);
 
 // ex11
@@ -75,6 +66,8 @@ function deleteThroughLine() {
     listItenThroughLine[index1].parentNode.removeChild(listItenThroughLine[index1]);
   }
 }
+
+const removeThroughLine = document.getElementById('remover-finalizados');
 removeThroughLine.addEventListener('click', deleteThroughLine);
 
 // 12 - bonus (1/2)
@@ -82,16 +75,19 @@ removeThroughLine.addEventListener('click', deleteThroughLine);
 function saveList() {
   localStorage.setItem('list', taskList.innerHTML);
 }
+
+const saveButoon = document.getElementById('salvar-tarefas');
 saveButoon.addEventListener('click', saveList);
 
 // 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 // Esse mover pra cima e pra baixo pode ser feito com enxsublin ou previews.
 // O que faz aparentar o selecionado é a class selected. Fazer o comando mover o selected para o seu irmao proximo ou anterior
-
 // O que será verificado:
 //Será verificado que, dado que diversos elementos foram acrescentados à lista, movimentá-los de formas diversas os deixa nas posições esperadas
 // Pega o elemento selecionadoe mover ele para cima com previous element e para baixo com next.
 // primeiro pega elemento selecionado. 
+const previousButoon = document.getElementById('mover-cima');
+const nextButoon = document.getElementById('mover-baixo');
 const selectedElement = document.getElementsByClassName('selected');
 
 //Será verificado que, caso algum elemento esteja finalizado, este status deve persistir ainda que se mova o elemento
