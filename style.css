@@ -53,6 +53,16 @@ header {
   border-radius: 11%;
 }
 
+#mover-cima {
+  margin: 2px;
+  border-radius: 11%;
+}
+
+#mover-baixo {
+  margin: 2px;
+  border-radius: 11%;
+}
+
 .selected {
   background-color: gray;
 }

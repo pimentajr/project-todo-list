@@ -1,18 +1,30 @@
 const newDiv = document.querySelector('.new-box');
 
-// cria botoes dos desafios - refatorar futuramente
+// cria tarefa;
 const addButton = document.createElement('button');
 addButton.id = 'criar-tarefa';
 addButton.innerText = 'Adicionar item';
 newDiv.appendChild(addButton);
+// cria botao para mover para cima e para baixo;
+const moveUpButton = document.createElement('button');
+moveUpButton.id = 'mover-cima';
+moveUpButton.innerText = 'Mover ↑';
+newDiv.appendChild(moveUpButton);
+const moveDownButton = document.createElement('button');
+moveDownButton.id = 'mover-baixo';
+moveDownButton.innerText = 'Mover ↓';
+newDiv.appendChild(moveDownButton);
+// apaga tarefas;
 const eraseButton = document.createElement('button');
 eraseButton.id = 'apaga-tudo';
-eraseButton.innerText = 'Remover todos os itens';
+eraseButton.innerText = 'Remover itens';
 newDiv.appendChild(eraseButton);
+// remove finalizados;
 const btnRemoveFinished = document.createElement('button');
 btnRemoveFinished.id = 'remover-finalizados';
-btnRemoveFinished.innerText = 'Remover itens finalizados';
+btnRemoveFinished.innerText = 'Remover finalizados';
 newDiv.appendChild(btnRemoveFinished);
+// salva tarefas;
 const saveItens = document.createElement('button');
 saveItens.id = 'salvar-tarefas';
 saveItens.innerText = 'Salvar Tarefas';
@@ -88,3 +100,22 @@ function buttonSave() {
 }
 
 buttonSave();
+
+// Desafio 13: Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas;
+
+function moveUpBtn() {
+  const taskList = getOl;
+  const moveUp = document.getElementById('mover-cima');
+
+  moveUp.addEventListener('click', () => {
+    const getSelectedClass = document.querySelector('.selected');
+    if (getSelectedClass) {
+      const moveUpPosition = getSelectedClass.previousElementSibling;
+      if (moveUpPosition) {
+        taskList.insertBefore(getSelectedClass, moveUpPosition);
+      }
+    }
+  });
+}
+
+moveUpBtn();
