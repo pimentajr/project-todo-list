@@ -1,15 +1,3 @@
-window.onload = function loadPage() {
-  insertTitle();
-  insertParagraphToTitle();
-  createsMainContent();
-  createsInputSection();
-  createsTaskEntry();
-  createListSection();
-  createOrdenedList();
-  createsTaskButton();
-  taskButtonEvent();
-};
-
 const title = document.createElement('header');
 const titleText = document.createElement('h1');
 const titleParagraph = document.createElement('p');
@@ -81,7 +69,7 @@ function createsElementsInTheList() {
   const elementList = document.createElement('li');
   elementList.id = 'task';
   elementList.textContent = taskEntry.value;
-  elementList.addEventListener('click', selectTask)
+  elementList.addEventListener('click', selectTask);
   ordenedList.appendChild(elementList);
   taskEntry.value = '';
 }
@@ -89,3 +77,15 @@ function createsElementsInTheList() {
 function taskButtonEvent() {
   taskButton.addEventListener('click', createsElementsInTheList);
 }
+
+window.onload = function loadPage() {
+  insertTitle();
+  insertParagraphToTitle();
+  createsMainContent();
+  createsInputSection();
+  createsTaskEntry();
+  createListSection();
+  createOrdenedList();
+  createsTaskButton();
+  taskButtonEvent();
+};
