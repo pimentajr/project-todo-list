@@ -11,12 +11,12 @@ function clearInput(input) {
 }
 
 // Função que altera o background da li selecionada
-function changeBackground(event) {
+function changeBackground(self) {
   let itemList = document.querySelectorAll('.item');
   for(let element of itemList) {
     element.id = '';
   }
-  event.target.id = 'selected';
+  self.target.id = 'selected';
 }
 
 // Função que risca linha 
@@ -91,6 +91,9 @@ const nextButoon = document.getElementById('mover-baixo');
 
 function upList() {
   const selectedElement = document.getElementById('selected');
+  if (selectedElement === null) {
+    return null;
+  }
   if (selectedElement === selectedElement.parentNode.firstChild) {
     return null;
   } else {
@@ -100,6 +103,9 @@ function upList() {
 
 function downList() {
   const selectedElement = document.getElementById('selected');
+  if (selectedElement === null) {
+    return null;
+  }
   if (selectedElement === selectedElement.parentNode.lastChild) {
     return null;
   } else {
