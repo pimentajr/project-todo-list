@@ -201,6 +201,29 @@ function buttonDown() {
 }
 buttonDown();
 
+// Cria função que salva os toda lista com suas classes
+function save() {
+  localStorage.clear();
+  const saved = document.querySelector('#lista-tarefas').innerHTML
+  localStorage.setItem('saved', saved)
+}
+
+// Cria botão que salva a lista atual
+
+
+// Cria função que recarrega toda a lista com suas classes
+function reload() {
+  if (localStorage.length > 0) {
+    const list = document.querySelector('#lista-tarefas')
+    list.innerHTML = localStorage.saved
+  }
+}
+
+// Recarrega os itens ao recarregar a página
+window.onload = () => {
+  reload()  
+}
+
 // Cria função que seleciona o item anterior, NÃO É REQUISITO, CRIEI ESSA FUNÇÃO EXTRA PARA INCREMENTAR O PROJETO
 function Selectup() {
   const lista = document.querySelectorAll('.item');
