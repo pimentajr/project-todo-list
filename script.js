@@ -116,10 +116,12 @@ function downList() {
 previousButoon.addEventListener('click', upList);
 nextButoon.addEventListener('click', downList);
 
-//Será verificado que, caso algum elemento esteja finalizado, este status deve persistir ainda que se mova o elemento
+// 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
+const removeSelectedButton = document.getElementById('remover-selecionado');
+function removeSelected() {
+  const selectedElement = document.getElementById('selected');
+  selectedElement.parentNode.removeChild(selectedElement);
+}
 
-//Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botões não altera a lista
+removeSelectedButton.addEventListener('click', removeSelected);
 
-/* Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
-verifica se ele tem alguem depois deleteThroughLine. Se sim colocar ele depois desse algume. Se não null */
-//Caso especial! Será verificado que, caso se tente subir o elemento no topo da lista ou, caso se tente descer o último elemento da lista, esta não deve ser alterada
