@@ -10,17 +10,35 @@ const taskForm = document.querySelector('#input-task-container');
 const rootElement = document.querySelector('body');
 const deleteButton = document.querySelector('#apaga-tudo');
 const finishedButton = document.querySelector('#remover-finalizados');
+const form = document.querySelector('form');
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
-function addTask() {
-  const task = inputField.value;
+localStorage.setItem('items', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
+
+// function addTask(task) {
+//   //const task = inputField.value;
+//   const listItem = document.createElement('li');
+
+//   itemsArray.push(inputField.value);
+//   localStorage.setItem('items', JSON.stringify(itemsArray));
+//   listItem.className = 'new-item';
+//   listItem.innerText = task;
+//   taskList.appendChild(listItem);
+
+//   taskForm.reset();
+// }
+
+const addTask = (task) => {
   const listItem = document.createElement('li');
-
   listItem.className = 'new-item';
   listItem.innerText = task;
   taskList.appendChild(listItem);
+};
 
-  taskForm.reset();
-}
+data.forEach((item) => {
+  addTask(item);
+});
 
 function changeBackgroundColor(event) {
   const clickedItem = event.target;
@@ -45,19 +63,13 @@ function strikeListItem(event) {
 }
 
 function cleanListItems() {
+  localStorage.clear();
   const taskListItems = taskList.children;
-  console.log(taskList);
+  // console.log(taskList);
   if (taskListItems.length !== 0) {
     while (taskList.firstChild) {
       taskList.firstChild.remove();
     }
-  }
-}
-
-function preventSubmitOnEnter(event) {
-  if (event.keyIdentifier === 'U+000A' || event.keyIdentifier === 'Enter' || event.keyCode === 13) {
-    event.preventDefault();
-    return false;
   }
 }
 
@@ -71,9 +83,25 @@ function removeFinishedItems() {
   }
 }
 
-inputField.addEventListener('keydown', preventSubmitOnEnter);
 rootElement.addEventListener('click', changeBackgroundColor);
 rootElement.addEventListener('dblclick', strikeListItem);
-addButton.addEventListener('click', addTask);
+// addButton.addEventListener('click', addTask);
 deleteButton.addEventListener('click', cleanListItems);
 finishedButton.addEventListener('click', removeFinishedItems);
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault();
+
+//   itemsArray.push(inputField.value);
+//   localStorage.setItem('items', JSON.stringify(itemsArray));
+//   addTask(inputField.value);
+//   inputField.value = '';
+// });
+
+addButton.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  itemsArray.push(inputField.value);
+  localStorage.setItem('items', JSON.stringify(itemsArray));
+  addTask(inputField.value);
+  inputField.value = '';
+});
