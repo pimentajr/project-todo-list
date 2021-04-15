@@ -8,12 +8,12 @@ let ol = document.getElementById('lista-tarefas');
 
 
 
-function criar () {
-    let bt = document.getElementById('criar-tarefa');
-    bt.addEventListener('click', function (){
+// function criar () {
+//     let bt = document.getElementById('criar-tarefa');
+//     bt.addEventListener('click', function (){
 
-    })
-}
+//     })
+// }
 
-window.onload = start();
+// window.onload = start();
 
