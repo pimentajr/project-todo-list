@@ -19,8 +19,7 @@ main {
   align-items: center;
 }
 
-header,
-main {
+header , main {
   border: 1px solid;
   border-radius: 6px;
   padding: 20px 60px;
@@ -38,17 +37,13 @@ header h1 {
 }
 
 
-#texto-tarefa,
-button {
+#texto-tarefa , button {
   padding: 2px 10px;
   font-size: 1rem;
 }
 
 #lista-tarefas {
   width: 100%;
-}
-
-#lista-tarefas {
   user-select: none;
 }
 

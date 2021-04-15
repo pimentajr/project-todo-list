@@ -1,38 +1,46 @@
-const TASK_INPUT = document.querySelector('#texto-tarefa');
-const ADD_TASK_BUTTON = document.querySelector('#criar-tarefa');
-const TASK_LIST = document.querySelector('#lista-tarefas');
-const REMOVE_ALL_TASKS_BUTTON = document.querySelector('#apaga-tudo');
-const REMOVE_COMPLETED_TASKS_BUTTON = document.querySelector('#remover-finalizados');
-const REMOVE_SELECTED_TASKS_BUTTON = document.querySelector('#remover-selecionado');
+const taskInput = document.querySelector('#texto-tarefa');
+const addTaskButton = document.querySelector('#criar-tarefa');
+const taskList = document.querySelector('#lista-tarefas');
+const removeAllTasksButton = document.querySelector('#apaga-tudo');
+const removeCompletedTasksButton = document.querySelector('#remover-finalizados');
+const removeSelectedTasks = document.querySelector('#remover-selecionado');
+const saveTasksButton = document.querySelector('#salvar-tarefas');
 
-REMOVE_ALL_TASKS_BUTTON.addEventListener('click', () => {
-  if (TASK_LIST.children.length) {
-    TASK_LIST.innerHTML = '';
+removeAllTasksButton.addEventListener('click', () => {
+  if (taskList.children.length) {
+    taskList.innerHTML = '';
   }
 });
 
-REMOVE_SELECTED_TASKS_BUTTON.addEventListener('click', () => {
-  [...TASK_LIST.children].find((child) => child.classList.contains('selected')).remove();
+removeSelectedTasks.addEventListener('click', () => {
+  const taskFound = [...taskList.children].find((child) => child.classList.contains('selected'));
+  if (taskFound) taskFound.remove();
 });
 
-REMOVE_COMPLETED_TASKS_BUTTON.addEventListener('click', () => {
+removeCompletedTasksButton.addEventListener('click', () => {
   const isTaskCompleted = (task) => task.classList.contains('completed');
-  [...TASK_LIST.children].reduceRight((acc, child) => {
+  [...taskList.children].reduceRight((acc, child) => {
     if (isTaskCompleted(child)) child.remove();
     return 0;
   }, 0);
 });
 
-ADD_TASK_BUTTON.addEventListener('click', () => {
-  const TASK_INPUT_VALUE = TASK_INPUT.value;
-  const TASK = document.createElement('li');
-  TASK.innerText = TASK_INPUT_VALUE;
-  TASK_LIST.appendChild(TASK);
-  TASK_INPUT.value = null;
-  TASK_INPUT.focus();
+saveTasksButton.addEventListener('click', () => {
+  const items = [...taskList.children].map((listItem) => [listItem.innerText, listItem.className]);
+  const stringified = JSON.stringify(items);
+  localStorage.setItem('listItems', stringified);
 });
 
-[...TASK_LIST.children].forEach((child) => {
+addTaskButton.addEventListener('click', () => {
+  const taskInputValue = taskInput.value;
+  const TASK = document.createElement('li');
+  TASK.innerText = taskInputValue;
+  taskList.appendChild(TASK);
+  taskInput.value = null;
+  taskInput.focus();
+});
+
+[...taskList.children].forEach((child) => {
   console.log(1);
   child.addEventListener('click', () => {
     child.classList.toggle('completed');
@@ -40,14 +48,14 @@ ADD_TASK_BUTTON.addEventListener('click', () => {
 });
 
 function resetSelectedChildren() {
-  [...TASK_LIST.children].forEach((child) => {
+  [...taskList.children].forEach((child) => {
     const CHILD = child;
     CHILD.style.backgroundColor = null;
     CHILD.classList.remove('selected');
   });
 }
 
-TASK_LIST.addEventListener('mousedown', (e) => {
+taskList.addEventListener('mousedown', (e) => {
   if (e.target !== this) {
     resetSelectedChildren();
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -55,8 +63,20 @@ TASK_LIST.addEventListener('mousedown', (e) => {
   }
 });
 
-TASK_LIST.addEventListener('dblclick', (e) => {
+taskList.addEventListener('dblclick', (e) => {
   if (e.target !== this) {
     e.target.classList.toggle('completed');
   }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const data = localStorage.getItem('listItems');
+  const listItems = JSON.parse(data);
+  console.log(listItems);
+  // listItems.forEach(([item, itemClassName]) => {
+  //   const li = document.createElement('li');
+  //   li.innerText = item.innerText;
+  //   li.className = itemClassName;
+  //   taskList.appendChild(li);
+  // });
 });
