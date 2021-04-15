@@ -73,29 +73,27 @@ function apagaItensSelecionados() {
   }
 }
 
-// inverterTarefa('olá', 3)
+function subirItemLista() {
+  const itemToUp = document.querySelector('.selected');
+  if (itemToUp) {
+    const itensListaTarefa = document.getElementsByClassName('tarefa');
+    if (itemToUp !== itensListaTarefa[0]) {
+      const prevSibling = itemToUp.previousSibling;
+      itemToUp.parentNode.insertBefore(itemToUp, prevSibling);
+    }
+  }
+}
 
-// function inverterTarefa(hello, index) {
-//   let itemListaTarefa = document.createElement('li');
-//   itemListaTarefa.classList.add('tarefa');
-//   itensListaTarefa[index].innerText = hello;
-//   console.log(hello, index)
-// }
-
-// function subirItemLista(e) {
-//   let itensSelecionados = document.getElementsByClassName('selected');
-//   let itensListaTarefa = document.getElementsByClassName('tarefa').marker
-//   console.log(itensListaTarefa)
-//   console.log(typeof(itensListaTarefa))
-//   if (itensSelecionados.length === 1) {
-//     let textoItemSelecionado = itensSelecionados[0].innerText
-//     console.log(textoItemSelecionado)
-//     let indexItemSelecionado = itensListaTarefa.indexOf(textoItemSelecionado)
-//     console.log(indexItemSelecionado)
-//     itensListaTarefa[indexItemSelecionado] = itensListaTarefa[indexItemSelecionado - 1]
-//     itensListaTarefa[indexItemSelecionado - 1] = textoItemSelecionado
-//   console.log(e.target)
-// }
+function descerItemLista() {
+  const itemToDown = document.querySelector('.selected');
+  if (itemToDown) {
+    const itensListaTarefa = document.getElementsByClassName('tarefa');
+    if (itemToDown !== itensListaTarefa[itensListaTarefa.length - 1]) {
+      const nxtSibling = itemToDown.nextSibling;
+      itemToDown.parentNode.insertBefore(nxtSibling, itemToDown);
+    }
+  }
+}
 
 buttonCriarTarefa.addEventListener('click', adicionarTarefa);
 listaTarefas.addEventListener('click', alteraCorItemListaTarefa);
@@ -103,4 +101,5 @@ listaTarefas.addEventListener('dblclick', riscarItemListaTarefa);
 buttonRemoverFinalizados.addEventListener('click', apagaItensFinalizados);
 buttonApagarTudo.addEventListener('click', apagaListaToda);
 buttonRemoverSelecionado.addEventListener('click', apagaItensSelecionados);
-// buttonMoverParaCima.addEventListener('click', subirItemLista)
+buttonMoverParaCima.addEventListener('click', subirItemLista);
+buttonMoverParaBaixo.addEventListener('click', descerItemLista);
