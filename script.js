@@ -1,11 +1,16 @@
-const textoTarefa = document.querySelector('input#texto-tarefa');
+const textoTarefa = document.querySelector('input#texto-tarefa'); //.value 
+const criarTarefa = document.getElementById('criar-tarefa');
+const lista = document.querySelector('ol#lista-tarefas');
+lista.innerHTML = localStorage.getItem('list');
 
-function gerar() {
-  const lista = document.querySelector('ol#lista-tarefas');
-  const item = document.createElement('li');
+criarTarefa.addEventListener('click', function gerar() {
+  let item = document.createElement('li');
+  item.classList.add('lista-itens');
   item.appendChild(document.createTextNode(textoTarefa.value));
   lista.appendChild(item);
   textoTarefa.value = '';
-}
-const criarTarefa = document.getElementById('criar-tarefa');
-criarTarefa.addEventListener('click', gerar);
+  
+  item.addEventListener('click', function(event) {
+    item.style.backgroundColor = 'gray';
+  });
+});
