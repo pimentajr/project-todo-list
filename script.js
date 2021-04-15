@@ -10,6 +10,14 @@ function createInput() {
 }
 createInput();
 
+function createList() {
+  const ol = document.createElement('ol');
+  ol.id = 'lista-tarefas';
+
+  section1.appendChild(ol);
+}
+createList();
+const listItems = document.getElementById('lista-tarefas');
 function buttonCreateItem(nameButton) {
   const button = document.createElement('button');
   button.id = 'criar-tarefa';
@@ -31,15 +39,6 @@ function buttonCreateItem(nameButton) {
 }
 buttonCreateItem('Adicionar');
 
-function createList() {
-  const ol = document.createElement('ol');
-  ol.id = 'lista-tarefas';
-
-  section1.appendChild(ol);
-}
-createList();
-const listItems = document.getElementById('lista-tarefas');
-
 function select() {
   const boxItems = document.getElementById('lista-tarefas');
 
@@ -52,6 +51,7 @@ function select() {
   });
 }
 select();
+const itemSelect = document.getElementsByClassName('select');
 
 function finished() {
   const boxItems = document.getElementById('lista-tarefas');
@@ -100,12 +100,12 @@ function buttonFinished(finishedName) {
 buttonFinished('Remover Finalizados');
 
 function buttonSave(saveName) {
-  const buttonSave = document.createElement('button');
-  buttonSave.id = 'salvar-tarefas';
-  buttonSave.innerText = saveName;
-  section1.appendChild(buttonSave);
+  const saveButton = document.createElement('button');
+  saveButton.id = 'salvar-tarefas';
+  saveButton.innerText = saveName;
+  section1.appendChild(saveButton);
 
-  buttonSave.addEventListener('click', () => {
+  saveButton.addEventListener('click', () => {
     localStorage.setItem('lista-tarefas', listItems.innerHTML);
   });
   const saved = localStorage.getItem('lista-tarefas');
@@ -121,7 +121,6 @@ function buttonUp() {
   section1.appendChild(moveUp);
 
   moveUp.addEventListener('click', () => {
-    const itemSelect = document.getElementsByClassName('select');
     for (let index = 0; index < itemSelect.length; index += 1) {
       if (itemSelect[index].previousElementSibling != null) {
         const item = itemSelect[index];
@@ -140,7 +139,7 @@ function buttonDown() {
   section1.appendChild(moveDown);
 
   moveDown.addEventListener('click', () => {
-    const itemSelect = document.getElementsByClassName('select');
+    
     for (let index = 0; index < itemSelect.length; index += 1) {
       if (itemSelect[index].nextElementSibling != null) {
         const item = itemSelect[index];
@@ -151,3 +150,21 @@ function buttonDown() {
 }
 
 buttonDown();
+
+function buttonRemoveSelect() {
+  const removeSelect = document.createElement('button');
+  removeSelect.id = 'remover-selecionado';
+  removeSelect.innerText = 'Remover Selecionado';
+  section1.appendChild(removeSelect);
+
+  removeSelect.addEventListener('click', () => {
+    for (let index = 0; index < itemSelect.length; index += 1) {
+      let classItem = itemSelect[index].className;
+      if (classItem = 'select') {
+        itemSelect[index].parentNode.removeChild(itemSelect[index]);
+      }
+    }
+  });
+}
+
+buttonRemoveSelect();
