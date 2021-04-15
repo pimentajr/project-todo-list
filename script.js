@@ -1,3 +1,15 @@
+window.onload = function loadPage() {
+  insertTitle();
+  insertParagraphToTitle();
+  createsMainContent();
+  createsInputSection();
+  createsTaskEntry();
+  createListSection();
+  createOrdenedList();
+  createsTaskButton();
+  taskButtonEvent();
+};
+
 const title = document.createElement('header');
 const titleText = document.createElement('h1');
 const titleParagraph = document.createElement('p');
@@ -51,6 +63,15 @@ function createListSection() {
   mainContent.appendChild(listSection);
 }
 
+function selectTask(event) {
+  const selected = document.querySelector('.selected');
+  const addEvent = event.target;
+  if (selected !== null) {
+    selected.classList.remove('selected');
+  }
+  addEvent.classList.add('selected');
+}
+
 function createOrdenedList() {
   ordenedList.id = 'lista-tarefas';
   listSection.appendChild(ordenedList);
@@ -60,23 +81,11 @@ function createsElementsInTheList() {
   const elementList = document.createElement('li');
   elementList.id = 'task';
   elementList.textContent = taskEntry.value;
+  elementList.addEventListener('click', selectTask)
   ordenedList.appendChild(elementList);
   taskEntry.value = '';
 }
 
 function taskButtonEvent() {
   taskButton.addEventListener('click', createsElementsInTheList);
-  // taskEntry.placeholder = 'Digite aqui a nova tarefa';
 }
-
-window.onload = function loadPage() {
-  insertTitle();
-  insertParagraphToTitle();
-  createsMainContent();
-  createsInputSection();
-  createsTaskEntry();
-  createListSection();
-  createOrdenedList();
-  createsTaskButton();
-  taskButtonEvent();
-};
