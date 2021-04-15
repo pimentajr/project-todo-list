@@ -3,6 +3,9 @@ const buttonNewJob = document.querySelector('#criar-tarefa');
 const buttonCleanList = document.querySelector('#apaga-tudo');
 const buttonCleanDone = document.querySelector('#remover-finalizados');
 const buttonSaveList = document.querySelector('#salvar-tarefas');
+const itensList = document.querySelectorAll('.Item-List');
+const buttonUpItem = document.querySelector('#mover-cima');
+const buttonDownItem = document.querySelector('#mover-baixo');
 
 // botão para criar um novo item na lista
 buttonNewJob.addEventListener('click', function () {
@@ -39,29 +42,29 @@ ordenedList.addEventListener('dblclick', function (event) {
 
 // Botão apagar lista
 buttonCleanList.addEventListener('click', function () {
-  const itensListClear = document.querySelectorAll('.Item-List');
-  for (let index = 0; index < itensListClear.length; index += 1) {
-    itensListClear[index].remove();
+  // const itensListClear = document.querySelectorAll('.Item-List');
+  for (let index = 0; index < itensList.length; index += 1) {
+    itensList[index].remove();
   }
 });
 
 // botão apagar finalizados
 buttonCleanDone.addEventListener('click', function () {
-  const itensListDone = document.querySelectorAll('.Item-List');
-  for (let index = 0; index < itensListDone.length; index += 1) {
-    if (itensListDone[index].classList.contains('completed') === true) {
-      itensListDone[index].remove();
+  // const itensListDone = document.querySelectorAll('.Item-List');
+  for (let index = 0; index < itensList.length; index += 1) {
+    if (itensList[index].classList.contains('completed') === true) {
+      itensList[index].remove();
     }
   }
 });
 
 // Botão para salvar as tarefas
 buttonSaveList.addEventListener('click', function () {
-  const saveListItens = document.querySelectorAll('.Item-List');
-  for (let index = 0; index < saveListItens.length; index += 1) {
-    console.log(saveListItens[index].innerText);
+  // const saveListItens = document.querySelectorAll('.Item-List');
+  for (let index = 0; index < itensList.length; index += 1) {
+    console.log(itensList[index].innerText);
     localStorage.setItem('item' + index, saveListItens[index].innerText);
-    console.log(saveListItens[index].classList.value);
+    console.log(itensList[index].classList.value);
     localStorage.setItem('itemClass' + index, saveListItens[index].classList.value);
   }
 })
@@ -77,4 +80,28 @@ window.onload = function () {
     // console.log(itemRecoveryText);
     // console.log(itemRecoveryClass);
   }
-}
+};
+
+// Botão mover-baixo
+buttonDownItem.addEventListener('click', function () {
+  // console.log(buttonDownItem);
+  let itemClicked = document.querySelectorAll('.clicked')[0];
+  let nextItemClicked = document.querySelectorAll('.clicked')[0].nextSibling;
+  console.log(itemClicked);
+  console.log(nextItemClicked);
+  ordenedList.insertBefore(itemClicked, nextItemClicked.nextSibling);
+});
+
+// Botão mover-cima
+buttonUpItem.addEventListener('click', function () {
+  // console.log(buttonDownItem);
+  let checkItenslist = document.getElementsByClassName('Item-List');
+  console.log(checkItenslist);
+  if (checkItenslist[0].classList.contains('clicked') === false) {
+    let itemClicked = document.querySelectorAll('.clicked')[0];
+    let nextItemClicked = document.querySelectorAll('.clicked')[0].previousSibling;
+    console.log(itemClicked);
+    console.log(nextItemClicked);
+    ordenedList.insertBefore(itemClicked, nextItemClicked);
+  }
+});
