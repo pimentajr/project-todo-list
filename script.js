@@ -192,7 +192,6 @@ function down() {
 function buttonDown() {
   const button = document.createElement('button');
   button.id = 'mover-baixo';
-  button.innerText = 'Remover';
   button.innerText = '⬇';
   document.querySelector('#firstsection').appendChild(button);
   button.addEventListener('click', () => {
@@ -208,8 +207,17 @@ function save() {
   localStorage.setItem('saved', saved)
 }
 
-// Cria botão que salva a lista atual
-
+// Cria botão que salva a lista atual utilizando save()
+function buttonSave() {
+  const button = document.createElement('button');
+  button.id = 'salvar-tarefas';
+  button.innerText = 'Salvar';
+  document.querySelector('#firstsection').appendChild(button);
+  button.addEventListener('click', () => {
+    save()
+  })
+}
+buttonSave()
 
 // Cria função que recarrega toda a lista com suas classes
 function reload() {
