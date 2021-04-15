@@ -1,12 +1,25 @@
 const addButton = document.getElementById('criar-tarefa');
+const delListButton = document.getElementById('apaga-tudo');
 const inputText = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 
 addButton.addEventListener('click', () => {
-  const li = document.createElement('li');
-  li.innerHTML += inputText.value;
-  orderedList.appendChild(li);
-  inputText.value = null;
+  if ((inputText.value.length) === 0) {
+    alert('Tarefa em branco!');
+  } else {
+    const li = document.createElement('li');
+    li.setAttribute('id', 'itemList');
+    li.innerHTML += inputText.value;
+    orderedList.appendChild(li);
+    inputText.value = null;
+  }
+});
+
+delListButton.addEventListener('click', () => {
+  let itensList = document.querySelectorAll('#itemList');
+  for (let i = 0; i < itensList.length; i += 1) {
+    itensList[i].parentNode.removeChild(itensList[i]);
+  }
 });
 
 function removeClass(arrayList) {
