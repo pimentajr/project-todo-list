@@ -156,7 +156,9 @@ function up() {
     alert('Selecione um item para mover')
   } else {
   const previus = document.querySelector('.selected').previousSibling
-  parent.insertBefore(selected, previus)
+    if (previus !== null) {
+      parent.insertBefore(selected, previus)
+    }
   }
 }
 
@@ -174,13 +176,15 @@ buttonUp();
 
 //Cria função que move o item selecionado para baixo
 function down() {
+  const parent = document.querySelector('ol')
   const selected = document.querySelector('.selected')
   if (selected == null) {
     alert('Selecione um item para mover')
   } else {
-    const parent = document.querySelector('ol')
     const next = document.querySelector('.selected').nextSibling
-    parent.insertBefore(next,selected)
+    if (next !== null) {
+      parent.insertBefore(next,selected)
+    }
   }
 }
 
