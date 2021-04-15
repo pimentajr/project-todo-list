@@ -1,5 +1,6 @@
 let addButton = document.querySelector('#criar-tarefa');
 let delButton = document.querySelector('#apaga-tudo');
+let removeCheckButton = document.querySelector('#remover-finalizados');
 
 let olTaskList = document.querySelector('#lista-tarefas');
 
@@ -42,3 +43,14 @@ function deleteAll() {
 }
 delButton.addEventListener('click', deleteAll)
 
+//let complete = document.querySelectorAll('.completed');
+function removeChecked() {
+  for (let index = 0; index < tasks.children.length; index += 1) {
+    if (tasks.children[index].classList.contains('completed')) {
+      tasks.removeChild(tasks.children[index]);
+      index = 0;
+    };
+  }
+}
+
+removeCheckButton.addEventListener('click', removeChecked);
