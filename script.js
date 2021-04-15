@@ -98,3 +98,14 @@ function removeSelectedItems() {
 }
 
 buttonRmvSelected.addEventListener('click', removeSelectedItems);
+
+const moveUpButton = document.querySelector('#mover-cima');
+
+function moveUp() {
+  for (let item of orderedList) {
+    let tempValue = item;
+
+  }
+}
+
+moveUp.addEventListener('click', moveUp)
