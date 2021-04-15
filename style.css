@@ -1,12 +1,11 @@
 body {
   text-align: center;
   background-image: url('https://images.freeimages.com/images/large-previews/29f/background-1639314.jpg');
-  font-family: 'Roboto', sans-serif, 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 header {
   font-size: 25px;
-  font-weight: bolder;
 }
 
 li {
@@ -15,10 +14,10 @@ li {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
