@@ -55,16 +55,16 @@ function salvaTarefa() { /* refatorar  */
 
 buttonUp.addEventListener('click', () => {
   const moveTask = document.querySelector('.select');
-  if (moveTask) {
-    moveTask.insertAdjacentElement('afterend', moveTask.previousElementSibling);
+  if (moveTask && moveTask !== ol.children[0]) {
+    moveTask.insertAdjacentElement('afterend', moveTask.previousSibling);
   }
 });
 
 buttonDown.addEventListener('click', () => {
   const moveTask = document.querySelector('.select');
-  if (moveTask) {
-    moveTask.insertAdjacentElement('beforebegin', moveTask.nextElementSibling);
-  }
+  if (moveTask && moveTask !== ol.lastChild) {
+    moveTask.insertAdjacentElement('beforebegin', moveTask.nextSibling);
+  } 
 });
 
 removeSelecionado.addEventListener('click', () => {

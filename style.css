@@ -1,7 +1,8 @@
 * {
- background-color: rgb(223, 255, 255); 
- text-align: center;
- color: rgb(2, 57, 66);
+    background-color: rgb(223, 255, 255); 
+
+    text-align: center;
+    color: rgb(2, 57, 66);
 }
 
 p {
@@ -22,7 +23,7 @@ input {
 }
 
 .select {
-    background-color:gray;
+    background-color: gray;
 }
 
 .completed {
