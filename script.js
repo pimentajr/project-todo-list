@@ -1,3 +1,5 @@
+let textSelected ='';
+
 let button = document.getElementById('criar-tarefa');
 
 button.addEventListener('click', function(event){
@@ -8,5 +10,26 @@ button.addEventListener('click', function(event){
     let newListItem = document.createElement('li');
     newListItem.innerHTML = newTextList;
     lista.appendChild(newListItem);
-   
+});
+
+let lista2 = document.getElementById('lista-tarefas');
+let itemSelected = document.getElementsByClassName('selected');
+
+console.log('Itens Selecionados : ' + itemSelected.innerHTML);
+
+lista2.addEventListener('click', function(event){
+    if(event.target.innerHTML != textSelected && textSelected != ''){
+        itemSelected[0].style.backgroundColor='white';
+        itemSelected[0].className='';
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        event.target.className = 'selected';
+        textSelected = event.target.innerHTML; 
+    }else{
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        event.target.className = 'selected';
+        textSelected = event.target.innerHTML;         
+    }
+
+
+
 });
