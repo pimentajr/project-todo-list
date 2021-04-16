@@ -20,16 +20,16 @@ OL.addEventListener('click', (event) => {
     event.target.classList.add('selected');
 });
 
-//Requisito 09
+//Requisito 09 incompleto
 function deleteSelectedItem() {
   listTask.addEventListener('dblclick', (event) => {
     const eventTarget = event.target;
     console.log(eventTarget);
     const riskedItem = document.querySelectorAll('.completed');
-    if (riskedItem.length !== 0) {
+    if (eventTarget.classList.contains('completed')) {
       riskedItem[0].classList.remove('completed');
-    }
-      eventTarget.classList.add('completed');
+    }else
+    eventTarget.classList.add('completed');
   });
 }
 deleteSelectedItem();
