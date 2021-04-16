@@ -1,18 +1,14 @@
-// const cls = JSON.parse(localStorage.getItem('lista'));
-// console.log(cls);
-
 const btnCriar = document.querySelector('#criar-tarefa');
+const lista = document.querySelector('#lista-tarefas');
 btnCriar.addEventListener('click', () => {
   const valor = document.querySelector('#texto-tarefa');
-  const listaOl = document.querySelector('#lista-tarefas');
   const newLi = document.createElement('li');
-  listaOl.appendChild(newLi);
+  lista.appendChild(newLi);
   newLi.classList.add('tarefa');
   newLi.innerText = valor.value;
   valor.value = '';
 });
 
-const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', (event) => {
   const selected = document.querySelectorAll('.selected');
   for (let index = 0; index < selected.length; index += 1) {
@@ -39,14 +35,14 @@ btnRemoverFinalizados.addEventListener('click', () => {
   }
 });
 
-// const btnSalvar = document.querySelector('#salvar-tarefas');
-// btnSalvar.addEventListener('click', () => {
-//   const tarefas = document.querySelectorAll('.tarefa');
-//   for (let index = 0; index <= tarefas.length; index += 1) {
-//     let valor = tarefas[index].innerText;
-//     localStorage.setItem('lista'[index], valor);
-//   }
-// });
+const btnSalvar = document.querySelector('#salvar-tarefas');
+btnSalvar.addEventListener('click', () => {
+  localStorage.setItem('lista-tarefas', lista.innerHTML);
+});
+
+const local = localStorage.getItem('lista-tarefas');
+console.log(local);
+lista.innerHTML = local;
 
 // const btnMoveCima = document.querySelector('#mover-cima');
 // btnMoveCima.addEventListener('click', () => {
