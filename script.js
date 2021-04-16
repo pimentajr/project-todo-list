@@ -7,6 +7,8 @@ const taskEntry = document.createElement('input');
 const taskButton = document.createElement('button');
 const listSection = document.createElement('section');
 const ordenedList = document.createElement('ol');
+const miscellaneousButtons = document.createElement('section');
+const eraseEverythingButton = document.createElement('button');
 
 function insertTitle() {
   title.id = 'title';
@@ -88,6 +90,23 @@ function taskButtonEvent() {
   taskButton.addEventListener('click', createsElementsInTheList);
 }
 
+function createSectionMiscellaneousButtons() {
+  miscellaneousButtons.id = 'miscellaneousButtons';
+  mainContent.appendChild(miscellaneousButtons);
+}
+
+function eraseEverything() {
+  alert('funfou'); // botão funcionando!!!
+  ordenedList.children.remove;
+}
+
+function createEraseEverythingButton() {
+  eraseEverythingButton.id = 'apaga-tudo';
+  eraseEverythingButton.textContent = 'Limpar Lista'
+  miscellaneousButtons.appendChild(eraseEverythingButton);
+  eraseEverythingButton.addEventListener('click', eraseEverything);
+}
+
 window.onload = function loadPage() {
   insertTitle();
   insertParagraphToTitle();
@@ -98,4 +117,6 @@ window.onload = function loadPage() {
   createOrdenedList();
   createsTaskButton();
   taskButtonEvent();
+  createSectionMiscellaneousButtons();
+  createEraseEverythingButton();
 };
