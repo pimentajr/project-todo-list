@@ -1,3 +1,8 @@
+// for (let index = 0; index <= localStorage.length; index += 1) {
+//   localStorage.getItem(localStorage[index]);
+//   console.log(localStorage[index]);
+// }
+
 const btnCriar = document.querySelector('#criar-tarefa');
 btnCriar.addEventListener('click', () => {
   const valor = document.querySelector('#texto-tarefa');
@@ -36,6 +41,21 @@ btnRemoverFinalizados.addEventListener('click', () => {
   }
 });
 
+// const btnSalvar = document.querySelector('#salvar-tarefas');
+// btnSalvar.addEventListener('click', () => {
+//   const tarefas = document.querySelectorAll('.tarefa');
+//   for (let index = 0; index <= tarefas.length; index += 1) {
+//     const valor = tarefas[index].innerHTML;
+//     localStorage.setItem(index, valor);
+//     console.log(valor);
+//   }
+// });
+
+const btnRemoverSelecionado = document.querySelector('#remover-selecionado');
+btnRemoverSelecionado.addEventListener('click', () => {
+  const selected = document.querySelector('.selected');
+  selected.remove('li');
+});
 // npm run lint
 // npm run lint:styles
 // npm run cypress:open
