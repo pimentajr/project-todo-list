@@ -33,7 +33,7 @@ function clearTextInput() {
 
 //  *da destaque ao item selecionado
 //  !Referencia para a criação'https://github.com/tryber/sd-011-project-todo-list/pull/52'
-function changeBackground(event) {
+function selectedTask(event) {
   let listSelected = document.getElementsByClassName('selected');
   for (let index = 0; index < listSelected.length; index += 1) {
       listSelected[index].classList.remove('selected');
@@ -70,7 +70,7 @@ function cleanAll() {
     
 // *Realiza todas as ações addEventListener
 function readAddEventListener() {    
-  // listOfTasks.addEventListener ("click", selectedTask);
+  listOfTasks.addEventListener ("click", selectedTask);
   buttonTaskCreator.addEventListener('click', createTaskItem);
   buttonTaskCreator.addEventListener('click', clearTextInput);
   cleanButton.addEventListener('click', cleanAll);
