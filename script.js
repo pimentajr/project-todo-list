@@ -4,7 +4,7 @@ btnCriar.addEventListener('click', () => {
   const listaOl = document.querySelector('#lista-tarefas');
   const newLi = document.createElement('li');
   listaOl.appendChild(newLi);
-  newLi.classList.add('value-list');
+  newLi.classList.add('tarefa');
   newLi.innerText = valor.value;
   valor.value = '';
 });
@@ -17,6 +17,10 @@ lista.addEventListener('click', (event) => {
   }
   event.target.classList.add('selected');
   lista.classList.remove('selected');
+});
+
+lista.addEventListener('dblclick', (event) => {
+  event.target.classList.toggle('completed');
 });
 
 // npm run lint

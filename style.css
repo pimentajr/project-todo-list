@@ -2,6 +2,10 @@
   background-color: gray;
 }
 
+.completed {
+  text-decoration: line-through solid black;
+}
+
 /* npm run lint
 npm run lint:styles
 npm run cypress:open */
