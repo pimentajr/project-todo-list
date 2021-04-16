@@ -8,7 +8,6 @@ const taskButton = document.createElement('button');
 const listSection = document.createElement('section');
 const ordenedList = document.createElement('ol');
 const miscellaneousButtons = document.createElement('section');
-const eraseEverythingButton = document.createElement('button');
 
 function insertTitle() {
   title.id = 'title';
@@ -96,8 +95,9 @@ function createSectionMiscellaneousButtons() {
 }
 
 function createEraseEverythingButton() {
+  const eraseEverythingButton = document.createElement('button');
   eraseEverythingButton.id = 'apaga-tudo';
-  eraseEverythingButton.textContent = 'Limpar Lista'
+  eraseEverythingButton.textContent = 'Limpar Lista';
   miscellaneousButtons.appendChild(eraseEverythingButton);
   eraseEverythingButton.addEventListener('click', eraseEverything);
   const size = ordenedList.childElementCount;
@@ -107,7 +107,7 @@ function createEraseEverythingButton() {
 }
 
 function eraseEverything() {
- eraseEverythingButton.addEventListener('click', createEraseEverythingButton); 
+  eraseEverythingButton.addEventListener('click', createEraseEverythingButton);
 }
 
 window.onload = function loadPage() {
