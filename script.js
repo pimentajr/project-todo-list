@@ -1,7 +1,5 @@
-// for (let index = 0; index <= localStorage.length; index += 1) {
-//   localStorage.getItem(localStorage[index]);
-//   console.log(localStorage[index]);
-// }
+// const cls = JSON.parse(localStorage.getItem('lista'));
+// console.log(cls);
 
 const btnCriar = document.querySelector('#criar-tarefa');
 btnCriar.addEventListener('click', () => {
@@ -45,10 +43,21 @@ btnRemoverFinalizados.addEventListener('click', () => {
 // btnSalvar.addEventListener('click', () => {
 //   const tarefas = document.querySelectorAll('.tarefa');
 //   for (let index = 0; index <= tarefas.length; index += 1) {
-//     const valor = tarefas[index].innerHTML;
-//     localStorage.setItem(index, valor);
-//     console.log(valor);
+//     let valor = tarefas[index].innerText;
+//     localStorage.setItem('lista'[index], valor);
 //   }
+// });
+
+// const btnMoveCima = document.querySelector('#mover-cima');
+// btnMoveCima.addEventListener('click', () => {
+//   const lista = document.querySelectorAll('.tarefa');
+//   const selected = document.querySelector('.selected');
+// });
+
+// const btnMoveBaixo = document.querySelector('#mover-baixo');
+// btnMoveBaixo.addEventListener('click', () => {
+//   const lista = document.querySelectorAll('.tarefa');
+//   const selected = document.querySelector('.selected');
 // });
 
 const btnRemoverSelecionado = document.querySelector('#remover-selecionado');
@@ -56,6 +65,7 @@ btnRemoverSelecionado.addEventListener('click', () => {
   const selected = document.querySelector('.selected');
   selected.remove('li');
 });
+
 // npm run lint
 // npm run lint:styles
 // npm run cypress:open
