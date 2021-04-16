@@ -1,18 +1,19 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 const textoTarefa = document.getElementById('texto-tarefa');
 const classSelected = document.getElementsByClassName('selected');
+const liCriada = document.createElement('li');
+const liList = listaTarefas.innerHTML;
 
 // Função carregar itens salvos
 window.onload = function() {
-    listaTarefas.innerHTML = localStorage.savedList; 
-}
+  listaTarefas.innerHTML = localStorage.savedList; 
+};
 
 // Evento com função pra criar e inserir elementos li
 document.getElementById('criar-tarefa').addEventListener('click', function() {
-    let liCriada = document.createElement('li');
-    liCriada.innerText = textoTarefa.value;
-    listaTarefas.appendChild(liCriada);
-    textoTarefa.value = ''
+  liCriada.innerText = textoTarefa.value;
+  listaTarefas.appendChild(liCriada);
+  textoTarefa.value = ''
 })
 
 // Evento com função pra trocar a classe .selected nas li
@@ -46,11 +47,11 @@ function deleteCompleted() {
     }
 }
 
-document.getElementById('remover-finalizados').addEventListener('click', deleteCompleted)
+document.getElementById('remover-finalizados').addEventListener('click', deleteCompleted);
 
 // Função pra deletar o elemento com a classe .selected
 function deleteSelected() {
-    classSelected.remove();
+  classSelected.remove();
 }
 
 document.querySelector('#remover-selecionado').addEventListener('click', deleteSelected);
@@ -59,10 +60,8 @@ document.querySelector('#remover-selecionado').addEventListener('click', deleteS
 // Referência: Luan Alexandre
 // https://github.com/tryber/sd-011-project-todo-list/pull/138/
 function saveList() {
-    localStorage.clear();
-    let liList = listaTarefas.innerHTML;
-    localStorage.savedList = liList;
+  localStorage.clear();
+  localStorage.savedList = liList;
 }
 
 document.querySelector('#salvar-tarefas').addEventListener('click', saveList);
-
