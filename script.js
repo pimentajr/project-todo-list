@@ -35,3 +35,11 @@ function tarefaCompletada() {
   });
 }
 tarefaCompletada();
+
+const apagaTudo = document.querySelector('#apaga-tudo');
+function apagaLista() {
+  apagaTudo.addEventListener('click', function () {
+    listaOrdenada.innerHTML = null;
+  });
+}
+apagaLista();
