@@ -96,7 +96,6 @@ function createSectionMiscellaneousButtons() {
 }
 
 function createEraseEverythingButton() {
-  
   eraseEverythingButton.id = 'apaga-tudo';
   eraseEverythingButton.textContent = 'Limpar Lista';
   miscellaneousButtons.appendChild(eraseEverythingButton);
