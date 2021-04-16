@@ -9,15 +9,7 @@ const limparTudo = document.getElementById('apaga-tudo');
 const removerSelec = document.getElementById('remover-selecionado');
 const cima = document.getElementById('mover-cima');
 const finalizados = document.getElementById('remover-finalizados');
-
-function tarefaConcluida(event) {
-  if (event.target.classList.contains('itens')) {
-    if (event.target.classList.contains('completed') === true) {
-      event.target.classList.remove('completed');
-    }
-    event.target.classList.add('completed');
-  }
-}
+const salva = document.getElementById('salvar-tarefas');
 
 function selecionaClasse(event) {
   const atribuiClasse = document.querySelectorAll('.itens');
@@ -29,10 +21,21 @@ function selecionaClasse(event) {
 ol.addEventListener('click', selecionaClasse);
 
 function adicionaCor(event) {
-  for (let index = 0; index < ol.length; index += 1) {
-    ol.children[index].setAttribute('class', '');
+  const classeItens = document.querySelectorAll('.itens');
+  for (let index = 0; index < classeItens.length; index += 1) {
+    classeItens[index].classList.remove('itens');
   }
-  event.target.setAttribute('class', 'itens');
+  event.target.classList.add('itens');
+}
+
+function tarefaConcluida(event) {
+  if (event.target.classList.contains('itens')) {
+    if (event.target.classList.contains('completed') === true) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  }
 }
 
 function criarLi() {
@@ -77,10 +80,15 @@ finalizados.addEventListener('click', limparLista);
 function paraCima() {
   const liItem = document.querySelectorAll('.itens');
   for (let index = 0; index < liItem.length; index += 1) {
-    liItem[index] = liItem[index + 1];
+    liItem[index].previousSibling = liItem[index];
   }
 }
 cima.addEventListener('click', paraCima);
+
+function salvar() {
+  localStorage.setItem('ol', 'li');
+}
+salva.addEventListener('click', salvar);
 
 window.onload = function carregar() {
   while (li > 0) {

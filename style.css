@@ -7,11 +7,13 @@ body {
   border: white solid 5px;
   border-radius: 30px;
   width: auto;
+  height: auto;
 }
 
 #comandos {
   display: inline-block;
   margin-left: 150px;
+  margin-block-end: 20px;
 }
 
 .completed {
@@ -28,6 +30,7 @@ body {
 
 h1 {
   text-align: center;
+  color:white;
 }
 
 p {
@@ -40,28 +43,49 @@ p {
 
 #criar-tarefa {
   border-radius: 30px;
+  color:green;
+  background-color: white;
+  font-weight: bolder;
 }
 
-#remover {
+#remover-selecionado {
   border-radius: 30px;
+  color:green;
+  background-color: white;
+  font-weight: bolder;
 }
 
-#cima {
+#mover-cima {
   border-radius: 30px;
+  color:green;
+  background-color: white;
+  font-weight: bolder;
 }
 
-#baixo {
+#mover-baixo {
   border-radius: 30px;
+  color:green;
+  background-color: white;
+  font-weight: bolder;
 }
 
-#completo {
+#remover-finalizados {
   border-radius: 30px;
+  color:green;
+  background-color: white;
+  font-weight: bolder;
 }
 
-#limpaLista {
+#apaga-tudo {
   border-radius: 30px;
+  color:green;
+  background-color: white;
+  font-weight: bolder;
 }
 
-#salvar {
+#salvar-tarefas {
   border-radius: 30px;
+  color:green;
+  background-color: white;
+  font-weight: bolder;
 }
