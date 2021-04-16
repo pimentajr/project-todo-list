@@ -1,5 +1,6 @@
 body {
   background-image: url(Pixel-Art.png);
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 main {
@@ -11,4 +12,8 @@ main {
 
 .selected {
   background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
 }
