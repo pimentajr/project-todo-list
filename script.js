@@ -10,9 +10,6 @@ createTask.addEventListener('click', () => {
 
 const clickElement = document.getElementById('lista-tarefas');
 clickElement.addEventListener('click', (ev) => {
-  const paintColor = document.querySelector('li');
-  const color = window.getComputedStyle(paintColor).backgroundColor;
-  document.querySelector('li').style.background = 'rgb(128,128,128)';
-  const alvo = ev;
-  alvo.target.style.backgroundColor = color;
+  const backColor = ev;
+  backColor.target.style.backgroundColor = 'rgb(128,128,128)';
 });
