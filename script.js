@@ -41,20 +41,29 @@ btnSalvar.addEventListener('click', () => {
 });
 
 const local = localStorage.getItem('lista-tarefas');
-console.log(local);
 lista.innerHTML = local;
 
-// const btnMoveCima = document.querySelector('#mover-cima');
-// btnMoveCima.addEventListener('click', () => {
-//   const lista = document.querySelectorAll('.tarefa');
-//   const selected = document.querySelector('.selected');
-// });
+const btnMoveCima = document.querySelector('#mover-cima');
+btnMoveCima.addEventListener('click', () => {
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    const selectedPrevious = selected.previousElementSibling;
+    if (selectedPrevious) {
+      lista.insertBefore(selected, selectedPrevious);
+    }
+  }
+});
 
-// const btnMoveBaixo = document.querySelector('#mover-baixo');
-// btnMoveBaixo.addEventListener('click', () => {
-//   const lista = document.querySelectorAll('.tarefa');
-//   const selected = document.querySelector('.selected');
-// });
+const btnMoveBaixo = document.querySelector('#mover-baixo');
+btnMoveBaixo.addEventListener('click', () => {
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    const selNext = selected.nextElementSibling;
+    if (selNext) {
+      lista.insertBefore(selected, selNext.nextElementSibling);
+    }
+  }
+});
 
 const btnRemoverSelecionado = document.querySelector('#remover-selecionado');
 btnRemoverSelecionado.addEventListener('click', () => {
