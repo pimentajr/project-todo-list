@@ -3,7 +3,6 @@ const buttonNewJob = document.querySelector('#criar-tarefa');
 const buttonCleanList = document.querySelector('#apaga-tudo');
 const buttonCleanDone = document.querySelector('#remover-finalizados');
 const buttonSaveList = document.querySelector('#salvar-tarefas');
-const itensList = document.querySelectorAll('.Item-List');
 const buttonUpItem = document.querySelector('#mover-cima');
 const buttonDownItem = document.querySelector('#mover-baixo');
 const buttonRemoveClicked = document.getElementById('remover-selecionado')
@@ -68,7 +67,7 @@ buttonSaveList.addEventListener('click', function () {
     console.log(saveListItens[index].classList.value);
     localStorage.setItem('itemClass' + index, saveListItens[index].classList.value);
   }
-})
+});
 
 window.onload = function () {
   for (let index = 0; index < (localStorage.length / 2); index += 1) {
@@ -85,7 +84,7 @@ window.onload = function () {
 
 // Botão mover-baixo
 buttonDownItem.addEventListener('click', function () {
-let checkItenslistDown = document.getElementsByClassName('Item-List');
+  let checkItenslistDown = document.getElementsByClassName('Item-List');
   for (let index = 0; index < checkItenslistDown.length - 1; index += 1) {
     if (checkItenslistDown[index].classList.contains('clicked')) {
       let itemClickedDown = checkItenslistDown[index];
@@ -119,8 +118,7 @@ buttonRemoveClicked.addEventListener('click', function () {
   let itensListRemove = document.getElementsByClassName('Item-List');
   for (let index = 0; index < itensListRemove.length; index += 1) {
     if (itensListRemove[index].classList.contains('clicked') === true) {
-      let clickedRemove = itensListRemove[index]
       itensListRemove[index].remove();
     }
   }
-})
+});
