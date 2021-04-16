@@ -75,7 +75,7 @@ function saveTasks() {
 
   const saver2 = localStorage.getItem('saveTasks');
   if (saver2) {
-    list.innerHTML = saver2;
+  list.innerHTML = saver2;
   }
 }
 saveTasks();
