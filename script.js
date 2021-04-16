@@ -1,6 +1,6 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 const textoTarefa = document.getElementById('texto-tarefa');
-const classSelected = document.getElementsByClassName('selected');
+const classSelected = document.querySelector('.selected');
 const liCriada = document.createElement('li');
 const liList = listaTarefas.innerHTML;
 
