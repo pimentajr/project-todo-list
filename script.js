@@ -23,6 +23,11 @@ lista.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 });
 
+const btnLimparTudo = document.querySelector('#apaga-tudo');
+btnLimparTudo.addEventListener('click', () => {
+  lista.innerHTML = '';
+});
+
 // npm run lint
 // npm run lint:styles
 // npm run cypress:open
