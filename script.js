@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 let listaTarefas = document.querySelector('#lista-tarefas');
 let textoTarefa = document.getElementById('texto-tarefa');
 let classSelected = document.querySelector('.selected');
 let liCriada = document.createElement('li');
 let liList = listaTarefas.innerHTML;
+=======
+const listaTarefas = document.querySelector('#lista-tarefas');
+const textoTarefa = document.getElementById('texto-tarefa');
+const classSelected = document.getElementsByClassName('selected');
+const liCriada = document.createElement('li');
+const liList = listaTarefas.innerHTML;
+>>>>>>> parent of 55f4e1e (Update script.js)
 
 // Função carregar itens salvos
 window.onload = function() {
