@@ -7,10 +7,20 @@ buttonCriarTarefa.addEventListener('click', () => {
   novaTarefa.innerText = textoTarefa.value;
   listaDeTarefas.appendChild(novaTarefa);
   textoTarefa.value = '';
-});
+ });
 
-const mouseClick = document.querySelectorAll('#lista-tarefas');
-mouseClick.document.addEventListener('click', () => {
-  const colorOnClick = document.createElement('li');
-  colorOnClick.style.background = rgb(128, 128, 128);
-});
+ function selectedItem(event) {
+   removeSelected();
+   const mouse = event.target;
+   mouse.classList.toggle('selected');
+ }
+ listaDeTarefas.addEventListener('click', selectedItem);
+
+ function removeSelected() {
+   const itens = document.querySelectorAll('li');
+   for (let index = 0; index < itens.length; index +=1) {
+     const element = itens[index];
+     element.classList.remove('selected');
+   }
+   
+ }
