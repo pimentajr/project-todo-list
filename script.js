@@ -2,24 +2,18 @@
 //  !Referencia para o uso de toggle 'https://www.w3schools.com/howto/howto_js_toggle_class.asp'
 
 // *criação de constantes
-// -apagar
 const createTask = document.querySelector('#texto-tarefa');
 const buttonTaskCreator = document.querySelector('#criar-tarefa');
 const listOfTasks = document.querySelector('#lista-tarefas');
 const cleanButton = document.querySelector('#apaga-tudo');
 const cleanCompletedButton = document.querySelector('#remover-finalizados');
-// -apagar
-
-// -apagar
 
 //  *Cria um item na lista
 function createTaskItem() {
   const taskAdd = document.createElement('li');
   if (createTask.value !== '') {
     taskAdd.innerText = createTask.value;
-    // -apagar
     listOfTasks.appendChild(taskAdd);
-    // -apagar
   }
 }
 
@@ -28,7 +22,6 @@ function clearTextInput() {
   createTask.value = '';
 }
 
-// -apagar linha
 //  *da destaque ao item selecionado
 //  !Referencia para a criação'https://github.com/tryber/sd-011-project-todo-list/pull/52'
 function selectedTask(event) {
@@ -44,10 +37,7 @@ function lineCompleted(event) {
   event.target.classList.toggle('completed');
 }
 
-// -apagar
-// -apagar
-// -apagar
-//  *Limpa todos os itens da lista 
+//  *Limpa todos os itens da lista
 function cleanAll() {
   const list = document.querySelectorAll('li');
   for (let index = 0; index < list.length; index += 1) {
@@ -63,7 +53,6 @@ function cleanAllCompleted() {
   }
 }
 
-// -apagar
 // *Realiza todas as ações addEventListener
 function readAddEventListener() {
   listOfTasks.addEventListener('click', selectedTask);
