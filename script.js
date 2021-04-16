@@ -84,10 +84,10 @@ function paraCima() {
   }
 }
 cima.addEventListener('click', paraCima);
-
-const ItensDaLista = JSON.parse(localStorage.getItem('ItensDaLista')) || [];
+const ItensDaLista = JSON.parse(localStorage.getItem('Itens Da Lista')) || [];
 function salvar() {
-  ItensDaLista.push(li);
+  const save = document.querySelectorAll('li');
+  ItensDaLista.push(save);
   localStorage.setItem('Itens Da Lista', JSON.stringify(ItensDaLista));
 }
 salva.addEventListener('click', salvar);
