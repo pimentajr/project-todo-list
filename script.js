@@ -27,8 +27,9 @@ selecionaTarefa();
 function tarefaCompletada() {
   listaOrdenada.addEventListener('dblclick', function (e) {
     const eTarget = e.target;
-    if (eTarget.classList === 'completed') {
+    if (eTarget.classList.contains('completed')) {
       eTarget.classList.remove('completed');
+      console.log('oi')
     } else {
       eTarget.classList.add('completed');
     }
@@ -43,3 +44,14 @@ function apagaLista() {
   });
 }
 apagaLista();
+
+const remove = document.querySelector('#remover-finalizados')
+function removerFinalizados() {
+  remove.addEventListener('click', function() {
+    const buscarLi = document.querySelectorAll('.completed');
+    for (let i=0; i<buscarLi.length; i+=1) {
+    listaOrdenada.removeChild(buscarLi[i]);
+    }    
+  })
+}
+removerFinalizados();
