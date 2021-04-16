@@ -7,20 +7,35 @@ buttonCriarTarefa.addEventListener('click', () => {
   novaTarefa.innerText = textoTarefa.value;
   listaDeTarefas.appendChild(novaTarefa);
   textoTarefa.value = '';
- });
+});
 
- function selectedItem(event) {
-   removeSelected();
-   const mouse = event.target;
-   mouse.classList.toggle('selected');
- }
- listaDeTarefas.addEventListener('click', selectedItem);
+function selectedItem(event) {
+  removeSelected();
+  const mouse = event.target;
+  mouse.classList.toggle('selected');
+}
 
- function removeSelected() {
-   const itens = document.querySelectorAll('li');
-   for (let index = 0; index < itens.length; index +=1) {
-     const element = itens[index];
-     element.classList.remove('selected');
-   }
-   
- }
+listaDeTarefas.addEventListener('click', selectedItem);
+
+function removeSelected() {
+  const itens = document.querySelectorAll('li');
+  for (let index = 0; index < itens.length; index += 1) {
+    const element = itens[index];
+    element.classList.remove('selected');
+  }
+}
+
+function addComplete (event) {
+  const mouse = event.target;
+  mouse.classList.toggle('completed');
+}
+
+listaDeTarefas.addEventListener('dblclick', addComplete);
+
+function removeComplete() {
+  const itens = document.querySelectorAll('li');
+  for (let index = 0; index < itens.length; index +=1) {
+    const element = itens[index];
+    element.classList.remove('completed');
+  }
+}
