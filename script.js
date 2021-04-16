@@ -9,6 +9,7 @@ const items = document.getElementsByTagName('li');
 const eraser = document.getElementById('apaga-tudo');
 const remove = document.getElementById('remover-finalizados');
 const saver = document.getElementById('salvar-tarefas');
+const remover = document.getElementById('remover-selecionado');
 
 function addTasks() {
   const tasks = document.createElement('li');
@@ -58,8 +59,8 @@ removeList();
 function removeItem() {
   remove.addEventListener('click', () => {
     const complete = document.querySelectorAll('.completed');
-      for (let index2 = 0; index2 < complete.length; index2 += 1) {
-        complete[index2].remove();
+    for (let index2 = 0; index2 < complete.length; index2 += 1) {
+      complete[index2].remove();
     }
   });
 }
@@ -68,42 +69,54 @@ removeItem();
 // 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava:
 
 function saveTasks() {
-saver.addEventListener('click', () => {
-  localStorage.setItem('saveTasks', list.innerHTML);
-});
+  saver.addEventListener('click', () => {
+    localStorage.setItem('saveTasks', list.innerHTML);
+  });
 
-const saver2 = localStorage.getItem('saveTasks');
-if (saver2) {
-  list.innerHTML = saver2
-}
+  const saver2 = localStorage.getItem('saveTasks');
+  if (saver2) {
+  list.innerHTML = saver2;
+  }
 }
 saveTasks();
 
 // 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 
-function moveUp () {
-  let up = document.getElementById('mover-cima');
+function moveUp() {
+  const up = document.getElementById('mover-cima');
   up.addEventListener('click', () => {
     for (let index3 = 0; index3 < items.length; index3 += 1) {
       if (items[index3].classList.contains('selected') && items[index3].previousElementSibling !== null) {
-        const indexItems = items[index3]
+        const indexItems = items[index3];
         list.insertBefore(indexItems, indexItems.previousSibling);
       }
     }
-  })
+  });
 }
 moveUp();
 
-function moveDown () {
-  let down = document.getElementById('mover-baixo');
+function moveDown() {
+  const down = document.getElementById('mover-baixo');
   down.addEventListener('click', () => {
     for (let index4 = 0; index4 < items.length; index4 += 1) {
       if (items[index4].classList.contains('selected') && items[index4].nextElementSibling !== null) {
-        const indexItems2 = items[index4]
+        const indexItems2 = items[index4];
         list.insertBefore(indexItems2.nextElementSibling, indexItems2);
         break;
       }
     }
-  })
+  });
 }
 moveDown();
+
+// 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado:
+
+function removeSelected() {
+  remover.addEventListener('click', () => {
+    const itemSelected = document.querySelectorAll('.selected');
+    for (let index5 = 0; index5 < itemSelected.length; index5 += 1) {
+      itemSelected[index5].remove();
+    }
+  });
+}
+removeSelected();
