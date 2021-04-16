@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .fundo-cinza {
+    background-color: gray;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+  }
