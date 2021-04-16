@@ -7,3 +7,12 @@ createTask.addEventListener('click', () => {
   tasklist.appendChild(itemTask);
   task.value = '';
 });
+
+const clickElement = document.getElementById('lista-tarefas');
+clickElement.addEventListener('click', (ev) => {
+  const paintColor = document.querySelector('li');
+  const color = window.getComputedStyle(paintColor).backgroundColor;
+  document.querySelector('li').style.background = 'Red';
+  const alvo = ev;
+  alvo.target.style.backgroundColor = color;
+});
