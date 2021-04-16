@@ -30,7 +30,7 @@ body {
 
 h1 {
   text-align: center;
-  color:white;
+  color: white;
 }
 
 p {
@@ -43,49 +43,49 @@ p {
 
 #criar-tarefa {
   border-radius: 30px;
-  color:green;
+  color :green;
   background-color: white;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 #remover-selecionado {
   border-radius: 30px;
-  color:green;
+  color: green;
   background-color: white;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 #mover-cima {
   border-radius: 30px;
-  color:green;
+  color: green;
   background-color: white;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 #mover-baixo {
   border-radius: 30px;
-  color:green;
+  color: green;
   background-color: white;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 #remover-finalizados {
   border-radius: 30px;
-  color:green;
+  color: green;
   background-color: white;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 #apaga-tudo {
   border-radius: 30px;
-  color:green;
+  color: green;
   background-color: white;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 #salvar-tarefas {
   border-radius: 30px;
-  color:green;
+  color: green;
   background-color: white;
-  font-weight: bolder;
+  font-weight: 700;
 }

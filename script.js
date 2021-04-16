@@ -85,8 +85,10 @@ function paraCima() {
 }
 cima.addEventListener('click', paraCima);
 
+const ItensDaLista = JSON.parse(localStorage.getItem('ItensDaLista')) || [];
 function salvar() {
-  localStorage.setItem('ol', 'li');
+  ItensDaLista.push(li);
+  localStorage.setItem('Itens Da Lista', JSON.stringify(ItensDaLista));
 }
 salva.addEventListener('click', salvar);
 
