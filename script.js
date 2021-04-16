@@ -68,4 +68,5 @@ addButton.addEventListener('click', () => {
   updateList();
   paintLine();
   deleteList();
+  deleteCompleted();
 });
