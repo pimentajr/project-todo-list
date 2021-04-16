@@ -1,5 +1,5 @@
 window.onload = function() {
-    documento.querySelector('#lista-tarefas').innerHTML = localStorage.savedList;
+  document.querySelector('#lista-tarefas').innerHTML = localStorage.savedList;
 }
 document.getElementById('criar-tarefa').addEventListener('click', function() {
     let liCriada = document.createElement('li');
