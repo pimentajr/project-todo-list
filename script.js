@@ -84,9 +84,12 @@ function removeItem() {
   clearItem.id = 'remover-finalizados';
   clearItem.innerText = 'Remover itens finalizados';
   div2.appendChild(clearItem);
+  const taskFinaly = document.getElementsByClassName('completed');
 
-  clearItem.addEventListener('dblclick', () => {
-    console.log(clearItem);
+  clearItem.addEventListener('click', () => {
+    for (let index = taskFinaly.length - 1; index >= 0; index -= 1) {
+      taskFinaly[index].remove();
+    }
   });
 }
 removeItem();
