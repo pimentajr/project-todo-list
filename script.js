@@ -4,9 +4,19 @@ btnCriar.addEventListener('click', () => {
   const listaOl = document.querySelector('#lista-tarefas');
   const newLi = document.createElement('li');
   listaOl.appendChild(newLi);
-  newLi.classList.add = 'value-list';
+  newLi.classList.add('value-list');
   newLi.innerText = valor.value;
   valor.value = '';
+});
+
+const lista = document.querySelector('#lista-tarefas');
+lista.addEventListener('click', (event) => {
+  const selected = document.querySelectorAll('.selected');
+  for (let index = 0; index < selected.length; index += 1) {
+    selected[index].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+  lista.classList.remove('selected');
 });
 
 // npm run lint
