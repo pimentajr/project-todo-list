@@ -12,7 +12,7 @@ const clickElement = document.getElementById('lista-tarefas');
 clickElement.addEventListener('click', (ev) => {
   const paintColor = document.querySelector('li');
   const color = window.getComputedStyle(paintColor).backgroundColor;
-  document.querySelector('li').style.background = 'Red';
+  document.querySelector('li').style.background = 'rgb(128,128,128)';
   const alvo = ev;
   alvo.target.style.backgroundColor = color;
 });
