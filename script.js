@@ -79,4 +79,31 @@ if (saver2) {
 }
 saveTasks();
 
+// 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 
+function moveUp () {
+  let up = document.getElementById('mover-cima');
+  up.addEventListener('click', () => {
+    for (let index3 = 0; index3 < items.length; index3 += 1) {
+      if (items[index3].classList.contains('selected') && items[index3].previousElementSibling !== null) {
+        const indexItems = items[index3]
+        list.insertBefore(indexItems, indexItems.previousSibling);
+      }
+    }
+  })
+}
+moveUp();
+
+function moveDown () {
+  let down = document.getElementById('mover-baixo');
+  down.addEventListener('click', () => {
+    for (let index4 = 0; index4 < items.length; index4 += 1) {
+      if (items[index4].classList.contains('selected') && items[index4].nextElementSibling !== null) {
+        const indexItems2 = items[index4]
+        list.insertBefore(indexItems2.nextElementSibling, indexItems2);
+        break;
+      }
+    }
+  })
+}
+moveDown();
