@@ -95,16 +95,19 @@ function createSectionMiscellaneousButtons() {
   mainContent.appendChild(miscellaneousButtons);
 }
 
-function eraseEverything() {
-  alert('funfou'); // botão funcionando!!!
-  ordenedList.children.remove;
-}
-
 function createEraseEverythingButton() {
   eraseEverythingButton.id = 'apaga-tudo';
   eraseEverythingButton.textContent = 'Limpar Lista'
   miscellaneousButtons.appendChild(eraseEverythingButton);
   eraseEverythingButton.addEventListener('click', eraseEverything);
+  const size = ordenedList.childElementCount;
+  for (let index = 0; index < size; index += 1) {
+    ordenedList.removeChild(ordenedList.lastElementChild);
+  }
+}
+
+function eraseEverything() {
+ eraseEverythingButton.addEventListener('click', createEraseEverythingButton); 
 }
 
 window.onload = function loadPage() {
@@ -119,4 +122,5 @@ window.onload = function loadPage() {
   taskButtonEvent();
   createSectionMiscellaneousButtons();
   createEraseEverythingButton();
+  eraseEverything();
 };
