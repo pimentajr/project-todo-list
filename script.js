@@ -1,10 +1,6 @@
 window.onload = function() {
-    for (let index = 0; index < localStorage.length; index +=1 ) {
-       let keyValue = localStorage.getItem(JSON.stringify(index))
-       let liCriadaOnload = document.createElement('li');
-       liCriadaOnload.innerText = keyValue;
-       document.getElementById('lista-tarefas').appendChild(liCriadaOnload);
-    }
+    document.querySelector('#lista-tarefas').innerHTML = localStorage.savedList;
+    
 }
 document.getElementById('criar-tarefa').addEventListener('click', function() {
     let liCriada = document.createElement('li');
@@ -47,14 +43,13 @@ function deleteSelected() {
 }
 
 document.querySelector('#remover-selecionado').addEventListener('click', deleteSelected);
-
+// Referência: Luan Alexandre
+// https://github.com/tryber/sd-011-project-todo-list/pull/138/
 function saveList() {
-    const liList = document.querySelectorAll('li');
-    for (let index = 0; index < liList.length; index += 1) {
-        let keyString = JSON.stringify(index);
-        let valueString = liList[index].innerText;
-        localStorage.setItem(keyString, valueString);
-    }
+    localStorage.clear();
+    let liList = document.querySelector('#lista-tarefas').innerHTML;
+    localStorage.savedList = liList;
 }
 
 document.querySelector('#salvar-tarefas').addEventListener('click', saveList);
+
