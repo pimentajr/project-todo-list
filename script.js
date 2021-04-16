@@ -40,9 +40,20 @@ const listChange = document.querySelector('#lista-tarefas');
 function changeColor(event) {
   const line = document.querySelectorAll('.item-list');
   const target = event.target;
-  for(let index = 0; index < line.length; index += 1) {
+  for (let index = 0; index < line.length; index += 1) {
     line[index].classList.remove('selected');
   }
   target.classList.add('selected');
 }
 listChange.addEventListener('click', changeColor);
+
+function doubleClick(event) {
+  const line = document.querySelectorAll('.item-list');
+  const target = event.target;
+  for (let index = 0; index < line.length; index += 1) {
+    line[index].classList.remove('completed');
+  }
+  target.classList.add('completed');
+}
+
+listChange.addEventListener('dblclick', doubleClick)
