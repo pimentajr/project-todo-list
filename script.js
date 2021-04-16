@@ -23,28 +23,41 @@ function paintLine() {
 }
 
 function crossOutLine() {
-  const myList = updateList();
-  for (let i = 0; i < myList.length; i += 1) {
-    myList[i].addEventListener('dblclick', () => {
-      if (myList[i].classList.contains('completed')) {
-        myList[i].classList.remove('completed');
-      } else {
-        myList[i].classList.add('completed');
-      }
-    });
-  }
+  const myList = document.querySelector('ol');
+
+  myList.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('completed')) {
+      e.target.classList.remove('completed');
+    } else {
+      e.target.classList.add('completed');
+    }
+  });
 }
+
+crossOutLine();
 
 function deleteList() {
-  const myList = updateList();
   const delButton = document.querySelector('#apaga-tudo');
 
-  for (let i = 0; i < myList.length; i += 1) {
-    delButton.addEventListener('click', () => {
-      elementOl.removeChild(myList[i]);
-    });
-  }
+  delButton.addEventListener('click', () => {
+    elementOl.innerHTML = '';
+  });
 }
+
+deleteList();
+
+function deleteCompleted() {
+  const delButton = document.querySelector('#remover-finalizados');
+
+  delButton.addEventListener('click', () => {
+    const completedList = document.getElementsByClassName('completed');
+    for (let i = 0; i < completedList.length; i += 1) {
+      elementOl.removeChild(completedList[i]);
+    }
+  });
+}
+
+deleteCompleted();
 
 addButton.addEventListener('click', () => {
   const valueText = document.createTextNode(textInput.value);
@@ -54,9 +67,5 @@ addButton.addEventListener('click', () => {
   textInput.value = '';
   updateList();
   paintLine();
-  crossOutLine();
   deleteList();
 });
-
-crossOutLine();
-deleteList();
