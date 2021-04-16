@@ -6,6 +6,7 @@ const buttonSaveList = document.querySelector('#salvar-tarefas');
 const itensList = document.querySelectorAll('.Item-List');
 const buttonUpItem = document.querySelector('#mover-cima');
 const buttonDownItem = document.querySelector('#mover-baixo');
+const buttonRemoveClicked = document.getElementById('remover-selecionado')
 
 // botão para criar um novo item na lista
 buttonNewJob.addEventListener('click', function () {
@@ -84,20 +85,13 @@ window.onload = function () {
 
 // Botão mover-baixo
 buttonDownItem.addEventListener('click', function () {
-//   // console.log(buttonDownItem);
-//   let itemClicked = document.querySelectorAll('.clicked')[0];
-//   let nextItemClicked = document.querySelectorAll('.clicked')[0].nextSibling;
-//   console.log(itemClicked);
-//   console.log(nextItemClicked);
-//   ordenedList.insertBefore(itemClicked, nextItemClicked.nextSibling);
-// });
 let checkItenslistDown = document.getElementsByClassName('Item-List');
   for (let index = 0; index < checkItenslistDown.length - 1; index += 1) {
     if (checkItenslistDown[index].classList.contains('clicked')) {
       let itemClickedDown = checkItenslistDown[index];
       let nextItemClickedDown = checkItenslistDown[index].nextSibling;
-      console.log(itemClickedDown);
-      console.log(nextItemClickedDown);
+      // console.log(itemClickedDown);
+      // console.log(nextItemClickedDown);
       ordenedList.insertBefore(itemClickedDown, nextItemClickedDown.nextSibling);
       break;
     }
@@ -120,3 +114,13 @@ buttonUpItem.addEventListener('click', function () {
   }
   // console.log(checkItenslist);
 });
+
+buttonRemoveClicked.addEventListener('click', function () {
+  let itensListRemove = document.getElementsByClassName('Item-List');
+  for (let index = 0; index < itensListRemove.length; index += 1) {
+    if (itensListRemove[index].classList.contains('clicked') === true) {
+      let clickedRemove = itensListRemove[index]
+      itensListRemove[index].remove();
+    }
+  }
+})
