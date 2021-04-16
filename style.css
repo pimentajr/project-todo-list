@@ -9,6 +9,6 @@ main {
   border-radius: 1cm;
 }
 
-.lista-itens {
-  background-color: white;
+.selected {
+  background-color: gray;
 }
