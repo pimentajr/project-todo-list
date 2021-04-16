@@ -28,6 +28,14 @@ btnLimparTudo.addEventListener('click', () => {
   lista.innerHTML = '';
 });
 
+const btnRemoverFinalizados = document.querySelector('#remover-finalizados');
+btnRemoverFinalizados.addEventListener('click', () => {
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    completed[index].remove('li');
+  }
+});
+
 // npm run lint
 // npm run lint:styles
 // npm run cypress:open
