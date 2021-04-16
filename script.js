@@ -3,7 +3,7 @@
 // To separetaly create functions changeBackgroundColor and strikeListItem, I've used that logics
 // https://dev.to/akhil_001/adding-event-listeners-to-the-future-dom-elements-using-event-bubbling-3cp1
 // To store data locally, I've use the example at below link
-// https://www.taniarascia.com/how-to-use-local-storage-with-javascript/ 
+// https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
 
 const inputField = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
@@ -13,20 +13,20 @@ const rootElement = document.querySelector('body');
 const deleteButton = document.querySelector('#apaga-tudo');
 const finishedButton = document.querySelector('#remover-finalizados');
 const saveTasks = document.querySelector('#salvar-tarefas');
-const form = document.querySelector('form');
+// const form = document.querySelector('form');
 // const itemsArray = localStorage.getItem('items');
 const itemsArray = [];
 
 function addTask() {
   const task = inputField.value;
   if (task !== '') {
-  const listItem = document.createElement('li');
+    const listItem = document.createElement('li');
 
-  listItem.className = 'new-item';
-  listItem.innerText = task;
-  taskList.appendChild(listItem);
+    listItem.className = 'new-item';
+    listItem.innerText = task;
+    taskList.appendChild(listItem);
 
-  taskForm.reset();
+    taskForm.reset();
   } else {
     alert('Insira uma tarefa válida!');
   }
@@ -75,24 +75,17 @@ function removeFinishedItems() {
 }
 
 function saveAll() {
-
   if (taskList.children.length > 0) {
-    for (let index = 0; index < taskList.children.length; index += 1) {
-      itemsArray.push(taskList.children[index].innerHTML);
-    }
-    //localStorage.setItem('items', JSON.stringify(itemsArray));
-    localStorage['items'] = JSON.stringify(itemsArray);
-    var stored_datas = JSON.parse(localStorage['items']);
+    localStorage.setItem('items', taskList.innerHTML);
   }
 
   // pegar os valores 
 
   console.log(taskList.children.length);
-  console.log(itemsArray);
   console.log(localStorage);
-  console.log(stored_datas);
 }
 
+taskList.innerHTML = localStorage.getItem('items');
 // function loadAll() {
 
 //   //const loaded = JSON.parse(localStorage.getItem('items'));
@@ -110,24 +103,3 @@ addButton.addEventListener('click', addTask);
 deleteButton.addEventListener('click', cleanListItems);
 finishedButton.addEventListener('click', removeFinishedItems);
 saveTasks.addEventListener('click', saveAll);
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault();
-
-//   itemsArray.push(inputField.value);
-//   localStorage.setItem('items', JSON.stringify(itemsArray));
-//   addTask(inputField.value);
-//   inputField.value = '';
-// });
-
-// addButton.addEventListener('click', (event) => {
-//   event.preventDefault();
-
-//   if (inputField.value !== '') {
-//     itemsArray.push(inputField.value);
-//     localStorage.setItem('items', JSON.stringify(itemsArray));
-//     addTask(inputField.value);
-//     inputField.value = '';
-//   } else {
-//     alert('Insira uma tarefa.');
-//   }
-// });
