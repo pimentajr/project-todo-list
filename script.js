@@ -13,7 +13,7 @@ function criaLista() {
 criaLista();
 
 function selecionaTarefa() {
-  listaOrdenada.addEventListener('click', (e) {
+  listaOrdenada.addEventListener('click', function (e) {
     const eTarget = e.target;
     const tarefaSelecionada = document.querySelector('.selecionado');
     if (tarefaSelecionada) {
