@@ -10,27 +10,31 @@
 </head>
 
 <body>
-  <header>
+
+  <header class="header">
     <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
 
-  <main>
-    <section class="container-task">
-      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  <section class="container-list-task">
+    <div class="container-task">
       <input type="text" id="texto-tarefa">
       <button id="criar-tarefa">Adicionar</button>
-    </section>
+    </div>
 
-    <section class="container-buttons">
+    <div class="container-buttons">
       <button id="apaga-tudo">Excluir todas as tarefas</button>
       <button id="remover-finalizados">Remover tarefa finalizada</button>
-    </section>
+    </div>
 
-    <section>
+    <div class="list-container">
       <ol id="lista-tarefas"></ol>
-    </section>
+    </div>
 
-    <script src="script.js"></script>
+  </section>
+
+  <footer class="footer">Feito por Ghislaine</footer>
+  <script src="script.js"></script>
 </body>
 
 </html>
