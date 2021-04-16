@@ -24,7 +24,7 @@ create.addEventListener('click', addTasks);
 
 function addBackgroundColor() {
   list.addEventListener('click', (event) => {
-    for (index = 0; index < items.length; index += 1) {
+    for (let index = 0; index < items.length; index += 1) {
       items[index].classList.remove('selected');
     }
     event.target.classList.add('selected');
@@ -75,7 +75,7 @@ function saveTasks() {
 
   const saver2 = localStorage.getItem('saveTasks');
   if (saver2) {
-  list.innerHTML = saver2;
+    list.innerHTML = saver2;
   }
 }
 saveTasks();
