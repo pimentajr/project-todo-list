@@ -43,7 +43,7 @@ function deleteList() {
 }
 
 function removeCompleted() {
-  const completed = document.getElementsByClassName('completed');
+  const completed = document.querySelectorAll('.completed');
   for (let index = 0; index < completed.length; index += 1) {
     completed[index].remove();
   }
