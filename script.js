@@ -24,7 +24,7 @@ create.addEventListener('click', addTasks);
 
 function addBackgroundColor() {
   list.addEventListener('click', (event) => {
-    for (let index = 0; index < items.length; index += 1) {
+    for (index = 0; index < items.length; index += 1) {
       items[index].classList.remove('selected');
     }
     event.target.classList.add('selected');
