@@ -6,7 +6,7 @@ const olTaskList = document.querySelector('#lista-tarefas');
 
 const input1 = document.querySelector('#texto-tarefa');
 
-addButton.addEventListener('click', function () {
+addButton.addEventListener('click', () => {
   const inputValue = input1.value;
   const newTask = document.createElement('li');
   newTask.innerHTML = inputValue;
@@ -21,7 +21,8 @@ function selectTask(event) {
   for (let index = 0; index < tasks.children.length; index += 1) {
     tasks.children[index].style.backgroundColor = '';
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  const colorTask = event.target.style;
+  colorTask.backgroundColor = 'rgb(128,128,128)';
 }
 tasks.addEventListener('click', selectTask);
 
@@ -43,14 +44,12 @@ delButton.addEventListener('click', deleteAll);
 
 function removeChecked() {
   const complet = document.querySelector('.completed');
-  if (complet) {
-    for (let index = 0; index < tasks.children.length;) {
-      if (tasks.children[index].classList.contains('completed')) {
-        tasks.removeChild(tasks.children[index]);
-        index = 0;
-      } else {
-        index += 1;
-      }
+  for (let index = 0; index < tasks.children.length;) {
+    if (complet && tasks.children[index].classList.contains('completed')) {
+      tasks.removeChild(tasks.children[index]);
+      index = 0;
+    } else {
+      index += 1;
     }
   }
 }
