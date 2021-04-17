@@ -55,7 +55,7 @@ function addClassCompleted(event) {
 listChange.addEventListener('dblclick', addClassCompleted);
 
 const btnClean = document.createElement('button');
-btnClean.className = 'apaga-tudo';
+btnClean.id = 'apaga-tudo';
 btnClean.innerText = 'Apagar'
 body.appendChild(btnClean);
 
@@ -63,4 +63,4 @@ function cleanItemList() {
   listChange.innerHTML = '';
 }
 
-btnClean.addEventListener('click', cleanItemList)
+btnClean.addEventListener('click', cleanItemList);
