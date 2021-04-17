@@ -15,8 +15,6 @@ button.addEventListener('click', function(event){
 let lista2 = document.getElementById('lista-tarefas');
 let itemSelected = document.getElementsByClassName('selected');
 
-console.log('Itens Selecionados : ' + itemSelected.innerHTML);
-
 lista2.addEventListener('click', function(event){
     if(event.target.innerHTML != textSelected && textSelected != ''){
         itemSelected[0].style.backgroundColor='white';
@@ -24,12 +22,34 @@ lista2.addEventListener('click', function(event){
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
         event.target.className = 'selected';
         textSelected = event.target.innerHTML; 
+       
     }else{
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
         event.target.className = 'selected';
-        textSelected = event.target.innerHTML;         
+        textSelected = event.target.innerHTML;  
+              
     }
+});
+
+let lista3 = document.getElementById('lista-tarefas');
+let segundaVez = false;
+
+lista3.addEventListener('dblclick', function(event){
+
+    if(event.target.className == 'selected'){
 
 
+        if(event.target.className != 'selected completed' && segundaVez == false){
+            event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
+            event.target.className = 'selected completed';   
+            console.log('entroooo'); 
+            segundaVez = true;        
+        }else{
+            event.target.style.textDecoration = '';
+            event.target.className = 'selected';
+            segundaVez=false;
+        }
+
+    }
 
 });
