@@ -9,6 +9,7 @@ const listSection = document.createElement('section');
 const ordenedList = document.createElement('ol');
 const miscellaneousButtons = document.createElement('section');
 const eraseEverythingButton = document.createElement('button');
+const deletesCompletedTasks = document.createElement('button');
 
 function insertTitle() {
   title.id = 'title';
@@ -20,7 +21,8 @@ function insertTitle() {
 
 function insertParagraphToTitle() {
   titleParagraph.id = 'funcionamento';
-  titleParagraph.textContent = 'Clique duas vezes em um item para marcá-lo como completo';
+  titleParagraph.textContent =
+    'Clique duas vezes em um item para marcá-lo como completo';
   title.appendChild(titleParagraph);
 }
 
@@ -99,7 +101,6 @@ function createEraseEverythingButton() {
   eraseEverythingButton.id = 'apaga-tudo';
   eraseEverythingButton.textContent = 'Limpar Lista';
   miscellaneousButtons.appendChild(eraseEverythingButton);
-  eraseEverythingButton.addEventListener('click', eraseEverything);
   const size = ordenedList.childElementCount;
   for (let index = 0; index < size; index += 1) {
     ordenedList.removeChild(ordenedList.lastElementChild);
@@ -108,6 +109,21 @@ function createEraseEverythingButton() {
 
 function eraseEverything() {
   eraseEverythingButton.addEventListener('click', createEraseEverythingButton);
+}
+
+function createDeletesCompletedTasks() {
+  deletesCompletedTasks.id = 'remover-finalizados';
+  deletesCompletedTasks.textContent = 'Remove Finalizados';
+  miscellaneousButtons.appendChild(deletesCompletedTasks);
+  const completedTask = document.getElementsByClassName('completed');
+  const sizeOfCompletedTasks = completedTask.length;
+  for (let index = sizeOfCompletedTasks - 1; index >= 0; index -= 1) {
+    ordenedList.removeChild(completedTask[index]);
+  }
+}
+
+function clearsFinish() {
+  deletesCompletedTasks.addEventListener('click', createDeletesCompletedTasks);
 }
 
 window.onload = function loadPage() {
@@ -123,4 +139,6 @@ window.onload = function loadPage() {
   createSectionMiscellaneousButtons();
   createEraseEverythingButton();
   eraseEverything();
+  createDeletesCompletedTasks();
+  clearsFinish();
 };
