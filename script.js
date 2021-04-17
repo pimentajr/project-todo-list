@@ -79,17 +79,20 @@ finalizados.addEventListener('click', limparLista);
 
 function paraCima() {
   const liItem = document.querySelectorAll('.itens');
-  for (let index = 0; index < liItem.length; index += 1) {
-    liItem[index].previousSibling = liItem[index];
+  if (liItem) {
+    const posicaoAcima = liItem.previousElementSibling;
+    if (posicaoAcima) {
+      li.insertBefore(liItem, posicaoAcima);
+    }
   }
 }
 cima.addEventListener('click', paraCima);
-const ItensDaLista = JSON.parse(localStorage.getItem('Itens Da Lista')) || [];
+
 function salvar() {
-  const save = document.querySelectorAll('li');
-  ItensDaLista.push(save);
-  localStorage.setItem('Itens Da Lista', JSON.stringify(ItensDaLista));
+  localStorage.setItem('Lista de Tarefas', ol.innerHTML);
 }
+const ItensDaLista = localStorage.getItem('Lista de Tarefas');
+ol.innerHTML = ItensDaLista;
 salva.addEventListener('click', salvar);
 
 window.onload = function carregar() {
