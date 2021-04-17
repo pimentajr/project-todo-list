@@ -5,6 +5,8 @@ const clear = document.getElementById('apaga-tudo');
 const btnFinalized = document.getElementById('remover-finalizados');
 const btnDelete = document.getElementById('remover-selecionado');
 const btnSave = document.getElementById('salvar-tarefas');
+const btnUp = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
 
 function makingList() {
   if (inptText.value === '') {
@@ -77,3 +79,27 @@ list.innerHTML = saved;
 
 btnSave.addEventListener('click', save);
 
+const selUpDown = document.getElementsByClassName('selected');
+function listUp() {
+  for (let i = 0; i < selUpDown.length; i += 1) {
+    if (selUpDown[i].previousElementSibling != null) {
+      const item = selUpDown[i];
+      list.insertBefore(item, item.previousSibling);
+    }
+  }
+}
+
+btnUp.addEventListener('click', listUp);
+
+
+
+function listDown() {
+  for (let i = 0; i < selUpDown.length; i += 1) {
+    if (selUpDown[i].nextElementSibling != null) {
+      const item = selUpDown[i];
+      list.insertBefore(item.nextSibling, item);
+    }
+  }
+
+}
+btnDown.addEventListener('click', listDown);
