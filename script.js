@@ -51,7 +51,7 @@ function finalizados() {
   limparFinalizados.addEventListener('click', () => {
     for (let index = tarefaFinalizados.length; index > 0; index -= 1) {
       const removeFinalizados = tarefaFinalizados[index - 1]; // nova variavel para receber itens da lista que quero remover
-      lista.removeChild(removeFinalizados);
+      lista.removeChild(removeFinalizados); // O método removeChild () remove um nó filho especificado do elemento especificado.
     }
   });
 }
@@ -94,4 +94,11 @@ botaoBaixo.addEventListener('click', () => {
   if (itemSelecionado && itemSelecionado.nextElementSibling) {
     lista.insertBefore(itemSelecionado.nextElementSibling, itemSelecionado);
   }
+});
+
+const botaoSelecionado = document.getElementById('remover-selecionado');
+
+botaoSelecionado.addEventListener('click', () => {
+  const itemSelecionado = document.querySelector('.selecao');
+  lista.removeChild(itemSelecionado);
 });
