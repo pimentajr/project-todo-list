@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='https://css.gg/chevron-up.css' rel='stylesheet'>
+	<link href='https://css.gg/css' rel='stylesheet'>
+	<link href='https://css.gg/chevron-down.css' rel='stylesheet'>
+	<link href='https://css.gg/add.css' rel='stylesheet'>
+	  <title>Minha Lista de Tarefas</title>
+</head>
+
+<body>
+	<main>
+ <header>
+   <h1>Minha Lista de Tarefas</h1>
+	 <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+</header>   
+
+	<div id="conteudo-central">
+		<div id="menu-criar-tarefa">
+			<input type="text" id="texto-tarefa" placeholder="Digite uma tarefa">
+			<button id="criar-tarefa"><i class="gg-add"></i></button>
+		</div>
+		<ol id="lista-tarefas"></ol>
+	</div>
+	
+	<aside id="menu-acoes">
+		<button id="remover-selecionado" ><i class="gg-close"></i></button>
+		
+		<div id="botoes-mover">
+			<button id="mover-cima"><i class="gg-chevron-up"></i></button>
+			<button id="mover-baixo"><i class="gg-chevron-down"></i></button>
+		</div>
+		
+		<button id="remover-finalizados">Remover Tarefas Concluídas</button>
+		<button id="salvar-tarefas">Salvar Lista</button>
+		<button id="apaga-tudo">Limpar a Lista</button>
+	</aside>
+</main>
+<script src="script.js
+"></script>
+</body>
+</html>

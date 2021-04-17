@@ -1,0 +1,112 @@
+@import url('https://css.gg/close.css');
+@import url('https://css.gg/chevron-up.css');
+@import url('https://css.gg/chevron-down.css');
+@import url('https://css.gg/add.css');
+
+  header {
+    position: sticky;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+ main{
+     border-radius: 16px;
+     background-color: white;
+     padding-bottom: 60px;
+     margin-right: 20px;
+     margin-left:20px ;
+ }
+ body{
+     background-color: teal;
+ }
+  header h1 {
+    padding: 24px 0;
+  }
+  
+  #funcionamento {
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  
+  #conteudo-central {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+  }
+  
+  #menu-criar-tarefa {
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
+  
+  #lista-tarefas {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 620px;
+  }
+  
+  #lista-tarefas > li {
+    padding: 4px;
+    margin-bottom: 8px;
+  }
+  
+  #menu-acoes {
+    float: left;
+    margin-left: 36px;
+  }
+  
+  #menu-acoes > * {
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  #remover-selecionado{
+    border-radius: 18px;
+    padding:  16px;
+    background-color: red;
+    color: honeydew;
+    border-style: solid;
+  }
+
+  #mover-cima{
+      background-color:orange;
+      border-radius: 18px;
+      padding:  16px;
+      color: honeydew;
+  }
+
+  #mover-baixo{
+      background-color: orange;
+      border-radius: 18px;
+      padding: 16px;
+      color: honeydew;
+  }
+  
+  #criar-tarefa{
+    color: green;
+    border-radius: 2em;
+    padding: 0px;
+    margin-left: 10px;
+    border-style: none;
+  }
+
+  .selected {
+      background-color: rgb(128,128,128);
+      color: honeydew;
+  }
+
+  .lis{
+      border-radius: 16px;
+      text-align: center;
+  }
+
+  .completed{
+    text-decoration: line-through solid rgb(0,0,0);
+      }
+ 
+      
+ 
