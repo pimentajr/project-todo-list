@@ -7,6 +7,7 @@ const btnDelete = document.getElementById('remover-selecionado');
 const btnSave = document.getElementById('salvar-tarefas');
 const btnUp = document.getElementById('mover-cima');
 const btnDown = document.getElementById('mover-baixo');
+const selUpDown = document.getElementsByClassName('selected');
 
 function makingList() {
   if (inptText.value === '') {
@@ -79,7 +80,6 @@ list.innerHTML = saved;
 
 btnSave.addEventListener('click', save);
 
-const selUpDown = document.getElementsByClassName('selected');
 function listUp() {
   for (let i = 0; i < selUpDown.length; i += 1) {
     if (selUpDown[i].previousElementSibling != null) {
@@ -91,8 +91,6 @@ function listUp() {
 
 btnUp.addEventListener('click', listUp);
 
-
-
 function listDown() {
   for (let i = 0; i < selUpDown.length; i += 1) {
     if (selUpDown[i].nextElementSibling != null) {
@@ -100,6 +98,7 @@ function listDown() {
       list.insertBefore(item.nextSibling, item);
     }
   }
-
 }
+
 btnDown.addEventListener('click', listDown);
+
