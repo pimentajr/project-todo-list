@@ -1,6 +1,7 @@
 const addButton = document.getElementById('criar-tarefa');
 const delListButton = document.getElementById('apaga-tudo');
 const delCompletedTasks = document.getElementById('remover-finalizados');
+const saveListTask = document.getElementById('salvar-tarefas');
 const inputText = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 
@@ -28,6 +29,11 @@ delCompletedTasks.addEventListener('click', () => {
   for (let i = 0; i < itensList.length; i += 1) {
     itensList[i].parentNode.removeChild(itensList[i]);
   }
+});
+
+saveListTask.addEventListener('click', () => {
+  const taskList = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.itens = taskList;
 });
 
 function removeClass(arrayList) {
@@ -66,6 +72,12 @@ function scratchItem(event) {
   }
 }
 
+function loadTaskList() {
+  if (localStorage.itens) {
+    orderedList.innerHTML = localStorage.itens;
+  }
+}
+
 function actionList() {
   const itemList = document.querySelectorAll('ol');
   for (let i = 0; i < itemList.length; i += 1) {
@@ -76,3 +88,4 @@ function actionList() {
 }
 
 actionList();
+loadTaskList();
