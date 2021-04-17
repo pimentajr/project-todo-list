@@ -14,3 +14,13 @@ taskCreate.addEventListener('click', () => {
   taskList.appendChild(addTask(text));
   input.value = '';
 });
+
+function colorsTask(events) {
+  const selectedTask = taskList.querySelector('.selected');
+
+  if (selectedTask !== null && selectedTask !== events.target) {
+    selectedTask.classList.remove('selected');
+  }
+  events.target.classList.add('selected')
+}
+taskList.addEventListener('click', colorsTask);
