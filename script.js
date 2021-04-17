@@ -37,6 +37,7 @@ function doubleClickToComplete(event) {
     event.target.classList.add('completed');
   }
 }
+// funções SaveList e loadList -> Esta forma nao foi feita por mim e sim foi uma logica que o Rafale me explicou deixei somente para completar o projeto mas pretendo mais tarde voltar e fazer de uma forma que eu compreenda melhor
 function saveList() {
   const tasks = getOlList.children;
   const size = tasks.length;
@@ -51,7 +52,7 @@ function saveList() {
   }
   localStorage.setItem('list', saveInfo);
 }
-
+// funções SaveList e loadList -> Esta forma nao foi feita por mim e sim foi uma logica que o Rafale me explicou deixei somente para completar o projeto mas pretendo mais tarde voltar e fazer de uma forma que eu compreenda melhor
 function loadList() {
   const list = localStorage.getItem('list');
   if (list === null || list === '') {
@@ -69,6 +70,24 @@ function loadList() {
     }
     getOlList.appendChild(element);
   }
+}
+
+function moveUp() {
+  const listSelected = document.querySelector('.selected');
+  if (listSelected === null || listSelected.previousElementSibling === null) {
+    return;
+  }
+  const previous = listSelected.previousElementSibling;
+  getOlList.insertBefore(listSelected, previous);
+}
+
+function moveDown() {
+  const listSelected = document.querySelector('.selected');
+  if (listSelected === null || listSelected.nextElementSibling === null) {
+    return;
+  }
+  const next = listSelected.nextElementSibling;
+  getOlList.insertBefore(next, listSelected);
 }
 
 function addTask() {
@@ -108,11 +127,22 @@ function clickButtonSaveTask() {
   buttonSaveList.addEventListener('click', saveList);
 }
 
+function clickButtonsMoveUP() {
+  const buttonMoveUp = document.getElementById('mover-cima');
+  buttonMoveUp.addEventListener('click', moveUp);
+}
+function clickButtonsMoveDown() {
+  const buttonMoveDown = document.getElementById('mover-baixo');
+  buttonMoveDown.addEventListener('click', moveDown);
+}
+
 window.onload = function load() {
   clickButtonTask();
   clickButtonRemove();
   clickButtonRemoveCompleted();
   clickButtonRemoveSelected();
   clickButtonSaveTask();
+  clickButtonsMoveUP();
+  clickButtonsMoveDown();
   loadList();
 };
