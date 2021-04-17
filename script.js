@@ -56,7 +56,7 @@ listChange.addEventListener('dblclick', addClassCompleted);
 
 const btnClean = document.createElement('button');
 btnClean.id = 'apaga-tudo';
-btnClean.innerText = 'Apagar'
+btnClean.innerText = 'Apagar';
 body.appendChild(btnClean);
 
 function cleanItemList() {
@@ -64,3 +64,17 @@ function cleanItemList() {
 }
 
 btnClean.addEventListener('click', cleanItemList);
+
+const btnRemoveItem = document.createElement('button');
+btnRemoveItem.id = "remover-finalizados";
+btnRemoveItem.innerText = 'Remover Finalizados';
+body.appendChild(btnRemoveItem);
+
+function removeItemList() {
+  const itemCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < itemCompleted.length; index += 1) {
+    itemCompleted[index].remove();
+  }
+}
+
+btnRemoveItem.addEventListener('click', removeItemList);
