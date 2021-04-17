@@ -1,11 +1,17 @@
-* {
-  margin: center;
-}
-
 .selecao {
   background-color: gray;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+#conteudo {
+  margin: auto;
+  width: 80%;
+}
+
+#cabecalho {  
+  font-size: x-large;
+  font-style: italic;
 }
