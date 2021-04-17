@@ -109,6 +109,7 @@ function createEraseEverythingButton() {
     ordenedList.removeChild(ordenedList.lastElementChild);
   }
 }
+createEraseEverythingButton();
 
 function eraseEverything() {
   eraseEverythingButton.addEventListener('click', createEraseEverythingButton);
@@ -124,6 +125,7 @@ function createDeletesCompletedTasks() {
     ordenedList.removeChild(completedTask[index]);
   }
 }
+createDeletesCompletedTasks();
 
 function clearsFinish() {
   deletesCompletedTasks.addEventListener('click', createDeletesCompletedTasks);
@@ -134,6 +136,7 @@ function createSaveTasksButton() {
   saveTasksButton.textContent = 'Salvar Tarefas';
   miscellaneousButtons.appendChild(saveTasksButton);
 }
+createSaveTasksButton();
 
 function saveTaskList() {
   const tasks = ordenedList.children;
@@ -178,12 +181,14 @@ function createMoveUpButton() {
   moveUpButton.textContent = 'Sobe';
   miscellaneousButtons.appendChild(moveUpButton);
 }
+createMoveUpButton();
 
 function createMoveDownButton() {
   moveDownButton.id = 'mover-baixo';
   moveDownButton.textContent = 'Desce';
   miscellaneousButtons.appendChild(moveDownButton);
 }
+createMoveDownButton();
 
 function moveUp() {
   const selected = document.querySelector('.selected');
@@ -213,6 +218,22 @@ function addEventMoveDown() {
   button.addEventListener('click', moveDown);
 }
 
+function createRemoveSelecionedTaskButton() {
+  removeSelecionedTaskButton.id = 'remover-selecionado';
+  removeSelecionedTaskButton.textContent = 'Exclui Selecionado';
+  miscellaneousButtons.appendChild(removeSelecionedTaskButton);
+}
+createRemoveSelecionedTaskButton();
+
+function clearSelected() {
+  const selected = document.querySelector('.selected');
+  ordenedList.removeChild(selected);
+}
+
+function addEventClearSelected() {
+  removeSelecionedTaskButton.addEventListener('click', clearSelected);
+}
+
 window.onload = function loadPage() {
   insertTitle();
   insertParagraphToTitle();
@@ -224,14 +245,13 @@ window.onload = function loadPage() {
   createsTaskButton();
   taskButtonEvent();
   createSectionMiscellaneousButtons();
-  createEraseEverythingButton();
-  createDeletesCompletedTasks();
-  createSaveTasksButton();
-  eraseEverything();  
+  
+  
+  
+  eraseEverything();
   clearsFinish();
-  createMoveUpButton();
-  createMoveDownButton();
   addEventSaveList();
+  addEventClearSelected();
   loadList();
   addEventMoveUp();
   addEventMoveDown();
