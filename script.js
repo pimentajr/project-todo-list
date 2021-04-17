@@ -13,9 +13,7 @@ const rootElement = document.querySelector('body');
 const deleteButton = document.querySelector('#apaga-tudo');
 const finishedButton = document.querySelector('#remover-finalizados');
 const saveTasks = document.querySelector('#salvar-tarefas');
-// const form = document.querySelector('form');
-// const itemsArray = localStorage.getItem('items');
-const itemsArray = [];
+const completedTasks = document.querySelectorAll('.completed');
 
 function addTask() {
   const task = inputField.value;
@@ -65,37 +63,27 @@ function cleanListItems() {
 }
 
 function removeFinishedItems() {
-  const taskListItems = taskList.children;
-
-  for (let index = 0; index < taskListItems.length; index += 1) {
-    while (taskListItems[index].className === 'new-item completed') {
-      taskListItems[index].remove();
-    }
-  }
+  console.log(completedTasks);
 }
 
+// function saveAll() {
+//   let itemsArray = [];
+//   if (taskList.children.length > 0) {
+//     for (let index = 0; index < taskList.children.length; index += 1) {
+//       itemsArray.push(taskList.children[index].outerHTML);
+//     }
+//   }
+//   localStorage.setItem('items', JSON.stringify(itemsArray));
+//   console.log(localStorage);
+//   console.log(itemsArray);
+//   console.log(taskList.children[3]);
+// }
+
 function saveAll() {
-  if (taskList.children.length > 0) {
-    localStorage.setItem('items', taskList.innerHTML);
-  }
-
-  // pegar os valores 
-
-  console.log(taskList.children.length);
-  console.log(localStorage);
+  localStorage.setItem('items', taskList.innerHTML);
 }
 
 taskList.innerHTML = localStorage.getItem('items');
-// function loadAll() {
-
-//   //const loaded = JSON.parse(localStorage.getItem('items'));
-//   for (let index = 0; index < itemsArray.length; index += 1) {
-//     const loadedItem = itemsArray[index];
-//   }
-//   return loadedItem;
-// }
-
-// loadAll();
 
 rootElement.addEventListener('click', changeBackgroundColor);
 rootElement.addEventListener('dblclick', strikeListItem);
