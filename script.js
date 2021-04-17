@@ -37,7 +37,7 @@ btn.addEventListener('click', getText);
 
 const listChange = document.querySelector('#lista-tarefas');
 
-function changeColor(event) {
+function changeBackgroundColor(event) {
   const line = document.querySelectorAll('.item-list');
   const target = event.target;
   for (let index = 0; index < line.length; index += 1) {
@@ -45,11 +45,22 @@ function changeColor(event) {
   }
   target.classList.add('selected');
 }
-listChange.addEventListener('click', changeColor);
+listChange.addEventListener('click', changeBackgroundColor);
 
-function addClass(event) {
+function addClassCompleted(event) {
   const target = event.target;
   target.classList.toggle('completed');
 }
 
-listChange.addEventListener('dblclick', addClass);
+listChange.addEventListener('dblclick', addClassCompleted);
+
+const btnClean = document.createElement('button');
+btnClean.className = 'apaga-tudo';
+btnClean.innerText = 'Apagar'
+body.appendChild(btnClean);
+
+function cleanItemList() {
+  listChange.innerHTML = '';
+}
+
+btnClean.addEventListener('click', cleanItemList)
