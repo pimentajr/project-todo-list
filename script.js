@@ -25,7 +25,19 @@ function colorsTask(events) {
 }
 taskList.addEventListener('click', colorsTask);
 
-function scratch(eve) {
-  eve.target.classList.toggle('completed');
+function scratch() {
+  const taskList = document.getElementById('lista-tarefas');
+
+  taskList.addEventListener('dblclik', (eve) => {
+    if (eve.target.className === 'tarefa completed' || eve.target.className === 'tarefa selecionada completed') {
+      eve.target.classList.remove('completed');
+    } else {
+      eve.target.classList.add('completed');
+    }
+  });
 }
-taskList.addEventListener('dblclik', scratch);
+scratch();
+
+function deleteTask() {
+  taskList
+}
