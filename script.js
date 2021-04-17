@@ -1,5 +1,6 @@
 const addButton = document.getElementById('criar-tarefa');
 const delListButton = document.getElementById('apaga-tudo');
+const delCompletedTasks = document.getElementById('remover-finalizados');
 const inputText = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 
@@ -17,6 +18,13 @@ addButton.addEventListener('click', () => {
 
 delListButton.addEventListener('click', () => {
   const itensList = document.querySelectorAll('#itemList');
+  for (let i = 0; i < itensList.length; i += 1) {
+    itensList[i].parentNode.removeChild(itensList[i]);
+  }
+});
+
+delCompletedTasks.addEventListener('click', () => {
+  const itensList = document.querySelectorAll('.completed');
   for (let i = 0; i < itensList.length; i += 1) {
     itensList[i].parentNode.removeChild(itensList[i]);
   }
