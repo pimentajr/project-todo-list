@@ -44,4 +44,4 @@ function deleteCompletedTasks() {
   }
 }
 const removeTasks = document.getElementById('remover-finalizados');
-removeTasks.addEventListener('click', deleteCompletedTasks)
+removeTasks.addEventListener('click', deleteCompletedTasks);
