@@ -59,6 +59,8 @@ finalizados();
 
 // 12
 const botaoSalvar = document.getElementById('salvar-tarefas');
+// O método setItem () define o valor do item do objeto de armazenamento especificado.
+// O método getItem () retorna o valor do item do objeto de armazenamento especificado.
 
 function salvarLista() {
   botaoSalvar.addEventListener('click', () => {
@@ -70,3 +72,26 @@ function salvarLista() {
   }
 }
 salvarLista();
+
+// 13
+const botaoCima = document.getElementById('mover-cima');
+// A propriedade previousElementSibling retorna o elemento anterior do elemento especificado, no mesmo nível de árvore.
+// O insertAdjacentElement()método insere o elemento especificado em uma posição especificada.
+
+botaoCima.addEventListener('click', () => {
+  const itemSelecionado = document.querySelector('.selecao');
+  if (itemSelecionado && itemSelecionado.previousElementSibling) {
+    itemSelecionado.insertAdjacentElement('afterend', itemSelecionado.previousElementSibling);
+  }
+});
+
+const botaoBaixo = document.getElementById('mover-baixo');
+// A propriedade nextElementSibling retorna o elemento imediatamente após o elemento especificado, no mesmo nível de árvore.
+// O método insertBefore () insere um nó como filho, logo antes de um filho existente, que você especifica.
+
+botaoBaixo.addEventListener('click', () => {
+  const itemSelecionado = document.querySelector('.selecao');
+  if (itemSelecionado && itemSelecionado.nextElementSibling) {
+    lista.insertBefore(itemSelecionado.nextElementSibling, itemSelecionado);
+  }
+});
