@@ -37,6 +37,39 @@ function doubleClickToComplete(event) {
     event.target.classList.add('completed');
   }
 }
+function saveList() {
+  const tasks = getOlList.children;
+  const size = tasks.length;
+  const saveInfo = [];
+  for (let index = 0; index < size; index += 1) {
+    saveInfo.push(tasks[index].innerText);
+    if (tasks[index].classList.contains('completed')) {
+      saveInfo.push('true');
+    } else {
+      saveInfo.push('false');
+    }
+  }
+  localStorage.setItem('list', saveInfo);
+}
+
+function loadList() {
+  const list = localStorage.getItem('list');
+  if (list === null || list === '') {
+    return;
+  }
+  const array = list.split(',');
+  for (let index = 0; index < array.length; index += 2) {
+    const element = document.createElement('li');
+    element.innerText = array[index];
+    element.classList.add('tarefa');
+    element.addEventListener('click', selectTask);
+    element.addEventListener('dblclick', doubleClickToComplete);
+    if (array[index + 1] === 'true') {
+      element.classList.add('completed');
+    }
+    getOlList.appendChild(element);
+  }
+}
 
 function addTask() {
   const userInput = document.getElementById('texto-tarefa').value;
@@ -70,9 +103,16 @@ function clickButtonRemoveSelected() {
   buttonRemoveSelected.addEventListener('click', removeSelectedTask);
 }
 
+function clickButtonSaveTask() {
+  const buttonSaveList = document.getElementById('salvar-tarefas');
+  buttonSaveList.addEventListener('click', saveList);
+}
+
 window.onload = function load() {
   clickButtonTask();
   clickButtonRemove();
   clickButtonRemoveCompleted();
   clickButtonRemoveSelected();
+  clickButtonSaveTask();
+  loadList();
 };
