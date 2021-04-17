@@ -26,9 +26,19 @@ function selecionar() {
 	});
 }
 
+function dblClick () {
+	const ol = document.getElementById('lista-tarefas');
+	ol.addEventListener('dblclick', function(event) {
+		let clicado = event.target;
+		clicado.style.textDecoration = 'line-through';
+		// clicado.style.backgroundColor = 'white';
+	});
+}
+
 function start() {
   criar();
 	selecionar();
+	dblClick();
 }
 
 window.onload = start;

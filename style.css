@@ -5,3 +5,7 @@ body {
 li {
   background-color: yellow;
 }
+
+p {
+  text-decoration: line-through;
+}
