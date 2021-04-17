@@ -6,6 +6,11 @@
   text-decoration: line-through solid black;
 }
 
+.content {
+  width: 75%;
+  margin: 0 auto;
+}
+
 /* npm run lint
 npm run lint:styles
 npm run cypress:open */

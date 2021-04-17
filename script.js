@@ -5,6 +5,7 @@ btnCriar.addEventListener('click', () => {
   const newLi = document.createElement('li');
   lista.appendChild(newLi);
   newLi.classList.add('tarefa');
+  newLi.classList.add('list-group-item');
   newLi.innerText = valor.value;
   valor.value = '';
 });
