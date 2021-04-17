@@ -20,7 +20,7 @@ function selecionar() {
 		let clicado = event.target;
 
 		for (let index=0; index <itemS.length ; index += 1) {
-			itemS[index].style.backgroundColor = 'yellow';
+			itemS[index].style.backgroundColor = '';
 			clicado.style.backgroundColor = 'rgb(128, 128, 128';
 		}
 	});
@@ -30,8 +30,7 @@ function dblClick () {
 	const ol = document.getElementById('lista-tarefas');
 	ol.addEventListener('dblclick', function(event) {
 		let clicado = event.target;
-		clicado.style.textDecoration = 'line-through';
-		// clicado.style.backgroundColor = 'white';
+		clicado.classList.toggle('completed'); 
 	});
 }
 
