@@ -8,6 +8,7 @@ let li = tags('li');
 const limparTudo = document.getElementById('apaga-tudo');
 const removerSelec = document.getElementById('remover-selecionado');
 const cima = document.getElementById('mover-cima');
+const baixo = document.getElementById('mover-baixo');
 const finalizados = document.getElementById('remover-finalizados');
 const salva = document.getElementById('salvar-tarefas');
 
@@ -77,23 +78,37 @@ function limparLista() {
 }
 finalizados.addEventListener('click', limparLista);
 
-function paraCima() {
-  const liItem = document.querySelectorAll('.itens');
-  if (liItem) {
-    const posicaoAcima = liItem.previousElementSibling;
-    if (posicaoAcima) {
-      li.insertBefore(liItem, posicaoAcima);
-    }
-  }
-}
-cima.addEventListener('click', paraCima);
-
 function salvar() {
   localStorage.setItem('Lista de Tarefas', ol.innerHTML);
 }
 const ItensDaLista = localStorage.getItem('Lista de Tarefas');
 ol.innerHTML = ItensDaLista;
 salva.addEventListener('click', salvar);
+
+function parabaixo() {
+  li = document.getElementsByTagName('li');
+  const tamanho = li.length;
+  for (let index = tamanho - 1; index >= 0; index -= 1) {
+    if (index !== tamanho - 1 && li[index].classList.contains('itens')) {
+      const valorTexto = li[index].outerHTML;
+      li[index].outerHTML = li[index + 1].outerHTML;
+      li[index + 1].outerHTML = valorTexto;
+    }
+  }
+}
+baixo.addEventListener('click', parabaixo);
+
+function paracima() {
+  li = document.getElementsByTagName('li');
+  for (let index = 0; index < li.length; index += 1) {
+    if (index !== 0 && li[index].classList.contains('itens')) {
+      const valorTexto = li[index].outerHTML;
+      li[index].outerHTML = li[index - 1].outerHTML;
+      li[index - 1].outerHTML = valorTexto;
+    }
+  }
+}
+cima.addEventListener('click', paracima);
 
 window.onload = function carregar() {
   while (li > 0) {
