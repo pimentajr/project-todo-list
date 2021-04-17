@@ -35,6 +35,7 @@ lista.addEventListener('dblclick', (event) => { // duplo click
 
 // 10
 const limpar = document.getElementById('apaga-tudo');
+
 function limparLista() {
   limpar.addEventListener('click', () => {
     lista.innerHTML = '';
@@ -45,6 +46,7 @@ limparLista();
 // 11
 const limparFinalizados = document.getElementById('remover-finalizados');
 const tarefaFinalizados = document.getElementsByClassName('completed');
+
 function finalizados() {
   limparFinalizados.addEventListener('click', () => {
     for (let index = tarefaFinalizados.length; index > 0; index -= 1) {
@@ -54,3 +56,17 @@ function finalizados() {
   });
 }
 finalizados();
+
+// 12
+const botaoSalvar = document.getElementById('salvar-tarefas');
+
+function salvarLista() {
+  botaoSalvar.addEventListener('click', () => {
+    localStorage.setItem('salvarLista', lista.innerHTML);
+  });
+  const salvar = localStorage.getItem('salvarLista');
+  if (salvar) {
+    lista.innerHTML = salvar;
+  }
+}
+salvarLista();
