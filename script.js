@@ -1,6 +1,7 @@
 const btn = document.getElementById('criar-tarefa');
 const texto = document.querySelector('#texto-tarefa');
 const listaOrdenada = document.getElementById('lista-tarefas');
+const btnrm = document.getElementById('apaga-tudo');
 
 function botao(e) {
   const addLi = document.createElement('li');
@@ -33,3 +34,12 @@ function concluido(a) {
 }
 
 listaOrdenada.addEventListener('dblclick', concluido);
+
+function removeAll() {
+  const ol = document.querySelector('ol');
+  while (ol.firstChild) {
+    ol.removeChild(document.querySelector('li'));
+  }
+}
+
+btnrm.addEventListener('click', removeAll);
