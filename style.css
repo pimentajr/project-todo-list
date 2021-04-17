@@ -2,8 +2,8 @@
   margin: 0;
 }
 
-.row {
-  text-decoration: line-through;
+.completed {
+  text-decoration: line-through  black solid;
 }
 
 #lista-tarefas > li {

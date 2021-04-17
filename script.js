@@ -1,6 +1,7 @@
 const criarTarefa = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const listTarefas = document.getElementById('lista-tarefas');
+// const clearAll = document.getElementById('apaga-tudo')
 const listaTarefaArr = listTarefas.children;
 
 function getText() {
@@ -15,10 +16,11 @@ function getText() {
 }
 
 function rowText(div) {
-  if (div.path[0].classList.value === 'row') {
-    div.path[0].classList.remove('row');
+  if (div.path[0].classList.value === 'completed') {
+    div.path[0].classList.remove('completed');
   } else {
-    div.path[0].classList.add('row');
+    console.log(div.path[0].style);
+    div.path[0].classList.add('completed');
   }
 }
 
