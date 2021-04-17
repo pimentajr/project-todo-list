@@ -2,6 +2,8 @@ const addButton = document.getElementById('criar-tarefa');
 const delListButton = document.getElementById('apaga-tudo');
 const delCompletedTasks = document.getElementById('remover-finalizados');
 const saveListTask = document.getElementById('salvar-tarefas');
+const upButton = document.getElementById('mover-cima');
+const downButton = document.getElementById('mover-baixo');
 const inputText = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 
@@ -34,6 +36,28 @@ delCompletedTasks.addEventListener('click', () => {
 saveListTask.addEventListener('click', () => {
   const taskList = document.getElementById('lista-tarefas').innerHTML;
   localStorage.itens = taskList;
+});
+
+upButton.addEventListener('click', () => {
+  const itemList = document.getElementsByTagName('li');
+  for (let i = 0; i < itemList.length; i += 1) {
+    if (itemList[i].classList.value.includes('selected') && i !== 0) {
+      const saveItemList = itemList[i].outerHTML;
+      itemList[i].outerHTML = itemList[i - 1].outerHTML;
+      itemList[i - 1].outerHTML = saveItemList;
+    }
+  }
+});
+
+downButton.addEventListener('click', () => {
+  const itemList = document.getElementsByTagName('li');
+  for (let i = itemList.length - 1; i >= 0; i -= 1) {
+    if (itemList[i].classList.value.includes('selected') && i !== (itemList.length - 1)) {
+      const saveItemList = itemList[i].outerHTML;
+      itemList[i].outerHTML = itemList[i + 1].outerHTML;
+      itemList[i + 1].outerHTML = saveItemList;
+    }
+  }
 });
 
 function removeClass(arrayList) {
