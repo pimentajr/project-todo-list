@@ -26,6 +26,22 @@ function colorsTask(events) {
 taskList.addEventListener('click', colorsTask);
 
 function scratch(event) {
-  event.target.classList.toggle('completed')
+  event.target.classList.toggle('completed');
 }
 taskList.addEventListener('dblclick', scratch);
+
+function deleteTask() {
+  taskList.innerHTML = '';
+}
+const taskDelete = document.getElementById('apaga-tudo');
+taskDelete.addEventListener('click', deleteTask);
+
+function deleteCompletedTasks() {
+  const completedTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedTasks.length; index += 1) {
+    const tasksCompleted = completedTasks[index];
+    tasksCompleted.remove();
+  }
+}
+const removeTasks = document.getElementById('remover-finalizados');
+removeTasks.addEventListener('click', deleteCompletedTasks)
