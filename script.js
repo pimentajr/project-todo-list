@@ -1,6 +1,7 @@
 const addButton = document.getElementById('criar-tarefa');
 const delListButton = document.getElementById('apaga-tudo');
 const delCompletedTasks = document.getElementById('remover-finalizados');
+const delSelectButton = document.getElementById('remover-selecionado');
 const saveListTask = document.getElementById('salvar-tarefas');
 const upButton = document.getElementById('mover-cima');
 const downButton = document.getElementById('mover-baixo');
@@ -58,6 +59,15 @@ downButton.addEventListener('click', () => {
       itemList[i + 1].outerHTML = saveItemList;
     }
   }
+});
+
+delSelectButton.addEventListener('click', () => {
+  const itemSelected = document.querySelectorAll('li');
+  itemSelected.forEach((e) => {
+    if (e.style.backgroundColor === 'rgb(128, 128, 128)') {
+      e.remove();
+    }
+  });
 });
 
 function removeClass(arrayList) {
