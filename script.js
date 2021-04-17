@@ -21,4 +21,4 @@ task.addEventListener('keydown', (en) => {
   if (en.key === 'Enter') {
     addTask(task.value);
   }
-}); 
+});
