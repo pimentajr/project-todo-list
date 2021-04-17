@@ -47,13 +47,9 @@ function changeColor(event) {
 }
 listChange.addEventListener('click', changeColor);
 
-function doubleClick(event) {
-  const line = document.querySelectorAll('.item-list');
+function addClass(event) {
   const target = event.target;
-  for (let index = 0; index < line.length; index += 1) {
-    line[index].classList.remove('completed');
-  }
-  target.classList.add('completed');
+  target.classList.toggle('completed');
 }
 
-listChange.addEventListener('dblclick', doubleClick)
+listChange.addEventListener('dblclick', addClass);
