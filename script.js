@@ -69,8 +69,11 @@ function rmvSelected() {
 btnDelete.addEventListener('click', rmvSelected);
 
 function save() {
-  const str = JSON.stringify(list.innerHTML);
-  localStorage.setItem('list', str);
+  localStorage.setItem('list', list.innerHTML);
 }
 
+const saved = localStorage.getItem('list');
+list.innerHTML = saved;
+
 btnSave.addEventListener('click', save);
+
