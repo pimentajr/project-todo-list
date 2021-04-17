@@ -41,3 +41,16 @@ function limparLista() {
   });
 }
 limparLista();
+
+// 11
+const limparFinalizados = document.getElementById('remover-finalizados');
+const tarefaFinalizados = document.getElementsByClassName('completed');
+function finalizados() {
+  limparFinalizados.addEventListener('click', () => {
+    for (let index = 0; tarefaFinalizados.length; index -= 1) {
+      const removeFinalizados = tarefaFinalizados[index]; // nova variavel para receber itens da lista que quero remover
+      lista.removeChild(removeFinalizados);
+    }
+  });
+}
+finalizados();
