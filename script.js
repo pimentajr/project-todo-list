@@ -7,9 +7,9 @@
 
   addTarefas.addEventListener('click', function(){
 		
-		newElement.innerText = textNewTarefa.nodeValue;
+		newElement.innerText = textNewTarefa.value;
 		listTarefas.appendChild(newElement);
-		textNewTarefa.nodeValue = '';
+		textNewTarefa.value = '';
 
   });
 
