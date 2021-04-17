@@ -101,4 +101,3 @@ function listDown() {
 }
 
 btnDown.addEventListener('click', listDown);
-
