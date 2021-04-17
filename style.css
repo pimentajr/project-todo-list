@@ -9,8 +9,8 @@ body {
 }
 
 li {
-  height: auto;
-  width: auto;
+  text-align: start;
+  list-style-position: inside;
 }
 
 .pickedItem {
@@ -19,4 +19,8 @@ li {
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#mover-baixo {
+  margin-right: 20px;
 }

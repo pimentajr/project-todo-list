@@ -1,6 +1,7 @@
 let taskList = document.getElementById('lista-tarefas');
-
-taskList.innerHTML = sessionStorage.getItem('list');
+let btnMoveUp = document.getElementById('mover-cima');
+let btnMoveDown = document.getElementById('mover-baixo');
+let btnRemoveItem = document.getElementById('remover-selecionado');
 
 // 5 - 
 document.getElementById('criar-tarefa').addEventListener('click', criaTarefa)
@@ -53,5 +54,30 @@ function removeCompletedTasks(event) {
 // 12 - Também com insights dos colegas.
 document.getElementById('salvar-tarefas').addEventListener('click', salvaLista);
 function salvaLista() {	
-		sessionStorage.setItem('list', taskList.innerHTML);		
+	localStorage.setItem('list', taskList.innerHTML);		
 }
+taskList.innerHTML = localStorage.getItem('list');
+
+// 13 - Little help:
+https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
+btnMoveUp.addEventListener('click', moveUp)
+function moveUp() {		
+	let pickedItem = document.querySelector('.pickedItem')	
+	if (pickedItem && pickedItem.previousElementSibling) {
+		pickedItem.insertAdjacentElement('afterend', pickedItem.previousSibling);
+	}		
+}
+// https://www.w3schools.com/jsref/met_node_insertbefore.asp
+btnMoveDown.addEventListener('click', moveDown)
+function moveDown() {
+	let pickedItem = document.querySelector('.pickedItem')
+	if (pickedItem && pickedItem.nextElementSibling) {
+		taskList.insertBefore(pickedItem.nextElementSibling, pickedItem);
+	}	
+}
+
+// 14 -
+btnRemoveItem.addEventListener('click', function() {	
+	let pickedItem = document.querySelector('.pickedItem')
+	taskList.removeChild(pickedItem);	
+}) 
