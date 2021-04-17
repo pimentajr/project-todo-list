@@ -10,6 +10,7 @@ const ordenedList = document.createElement('ol');
 const miscellaneousButtons = document.createElement('section');
 const eraseEverythingButton = document.createElement('button');
 const deletesCompletedTasks = document.createElement('button');
+const saveTasksButton = document.createElement('button');
 
 function insertTitle() {
   title.id = 'title';
@@ -125,6 +126,50 @@ function clearsFinish() {
   deletesCompletedTasks.addEventListener('click', createDeletesCompletedTasks);
 }
 
+function createSaveTasksButton() {
+  saveTasksButton.id = 'salvar-tarefas';
+  saveTasksButton.textContent = 'Salvar Tarefas';
+  miscellaneousButtons.appendChild(saveTasksButton);
+}
+
+function saveTaskList() {
+  const tasks = ordenedList.children;
+  const size = tasks.length;
+  const saveInfo = [];
+  for (let index = 0; index < size; index += 1) {
+    saveInfo.push(tasks[index].innerText);
+    if (tasks[index].classList.contains('completed')) {
+      saveInfo.push('true');
+    } else {
+      saveInfo.push('false');
+    }
+  }
+  localStorage.setItem('list', saveInfo);
+}
+
+ function loadList() {
+  const list = localStorage.getItem('list');
+  if (list === null || list === ''){
+    return;
+  }
+  const array = list.split(',');
+  for (let index = 0; index < array.length; index += 2) {
+    const element = document.createElement('li');
+    element.innerText = array[index];
+    element.classList.add('tarefa');
+    element.addEventListener('click', selectTask);
+    element.addEventListener('dblclick', taskThrough);
+    if (array[index + 1] === 'true') {
+      element.classList.add('completed');
+    }
+    ordenedList.appendChild(element);
+  }
+}
+
+function addEventSaveList() {
+  saveTasksButton.addEventListener('click', saveTaskList);
+}
+
 window.onload = function loadPage() {
   insertTitle();
   insertParagraphToTitle();
@@ -140,4 +185,7 @@ window.onload = function loadPage() {
   eraseEverything();
   createDeletesCompletedTasks();
   clearsFinish();
+  createSaveTasksButton();
+  addEventSaveList();
+  loadList();
 };
