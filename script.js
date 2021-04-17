@@ -21,8 +21,7 @@ function insertTitle() {
 
 function insertParagraphToTitle() {
   titleParagraph.id = 'funcionamento';
-  titleParagraph.textContent =
-    'Clique duas vezes em um item para marcá-lo como completo';
+  titleParagraph.textContent = 'Clique duas vezes em um item para marcá-lo como completo';
   title.appendChild(titleParagraph);
 }
 
