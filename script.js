@@ -225,7 +225,7 @@ window.onload = function loadPage() {
   createOrdenedList();
   createsTaskButton();
   taskButtonEvent();
-  createSectionMiscellaneousButtons();  
+  createSectionMiscellaneousButtons();
   eraseEverything();
   clearsFinish();
   addEventSaveList();
