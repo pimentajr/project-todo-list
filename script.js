@@ -147,9 +147,9 @@ function saveTaskList() {
   localStorage.setItem('list', saveInfo);
 }
 
- function loadList() {
+function loadList() {
   const list = localStorage.getItem('list');
-  if (list === null || list === ''){
+  if (list === null || list === '') {
     return;
   }
   const array = list.split(',');
