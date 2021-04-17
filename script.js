@@ -1,6 +1,6 @@
 const task = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
-const taskCreate = document.querySelector('#criar-tarefa')
+const taskCreate = document.querySelector('#criar-tarefa');
 
 
 function addTask(string) {
