@@ -11,6 +11,9 @@ const miscellaneousButtons = document.createElement('section');
 const eraseEverythingButton = document.createElement('button');
 const deletesCompletedTasks = document.createElement('button');
 const saveTasksButton = document.createElement('button');
+const moveUpButton = document.createElement('button');
+const moveDownButton = document.createElement('button');
+const removeSelecionedTaskButton = document.createElement('button');
 
 function insertTitle() {
   title.id = 'title';
@@ -170,6 +173,46 @@ function addEventSaveList() {
   saveTasksButton.addEventListener('click', saveTaskList);
 }
 
+function createMoveUpButton() {
+  moveUpButton.id = 'mover-cima';
+  moveUpButton.textContent = 'Sobe';
+  miscellaneousButtons.appendChild(moveUpButton);
+}
+
+function createMoveDownButton() {
+  moveDownButton.id = 'mover-baixo';
+  moveDownButton.textContent = 'Desce';
+  miscellaneousButtons.appendChild(moveDownButton);
+}
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (selected === null || selected.previousElementSibling === null) {
+    return;
+  }
+  const previous = selected.previousElementSibling;
+  ordenedList.insertBefore(selected, previous);
+}
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  if (selected === null || selected.nextElementSibling === null) {
+    return;
+  }
+  const next = selected.nextElementSibling;
+  ordenedList.insertBefore(next, selected);
+}
+
+function addEventMoveUp() {
+  const button = document.getElementById('mover-cima');
+  button.addEventListener('click', moveUp);
+}
+
+function addEventMoveDown() {
+  const button = document.getElementById('mover-baixo');
+  button.addEventListener('click', moveDown);
+}
+
 window.onload = function loadPage() {
   insertTitle();
   insertParagraphToTitle();
@@ -182,10 +225,14 @@ window.onload = function loadPage() {
   taskButtonEvent();
   createSectionMiscellaneousButtons();
   createEraseEverythingButton();
-  eraseEverything();
   createDeletesCompletedTasks();
-  clearsFinish();
   createSaveTasksButton();
+  eraseEverything();  
+  clearsFinish();
+  createMoveUpButton();
+  createMoveDownButton();
   addEventSaveList();
   loadList();
+  addEventMoveUp();
+  addEventMoveDown();
 };
