@@ -13,7 +13,6 @@ const rootElement = document.querySelector('body');
 const deleteButton = document.querySelector('#apaga-tudo');
 const finishedButton = document.querySelector('#remover-finalizados');
 const saveTasks = document.querySelector('#salvar-tarefas');
-const completedTasks = document.querySelectorAll('.completed');
 
 function addTask() {
   const task = inputField.value;
@@ -63,7 +62,13 @@ function cleanListItems() {
 }
 
 function removeFinishedItems() {
-  console.log(completedTasks);
+  for (let index = 0; index < taskList.children.length; index += 1) {
+    if (taskList.children[index].className === 'new-item completed') {
+      taskList.children[index].remove();
+    }
+  }
+  console.log(taskList.children[1].className);
+  console.log(localStorage);
 }
 
 // function saveAll() {
