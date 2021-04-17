@@ -21,6 +21,11 @@ function colorsTask(events) {
   if (selectedTask !== null && selectedTask !== events.target) {
     selectedTask.classList.remove('selected');
   }
-  events.target.classList.add('selected')
+  events.target.classList.add('selected');
 }
 taskList.addEventListener('click', colorsTask);
+
+function scratch(eve) {
+  eve.target.classList.toggle('completed');
+}
+taskList.addEventListener('dblclik', scratch);
