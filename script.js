@@ -34,4 +34,10 @@ lista.addEventListener('dblclick', (event) => { // duplo click
 });
 
 // 10
-const limparLista = document.getElementById('apaga-tudo');
+const limpar = document.getElementById('apaga-tudo');
+function limparLista() {
+  limpar.addEventListener('click', () => {
+    lista.innerHTML = '';
+  });
+}
+limparLista();
