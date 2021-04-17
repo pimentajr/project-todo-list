@@ -1,5 +1,19 @@
-h1 {
+body {
+  background-color: rgb(32, 30, 30);
+  margin: 50px auto;
   text-align: center;
+  font-family: Courgette, sans-serif;
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-size: 25px;
+}
+section {
+  background-color: rgb(133, 130, 130);
+  border-radius: 10px;
+  padding: 15px;
+  width: 75%;
+  margin: auto;
+  box-shadow: 5px 5px 10px rgb(117, 114, 114);
 }
 
 .selected {
