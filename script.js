@@ -80,8 +80,9 @@ getList();
 function moveElementUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
   buttonMoveUp.addEventListener('click', function moveUp() {
-    const newPositionUp = itemSelected.previousSibling;
-    toDoList.insertBefore(itemSelected, newPositionUp);
+    const selected = document.querySelectorAll('.backgroundItem')[0];
+    const newPositionUp = selected.previousElementSibling;
+    toDoList.insertBefore(selected, newPositionUp);
   });
 }
 moveElementUp();
@@ -89,8 +90,9 @@ moveElementUp();
 function moveElementDown() {
   const buttonMoveDown = document.getElementById('mover-baixo');
   buttonMoveDown.addEventListener('click', function moveDown() {
-    const newPositionDown = itemSelected.nextSibling;
-    toDoList.insertBefore(itemSelected, newPositionDown.nextSibling);
+    const selected = document.querySelectorAll('.backgroundItem')[0];
+    const newPositionDown = selected.nextElementSibling;
+    toDoList.insertBefore(selected, newPositionDown.nextElementSibling);
   });
 }
 moveElementDown();
