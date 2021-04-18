@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
   document.querySelector('#lista-tarefas').innerHTML = localStorage.savedList;
 }
 document.getElementById('criar-tarefa').addEventListener('click', function() {
@@ -54,14 +54,14 @@ const parentNode = document.querySelector('#lista-tarefas');
 document.querySelector('#mover-cima').addEventListener('click', function() {
     let nodeSelecioned = document.querySelector('.selected');
     let liNodes = document.querySelectorAll('li');
-    if (nodeSelecioned !== liNodes[0]) {
+    if (nodeSelecioned !== liNodes[0] && nodeSelecioned) {
         parentNode.insertBefore(nodeSelecioned, nodeSelecioned.previousSibling)
     }
 })
 
 document.querySelector('#mover-baixo').addEventListener('click', function() {
     let nodeSelecioned = document.querySelector('.selected');
-    if (nodeSelecioned !== parentNode.lastChild) {
+    if (nodeSelecioned !== parentNode.lastChild && nodeSelecioned) {
     nodeSelecioned.nextElementSibling.insertAdjacentElement('afterend', nodeSelecioned)
     }
 })
