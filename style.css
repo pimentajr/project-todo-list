@@ -10,10 +10,11 @@ body {
 
 main {
   background-color: white;
-  width: 90%;
-  margin-top: 15%;
-  margin-left: 3%;
-  padding: 20px 20px 40px;
+  width: 80%;
+  margin-top: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 60px 80px;
   border-radius: 25px;
 }
 
@@ -66,7 +67,7 @@ input:focus {
 button {
   border: none;
   background-color: rgba(59 , 178 , 247 , 0.9);
-  padding: 5px 20px;
+  padding: 5px 10px;
   border-radius: 10px;
   color: rgba(255 , 255 , 255 , 0.8);
   font-size: 0.9em;
@@ -119,7 +120,7 @@ button:hover {
 
 #task:hover {
   background-color: rgb(221 , 220 , 220);
-  color: rgb(225 , 240 , 24);
+  color: rgb(240 , 24 , 193);
 }
 
 .tarefa {
@@ -131,7 +132,7 @@ button:hover {
 
 .tarefa:hover {
   background-color: rgb(221 , 220 , 220);
-  color: rgb(225 , 240 , 24);
+  color: rgb(240 , 24 , 193);
 }
 
 #miscellaneousButtons {
