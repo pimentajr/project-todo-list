@@ -35,6 +35,16 @@ function textLine() {
   clearAll();
 
   
-
-
+  function deleteFinished() {
+    const btnDeleteFinished = document.getElementById('remover-finalizados');
+    btnDeleteFinished.addEventListener('click', () => {
+      const finished = document.querySelectorAll('.completed');
+  
+      for (let index = 0; index < finished.length; index += 1) {
+        list.removeChild(finished[index]);
+      }
+    });
+  }
+  
+  deleteFinished();
 
