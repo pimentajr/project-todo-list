@@ -31,27 +31,27 @@ header p {
   font-size: 1.2em;
   font-style: italic;
   font-weight: 100;
-  color: rgb(202, 197, 197);
+  color: rgb(202 , 197 , 197);
 }
 
 input {
   border-radius: 5px;
-  border: 1px solid rgb(206, 216, 219);
+  border: 1px solid rgb(206 , 216 , 219);
   padding: 3px;
   padding-left: 10px;
   margin-right: 13px;
   margin-bottom: 25px;
-  color: rgb(24, 90, 128);
+  color: rgb(24 , 90 , 128);
 }
 
 input:focus {
   outline: none;
-  border: 1px solid rgb(46, 147, 187);
-  box-shadow: 0 0 10px rgb(113, 158, 206);
+  border: 1px solid rgb(46 , 147 , 187);
+  box-shadow: 0 0 10px rgb(113 , 158 , 206);
 }
 
 ::placeholder {
-  color: rgb(228, 228, 228);
+  color: rgb(228 , 228 , 228);
 }
 
 .selected {
@@ -65,10 +65,10 @@ input:focus {
 
 button {
   border: none;
-  background-color: rgba(59, 178, 247, 0.9);
+  background-color: rgba(59 , 178 , 247 , 0.9);
   padding: 5px 20px;
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255 , 255 , 255 , 0.8);
   font-size: 0.9em;
   margin-right: 10px;
   min-width: 40px;
@@ -78,40 +78,40 @@ button {
 button:focus {
   outline: 0 auto -webkit-focus-ring-color;
   outline-offset: 0;
-  box-shadow: 1px 1px 1px 1px rgb(136, 136, 136);
+  box-shadow: 1px 1px 1px 1px rgb(136 , 136 , 136);
 }
 
 button:hover {
-  background-color: rgb(59, 178, 247);
+  background-color: rgb(59 , 178 , 247);
   color: white;
 }
 
 #remover-selecionado,
 #apaga-tudo {
-  background-color: rgba(185, 34, 34, 0.9);
+  background-color: rgba(185 , 34 , 34 , 0.9);
 }
 
 #remover-selecionado:hover,
 #apaga-tudo:hover {
-  background-color: rgb(185, 34, 34);
+  background-color: rgb(185 , 34 , 34);
 }
 
 #mover-cima,
 #mover-baixo {
-  background-color: rgba(255, 102, 0, 0.9);
+  background-color: rgba(255 , 102 , 0 , 0.9);
 }
 
 #mover-cima:hover,
 #mover-baixo:hover {
-  background-color: rgb(255, 102, 0);
+  background-color: rgb(255 , 102 , 0);
 }
 
 #salvar-tarefas {
-  background-color: rgba(3, 122, 3, 0.9);
+  background-color: rgba(3 , 122 , 3 , 0.9);
 }
 
 #salvar-tarefas:hover {
-  background-color: rgb(3, 122, 3);
+  background-color: rgb(3 , 122 , 3);
 }
 
 #task {
@@ -122,8 +122,8 @@ button:hover {
 }
 
 #task:hover {
-  background-color: rgb(221, 220, 220);
-  color: rgb(225, 240, 24);
+  background-color: rgb(221 , 220 , 220);
+  color: rgb(225 , 240 , 24);
 }
 
 .tarefa {
@@ -134,8 +134,8 @@ button:hover {
 }
 
 .tarefa:hover {
-  background-color: rgb(221, 220, 220);
-  color: rgb(225, 240, 24);
+  background-color: rgb(221 , 220 , 220);
+  color: rgb(225 , 240 , 24);
 }
 
 #miscellaneousButtons {
