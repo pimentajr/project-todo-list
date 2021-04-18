@@ -1,13 +1,13 @@
-let list = document.getElementById('lista-tarefas');
-let createTask = document.querySelector('#criar-tarefa');
-let clearTasks = document.querySelector('#apaga-tudo');
-let clearCompleted = document.querySelector('#remover-finalizados');
-let saveTasks = document.querySelector('#salvar-tarefas');
-let removeSelected = document.querySelector('#remover-selecionado');
-let input = document.querySelector('#texto-tarefa');
-let lis =document.querySelector('.lis');
-let upMove = document.getElementById('mover-cima');
-let moveDown = document.getElementById('mover-baixo')
+const list = document.getElementById('lista-tarefas');
+const createTask = document.querySelector('#criar-tarefa');
+const clearTasks = document.querySelector('#apaga-tudo');
+const clearCompleted = document.querySelector('#remover-finalizados');
+const saveTasks = document.querySelector('#salvar-tarefas');
+const removeSelected = document.querySelector('#remover-selecionado');
+const input = document.querySelector('#texto-tarefa');
+const lis =document.querySelector('.lis');
+const upMove = document.getElementById('mover-cima');
+const moveDown = document.getElementById('mover-baixo')
 
     createTask.addEventListener('click', () => {
     if (input.value === '') {
@@ -16,7 +16,7 @@ let moveDown = document.getElementById('mover-baixo')
     let li = document.createElement('li');
     localStorage.setItem('input', input.value);
     li.innerText = localStorage.getItem('input');
-    li.classList.add('lis')
+    li.classList.add('lis');
     list.appendChild(li);
     input.value = '';
     }})
@@ -83,13 +83,5 @@ let moveDown = document.getElementById('mover-baixo')
                 let count = 0;
                 while(selected.length){
                     selected[count].parentNode.removeChild(selected[count]);
-                }
-            }
-
-            saveTasks.addEventListener('click',saveAll);
-            function saveAll(){
-                let selected = document.getElementsByClassName('lis');
-                let count = 0;
-                while(selected.length){ 
                 }
             }
