@@ -62,3 +62,18 @@ buttonDeleteFinalized.addEventListener('click', function deleteFinalized() {
     }
   }
 });
+
+const buttonSave = document.getElementById('salvar-tarefas');
+
+buttonSave.addEventListener('click', function saveList() {
+  const toDoListValue = document.getElementById('lista-tarefas');
+  localStorage.setItem('lista', toDoListValue);
+  localStorage.getItem('lista', toDoListValue);
+});
+
+const buttonRemoveItem = document.getElementById('remover-selecionado');
+
+buttonRemoveItem.addEventListener('click', function removeItem() {
+  const itemSelected = document.querySelector('.backgroundItem');
+  toDoList.removeChild(itemSelected);
+});
