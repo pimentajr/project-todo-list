@@ -4,19 +4,19 @@ taskList.innerHTML = localStorage.getItem('list');
 
 // ex 12 bonus (2/2)
 // Função que limpa input
-function clearInput(input) {
-  if (input.value !== '') {
-    input.value = '';
+function clearInput(inputt) {
+  if (inputt.value !== '') {
+    inputt.value = '';
   }
 }
 
 // Função que altera o background da li selecionada
-function changeBackground(self) {
-  let itemList = document.querySelectorAll('.item');
-  for (let element of itemList) {
+function changeBackground(eventt) {
+  const itemList = document.querySelectorAll('.item');
+  for (const element of itemList) {
     element.id = '';
   }
-  self.target.id = 'selected';
+  eventt.target.id = 'selected';
 }
 
 // Função que risca linha
@@ -64,7 +64,7 @@ function deleteThroughLine() {
   const listItenThroughLine = document.getElementsByClassName('completed');
   for (let index1 = listItenThroughLine.length - 1; index1 >= 0; index1 -= 1) {
     listItenThroughLine[index1].parentNode.removeChild(
-      listItenThroughLine[index1]
+      listItenThroughLine[index1];
     );
   }
 }
@@ -81,13 +81,7 @@ function saveList() {
 const saveButoon = document.getElementById('salvar-tarefas');
 saveButoon.addEventListener('click', saveList);
 
-// 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
-// Esse mover pra cima e pra baixo pode ser feito com enxsublin ou previews.
-// O que faz aparentar o selecionado é a class selected. Fazer o comando mover o selected para o seu irmao proximo ou anterior
-// O que será verificado:
-//Será verificado que, dado que diversos elementos foram acrescentados à lista, movimentá-los de formas diversas os deixa nas posições esperadas
-// Pega o elemento selecionadoe mover ele para cima com previous element e para baixo com next.
-// primeiro pega elemento selecionado.
+// 13 
 const previousButoon = document.getElementById('mover-cima');
 const nextButoon = document.getElementById('mover-baixo');
 
@@ -98,13 +92,11 @@ function upList() {
   }
   if (selectedElement === selectedElement.parentNode.firstChild) {
     return null;
-  } else {
-    selectedElement.parentNode.insertBefore(
-      selectedElement,
-      selectedElement.previousElementSibling
-    );
   }
-}
+  selectedElement.parentNode.insertBefore(
+    selectedElement,
+    selectedElement.previousElementSibling);
+  }
 
 function downList() {
   const selectedElement = document.getElementById('selected');
@@ -113,12 +105,10 @@ function downList() {
   }
   if (selectedElement === selectedElement.parentNode.lastChild) {
     return null;
-  } else {
-    selectedElement.parentNode.insertBefore(
-      selectedElement,
-      selectedElement.nextElementSibling.nextElementSibling
-    );
   }
+  selectedElement.parentNode.insertBefore(
+    selectedElement,
+    selectedElement.nextElementSibling.nextElementSibling);
 }
 
 previousButoon.addEventListener('click', upList);
