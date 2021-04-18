@@ -13,11 +13,12 @@ function onItemListaClick(event) {
 }
 
 function onItemListaDblClick(event) {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
+  // if (event.target.classList.contains('completed')) {
+  //   event.target.classList.remove('completed');
+  // } else {
+  //   event.target.classList.add('completed');
+  // }
+  event.target.classList.toggle('completed');
 }
 
 function addTarefaNaLista() {
