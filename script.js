@@ -1,9 +1,13 @@
 function colorChange(event) {
   const task = event.target;
+  const selectedTasks = document.querySelector('.selected');
 
   if (task.className === 'selected') {
     task.classList.remove('selected');
     return;
+  }
+  if (selectedTasks) {
+    selectedTasks.classList.remove('selected');
   }
   task.className = 'selected';
 }
@@ -17,9 +21,9 @@ function taskAdder() {
 
   document.querySelector('#texto-tarefa').value = '';
 
-  const taskSelected = document.querySelectorAll('li');
-  for (let index = 0; index < taskSelected.length; index += 1) {
-    taskSelected[index].addEventListener('click', colorChange);
+  const allTask = document.querySelectorAll('li');
+  for (let index = 0; index < allTask.length; index += 1) {
+    allTask[index].addEventListener('click', colorChange);
   }
 }
 
