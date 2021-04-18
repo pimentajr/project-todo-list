@@ -15,6 +15,22 @@ const adicionarNovaTarefa = () => {
 
 adicionarNovaTarefa();
 
+//questa 07 e 08
+
+constant pintar = document.getElementById('lista-tarefas');
+    pintar.addEventListener('click', (event) => {
+      const selectedLI = document.getElementsByClassName('selected');
+  
+      if (selectedLI !== null) {
+        selectedLI.classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+    });
+  }
+  
+ 
+//questao 9
+
 function textLine() {
     list.addEventListener('dblclick', (event) => {
       event.target.classList.toggle('completed');
