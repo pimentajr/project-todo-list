@@ -5,7 +5,7 @@ const buttonCleanDone = document.querySelector('#remover-finalizados');
 const buttonSaveList = document.querySelector('#salvar-tarefas');
 const buttonUpItem = document.querySelector('#mover-cima');
 const buttonDownItem = document.querySelector('#mover-baixo');
-const buttonRemoveClicked = document.getElementById('remover-selecionado')
+const buttonRemoveClicked = document.getElementById('remover-selecionado');
 
 // botão para criar um novo item na lista
 buttonNewJob.addEventListener('click', function () {
@@ -71,9 +71,9 @@ buttonSaveList.addEventListener('click', function () {
 
 window.onload = function () {
   for (let index = 0; index < (localStorage.length / 2); index += 1) {
-    let itemRecoveryText = localStorage.getItem('item' + index);
-    let itemRecoveryClass = localStorage.getItem('itemClass' + index);
-    let itemRecoveryAdd = document.createElement('li');
+    const itemRecoveryText = localStorage.getItem('item' + index);
+    const itemRecoveryClass = localStorage.getItem('itemClass' + index);
+    const itemRecoveryAdd = document.createElement('li');
     itemRecoveryAdd.innerText = itemRecoveryText;
     itemRecoveryAdd.className = itemRecoveryClass;
     ordenedList.appendChild(itemRecoveryAdd);
@@ -84,11 +84,11 @@ window.onload = function () {
 
 // Botão mover-baixo
 buttonDownItem.addEventListener('click', function () {
-  let checkItenslistDown = document.getElementsByClassName('Item-List');
+  const checkItenslistDown = document.getElementsByClassName('Item-List');
   for (let index = 0; index < checkItenslistDown.length - 1; index += 1) {
     if (checkItenslistDown[index].classList.contains('clicked')) {
-      let itemClickedDown = checkItenslistDown[index];
-      let nextItemClickedDown = checkItenslistDown[index].nextSibling;
+      const itemClickedDown = checkItenslistDown[index];
+      const nextItemClickedDown = checkItenslistDown[index].nextSibling;
       // console.log(itemClickedDown);
       // console.log(nextItemClickedDown);
       ordenedList.insertBefore(itemClickedDown, nextItemClickedDown.nextSibling);
@@ -97,15 +97,14 @@ buttonDownItem.addEventListener('click', function () {
   }
 });
 
-
 // Botão mover-cima
 buttonUpItem.addEventListener('click', function () {
   // console.log(buttonDownItem);
-  let checkItenslist = document.getElementsByClassName('Item-List');
+  const checkItenslist = document.getElementsByClassName('Item-List');
   for (let index = 1; index < checkItenslist.length; index += 1) {
     if (checkItenslist[index].classList.contains('clicked')) {
-      let itemClicked = checkItenslist[index];
-      let nextItemClicked = checkItenslist[index].previousSibling;
+      const itemClicked = checkItenslist[index];
+      const nextItemClicked = checkItenslist[index].previousSibling;
       console.log(itemClicked);
       console.log(nextItemClicked);
       ordenedList.insertBefore(itemClicked, nextItemClicked);
@@ -115,7 +114,7 @@ buttonUpItem.addEventListener('click', function () {
 });
 
 buttonRemoveClicked.addEventListener('click', function () {
-  let itensListRemove = document.getElementsByClassName('Item-List');
+  const itensListRemove = document.getElementsByClassName('Item-List');
   for (let index = 0; index < itensListRemove.length; index += 1) {
     if (itensListRemove[index].classList.contains('clicked') === true) {
       itensListRemove[index].remove();

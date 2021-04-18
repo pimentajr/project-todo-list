@@ -8,21 +8,37 @@
     <title>To Do List</title>
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
+  <header class="topo">
+    <div class="div-title">
+      <h1 class="title">Minha Lista de Tarefas</h1>
+    </div>
   </header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <input id="texto-tarefa" type="text">
-  <button id="criar-tarefa">Adicionar</button>
-  <ol id="lista-tarefas"></ol>
-  <footer>
-    <button id="apaga-tudo">Apagar lista</button>
-    <button id="remover-finalizados">Apaga finalizados</button>
-    <button id="salvar-tarefas">Salvar Tarefas</button>
-    <button id="mover-cima"> &uarr; </button>
-    <button id="mover-baixo"> &darr; </button>
-    <button id="remover-selecionado">Apagar selecionado</button>
-  </footer>
+  <section class="principal">
+    <div class="list-area">
+      <div class="entrada">
+        <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+        <input id="texto-tarefa" type="text">
+        <button class="button" id="criar-tarefa">Adicionar</button>
+      </div>
+      <div class="area-int">
+        <div class="job-list">
+          <ol id="lista-tarefas"></ol>
+        </div>
+        <div class="up-down">
+          <button class="button cl-up-down" id="mover-cima"> &uarr; </button>
+          <br><br>
+          <button class="button cl-up-down" id="mover-baixo"> &darr; </button>
+        </div>
+      </div>
+      <footer class="rodape">
+        <button class="button" id="salvar-tarefas">Salvar Tarefas</button>
+        <br><br>
+        <button class="button bt-selct" id="remover-finalizados">Apagar finalizados</button>
+        <button class="button bt-selct" id="remover-selecionado">Apagar selecionado</button>
+        <button class="button bt-all" id="apaga-tudo">Apagar lista</button>
+      </footer>
+    </div>
+  </section>
   <script src="script.js"></script>
 </body>
 </html>
