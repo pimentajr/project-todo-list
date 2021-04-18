@@ -1,7 +1,7 @@
-const textoTarefa = document.getElementById('texto-tarefa');
+const textoTarefa = document.querySelector('input#texto-tarefa');
 
 function criar() {
-  const lista = document.getElementById('lista-tarefa');
+  const lista = document.querySelector('ol#lista-tarefas');
   const item = document.createElement('li');
   item.appendChild(document.createTextNode(textoTarefa.value));
   lista.appendChild(item);
