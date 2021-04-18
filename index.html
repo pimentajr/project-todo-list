@@ -5,19 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>Minha Lista de Tarefas</header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-   	<div id="painel-controle">
-      <input id="texto-tarefa" value="" type="text">
-      <button id="criar-tarefa">Criar tarefa</button>
-      <button id="apaga-tudo">Limpar lista de tarefas</button>
-      <button id="remover-finalizados">Remover finalizados</button>
-      <button id="remover-selecionado">Remover selecionado</button>
+    <div class="hero is-info">
+      <div class="hero-body">
+        <header class="title is-3 has-text-centered">Minha Lista de Tarefas</header>
+        <p id="funcionamento" class="subtitle has-text-centered">Clique duas vezes em um item para marcá-lo como completo</p>
+      </div>
     </div>
-    <ol id="lista-tarefas">Lista de tarefas:</ol>
+
+    <div class="box">
+   	  <div class="field" id="painel-controle">
+        <input class="input is-link is-rounded" id="texto-tarefa" value="" type="text" placeholder="Digite sua tarefa">
+        <button class="button is-info is-rounded m-4" id="criar-tarefa">Criar tarefa</button>
+        <button class="button is-danger is-rounded m-4" id="apaga-tudo">Limpar lista de tarefas</button>
+        <button class="button is-warning is-rounded m-4" id="remover-finalizados">Remover finalizados</button>
+        <button class="button is-warning is-rounded m-4" id="remover-selecionado">Remover selecionado</button>
+        <button class="button is-success is-rounded m-4" id="salvar-tarefas">Salvar tarefas</button>
+     </div>
+     <ol class="p-4" id="lista-tarefas">Lista de tarefas:</ol>
+    </div>
+    
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

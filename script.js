@@ -6,6 +6,7 @@ function addTaskToTaskList() {
   const task = document.getElementById('texto-tarefa');
   const taskListItem = document.createElement('li');
   taskListItem.className = 'listItem';
+  taskListItem.classList.add('has-text-info-dark');
   taskListItem.innerText = task.value;
   taskList.appendChild(taskListItem);
   task.value = '';
