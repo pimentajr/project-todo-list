@@ -17,16 +17,16 @@ adicionarNovaTarefa();
 
 //questa 07 e 08
 
-const pintar = document.getElementById('lista-tarefas');
-    pintar.addEventListener('click', (event) => {
-      const selectedLI = document.getElementsByClassName('selected');
+//const pintar = document.getElementById('lista-tarefas');
+    //pintar.addEventListener('click', (event) => {
+      //const selectedLI = document.getElementsByClassName('selected');
   
-      if (selectedLI !== null) {
-        selectedLI.classList.remove('selected');
-      }
-      event.target.classList.add('selected');
-    });
-  }
+      //if (selectedLI !== null) {
+        //selectedLI.classList.remove('selected');
+      //}
+      //event.target.classList.add('selected');
+   // });
+  //}
   
  
 //questao 9
@@ -50,7 +50,8 @@ function textLine() {
   
   clearAll();
 
-  
+  //questao 11
+
   function deleteFinished() {
     const btnDeleteFinished = document.getElementById('remover-finalizados');
     btnDeleteFinished.addEventListener('click', () => {
@@ -63,6 +64,8 @@ function textLine() {
   }
   
   deleteFinished();
+
+//question 12
 
   function salvamento() {
     const salvarLI = list.innerHTML;
