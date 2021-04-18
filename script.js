@@ -64,8 +64,7 @@ function deleteThroughLine() {
   const listItenThroughLine = document.getElementsByClassName('completed');
   for (let index1 = listItenThroughLine.length - 1; index1 >= 0; index1 -= 1) {
     listItenThroughLine[index1].parentNode.removeChild(
-      listItenThroughLine[index1];
-    );
+      listItenThroughLine[index1]);
   }
 }
 
