@@ -1,11 +1,16 @@
 const lista = document.getElementById('lista-tarefas');
+const removeClassFromTodo = (todo) => todo.classList.remove('gray');
 
 function grifaItem() {
   const items = document.querySelectorAll('li');
   items.forEach((item) => {
-    item.addEventListener('click', () => item.classList.add('gray'));
+    item.addEventListener('click', () => {
+      items.forEach(removeClassFromTodo);
+      item.classList.add('gray');
+    });
   });
 }
+
 function criacaoDeTarefas() {
   const input = document.getElementById('texto-tarefa');
   const inputValue = input.value;
