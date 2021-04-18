@@ -28,6 +28,7 @@ function select() {
 }
 select();
 const itemSelect = document.getElementsByClassName('select');
+console.log(itemSelect);
 
 function finished() {
   listItems.addEventListener('dblclick', (event) => {
@@ -116,7 +117,7 @@ function buttonRemoveSelect() {
   removeSelect.addEventListener('click', () => {
     for (let index = 0; index < itemSelect.length; index += 1) {
       const classItem = itemSelect[index].className;
-      if (classItem === 'select') {
+      if (classItem.indexOf('select') > -1) {
         itemSelect[index].parentNode.removeChild(itemSelect[index]);
       }
     }
