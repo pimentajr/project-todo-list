@@ -45,12 +45,32 @@ function apagarTudo() {
 	});
 }
 
+function removerFinalizados() {
+	const bt = document.getElementById('remover-finalizados');
+	var ol = document.getElementById('lista-tarefas');
+	bt.addEventListener('click', function() {
+		for (let index=0; index <itemS.length ; index += 1) {
+			let li = itemS[index];
+			if (li.className === 'completed') {
+				ol.removeChild(li);
+				itemS.splice(index,1); // splice() remove itens de array | Fonte (W3S): https://www.w3schools.com/jsref/jsref_splice.asp
+
+				// [SOBRE PRÓXIMA LINHA de código] 
+				// Decrementei o index porque a array de referência de "length" --- o "itemS" ---, tem seu tamanho dimuido ao remover-se um de seus items com splice(), mudando todo o seu RANGE de index. 
+				// Então, observei que o FOR não atualiza a referência de tamanho (length) obtido de "itemS".
+				// Portanto, decrementar o index cada hora que cai nesse IF, é um forma de não perder algum item do array que se queira remover, mas que assume um novo index (menor, óbvio) diferente do RANGE que o FOR tem.
+				index -= 1;	
+			}
+		}
+	});
+}
+
 function start() {
   criar();
 	selecionar();
 	dblClick();
 	apagarTudo();
-	// removerFinalizados();
+	removerFinalizados();
 }
 
 window.onload = start;
