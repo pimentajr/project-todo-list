@@ -21,19 +21,6 @@ header {
   font-style: italic;
 }
 
-/* 
-#criar-tarefa {
-  color: black;
-}
-
-#apaga-tudo {
-  color: black;
-}
-
-#texto-tarefa {
-  color: black;
-} */
-
 .buttons {
   color: black;
 }
@@ -45,4 +32,3 @@ header {
 .completed {
   text-decoration: line-through solid black;
 }
-

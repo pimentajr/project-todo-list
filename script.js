@@ -3,7 +3,7 @@ const taskList = document.getElementById('lista-tarefas');
 taskList.innerHTML = localStorage.getItem('list');
 
 // ex 12 bonus (2/2)
-// Função que limpa input 
+// Função que limpa input
 function clearInput(input) {
   if (input.value !== '') {
     input.value = '';
@@ -13,13 +13,13 @@ function clearInput(input) {
 // Função que altera o background da li selecionada
 function changeBackground(self) {
   let itemList = document.querySelectorAll('.item');
-  for(let element of itemList) {
+  for (let element of itemList) {
     element.id = '';
   }
   self.target.id = 'selected';
 }
 
-// Função que risca linha 
+// Função que risca linha
 function throughLine(event) {
   event.target.classList.toggle('completed');
 }
@@ -39,8 +39,8 @@ function inputTask() {
   itenList.addEventListener('dblclick', throughLine);
   itenList.innerText = inputValue;
   taskList.appendChild(itenList);
-  //const mainProject = document.getElementById('main');
-  //mainProject.appendChild(taskList);
+  /* const mainProject = document.getElementById('main');
+  mainProject.appendChild(taskList); */
   clearInput(document.getElementById('texto-tarefa'));
 }
 
@@ -63,7 +63,9 @@ clearButton.addEventListener('click', removeList);
 function deleteThroughLine() {
   const listItenThroughLine = document.getElementsByClassName('completed');
   for (let index1 = listItenThroughLine.length - 1; index1 >= 0; index1 -= 1) {
-    listItenThroughLine[index1].parentNode.removeChild(listItenThroughLine[index1]);
+    listItenThroughLine[index1].parentNode.removeChild(
+      listItenThroughLine[index1]
+    );
   }
 }
 
@@ -85,7 +87,7 @@ saveButoon.addEventListener('click', saveList);
 // O que será verificado:
 //Será verificado que, dado que diversos elementos foram acrescentados à lista, movimentá-los de formas diversas os deixa nas posições esperadas
 // Pega o elemento selecionadoe mover ele para cima com previous element e para baixo com next.
-// primeiro pega elemento selecionado. 
+// primeiro pega elemento selecionado.
 const previousButoon = document.getElementById('mover-cima');
 const nextButoon = document.getElementById('mover-baixo');
 
@@ -97,7 +99,10 @@ function upList() {
   if (selectedElement === selectedElement.parentNode.firstChild) {
     return null;
   } else {
-    selectedElement.parentNode.insertBefore(selectedElement, selectedElement.previousElementSibling);
+    selectedElement.parentNode.insertBefore(
+      selectedElement,
+      selectedElement.previousElementSibling
+    );
   }
 }
 
@@ -109,7 +114,10 @@ function downList() {
   if (selectedElement === selectedElement.parentNode.lastChild) {
     return null;
   } else {
-    selectedElement.parentNode.insertBefore(selectedElement, selectedElement.nextElementSibling.nextElementSibling);
+    selectedElement.parentNode.insertBefore(
+      selectedElement,
+      selectedElement.nextElementSibling.nextElementSibling
+    );
   }
 }
 
@@ -124,4 +132,3 @@ function removeSelected() {
 }
 
 removeSelectedButton.addEventListener('click', removeSelected);
-
