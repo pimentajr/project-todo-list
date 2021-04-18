@@ -1,19 +1,19 @@
-const btnCriarTarefa = document.getElementById('criar-tarefa');
-const olListaTarefas = document.getElementById('lista-tarefas');
-const inputTextoTarefa = document.getElementById('texto-tarefa');
+const BTN_CRIAR_TAREFA = document.getElementById('criar-tarefa');
+const OL_LISTA_TAREFAS = document.getElementById('lista-tarefas');
+const INPUT_TEXTO_TAREFA = document.getElementById('texto-tarefa');
 
 
 function insertNewListItem() {
   const newLi = document.createElement('li');
-  newLi.innerText = inputTextoTarefa.value;
-  olListaTarefas.appendChild(newLi);
+  newLi.innerText = INPUT_TEXTO_TAREFA.value;
+  OL_LISTA_TAREFAS.appendChild(newLi);
   eraseInputValue();
 }
 
 function eraseInputValue() {
-  inputTextoTarefa.value = '';
+  INPUT_TEXTO_TAREFA.value = '';
 }
 
 window.onload = () => {
-  btnCriarTarefa.addEventListener('click', insertNewListItem)
+  BTN_CRIAR_TAREFA.addEventListener('click', insertNewListItem)
 }
