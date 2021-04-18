@@ -79,6 +79,24 @@ function getList() {
 }
 getList();
 
+function moveElementUp() {
+  const buttonMoveUp = document.getElementById('mover-cima');
+  buttonMoveUp.addEventListener('click', function moveUp() {
+    const newPositionUp = itemSelected.previousSibling;
+    toDoList.insertBefore(itemSelected, newPositionUp);
+  });
+}
+moveElementUp();
+
+function moveElementDown() {
+  const buttonMoveDown = document.getElementById('mover-baixo');
+  buttonMoveDown.addEventListener('click', function moveDown() {
+    const newPositionDown = itemSelected.nextSibling;
+    toDoList.insertBefore(itemSelected, newPositionDown.nextSibling);
+  });
+}
+moveElementDown();
+
 const buttonRemoveItem = document.getElementById('remover-selecionado');
 
 buttonRemoveItem.addEventListener('click', function removeItem() {
