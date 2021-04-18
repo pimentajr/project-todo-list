@@ -29,7 +29,7 @@ function dbSelectedItem() {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else {
-      event.target.classList.add('completed'); 
+      event.target.classList.add('completed');
     }
   });
 }
@@ -52,9 +52,9 @@ const complete = document.getElementsByClassName('completed');
 function deleteFinal() {
   apagarFinal.addEventListener('click', () => {
     console.log(complete);
-      for (let i = complete.length - 1; i >= 0; i -= 1) {
-        complete[i].remove();
-      }
+    for (let i = complete.length - 1; i >= 0; i -= 1) {
+      complete[i].remove();
+    }
   });
 }
 
