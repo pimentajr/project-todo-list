@@ -10,6 +10,15 @@ body {
   align-items: center;
 }
 
+li {
+  user-select: none;
+  cursor: pointer;
+}
+
 .selected {
   background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
 }
