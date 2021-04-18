@@ -13,15 +13,22 @@ const addTask = () => {
 };
 addTask();
 
-
 function backGround() {
   lista.addEventListener('click', (event) => {
     const selecionado = document.querySelector('.selected');
 
-    if(selecionado != null) {
+    if (selecionado != null) {
       selecionado.classList.remove('selected');
     }
     event.target.classList.add('selected');
-  })
+  });
 }
 backGround();
+
+function tarefaFinalizada() {
+  lista.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+tarefaFinalizada();
+
