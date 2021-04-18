@@ -1,4 +1,4 @@
-const mainContent = document.querySelector('#main-content')
+const mainContent = document.querySelector('#main-content');
 const inputSection = document.createElement('section');
 const taskEntry = document.createElement('input');
 const taskButton = document.createElement('button');
@@ -168,7 +168,6 @@ createEraseEverythingButton();
 function eraseEverything() {
   eraseEverythingButton.addEventListener('click', createEraseEverythingButton);
 }
-
 
 function createSaveTasksButton() {
   saveTasksButton.id = 'salvar-tarefas';
