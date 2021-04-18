@@ -1,6 +1,7 @@
 const textoTarefa = document.querySelector('input#texto-tarefa');
 const criarTarefa = document.getElementById('criar-tarefa');
 const lista = document.querySelector('ol#lista-tarefas');
+const apagaTudo = document.getElementById('apaga-tudo');
 
 // função criar tarefa
 criarTarefa.addEventListener('click', () => {
@@ -29,4 +30,8 @@ lista.addEventListener('dblclick', (event) => {
   } else {
     evt.add('completed');
   }
+});
+
+apagaTudo.addEventListener('click', () => {
+  lista.innerHTML = '';
 });
