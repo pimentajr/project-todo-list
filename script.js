@@ -22,7 +22,7 @@ function changeClickedTaskBackgroundColor(event) {
     listItem.style.backgroundColor = 'rgb(255, 255, 255)';
   }
 
-  if (clickedTask.className === 'listItem') {
+  if (clickedTask.classList.contains('listItem')) {
     clickedTask.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
