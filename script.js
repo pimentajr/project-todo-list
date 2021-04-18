@@ -17,7 +17,7 @@ adicionarNovaTarefa();
 
 //questa 07 e 08
 
-constant pintar = document.getElementById('lista-tarefas');
+const pintar = document.getElementById('lista-tarefas');
     pintar.addEventListener('click', (event) => {
       const selectedLI = document.getElementsByClassName('selected');
   
