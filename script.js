@@ -4,7 +4,9 @@ const buttonAdd = document.getElementById('criar-tarefa'); // botão
 
 const newItem = document.getElementById('texto-tarefa'); // caixa de texto
 
-const toDoList = document.getElementById('lista-tarefas'); // lista ordenada
+const toDoList = document.querySelector('#lista-tarefas'); // lista ordenada
+
+const itemSelected = document.querySelector('.backgroundItem'); // item selecionado
 
 buttonAdd.addEventListener('click', function addItemList() {
   const itemList = document.createElement('li');
@@ -66,14 +68,19 @@ buttonDeleteFinalized.addEventListener('click', function deleteFinalized() {
 const buttonSave = document.getElementById('salvar-tarefas');
 
 buttonSave.addEventListener('click', function saveList() {
-  const toDoListValue = document.getElementById('lista-tarefas');
-  localStorage.setItem('lista', toDoListValue);
-  localStorage.getItem('lista', toDoListValue);
+  const toDoListValue = toDoList.innerHTML;
+  localStorage.saveList = toDoListValue;
 });
+
+function getList() {
+  if (localStorage.saveList !== undefined) {
+    toDoList.innerHTML = localStorage.saveList;
+  }
+}
+getList();
 
 const buttonRemoveItem = document.getElementById('remover-selecionado');
 
 buttonRemoveItem.addEventListener('click', function removeItem() {
-  const itemSelected = document.querySelector('.backgroundItem');
   toDoList.removeChild(itemSelected);
 });
