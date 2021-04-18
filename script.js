@@ -58,3 +58,10 @@ document.querySelector('#mover-cima').addEventListener('click', function() {
         parentNode.insertBefore(nodeSelecioned, nodeSelecioned.previousSibling)
     }
 })
+
+document.querySelector('#mover-baixo').addEventListener('click', function() {
+    let nodeSelecioned = document.querySelector('.selected');
+    if (nodeSelecioned !== parentNode.lastChild) {
+    nodeSelecioned.nextElementSibling.insertAdjacentElement('afterend', nodeSelecioned)
+    }
+})
