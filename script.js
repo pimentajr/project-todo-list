@@ -64,7 +64,8 @@ function deleteThroughLine() {
   const listItenThroughLine = document.getElementsByClassName('completed');
   for (let index1 = listItenThroughLine.length - 1; index1 >= 0; index1 -= 1) {
     listItenThroughLine[index1].parentNode.removeChild(
-      listItenThroughLine[index1]);
+      listItenThroughLine[index1]
+    );
   }
 }
 
@@ -80,7 +81,7 @@ function saveList() {
 const saveButoon = document.getElementById('salvar-tarefas');
 saveButoon.addEventListener('click', saveList);
 
-// 13 
+// 13
 const previousButoon = document.getElementById('mover-cima');
 const nextButoon = document.getElementById('mover-baixo');
 
@@ -94,8 +95,9 @@ function upList() {
   }
   selectedElement.parentNode.insertBefore(
     selectedElement,
-    selectedElement.previousElementSibling);
-  }
+    selectedElement.previousElementSibling
+  );
+}
 
 function downList() {
   const selectedElement = document.getElementById('selected');
@@ -107,7 +109,8 @@ function downList() {
   }
   selectedElement.parentNode.insertBefore(
     selectedElement,
-    selectedElement.nextElementSibling.nextElementSibling);
+    selectedElement.nextElementSibling.nextElementSibling
+  );
 }
 
 previousButoon.addEventListener('click', upList);
