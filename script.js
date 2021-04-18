@@ -8,6 +8,7 @@ const salvarTarefas = document.getElementById('salvar-tarefas');
 const moverCima = document.getElementById('mover-cima');
 const moverBaixo = document.getElementById('mover-baixo');
 const selTarefa = document.getElementsByClassName('selected');
+const removerSelecionados = document.getElementById('remover-selecionados');
 
 // função criar tarefa
 criarTarefa.addEventListener('click', () => {
@@ -75,6 +76,16 @@ moverBaixo.addEventListener('click', () => {
     if (selTarefa[index].nextElementSibling != null) {
       const aux = selTarefa[index];
       lista.insertBefore(aux.nextSibling, aux);
+    }
+  }
+});
+
+// função para remover selecionados
+removerSelecionados.addEventListener('click', () => {
+  for (let index = 0; index < selTarefa.length; index += 1) {
+    const selItem = selTarefa[index].className;
+    if (selItem.indexOf('selected') > -1) {
+      selTarefa[index].parentNode.removeChild(selTarefa[index]);
     }
   }
 });
