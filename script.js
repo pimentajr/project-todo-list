@@ -4,9 +4,9 @@ const INPUT_TEXTO_TAREFA = document.getElementById('texto-tarefa');
 
 
 function insertNewListItem() {
-  const newLi = document.createElement('li');
-  newLi.innerText = INPUT_TEXTO_TAREFA.value;
-  OL_LISTA_TAREFAS.appendChild(newLi);
+  const NEW_LI = document.createElement('li');
+  NEW_LI.innerText = INPUT_TEXTO_TAREFA.value;
+  OL_LISTA_TAREFAS.appendChild(NEW_LI);
   eraseInputValue();
 }
 
