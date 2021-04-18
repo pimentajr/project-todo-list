@@ -5,7 +5,7 @@ taskList.innerHTML = localStorage.getItem('list');
 // ex 12 bonus (2/2)
 // Função que limpa input
 function clearInput(input) {
-  let inputValue = input;
+  const inputValue = input;
   if (inputValue.value !== '') {
     inputValue.value = '';
   }
@@ -13,11 +13,12 @@ function clearInput(input) {
 
 // Função que altera o background da li selecionada
 function changeBackground(eventt) {
+  const event = eventt;
   const itemList = document.querySelectorAll('.item');
   for (const element of itemList) {
     element.id = '';
   }
-  eventt.target.id = 'selected';
+  event.target.id = 'selected';
 }
 
 // Função que risca linha
@@ -64,9 +65,7 @@ clearButton.addEventListener('click', removeList);
 function deleteThroughLine() {
   const listItenThroughLine = document.getElementsByClassName('completed');
   for (let index1 = listItenThroughLine.length - 1; index1 >= 0; index1 -= 1) {
-    listItenThroughLine[index1].parentNode.removeChild(
-      listItenThroughLine[index1]
-    );
+    listItenThroughLine[index1].parentNode.removeChild(listItenThroughLine[index1]);
   }
 }
 
@@ -95,7 +94,8 @@ function upList() {
     return null;
   }
   selectedElement.parentNode.insertBefore(
-    selectedElement, selectedElement.previousElementSibling);
+    selectedElement, selectedElement.previousElementSibling
+  );
 }
 
 function downList() {
@@ -107,7 +107,8 @@ function downList() {
     return null;
   }
   selectedElement.parentNode.insertBefore(
-    selectedElement, selectedElement.nextElementSibling.nextElementSibling);
+    selectedElement, selectedElement.nextElementSibling.nextElementSibling
+  );
 }
 
 previousButoon.addEventListener('click', upList);
