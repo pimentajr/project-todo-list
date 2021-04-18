@@ -100,5 +100,6 @@ moveElementDown();
 const buttonRemoveItem = document.getElementById('remover-selecionado');
 
 buttonRemoveItem.addEventListener('click', function removeItem() {
+  const itemSelected = document.querySelector('.backgroundItem');
   toDoList.removeChild(itemSelected);
 });
