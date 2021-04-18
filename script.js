@@ -1,4 +1,4 @@
-const mainContent = document.createElement('main');
+const mainContent = document.querySelector('#main-content')
 const inputSection = document.createElement('section');
 const taskEntry = document.createElement('input');
 const taskButton = document.createElement('button');
@@ -11,11 +11,8 @@ const saveTasksButton = document.createElement('button');
 const moveUpButton = document.createElement('button');
 const moveDownButton = document.createElement('button');
 const removeSelecionedTaskButton = document.createElement('button');
-
-function createsMainContent() {
-  mainContent.id = 'main-content';
-  document.body.appendChild(mainContent);
-}
+const footer = document.createElement('footer');
+const textFooter = document.createElement('p');
 
 function createsInputSection() {
   inputSection.id = 'input-section';
@@ -32,7 +29,7 @@ function createsTaskEntry() {
 function createsTaskButton() {
   taskButton.id = 'criar-tarefa';
   taskButton.type = 'onclick';
-  taskButton.textContent = 'Criar Tarefa';
+  taskButton.textContent = 'Adicionar';
   inputSection.appendChild(taskButton);
 }
 
@@ -83,6 +80,80 @@ function createSectionMiscellaneousButtons() {
   mainContent.appendChild(miscellaneousButtons);
 }
 
+function createRemoveSelecionedTaskButton() {
+  removeSelecionedTaskButton.id = 'remover-selecionado';
+  removeSelecionedTaskButton.textContent = 'X';
+  miscellaneousButtons.appendChild(removeSelecionedTaskButton);
+}
+createRemoveSelecionedTaskButton();
+
+function clearSelected() {
+  const selected = document.querySelector('.selected');
+  ordenedList.removeChild(selected);
+}
+
+function addEventClearSelected() {
+  removeSelecionedTaskButton.addEventListener('click', clearSelected);
+}
+
+function createMoveUpButton() {
+  moveUpButton.id = 'mover-cima';
+  moveUpButton.textContent = '↑';
+  miscellaneousButtons.appendChild(moveUpButton);
+}
+createMoveUpButton();
+
+function createMoveDownButton() {
+  moveDownButton.id = 'mover-baixo';
+  moveDownButton.textContent = '↓';
+  miscellaneousButtons.appendChild(moveDownButton);
+}
+createMoveDownButton();
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (selected === null || selected.previousElementSibling === null) {
+    return;
+  }
+  const previous = selected.previousElementSibling;
+  ordenedList.insertBefore(selected, previous);
+}
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  if (selected === null || selected.nextElementSibling === null) {
+    return;
+  }
+  const next = selected.nextElementSibling;
+  ordenedList.insertBefore(next, selected);
+}
+
+function addEventMoveUp() {
+  const button = document.getElementById('mover-cima');
+  button.addEventListener('click', moveUp);
+}
+
+function addEventMoveDown() {
+  const button = document.getElementById('mover-baixo');
+  button.addEventListener('click', moveDown);
+}
+
+function createDeletesCompletedTasks() {
+  deletesCompletedTasks.id = 'remover-finalizados';
+  deletesCompletedTasks.textContent = 'Limpar Completos';
+  miscellaneousButtons.appendChild(deletesCompletedTasks);
+  const completedTask = document.getElementsByClassName('completed');
+  const sizeOfCompletedTasks = completedTask.length;
+  for (let index = sizeOfCompletedTasks - 1; index >= 0; index -= 1) {
+    ordenedList.removeChild(completedTask[index]);
+  }
+}
+createDeletesCompletedTasks();
+
+function clearsFinish() {
+  deletesCompletedTasks.addEventListener('click', createDeletesCompletedTasks);
+}
+
 function createEraseEverythingButton() {
   eraseEverythingButton.id = 'apaga-tudo';
   eraseEverythingButton.textContent = 'Limpar Lista';
@@ -98,25 +169,10 @@ function eraseEverything() {
   eraseEverythingButton.addEventListener('click', createEraseEverythingButton);
 }
 
-function createDeletesCompletedTasks() {
-  deletesCompletedTasks.id = 'remover-finalizados';
-  deletesCompletedTasks.textContent = 'Remove Finalizados';
-  miscellaneousButtons.appendChild(deletesCompletedTasks);
-  const completedTask = document.getElementsByClassName('completed');
-  const sizeOfCompletedTasks = completedTask.length;
-  for (let index = sizeOfCompletedTasks - 1; index >= 0; index -= 1) {
-    ordenedList.removeChild(completedTask[index]);
-  }
-}
-createDeletesCompletedTasks();
-
-function clearsFinish() {
-  deletesCompletedTasks.addEventListener('click', createDeletesCompletedTasks);
-}
 
 function createSaveTasksButton() {
   saveTasksButton.id = 'salvar-tarefas';
-  saveTasksButton.textContent = 'Salvar Tarefas';
+  saveTasksButton.textContent = 'Salvar Lista';
   miscellaneousButtons.appendChild(saveTasksButton);
 }
 createSaveTasksButton();
@@ -159,66 +215,19 @@ function addEventSaveList() {
   saveTasksButton.addEventListener('click', saveTaskList);
 }
 
-function createMoveUpButton() {
-  moveUpButton.id = 'mover-cima';
-  moveUpButton.textContent = 'Sobe';
-  miscellaneousButtons.appendChild(moveUpButton);
-}
-createMoveUpButton();
-
-function createMoveDownButton() {
-  moveDownButton.id = 'mover-baixo';
-  moveDownButton.textContent = 'Desce';
-  miscellaneousButtons.appendChild(moveDownButton);
-}
-createMoveDownButton();
-
-function moveUp() {
-  const selected = document.querySelector('.selected');
-  if (selected === null || selected.previousElementSibling === null) {
-    return;
-  }
-  const previous = selected.previousElementSibling;
-  ordenedList.insertBefore(selected, previous);
-}
-
-function moveDown() {
-  const selected = document.querySelector('.selected');
-  if (selected === null || selected.nextElementSibling === null) {
-    return;
-  }
-  const next = selected.nextElementSibling;
-  ordenedList.insertBefore(next, selected);
-}
-
-function addEventMoveUp() {
-  const button = document.getElementById('mover-cima');
-  button.addEventListener('click', moveUp);
-}
-
-function addEventMoveDown() {
-  const button = document.getElementById('mover-baixo');
-  button.addEventListener('click', moveDown);
-}
-
-function createRemoveSelecionedTaskButton() {
-  removeSelecionedTaskButton.id = 'remover-selecionado';
-  removeSelecionedTaskButton.textContent = 'Exclui Selecionado';
-  miscellaneousButtons.appendChild(removeSelecionedTaskButton);
-}
-createRemoveSelecionedTaskButton();
-
-function clearSelected() {
-  const selected = document.querySelector('.selected');
-  ordenedList.removeChild(selected);
-}
-
-function addEventClearSelected() {
-  removeSelecionedTaskButton.addEventListener('click', clearSelected);
+function cretateTagFooter() {
+  footer.id = 'baseboard';
+  footer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  document.body.appendChild(footer);
+  textFooter.id = 'footer';
+  textFooter.style.color = 'rgb(255, 255, 255)';
+  textFooter.textContent = '@Savio Moraes - 2021';
+  textFooter.style.marginLeft = 'auto';
+  textFooter.style.marginRight = 'auto';
+  footer.appendChild(textFooter);
 }
 
 window.onload = function loadPage() {
-  createsMainContent();
   createsInputSection();
   createsTaskEntry();
   createListSection();
@@ -233,4 +242,5 @@ window.onload = function loadPage() {
   loadList();
   addEventMoveUp();
   addEventMoveDown();
+  cretateTagFooter();
 };
