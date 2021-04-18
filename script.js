@@ -49,3 +49,12 @@ function saveList() {
 }
 
 document.querySelector('#salvar-tarefas').addEventListener('click', saveList);
+
+const parentNode = document.querySelector('#lista-tarefas');
+document.querySelector('#mover-cima').addEventListener('click', function() {
+    let nodeSelecioned = document.querySelector('.selected');
+    let liNodes = document.querySelectorAll('li');
+    if (nodeSelecioned !== liNodes[0]) {
+        parentNode.insertBefore(nodeSelecioned, nodeSelecioned.previousSibling)
+    }
+})
