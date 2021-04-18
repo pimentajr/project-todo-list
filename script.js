@@ -15,6 +15,24 @@ const adicionarNovaTarefa = () => {
 
 adicionarNovaTarefa();
 
+function textLine() {
+    list.addEventListener('dblclick', (event) => {
+      event.target.classList.toggle('completed');
+    });
+  }
+  
+  textLine();
+  
+  function clearAll() {
+    const btnClear = document.getElementById('apaga-tudo');
+    btnClear.addEventListener('click', () => {
+      while (list.firstChild) {
+        list.removeChild(list.firstChild);
+      }
+    });
+  }
+  
+  clearAll();
 
   
 
