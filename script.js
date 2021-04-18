@@ -39,8 +39,8 @@ function inputTask() {
   itenList.addEventListener('dblclick', throughLine);
   itenList.innerText = inputValue;
   taskList.appendChild(itenList);
-  const mainProject = document.getElementById('main');
-  mainProject.appendChild(taskList);
+  //const mainProject = document.getElementById('main');
+  //mainProject.appendChild(taskList);
   clearInput(document.getElementById('texto-tarefa'));
 }
 
