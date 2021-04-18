@@ -8,7 +8,7 @@ const salvarTarefas = document.getElementById('salvar-tarefas');
 const moverCima = document.getElementById('mover-cima');
 const moverBaixo = document.getElementById('mover-baixo');
 const selTarefa = document.getElementsByClassName('selected');
-const removerSelecionados = document.getElementById('remover-selecionados');
+const removerSelecionados = document.getElementById('remover-selecionado');
 
 // função criar tarefa
 criarTarefa.addEventListener('click', () => {
