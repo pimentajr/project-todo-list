@@ -17,16 +17,6 @@ adicionarNovaTarefa();
 
 //questa 07 e 08
 
-const pintar = document.getElementById('lista-tarefas');
-    pintar.addEventListener('click', (event) => {
-    const selectedLI = document.getElementsByClassName('selected');
-  
-      if (selectedLI !== null) {
-        console.log(selectedLI);
-        selectedLI.classList.remove('selected');
-        }
-        event.target.classList.add('selected');
-    });
     
   
  
