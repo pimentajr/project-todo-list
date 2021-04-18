@@ -1,10 +1,7 @@
 
 let listTask =  document.getElementById('lista-tarefas');
 
-/* function remove(input){
-	//let input = document.getElementById('texto-tarefa');
-	input.value = '';
-} */
+
 
 function addTasks(){
 		let input = document.getElementById('texto-tarefa');
@@ -12,17 +9,18 @@ function addTasks(){
 		newElement.innerText = input.value;
 		listTask.appendChild(newElement);
 		input.value = '';
+
 }
 
 let bot = document.getElementById('criar-tarefa');
 bot.addEventListener('click', addTasks)
 
 
-/* function clickAndChangeColor(color){
+function clickAndChangeColor(color){
 
-	listTask.addEventListener('click', (event) => {
+	listTask.addEventListener('click', function(event) {
 		event.target.style.backgroundColor = color;
 	});
 } 
 
-clickAndChangeColor ('rgb(128, 128, 128)');  */
+clickAndChangeColor('rgb(128, 128, 128)'); 
