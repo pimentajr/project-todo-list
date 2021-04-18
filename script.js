@@ -1,29 +1,8 @@
-const section1 = document.getElementById('section-1');
+const listID = 'lista-tarefas';
+const listItems = document.getElementById(listID);
 
-function createInput() {
-  const inputUser = document.createElement('input');
-  inputUser.setAttribute('type', 'text');
-  inputUser.setAttribute('value', '');
-  inputUser.id = 'texto-tarefa';
-
-  section1.appendChild(inputUser);
-}
-createInput();
-
-function createList() {
-  const ol = document.createElement('ol');
-  ol.id = 'lista-tarefas';
-
-  section1.appendChild(ol);
-}
-createList();
-const listItems = document.getElementById('lista-tarefas');
-function buttonCreateItem(nameButton) {
-  const button = document.createElement('button');
-  button.id = 'criar-tarefa';
-  button.innerText = nameButton;
-
-  section1.appendChild(button);
+function buttonCreateItem() {
+  const button = document.getElementById('criar-tarefa');
 
   button.addEventListener('click', () => {
     const inputUser = document.getElementById('texto-tarefa');
@@ -31,22 +10,19 @@ function buttonCreateItem(nameButton) {
     list.className = 'list-item';
     list.innerText = inputUser.value;
 
-    const boxList = document.getElementById('lista-tarefas');
-    boxList.appendChild(list);
+    listItems.appendChild(list);
 
     inputUser.value = '';
   });
 }
-buttonCreateItem('Adicionar');
+buttonCreateItem();
 
 function select() {
-  const boxItems = document.getElementById('lista-tarefas');
+  listItems.addEventListener('click', (event) => {
+    const list = document.querySelectorAll('.list-item');
 
-  boxItems.addEventListener('click', (event) => {
-    const listItems = document.querySelectorAll('.list-item');
-
-    for (let index = 0; index < listItems.length; index += 1) {
-      listItems[index].classList.remove('select');
+    for (let index = 0; index < list.length; index += 1) {
+      list[index].classList.remove('select');
     } event.target.classList.add('select');
   });
 }
@@ -54,9 +30,7 @@ select();
 const itemSelect = document.getElementsByClassName('select');
 
 function finished() {
-  const boxItems = document.getElementById('lista-tarefas');
-
-  boxItems.addEventListener('dblclick', (event) => {
+  listItems.addEventListener('dblclick', (event) => {
     if (event.target.classList.contains('completed') === true) {
       event.target.classList.remove('completed');
     } else {
@@ -66,11 +40,8 @@ function finished() {
 }
 finished();
 
-function buttonClear(clearName) {
-  const button = document.createElement('button');
-  button.id = 'apaga-tudo';
-  button.innerText = clearName;
-  section1.appendChild(button);
+function buttonClear() {
+  const button = document.getElementById('apaga-tudo');
 
   button.addEventListener('click', () => {
     const items = document.querySelectorAll('.list-item');
@@ -81,13 +52,10 @@ function buttonClear(clearName) {
   });
 }
 
-buttonClear('Limpar Lista');
+buttonClear();
 
-function buttonFinished(finishedName) {
-  const buttonF = document.createElement('button');
-  buttonF.id = 'remover-finalizados';
-  buttonF.innerText = finishedName;
-  section1.appendChild(buttonF);
+function buttonFinished() {
+  const buttonF = document.getElementById('remover-finalizados');
 
   buttonF.addEventListener('click', () => {
     const finishedItems = document.querySelectorAll('.completed');
@@ -97,28 +65,22 @@ function buttonFinished(finishedName) {
   });
 }
 
-buttonFinished('Remover Finalizados');
+buttonFinished();
 
-function buttonSave(saveName) {
-  const saveButton = document.createElement('button');
-  saveButton.id = 'salvar-tarefas';
-  saveButton.innerText = saveName;
-  section1.appendChild(saveButton);
+function buttonSave() {
+  const saveButton = document.getElementById('salvar-tarefas');
 
   saveButton.addEventListener('click', () => {
-    localStorage.setItem('lista-tarefas', listItems.innerHTML);
+    localStorage.setItem(listID, listItems.innerHTML);
   });
-  const saved = localStorage.getItem('lista-tarefas');
+  const saved = localStorage.getItem(listID);
   listItems.innerHTML = saved;
 }
 
-buttonSave('Salvar Tarefas');
+buttonSave();
 
 function buttonUp() {
-  const moveUp = document.createElement('button');
-  moveUp.id = 'mover-cima';
-  moveUp.innerText = 'Mover Para Cima';
-  section1.appendChild(moveUp);
+  const moveUp = document.getElementById('mover-cima');
 
   moveUp.addEventListener('click', () => {
     for (let index = 0; index < itemSelect.length; index += 1) {
@@ -133,13 +95,10 @@ function buttonUp() {
 buttonUp();
 
 function buttonDown() {
-  const moveDown = document.createElement('button');
+  const moveDown = document.getElementById('mover-baixo');
   moveDown.id = 'mover-baixo';
-  moveDown.innerText = 'Mover Para Baixo';
-  section1.appendChild(moveDown);
 
   moveDown.addEventListener('click', () => {
-    
     for (let index = 0; index < itemSelect.length; index += 1) {
       if (itemSelect[index].nextElementSibling != null) {
         const item = itemSelect[index];
@@ -152,15 +111,12 @@ function buttonDown() {
 buttonDown();
 
 function buttonRemoveSelect() {
-  const removeSelect = document.createElement('button');
-  removeSelect.id = 'remover-selecionado';
-  removeSelect.innerText = 'Remover Selecionado';
-  section1.appendChild(removeSelect);
+  const removeSelect = document.getElementById('remover-selecionado');
 
   removeSelect.addEventListener('click', () => {
     for (let index = 0; index < itemSelect.length; index += 1) {
-      let classItem = itemSelect[index].className;
-      if (classItem = 'select') {
+      const classItem = itemSelect[index].className;
+      if (classItem === 'select') {
         itemSelect[index].parentNode.removeChild(itemSelect[index]);
       }
     }
