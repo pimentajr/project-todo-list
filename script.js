@@ -4,9 +4,10 @@ taskList.innerHTML = localStorage.getItem('list');
 
 // ex 12 bonus (2/2)
 // Função que limpa input
-function clearInput(inputt) {
-  if (inputt.value !== '') {
-    inputt.value = '';
+function clearInput(input) {
+  let inputValue = input;
+  if (inputValue.value !== '') {
+    inputValue.value = '';
   }
 }
 
@@ -94,9 +95,7 @@ function upList() {
     return null;
   }
   selectedElement.parentNode.insertBefore(
-    selectedElement,
-    selectedElement.previousElementSibling
-  );
+    selectedElement, selectedElement.previousElementSibling);
 }
 
 function downList() {
@@ -108,9 +107,7 @@ function downList() {
     return null;
   }
   selectedElement.parentNode.insertBefore(
-    selectedElement,
-    selectedElement.nextElementSibling.nextElementSibling
-  );
+    selectedElement, selectedElement.nextElementSibling.nextElementSibling);
 }
 
 previousButoon.addEventListener('click', upList);
