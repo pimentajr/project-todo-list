@@ -86,23 +86,19 @@ button:hover {
   color: white;
 }
 
-#remover-selecionado,
-#apaga-tudo {
+#remover-selecionado,#apaga-tudo {
   background-color: rgba(185 , 34 , 34 , 0.9);
 }
 
-#remover-selecionado:hover,
-#apaga-tudo:hover {
+#remover-selecionado:hover,#apaga-tudo:hover {
   background-color: rgb(185 , 34 , 34);
 }
 
-#mover-cima,
-#mover-baixo {
+#mover-cima,#mover-baixo {
   background-color: rgba(255 , 102 , 0 , 0.9);
 }
 
-#mover-cima:hover,
-#mover-baixo:hover {
+#mover-cima:hover,#mover-baixo:hover {
   background-color: rgb(255 , 102 , 0);
 }
 
