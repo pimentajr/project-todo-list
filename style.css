@@ -14,10 +14,9 @@ body {
   margin: 0 auto;
 }
 
-
 .listItem {
   margin: 0 auto;
-  color:green;
+  color: green;
   list-style: none;
   font-weight: 900;
 }
@@ -26,19 +25,20 @@ body {
   padding-top: 20px;
 }
 
-.btn div{
+.btn div {
   margin: 0 auto;
   padding: 8px;
 }
 
 .listItem:hover {
   background-color: lightskyblue;
-  width: 50%;
+  width: 70%;
 }
 
 .selected {
-  color: grey;
+  background-color: grey;
   font-weight: 600;
+  width: 70%;
 }
 
 .completed {
