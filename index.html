@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Todo List</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js'></script>
 </head>
 <body>
     <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <input type="text " onfocus="this.value=''" id="texto-tarefa">
-        <button id="criar-tarefa">adicionar</button>
-    
-        <ol id="lista-tarefas">
+      <div class="content is-medium box">
+        <section class="section" class="box">
+        <h1 class="title">Minha Lista de Tarefas</h1>
+        <p id="funcionamento" class="subtitle">Clique duas vezes em um item para marcá-lo como completo</p>
+      </section>
+        <div class="field box">
+        <div class="control">
+        <input class="input is-primary" placeholder="Tarefas" type="text " onfocus="this.value=''" id="texto-tarefa" maxlength="200">
+        <button id="criar-tarefa" class="button is-primary">adicionar</button>
+      </div>
+  </div>
+  
+        <ol id="lista-tarefas" class="">
         </ol>
-        <button id="apaga-tudo">Limpar Lista</button>
-        <button id="remover-finalizados">Limpa Finalizados</button>
-        <button id="remover-selecionado" >Remover Selecionado</button>
-        <button id="salvar-tarefas">Salvar</button>
-        <button id="mover-cima">Cima</button>
-        <button id="mover-baixo">Baixo</button>
+        <section class="btn"> 
+
+          <div class="">
+            <span class="icon-text has-text-info">Up</span>
+            <button id="mover-cima"><i class="fas fa-angle-double-up icon has-text-info"></i></button>
+            <span class="icon-text has-text-danger">Down</span>
+            <button id="mover-baixo"><i class="fas fa-angle-double-down icon has-text-danger"></i></button>
+            
+          </div>
+
+        <div>
+        <button id="salvar-tarefas" class="button is-success">
+          <span class="icon is-small">
+            <i class="fas fa-check"></i>
+          </span>
+          <span>Salvar Tarefas</span>
+        </button>
+
+        <button id="remover-finalizados" class="button is-link">Limpar Finalizados</button>
+        <button id="remover-selecionado" class="button is-danger">Remover Selecionado</button>
+      </div>
+
+
+    <div>
+      <button id="apaga-tudo" class="button is-danger is-outlined"><span>Apagar Tudo</span>
+        <span class="icon is-small">
+        </span>
+      </button>
+    </div>
+      </section>
     </header>
 <script src="script.js"></script>
 </body>

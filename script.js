@@ -11,7 +11,6 @@ const selUpDown = document.getElementsByClassName('selected');
 
 function makingList() {
   if (inptText.value === '') {
-    alert('vazio');
     return false;
   }
   const mkLi = document.createElement('li');
