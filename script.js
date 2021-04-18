@@ -48,3 +48,19 @@ function textLine() {
   
   deleteFinished();
 
+  function salvamento() {
+    const salvarLI = list.innerHTML;
+    localStorage.listaSalva = salvarLI;
+  }
+  
+  function carregarListaSalva() {
+    if (localStorage.listaSalva) {
+      list.innerHTML = localStorage.listaSalva;
+    }
+  }
+  
+  carregarListaSalva();
+  
+  const btnSave = document.getElementById('salvar-tarefas');
+  btnSave.addEventListener('click', salvamento);
+
