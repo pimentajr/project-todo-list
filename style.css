@@ -27,7 +27,7 @@ header h1 {
 }
 
 header p {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 1.2em;
   font-style: italic;
   font-weight: 100;
@@ -66,18 +66,18 @@ input:focus {
 button {
   border: none;
   background-color: rgba(59, 178, 247, 0.9);
-  padding: 5px 20px 5px;
+  padding: 5px 20px;
   border-radius: 10px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.9em;
   margin-right: 10px;
   min-width: 40px;
-  font-weight: bold;
+  font-weight: 900;
 }
 
 button:focus {
-  outline: 0px auto -webkit-focus-ring-color;
-  outline-offset: 0px;
+  outline: 0 auto -webkit-focus-ring-color;
+  outline-offset: 0;
   box-shadow: 1px 1px 1px 1px rgb(136, 136, 136);
 }
 
@@ -86,19 +86,19 @@ button:hover {
   color: white;
 }
 
-#remover-selecionado, #apaga-tudo {
+#remover-selecionado,#apaga-tudo {
   background-color: rgba(185, 34, 34, 0.9);
 }
 
-#remover-selecionado:hover, #apaga-tudo:hover {
+#remover-selecionado:hover,#apaga-tudo:hover {
   background-color: rgb(185, 34, 34);
 }
 
-#mover-cima, #mover-baixo {
+#mover-cima,#mover-baixo {
   background-color: rgba(255, 102, 0, 0.9);
 }
 
-#mover-cima:hover, #mover-baixo:hover {
+#mover-cima:hover,#mover-baixo:hover {
   background-color: rgb(255, 102, 0);
 }
 
@@ -112,7 +112,7 @@ button:hover {
 
 #task {
   margin-left: 30px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Verdana, sans-serif;
   line-height: 1.6;
   width: 85%;
 }
@@ -124,7 +124,7 @@ button:hover {
 
 .tarefa {
   margin-left: 30px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Verdana, sans-serif;
   line-height: 1.6;
   width: 85%;
 }
@@ -145,5 +145,5 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: large;
-  font-weight: bold;
+  font-weight: 900;
 }
