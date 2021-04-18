@@ -6,3 +6,29 @@ body {
 header {
   font-size:xx-large;
 }
+
+ol {
+  padding: 100px;
+  position:relative;
+}
+ol li.checked {
+  background: rgb(128,128,128);
+  color: #fff;
+  text-decoration: line-through;
+}  
+ol li.checked::before {
+  content: "";
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+#texto-tarefa{
+  font-size: 20px;
+}
