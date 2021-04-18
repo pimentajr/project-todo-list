@@ -2,6 +2,7 @@ const btn = document.getElementById('criar-tarefa');
 const texto = document.querySelector('#texto-tarefa');
 const listaOrdenada = document.getElementById('lista-tarefas');
 const btnrm = document.getElementById('apaga-tudo');
+const btnrmcpd = document.getElementById('remover-finalizados');
 
 function botao(e) {
   const addLi = document.createElement('li');
@@ -43,3 +44,12 @@ function removeAll() {
 }
 
 btnrm.addEventListener('click', removeAll);
+
+function removeCompleted() {
+  const ol = document.querySelector('ol');
+  for (let index = 0; index < document.querySelectorAll('li').length; index += 1) {
+    ol.removeChild(document.querySelector('.completed'));
+  }
+}
+
+btnrmcpd.addEventListener('click', removeCompleted);
