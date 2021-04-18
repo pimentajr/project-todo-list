@@ -11,17 +11,5 @@ createTask.addEventListener('click', () => {
 const clickElement = document.getElementById('lista-tarefas');
 clickElement.addEventListener('click', (ev) => {
   const backColor = ev;
-  const taskLi = document.querySelectorAll('li');
-  taskLi.forEach((taskLis) => {
-    taskLis.classList.remove('ativo');
-  });
-  ev.target.classList.add('ativo');
-  const kLi = document.querySelectorAll('li');
-  kLi.forEach((item) => {
-    if (item.getAttribute('class') === 'ativo') {
-      backColor.target.style.backgroundColor = 'rgb(128,128,128)';
-    } else if (item.getAttribute('class') !== 'ativo') {
-      backColor.target.style.backgroundColor = 'white';
-    }
-  });
+  backColor.target.style.backgroundColor = 'rgb(128,128,128)';
 });
