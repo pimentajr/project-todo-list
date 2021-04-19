@@ -41,3 +41,14 @@ function onLimpaLista() {
 }
 
 botaoLimpaLista.addEventListener('click', onLimpaLista);
+
+const botaoRemoveFinalizados = document.getElementById('remover-finalizados');
+
+function onRemoveFinalizados() {
+  const finalizados = listaTarefas.querySelectorAll('.completed');
+  for (let index = 0; index < finalizados.length; index += 1) {
+    finalizados[index].remove();
+  }
+}
+
+botaoRemoveFinalizados.addEventListener('click', onRemoveFinalizados);
