@@ -26,29 +26,11 @@ ol li {
   user-select: none;
 }
 
-ol li:nth-child(odd) {
-  background: #f9f9f9;
-}
-
-ol li:hover {
-  background: #ddd;
-}
-
 .checked {
   text-decoration: line-through;
+  background-color: rgb(128, 128,128);
 }
 
-ol li.checked::before {
-  content: '';
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
-}
+
 
 
