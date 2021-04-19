@@ -1,4 +1,5 @@
 const btnCreatTask = document.querySelector('#criar-tarefa');
+const body = document.querySelector('body');
 const listTask = document.querySelector('#lista-tarefas');
 const taskContainer = document.querySelector('#container');
 const inputField = document.querySelector('#texto-tarefa');
@@ -17,4 +18,18 @@ function addTask() {
   }
 }
 
+function backgroundColor(event) {
+  const clickedItem = event.target;
+  const listTaskChildren = listTask.children;
+  const backColor = 'rgb(128, 128, 128)';
+  const selected = 'LI';
+  if (clickedItem.tagName === selected) {
+    for (let index = 0; index < listTaskChildren.length; index += 1) {
+      listTaskChildren[index].style.backgroundColor = '';
+    }
+    clickedItem.style.backgroundColor = backColor;
+  }
+}
+
+body.addEventListener('click', backgroundColor);
 btnCreatTask.addEventListener('click', addTask);
