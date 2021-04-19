@@ -1,9 +1,17 @@
-// fazer com que o botão remova o texto do input e adicione à lista:
 const campoDigitacao = document.querySelector('#texto-tarefa');
-// console.log(typingField);
 const botao = document.querySelector('#criar-tarefa');
-// console.log(botao);
-const lista = document.getElementById('lista-tarefas');
+const lista = document.querySelector('#lista-tarefas');
+
+const paiTres = document.querySelector('.seção3');
+const button = document.createElement('button');
+button.id = 'apaga-tudo';
+button.innerText = 'Limpar Tudo';
+paiTres.appendChild(button);
+
+const buttonEnd = document.createElement('button');
+buttonEnd.id = 'remover-finalizados';
+buttonEnd.innerText = 'Limpar Seleção';
+paiTres.appendChild(buttonEnd);
 
 // Requisito 5 e 6:
 
@@ -19,16 +27,27 @@ function adicionarTarefa() {
 
 adicionarTarefa();
 
-// // Requisito 7:
+// Requisito 7:
 
-// function selecionarLista(evento) {
-//   const itemSelecionado = document.querySelector('.selected');
-
-//   if (itemSelecionado !== null) {
-//     itemSelecionado.classList.remove('selected');
-//   }
-
-//   evento.target.classList.add('selected');
+// function selecionarLista() {
+//   const itemLista = document.createElement('li');
+//   itemLista.addEventListener('click', (events) => {
+//     events.target.style.backgroundColor = 'rgb(128, 128, 128)';
+//   });
 // }
 
 // selecionarLista();
+
+// Requisito 10:
+function deleteAllList() {
+  const deleteTudo = document.getElementById('apaga-tudo');
+
+  deleteTudo.addEventListener('click', () => {
+    const itemLista = document.querySelectorAll('.itemLista');
+    for (let index = 0; index < itemLista.length; index += 1) {
+      lista.removeChild(itemLista[index]);
+    }
+  });
+}
+
+deleteAllList();
