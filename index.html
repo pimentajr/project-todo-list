@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project to-do list</title>
+  <style></style>
 </head>
 <body>
   <header>
@@ -12,9 +13,12 @@
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
   <section id="newTask">
-    <input type="text" id="texto-tarefa"/>
-    <input type="button" value="New task" id="newTaskButtom">
+    <input type="text" id="texto-tarefa" placeholder="Nova tarefa..."/>
+    <input type="button" onclick="newTask()" value="New task" id="criar-tarefa">
   </section>
-  
+  <div>
+    <ol id="lista-tarefas"></ol>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
