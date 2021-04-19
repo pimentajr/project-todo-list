@@ -2,3 +2,13 @@
   font-family: Verdana, sans-serif;
   text-align: center;
 }
+
+.add-tasks {
+  text-align: center;
+  margin: auto;
+  width: 80%;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}

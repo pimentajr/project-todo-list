@@ -1,7 +1,8 @@
+const orderedList = document.getElementById('lista-tarefas');
+
 function addButton() {
   const idButton = document.getElementById('criar-tarefa');
   const inputTask = document.getElementById('texto-tarefa');
-  const orderedList = document.getElementById('lista-tarefas');
   idButton.addEventListener('click', () => {
     const makeAList = document.createElement('li');
     makeAList.className = 'tasks';
@@ -12,3 +13,14 @@ function addButton() {
   });
 }
 addButton();
+
+orderedList.addEventListener('click', (event) => {
+  const eventTarget = event.target;
+  const selectedItem = document.querySelector('.selected');
+
+  if (selectedItem) {
+    selectedItem.classList.remove('selected');
+  }
+
+  eventTarget.classList.add('selected');
+});
