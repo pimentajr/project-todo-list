@@ -5,7 +5,7 @@ function addTask() {
   const listIten = document.createElement('li');
   listIten.innerText = input.value;
   input.value = '';
-  orderList.appendChild(listIten);  
+  orderList.appendChild(listIten);
 }
 
 const button = document.getElementById('criar-tarefa');
@@ -21,11 +21,19 @@ function changeBackgroundLi(e) {
 }
 
 const taskList = document.querySelector('#lista-tarefas');
-taskList.addEventListener('click', changeBackgroundLi); 
+taskList.addEventListener('click', changeBackgroundLi);
 
-function riskTask (e) {
-  e.target.classList.toggle('completed')
+function riskTask(e) {
+  e.target.classList.toggle('completed');
 }
 
 const element = document.querySelector('#lista-tarefas');
-element.addEventListener('dblclick', riskTask); 
+element.addEventListener('dblclick', riskTask);
+
+function deleteAll() {
+  const element = document.getElementById('lista-tarefas');
+  element.innerText = "";
+}
+
+const deleteButton = document.getElementById('apaga-tudo');
+deleteButton.addEventListener('click', deleteAll);
