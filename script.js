@@ -82,7 +82,9 @@ function moveElementUp() {
   buttonMoveUp.addEventListener('click', function moveUp() {
     const selected = document.querySelectorAll('.backgroundItem')[0];
     const newPositionUp = selected.previousElementSibling;
-    toDoList.insertBefore(selected, newPositionUp);
+    if (selected !== toDoList.firstChild) {
+      toDoList.insertBefore(selected, newPositionUp);
+    }
   });
 }
 moveElementUp();
@@ -92,7 +94,9 @@ function moveElementDown() {
   buttonMoveDown.addEventListener('click', function moveDown() {
     const selected = document.querySelectorAll('.backgroundItem')[0];
     const newPositionDown = selected.nextElementSibling;
-    toDoList.insertBefore(selected, newPositionDown.nextElementSibling);
+    if (selected !== toDoList.lastChild) {
+      toDoList.insertBefore(selected, newPositionDown.nextElementSibling);
+    }
   });
 }
 moveElementDown();
