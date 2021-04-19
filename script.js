@@ -20,9 +20,19 @@ function giveSelect(e) {
   const clickedItem = e.target;
   const listItems = document.querySelectorAll('.item-list');
   for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].className = 'item-list';
+    listItems[index].classList.remove('selected');
   }
-  clickedItem.className = 'item-list selected';
+  clickedItem.className += ' selected';
 }
 
 taskList.addEventListener('click', giveSelect);
+
+// Changing text decoration
+function changeDecoration(e) {
+  if (e.target.classList.contains('completed')) {
+    e.target.classList.remove('completed');
+  } else {
+    e.target.classList.add('completed');
+  }
+}
+taskList.addEventListener('dblclick', changeDecoration);
