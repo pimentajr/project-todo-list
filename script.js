@@ -1,3 +1,11 @@
+window.onload = function() {
+  const getList = document.getElementById('lista-tarefas')
+  const getValue = localStorage.lista
+  let lis = document.createElement('li')
+  lis.innerHTML = getValue
+  getList.appendChild(lis)
+}
+
 function createP() {
   /// função que cria o paragrafo do titulo
   const slctDiv = document.querySelector('#paragraph');
@@ -77,6 +85,7 @@ function removeSelected() {
 }
 
 function moveUp() {
+  /// função que move o item seleciona acima
   const selectUp = document.querySelector('.selected');
   if (selectUp != null){
     if (selectUp.previousElementSibling){
@@ -88,6 +97,7 @@ function moveUp() {
 }
 
 function moveDown() {
+  /// função que move o item selecionado abaixo
   const selectDown = document.querySelector('.selected')
   if (selectDown != null){
     if (selectDown.nextElementSibling){
@@ -97,3 +107,11 @@ function moveDown() {
 
   }
 }
+
+function saveAll() {
+  /// função que salva tudo localmente
+  const getInfos = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('lista', getInfos);
+}
+
+
