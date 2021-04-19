@@ -76,15 +76,16 @@ function removeSelected() {
   selecteds.remove();
 }
 
-// if(listF.length){
-//   listF[listF.length-1].remove();
-// }
+function moveUp() {
+  const selectUp = document.querySelector('.selected');
+  if (selectUp.previousElementSibling){
+    selectUp.parentNode.insertBefore(selectUp, selectUp.previousElementSibling)
+  }
+}
 
-// crtElement.setAttribute('onclick', 'infos()')
-// crtElement.addEventListener('dblclick', dbclick)
-
-// var cont = 0
-// var listSelector = document.getElementsByTagName('li')
-// for (let iten = 0; iten < listSelector.length; itens += 1){
-//   cont += 1
-// }
+function moveDown() {
+  const selectDown = document.querySelector('.selected')
+  if (selectDown.nextElementSibling){
+    selectDown.parentNode.insertBefore(selectDown.nextElementSibling, selectDown);
+  }
+}
