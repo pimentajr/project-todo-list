@@ -1,9 +1,9 @@
 const btnCreatTask = document.querySelector('#criar-tarefa');
 const listTask = document.querySelector('#lista-tarefas');
 const taskContainer = document.querySelector('#container'); 
+const inputField = document.querySelector('#texto-tarefa');
 
 function addTask() {
-  btnCreatTask.addEventListener('click', () => {
   const task = inputField.value;
   if (task !=='') {
     const listItem = document.createElement('li');
@@ -16,6 +16,6 @@ function addTask() {
   } else {
     alert ('Tarefa inválida');
     }  
-  } )}
+  }
 
-//btnCreatTask.addEventListener('click', addTask);
+btnCreatTask.addEventListener('click', addTask);
