@@ -11,7 +11,6 @@ function createTasks() {
         itemTask.innerText = entry.value
         tasklist.appendChild(itemTask)
         entry.value= ''
-
     });
 }
 createTasks()
