@@ -1,5 +1,5 @@
 const listTarefas = document.getElementById('lista-tarefas'); //Lista a ser criada
-let criarTarefa = document.getElementById('criar-tarefa'); //BUTTON
+const criarTarefa = document.getElementById('criar-tarefa'); //BUTTON
 let textoTarefa = document.getElementById('texto-tarefa'); //INPUT
 
 // adicionando item na lista e zerando o input
@@ -19,12 +19,9 @@ criarTarefa.addEventListener('click', criarItem)
 function itemSelected(event) {
   let listItem = document.querySelector('.selected');
   const selectedItem = event.target;
-  if (selectedItem.className === 'listItens') {
-    selectedItem.classList.add('selected');
-  }
-  if (listItem.className === 'listItens selected') {
-    listItem.classList.remove('selected')
-  }
+  if (listItem) {
+    listItem.classList.remove('selected');
+  } selectedItem.classList.add('selected');
 }
 
 listTarefas.addEventListener('click', itemSelected);
