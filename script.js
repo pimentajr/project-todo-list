@@ -5,9 +5,8 @@ const inputField = document.querySelector('#texto-tarefa');
 
 function addTask() {
   const task = inputField.value;
-  if (task !=='') {
-    const listItem = document.createElement('li');
-  
+  if (task !== '') {
+    const listItem = document.createElement('li');  
     listItem.className = 'new-item';
     listItem.innerText = task;
     listTask.appendChild(listItem);
@@ -15,7 +14,7 @@ function addTask() {
     taskContainer.reset();
   } else {
     alert ('Tarefa inválida');
-    }  
-  }
+  }  
+}
 
 btnCreatTask.addEventListener('click', addTask);

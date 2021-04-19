@@ -6,18 +6,20 @@
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: #4CAF50;
+  color: white;
+  background-color: rgb(76, 175, 80);
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 9px rgb(153, 153, 153);
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover { 
+  background-color: rgb(62, 142, 65)
+}
 
 .button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  background-color: rgb(62, 142, 65);
+  box-shadow: 0 5px rgb(102, 102, 102);
   transform: translateY(4px);
 }
 
