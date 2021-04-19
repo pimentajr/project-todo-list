@@ -1,6 +1,5 @@
 function newTask() {
   const li = document.createElement('li');
-  li.className = "checked";
   const inputValue = document.getElementById('texto-tarefa').value;
   const text = document.createTextNode(inputValue);
   li.appendChild(text);
@@ -19,7 +18,7 @@ function newTask() {
   for (let index = 0; index < close.length; index++) {
     close[index].onclick = function() {
       var div = this.parentElement;
-      div.style.display = "none";
+      div.parentNode.removeChild(div);
     }
   }
 }
@@ -40,21 +39,23 @@ for (let index = 0; index < close.length; index++) {
   }
 }
 
-function deleteAllButton()
-{
-     var apagar = document.createElement('BUTTON');
-     var buttonName = document.createTextNode("Apaga tudo");
-     apagar.id = "apaga-tudo";  
-     apagar.appendChild(buttonName);   
-     apagar.onclick = function()
-     {
-        let lista = document.getElementById('lista-tarefas');
-        console.log(lista);
-        lista.innerHTML = "";
-     }
-     let menu = document.getElementById('menu');
-     menu.appendChild(apagar);    
-     
+function deleteAllButton(){
+    var apagar = document.createElement('BUTTON');
+  var buttonName = document.createTextNode("Apaga tudo");
+  apagar.id = "apaga-tudo";  
+  apagar.appendChild(buttonName);   
+  apagar.onclick = function() {
+    let lista = document.getElementById('lista-tarefas');
+    console.log(lista);
+    lista.innerHTML = "";
+  }
+  let menu = document.getElementById('menu');
+  menu.appendChild(apagar);
 }
 
 deleteAllButton();
+
+document.querySelector('ol').addEventListener('click', (e) => {
+  if (e.target.tagName === 'LI')
+    e.target.classList.toggle('checked');
+});
