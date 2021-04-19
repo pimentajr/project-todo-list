@@ -25,8 +25,8 @@ function addTodo() {
     Event.target.classList.add('selected');
   });
 
-  newLi.addEventListener('dblclick', function(event){
-    const isCompleted = Event.target.classList.contains('completed');
+  newLi.addEventListener('dblclick', (Event) => {
+    const isCompleted = Event.target.classList.add('completed');
     if (isCompleted) {
       Event.target.classList.remove('completed');
     } else {
