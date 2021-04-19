@@ -48,3 +48,9 @@ removeDone.addEventListener('click', () => {
     completedTasks[removeDoneIndex].remove();
   }
 });
+
+const saveList = document.getElementById('salvar-taregas');
+
+saveList.addEventListener('click', () => {
+  localStorage.setItem('tasks', orderedList.innerHTML);
+});
