@@ -3,6 +3,7 @@ const body = document.querySelector('body');
 const listTask = document.querySelector('#lista-tarefas');
 const taskContainer = document.querySelector('#container');
 const inputField = document.querySelector('#texto-tarefa');
+const deleteButton = document.querySelector('#apaga-tudo');
 
 function addTask() {
   const task = inputField.value;
@@ -39,6 +40,17 @@ function scratch(event) {
   }
 }
 
+function cleanList() {
+  localStorage.clear();
+  const listTaskItem = listTask.children;
+  if (listTaskItem.length !== 0) {
+    while (listTask.firstChild) {
+      listTask.firstChild.remove();
+    }
+  }
+}
+
 body.addEventListener('click', backgroundColor);
 body.addEventListener('dblclick', scratch);
 btnCreatTask.addEventListener('click', addTask);
+deleteButton.addEventListener('click', cleanList);
