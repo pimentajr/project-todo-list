@@ -1,5 +1,7 @@
 const list = document.getElementById('lista-tarefas');
 const apagaTudo = document.getElementById('apaga-tudo');
+const apagaFinalizados = document.getElementById('remover-finalizados');
+const listacompleted = document.getElementsByClassName('completed');
 
 function addNewTaskBtn() {
   const newListItem = document.createElement('li');
@@ -46,3 +48,13 @@ function deleteAll() {
 }
 
 deleteAll();
+
+function removeFinished() {
+  apagaFinalizados.addEventListener('click', () => {
+    while (listacompleted.length > 0) {
+      listacompleted[0].parentNode.removeChild(listacompleted[0]);
+    }
+  });
+}
+
+removeFinished();
