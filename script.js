@@ -14,8 +14,8 @@ function addButton() {
 }
 addButton();
 
-orderedList.addEventListener('click', (event) => {
-  const eventTarget = event.target;
+orderedList.addEventListener('click', (oneClick) => {
+  const eventTarget = oneClick.target;
   const selectedItem = document.querySelector('.selected');
 
   if (selectedItem) {
@@ -23,4 +23,13 @@ orderedList.addEventListener('click', (event) => {
   }
 
   eventTarget.classList.add('selected');
+});
+
+orderedList.addEventListener('dblclick', (doubleClick) => {
+  const doubleClickTarget = doubleClick.target;
+  if (doubleClickTarget.classList.contains('completed')) {
+    doubleClickTarget.classList.remove('completed');
+  } else {
+    doubleClickTarget.classList.add('completed');
+  }
 });
