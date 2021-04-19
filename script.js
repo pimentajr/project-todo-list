@@ -31,9 +31,23 @@ const element = document.querySelector('#lista-tarefas');
 element.addEventListener('dblclick', riskTask);
 
 function deleteAll() {
-  const element = document.getElementById('lista-tarefas');
-  element.innerText = "";
+  const elementLi = document.getElementById('lista-tarefas');
+  elementLi.innerText = '';
 }
 
 const deleteButton = document.getElementById('apaga-tudo');
 deleteButton.addEventListener('click', deleteAll);
+
+const divAction = document.querySelector('.div-action');
+const removeTaskCompleted = document.createElement('button');
+removeTaskCompleted.id = 'remover-finalizados';
+removeTaskCompleted.innerText = 'Limpar completos';
+divAction.appendChild(removeTaskCompleted);
+
+function clearTaskCompleted() {
+  const tasksCompleted = document.getElementsByClassName('completed');
+  for (let index = tasksCompleted.length - 1; index >= 0; index -= 1) {
+    tasksCompleted[index].parentNode.removeChild(tasksCompleted[index]);
+  }
+}
+removeTaskCompleted.addEventListener('click', clearTaskCompleted);
