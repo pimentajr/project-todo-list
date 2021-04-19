@@ -40,7 +40,7 @@ btnAdd.addEventListener('click', () => {
 });
 
 // Requisito 7 e 8
-// Fiz com a ajuda da Cárol Silva do Time de Instrução.
+// Fiz com a ajuda da Cárol Silva do Time de Instrução no Plantão do dia 19/04/2021.
 function selectedListItem(event) {
   const listItems = document.querySelectorAll('li');
   for (let index = 0; index < listItems.length; index += 1) {
@@ -50,3 +50,12 @@ function selectedListItem(event) {
 }
 const listItem = document.querySelector('#lista-tarefas');
 listItem.addEventListener('click', selectedListItem);
+
+// Requisito 9
+listItem.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('check')) {
+    event.target.classList.remove('check');
+  } else {
+    event.target.classList.add('check');
+  }
+});
