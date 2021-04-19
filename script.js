@@ -37,4 +37,9 @@ btnAdd.addEventListener('click', () => {
   listItems.innerHTML = valueInput;
   listOl.appendChild(listItems);
   clearInput();
+
+  // Requisito 7
+  listItems.addEventListener('click', () => {
+    listItems.style.backgroundColor = 'rgb(128,128,128)';
+  });
 });
