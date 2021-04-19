@@ -7,7 +7,7 @@ const buttonRemoverFinalizados = document.getElementById('remover-finalizados');
 const buttonApagarTudo = document.getElementById('apaga-tudo');
 const buttonMoverParaCima = document.getElementById('mover-cima');
 const buttonMoverParaBaixo = document.getElementById('mover-baixo');
-const buttonRemoverSelecionado = document.getElementById('remover-selecionado');
+const buttonRemoverSelecionados = document.getElementById('remover-selecionado');
 const buttonSalvarTarefas = document.getElementById('salvar-tarefas');
 
 title.innerText = 'Minha Lista de Tarefas';
@@ -17,7 +17,7 @@ buttonRemoverFinalizados.innerText = 'Remover finalizados';
 buttonApagarTudo.innerText = 'Apagar lista';
 buttonMoverParaCima.innerText = 'Sobe';
 buttonMoverParaBaixo.innerText = 'Desce';
-buttonRemoverSelecionado.innerText = 'Remover selecionados';
+buttonRemoverSelecionados.innerText = 'Remover selecionados';
 buttonSalvarTarefas.innerText = 'Salvar lista';
 
 function adicionarTarefa() {
@@ -73,6 +73,7 @@ function apagaItensSelecionados() {
   }
 }
 
+// Material que me ajudou: https://www.javascripttutorial.net/javascript-dom/javascript-siblings/
 function subirItemLista() {
   const itemToUp = document.querySelector('.selected');
   if (itemToUp) {
@@ -95,11 +96,25 @@ function descerItemLista() {
   }
 }
 
+function salvarTarefas() {
+  localStorage.setItem('myToDoList', listaTarefas.innerHTML);
+}
+
+function abrirTarefa() {
+  const savedFile = localStorage.getItem('myToDoList');
+  listaTarefas.innerHTML = savedFile;
+}
+
+window.onload = function opening() {
+  abrirTarefa();
+};
+
 buttonCriarTarefa.addEventListener('click', adicionarTarefa);
 listaTarefas.addEventListener('click', alteraCorItemListaTarefa);
 listaTarefas.addEventListener('dblclick', riscarItemListaTarefa);
 buttonRemoverFinalizados.addEventListener('click', apagaItensFinalizados);
 buttonApagarTudo.addEventListener('click', apagaListaToda);
-buttonRemoverSelecionado.addEventListener('click', apagaItensSelecionados);
+buttonRemoverSelecionados.addEventListener('click', apagaItensSelecionados);
 buttonMoverParaCima.addEventListener('click', subirItemLista);
 buttonMoverParaBaixo.addEventListener('click', descerItemLista);
+buttonSalvarTarefas.addEventListener('click', salvarTarefas);
