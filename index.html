@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=>, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -14,9 +13,18 @@
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>   
   </header>
 
-  <input type="text" id="texto-tarefa">
-  
-  <ol id="lista-tarefas"></ol>
-  
+  <div>
+    <form id="container">
+      <label for="texto-tarefa">Adicionar tarefa:</label><br>
+        <input placeholder="Digite aqui..." type="text" id="texto-tarefa">
+        <ol id="lista-tarefas"></ol>
+      </form>  
+  </div>
+
+  <div>
+    <button type="button" class="button" id="criar-tarefa">Tarefa</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
