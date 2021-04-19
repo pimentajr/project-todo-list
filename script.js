@@ -21,11 +21,14 @@ doubleClick.addEventListener('dblclick', (ev) => {
   ev.target.classList.toggle('completed');
 });
 
-const eraseButton = document.getElementById('apaga-tudo');
-eraseButton.addEventListener('click', () => {
-  const liSelect = document.querySelectorAll('li');
-  liSelect.forEach((ev) => {
-    const targo = ev;
-    targo.classList.add('apaga');
+function botao() {
+  const eraseButton = document.getElementById('apaga-tudo');
+  eraseButton.addEventListener('click', () => {
+    const erase = document.getElementById('div');
+    if (erase.parentNode) {
+      erase.parentNode.removeChild(erase);
+    }
   });
-});
+}
+
+botao();
