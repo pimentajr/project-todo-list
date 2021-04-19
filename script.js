@@ -74,6 +74,19 @@ function getInputFieldsFrom(container) {
   return labeledInputFields;
 }
 
+function selectTask(event) {
+  if (!event.target.classList.contains('task')) {
+    return;
+  }
+
+  const currentlySelectedTask = document.querySelector('.selected');
+  if (currentlySelectedTask && currentlySelectedTask !== event.target) {
+    currentlySelectedTask.classList.toggle('selected');
+  }
+
+  event.target.classList.toggle('selected');
+}
+
 function addTaskToMainViewContent(task) {
   const taskItem = document.createElement('li');
 
@@ -135,17 +148,22 @@ function initializeDatabase() {
 // were made to the formatting of the list items in the addTaskToMainViewContent(task).
 //
 // function updateMainViewToNewFormat() {
+//   applySavedDatabaseState();
 //   updateDatabaseEntry('mainViewContent', '');
+//
 //   const taskList = getDatabaseEntry('taskList');
-
+//
 //   for (let index = 0; index < taskList.length; index += 1) {
 //     addTaskToMainViewContent(taskList[index]);
 //   }
+//
+//   saveDatabaseState();
 // }
 
 window.onload = () => {
   initializeDatabase();
   addTaskForm.addEventListener('submit', addTaskToTaskList);
+  mainView.addEventListener('pointerdown', selectTask);
   applySavedDatabaseState();
   mainView.innerHTML = getDatabaseEntry('mainViewContent');
 };
