@@ -1,11 +1,27 @@
-const textoTarefa = document.querySelector('input#texto-tarefa');
+const addTaskInput = document.getElementById('texto-tarefa');
+const addTaskButton = document.getElementById('criar-tarefa');
 
-function criar() {
-  const lista = document.querySelector('ol#lista-tarefas');
-  const item = document.createElement('li');
-  item.appendChild(document.createTextNode(textoTarefa.value));
-  lista.appendChild(item);
-  console.log(textoTarefa.value);
+const taskList = document.getElementById('lista-tarefas');
+
+function addTask(text) {
+  taskList.insertAdjacentHTML('beforeend', 
+  `<li class="task">${text}</li>`
+  );
 }
-const criarTarefa = document.getElementById('criar-tarefa');
-criarTarefa.addEventListener('click', criar);
+
+function clearInput() {
+  addTaskInput.value = '';
+  addTaskInput.focus();
+}
+
+addTaskButton.addEventListener('click', () => {
+  addTask(addTaskInput.value);
+  clearInput();
+});
+
+addTaskInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    addTask(addTaskInput.value);
+    clearInput();
+  }
+})
