@@ -26,3 +26,7 @@
 #texto-tarefa {
   padding: 1px 5px;
 }
+
+.completed {
+  text-decoration: line-through;
+}

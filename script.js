@@ -31,5 +31,14 @@ function backgroundColor(event) {
   }
 }
 
+function scratch(event) {
+  const clickedItem = event.target;
+  const selected = 'LI';
+  if (clickedItem.tagName === selected) {
+    clickedItem.classList.toggle('completo')
+  }
+}
+
 body.addEventListener('click', backgroundColor);
+body.addEventListener('dblclick', scratch);
 btnCreatTask.addEventListener('click', addTask);
