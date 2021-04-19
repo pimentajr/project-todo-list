@@ -4,8 +4,8 @@ const BTN_CRIAR_TAREFA = document.getElementById('criar-tarefa');
 const BTN_APAGA_TUDO = document.getElementById('apaga-tudo');
 const BTN_REMOVER_FINALIZADOS = document.getElementById('remover-finalizados');
 
+const completedTaskArray = [];
 let lastTargetSelected;
-let completedTaskArray = [];
 
 function insertNewListItem() {
   const NEW_LI = document.createElement('li');
@@ -17,9 +17,9 @@ function insertNewListItem() {
 function selectLi(event) {
   const CURRENT_TARGET = event.target;
 
-  if (CURRENT_TARGET != lastTargetSelected) {
+  if (CURRENT_TARGET !== lastTargetSelected) {
     CURRENT_TARGET.classList.add('selected');
-    if (lastTargetSelected != undefined) {
+    if (lastTargetSelected !== undefined) {
       lastTargetSelected.classList.remove('selected');
     }
   }
@@ -30,7 +30,7 @@ function completedTask(event) {
   const CURRENT_TARGET = event.target;
   if (CURRENT_TARGET.classList[0] === 'completed' || CURRENT_TARGET.classList[1] === 'completed') {
     CURRENT_TARGET.classList.remove('completed');
-    completedTaskArray.splice(completedTaskArray.length-1, 1);
+    completedTaskArray.splice(completedTaskArray.length - 1, 1);
   } else {
     CURRENT_TARGET.classList.add('completed');
     completedTaskArray.push(CURRENT_TARGET);
@@ -38,8 +38,8 @@ function completedTask(event) {
 }
 
 function removeCompletedTasks() {
-  for (const INDEX of completedTaskArray) {
-    INDEX.remove();
+  for (let index = 0; index < completedTaskArray.length; index += 1) {
+    completedTaskArray[index].remove();
   }
 }
 
