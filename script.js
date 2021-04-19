@@ -3,6 +3,7 @@ const texto = document.querySelector('#texto-tarefa');
 const listaOrdenada = document.getElementById('lista-tarefas');
 const btnrm = document.getElementById('apaga-tudo');
 const btnrmcpd = document.getElementById('remover-finalizados');
+const btnSave = document.getElementById('salvar-tarefas');
 
 function botao(e) {
   const addLi = document.createElement('li');
@@ -53,3 +54,12 @@ function removeCompleted() {
 }
 
 btnrmcpd.addEventListener('click', removeCompleted);
+
+listaOrdenada.innerHTML = localStorage.getItem('list');
+
+function saveList() {
+  const list = document.querySelector('#lista-tarefas').innerHTML;
+  localStorage.setItem('list', list);
+}
+
+btnSave.addEventListener('click', saveList);
