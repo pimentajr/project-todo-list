@@ -5,6 +5,8 @@ const buttonClearAll = document.getElementById('apaga-tudo');
 const buttonRemoveFinish = document.getElementById('remover-finalizados');
 const buttonRemoveSelected = document.getElementById('remover-selecionado');
 const buttonSave = document.getElementById('salvar-tarefas');
+const bubttonUp = document.getElementById('mover-cima');
+const bubttonLow = document.getElementById('mover-baixo');
 
 const createTasks = () => {
   const task = document.createElement('li');
