@@ -48,10 +48,22 @@ function taskEraser() {
   }
 }
 
+function taskConcludedEraser() {
+  const tasks = document.querySelectorAll('li');
+  for (let index = 0; index < tasks.length; index += 1) {
+    if (tasks[index].classList[0] === 'completed') {
+      tasks[index].remove('li');
+    }
+  }
+}
+
 window.onload = () => {
   const addButton = document.querySelector('#criar-tarefa');
   addButton.addEventListener('click', taskAdder);
 
   const removeAllButton = document.querySelector('#apaga-tudo');
   removeAllButton.addEventListener('click', taskEraser);
+
+  const removeConcludedButton = document.querySelector('#remover-finalizados');
+  removeConcludedButton.addEventListener('click', taskConcludedEraser);
 };
