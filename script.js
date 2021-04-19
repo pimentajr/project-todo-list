@@ -1,7 +1,7 @@
 const INPUT_TEXTO_TAREFA = document.getElementById('texto-tarefa');
 const OL_LISTA_TAREFAS = document.getElementById('lista-tarefas');
 const BTN_CRIAR_TAREFA = document.getElementById('criar-tarefa');
-const LI_COMPLETED = document.getElementsByClassName('completed')
+const BTN_APAGA_TUDO = document.getElementById('apaga-tudo');
 
 let lastTargetSelected;
 
@@ -33,8 +33,13 @@ function completedTask(event) {
   }
 }
 
+function clearList() {
+  OL_LISTA_TAREFAS.innerHTML = '';
+}
+
 window.onload = () => {
   BTN_CRIAR_TAREFA.addEventListener('click', insertNewListItem);
+  BTN_APAGA_TUDO.addEventListener('click', clearList);
   OL_LISTA_TAREFAS.addEventListener('click', selectLi);
   OL_LISTA_TAREFAS.addEventListener('dblclick', completedTask);
 };
