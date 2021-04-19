@@ -19,7 +19,7 @@ criarTarefa.addEventListener('click', criarItem)
 function itemSelected(event) {
   let listItem = document.querySelector('.selected');
   const selectedItem = event.target;
-  if (selectedItem.className === 'listItens') {
+  if (selectedItem.className !== 'listItens selected') {
     selectedItem.classList.add('selected');
     listItem.classList.remove('selected');    
   }
