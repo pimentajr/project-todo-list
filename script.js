@@ -65,4 +65,4 @@ body.addEventListener('click', backgroundColor);
 body.addEventListener('dblclick', scratch);
 btnCreatTask.addEventListener('click', addTask);
 deleteButton.addEventListener('click', cleanList);
-finishedButton.addEventListener('click', removeFinishedItems);
+finishedButton.addEventListener('click', removeFinished);
