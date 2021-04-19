@@ -22,6 +22,7 @@ function createButtonAddTask() {
   const section = document.querySelector('section');
   section.appendChild(btnAddTask);
   btnAddTask.id = 'criar-tarefa';
+  btnAddTask.innerText = 'Criar tarefa';
 }
 createButtonAddTask();
 
@@ -58,4 +59,20 @@ listItem.addEventListener('dblclick', (event) => {
   } else {
     event.target.classList.add('check');
   }
+});
+
+// Requisito 10
+function createBtnClearList() {
+  const btnClearList = document.createElement('button');
+  const section = document.querySelector('section');
+  section.appendChild(btnClearList);
+  btnClearList.id = 'apaga-tudo';
+  btnClearList.innerText = 'Apagar Tudo';
+}
+createBtnClearList();
+
+const btnClear = document.getElementById('apaga-tudo');
+btnClear.addEventListener('click', () => {
+  const listItems = document.querySelectorAll('li');
+  listOl.remove(listItems);
 });
