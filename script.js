@@ -1,9 +1,7 @@
 window.onload = function() {
   const getList = document.getElementById('lista-tarefas')
   const getValue = localStorage.lista
-  let lis = document.createElement('li')
-  lis.innerHTML = getValue
-  getList.appendChild(lis)
+  getList.innerHTML = getValue
 }
 
 function createP() {
