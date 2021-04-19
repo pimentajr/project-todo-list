@@ -1,58 +1,25 @@
-const addTaskInput = document.getElementById('texto-tarefa');
-const addTaskButton = document.getElementById('criar-tarefa');
-
+const createTask = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const task = document.getElementById('texto-tarefa');
 
-
-function toggleTaskCompleted(e) {
-  const task = e.target;
-
-  task.classList.toggle('completed');
-}
-
-
-
-let selectedTask;
-
-function selectTask(e) {
-  const task = e.target;
-
-  task.style.backgroundColor = 'rgb(128, 128, 128)';
-  
-
-  if (selectedTask) {
-    selectedTask.style.backgroundColor = null;
-  }
-  selectedTask = task;
-}
-
-function addTask(text) {
-  taskList.insertAdjacentHTML('beforeend', 
-  `<li class="task">${text}</li>`
-  );
-}
-
-function clearInput() {
-  addTaskInput.value = '';
-  addTaskInput.focus();
-}
-
-addTaskButton.addEventListener('click', () => {
-  addTask(addTaskInput.value);
-  clearInput();
+createTask.addEventListener('click', () => {
+  const listItem = document.createElement('li');
+  listItem.innerText = task.value;
+  taskList.appendChild(listItem);
+  task.value = '';
 });
 
-addTaskInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    addTask(addTaskInput.value);
-    clearInput();
-  }
-})
 
-addTaskInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    addTask(addTaskInput.value);
-    clearInput();
-  }
-});
 
+function selectedTask() {
+  taskList.addEventListener('click', (event) => {
+    const targetEvent = event.target;
+    const selectedItem = document.querySelector('.selected');
+    if (selectedItem) {
+      selectedItem.classList.remove('selected');
+    }
+    targetEvent.classList.add('selected');
+  });
+}
+
+selectedTask();
