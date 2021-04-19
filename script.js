@@ -1,73 +1,84 @@
+// Requisitos 5 e 6
 const list = document.getElementById('lista-tarefas');
 
-function botaoNovaTarefa() {
-  const novoItemLista = document.createElement('li');
-  const textoTarefa = document.getElementById('texto-tarefa');
+function btnAddNewTask() {
+  const newListItem = document.createElement('li');
+  const taskText = document.getElementById('texto-tarefa');
 
-  list.appendChild(novoItemLista).innerHTML = textoTarefa .value;
-  textoTarefa .value = '';
+  list.appendChild(newListItem).innerHTML = taskText.value;
+  taskText.value = '';
 }
 
-const adicionarNovaTarefa = () => {
-  const botaoCriarTarefa = document.getElementById('criar-tarefa');
-  botaoCriarTarefa.addEventListener('click', botaoNovaTarefa);
+const addNewTask = () => {
+  const btnCreateTask = document.getElementById('criar-tarefa');
+  btnCreateTask.addEventListener('click', btnAddNewTask);
 };
 
-adicionarNovaTarefa();
+addNewTask();
 
+// Requisitos 7 e 8
 
-  //questao 7 e 8
+function paintGrey() {
+  list.addEventListener('click', (event) => {
+    const selected = document.querySelector('.fundo-cinza');
 
-  function paintGrey() {
-    list.addEventListener('click', (event) => {
-      const selected = document.querySelector('.fundo-cinza');
-  
-      if (selected != null) {
-        selected.classList.remove('fundo-cinza');
-      }
-      event.target.classList.add('fundo-cinza');
-    });
-  }
-  
-  paintGrey();
-  
-
-  
- 
-//questao 9
-
-
-
-  //questao 11
-
-  function deleteFinished() {
-    const btnDeleteFinished = document.getElementById('remover-finalizados');
-    btnDeleteFinished.addEventListener('click', () => {
-      const finished = document.querySelectorAll('.completed');
-  
-      for (let index = 0; index < finished.length; index += 1) {
-        list.removeChild(finished[index]);
-      }
-    });
-  }
-  
-  deleteFinished();
-
-//question 12
-
-  function salvamento() {
-    const salvarLI = list.innerHTML;
-    localStorage.listaSalva = salvarLI;
-  }
-  
-  function carregarListaSalva() {
-    if (localStorage.listaSalva) {
-      list.innerHTML = localStorage.listaSalva;
+    if (selected != null) {
+      selected.classList.remove('fundo-cinza');
     }
-  }
-  
-  carregarListaSalva();
-  
-  const btnSave = document.getElementById('salvar-tarefas');
-  btnSave.addEventListener('click', salvamento);
+    event.target.classList.add('fundo-cinza');
+  });
+}
 
+paintGrey();
+
+// Requisito 9
+
+function textLine() {
+  list.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+
+textLine();
+
+function clearAll() {
+  const btnClear = document.getElementById('apaga-tudo');
+  btnClear.addEventListener('click', () => {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    }
+  });
+}
+
+clearAll();
+
+// Requisito 11
+function deleteFinished() {
+  const btnDeleteFinished = document.getElementById('remover-finalizados');
+  btnDeleteFinished.addEventListener('click', () => {
+    const finished = document.querySelectorAll('.completed');
+
+    for (let index = 0; index < finished.length; index += 1) {
+      list.removeChild(finished[index]);
+    }
+  });
+}
+
+deleteFinished();
+
+// Requisito 12
+function salvamento() {
+  const salvarLI = list.innerHTML;
+  localStorage.listaSalva = salvarLI;
+}
+
+function carregarListaSalva() {
+  if (localStorage.listaSalva) {
+    list.innerHTML = localStorage.listaSalva;
+  }
+}
+
+carregarListaSalva();
+
+const btnSave = document.getElementById('salvar-tarefas');
+btnSave.addEventListener('click', salvamento);
