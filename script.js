@@ -1,4 +1,5 @@
 const list = document.getElementById('lista-tarefas');
+const apagaTudo = document.getElementById('apaga-tudo');
 
 function addNewTaskBtn() {
   const newListItem = document.createElement('li');
@@ -34,4 +35,14 @@ function scratchLine() {
   });
 }
 
-scratchLine()
+scratchLine();
+
+function deleteAll() {
+  apagaTudo.addEventListener('click', () => {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    }
+  });
+}
+
+deleteAll();
