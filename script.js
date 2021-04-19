@@ -10,6 +10,9 @@ createTask.addEventListener('click', () => {
 
 const clickElement = document.getElementById('lista-tarefas');
 clickElement.addEventListener('click', (ev) => {
-  const backColor = ev;
-  backColor.target.style.backgroundColor = 'rgb(128,128,128)';
+  const selectLI = document.querySelectorAll('li');
+  selectLI.forEach((item) => {
+    item.classList.remove('ativo');
+  });
+  ev.target.classList.add('ativo');
 });
