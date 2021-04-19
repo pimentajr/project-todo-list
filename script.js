@@ -7,9 +7,22 @@ function teste() {
   const newTask = inputText.value;
   const newListTask = document.createElement('li');
   newListTask.innerText = newTask;
+  newListTask.className = 'item-list';
   taskList.appendChild(newListTask);
 
   inputText.value = '';
 }
 
 button.addEventListener('click', teste);
+
+// Changing item background
+function giveSelect(e) {
+  const clickedItem = e.target;
+  const listItems = document.querySelectorAll('.item-list');
+  for (let index = 0; index < listItems.length; index += 1) {
+    listItems[index].className = 'item-list';
+  }
+  clickedItem.className = 'item-list selected';
+}
+
+taskList.addEventListener('click', giveSelect);

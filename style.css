@@ -1,0 +1,9 @@
+.item-list {
+    background-color: darksalmon;
+    margin: 0 0;
+    max-width: 500px;
+}
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}
