@@ -1,8 +1,8 @@
-window.onload = function() {
-  const getList = document.getElementById('lista-tarefas')
-  const getValue = localStorage.lista
-  getList.innerHTML = getValue
-}
+window.onload = function () {
+  const getList = document.getElementById('lista-tarefas');
+  const getValue = localStorage.lista;
+  getList.innerHTML = getValue;
+};
 
 function createP() {
   /// função que cria o paragrafo do titulo
@@ -85,24 +85,28 @@ function removeSelected() {
 function moveUp() {
   /// função que move o item seleciona acima
   const selectUp = document.querySelector('.selected');
-  if (selectUp != null){
-    if (selectUp.previousElementSibling){
-      selectUp.parentNode.insertBefore(selectUp, selectUp.previousElementSibling)
+  if (selectUp != null) {
+    if (selectUp.previousElementSibling) {
+      selectUp.parentNode.insertBefore(
+        selectUp,
+        selectUp.previousElementSibling,
+      );
     }
   } else {
-
   }
 }
 
 function moveDown() {
   /// função que move o item selecionado abaixo
-  const selectDown = document.querySelector('.selected')
-  if (selectDown != null){
-    if (selectDown.nextElementSibling){
-      selectDown.parentNode.insertBefore(selectDown.nextElementSibling, selectDown);
+  const selectDown = document.querySelector('.selected');
+  if (selectDown != null) {
+    if (selectDown.nextElementSibling) {
+      selectDown.parentNode.insertBefore(
+        selectDown.nextElementSibling,
+        selectDown,
+      );
     }
   } else {
-
   }
 }
 
@@ -111,5 +115,3 @@ function saveAll() {
   const getInfos = document.getElementById('lista-tarefas').innerHTML;
   localStorage.setItem('lista', getInfos);
 }
-
-
