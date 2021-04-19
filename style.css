@@ -11,24 +11,50 @@ ol {
   padding: 100px;
   position:relative;
 }
-ol li.checked {
-  background: rgb(128,128,128);
-  color: #fff;
-  text-decoration: line-through;
-}  
-ol li.checked::before {
-  content: "";
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
+div {
+  border-radius: 10px;
+  background-color:rgb(192, 189, 189);
 }
-
 #texto-tarefa{
+  margin-top: 10px;
   font-size: 20px;
 }
+#criar-tarefa {
+  margin-top: 10px;
+  font-size: 20px;
+  border-width: 0px;  
+  color: white;
+  background-color:#54a1fa;
+}
+#apaga-tudo {
+  background-color:rgb(192, 189, 189) ;
+  margin-top: 10px;
+  font-size: 20px;
+
+}
+#remover-finalizados {
+  margin-top: 10px;
+  font-size: 20px;
+  color: white;
+  background-color:rgb(172, 5, 32)
+}
+#salvar-tarefas {
+  background-color: rgb(192, 189, 189);
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#remover-selecionado {
+  margin-top: 10px;
+  font-size: 20px;
+  color: white;
+  background-color:rgb(172, 5, 32);
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.selected {
+  background-color: gray;
+} 
