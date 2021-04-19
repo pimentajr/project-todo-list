@@ -35,7 +35,7 @@ function scratch(event) {
   const clickedItem = event.target;
   const selected = 'LI';
   if (clickedItem.tagName === selected) {
-    clickedItem.classList.toggle('completo')
+    clickedItem.classList.toggle('completed');
   }
 }
 
