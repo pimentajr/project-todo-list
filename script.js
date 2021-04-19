@@ -33,3 +33,11 @@ function addTarefaNaLista() {
 }
 
 botao.addEventListener('click', addTarefaNaLista);
+
+const botaoLimpaLista = document.getElementById('apaga-tudo');
+
+function onLimpaLista() {
+  listaTarefas.innerHTML = '';
+}
+
+botaoLimpaLista.addEventListener('click', onLimpaLista);
