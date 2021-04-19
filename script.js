@@ -20,12 +20,12 @@ function addTodo() {
   newLi.addEventListener('click', (Event) => {
     const arrayLi = document.getElementsByTagName('li');
     for (let index = 0; index < arrayLi.length; index += 1) {
-      arrayLi[i].classList.remove('selected');
+      arrayLi[index].classList.remove('selected');
     }
     Event.target.classList.add('selected');
   });
 
-  newLi.addEventListener('dblclick', (Event) => {
+  newLi.addEventListener('dblclick', function(event){
     const isCompleted = Event.target.classList.contains('completed');
     if (isCompleted) {
       Event.target.classList.remove('completed');
@@ -40,7 +40,7 @@ function addTodo() {
 
 function delAll() {
   const olList = document.getElementById('lista-tarefas');
-  olList.innerHTML = '';
+  olList.innerHTML = "";
 }
 
 function deleteItem() {

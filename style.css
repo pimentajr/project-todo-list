@@ -52,9 +52,9 @@ div {
 }
 
 .completed {
-  text-decoration: line-through solid black;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 .selected {
-  background-color: gray;
+  background-color: rgb(128,128,128);
 } 
