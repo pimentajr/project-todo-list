@@ -21,14 +21,18 @@ doubleClick.addEventListener('dblclick', (ev) => {
   ev.target.classList.toggle('completed');
 });
 
-function botao() {
-  const eraseButton = document.getElementById('apaga-tudo');
-  eraseButton.addEventListener('click', () => {
-    const erase = document.getElementById('div');
-    if (erase.parentNode) {
-      erase.parentNode.removeChild(erase);
-    }
-  });
-}
+const eraseButton = document.getElementById('apaga-tudo');
+eraseButton.addEventListener('click', () => {
+  const erase = document.querySelector('div');
+  if (erase.parentNode) {
+    erase.parentNode.removeChild(erase);
+  }
+});
 
-botao();
+const removeFeitos = document.getElementById('div2');
+removeFeitos.addEventListener('click', () => {
+  const eraseDone = document.querySelector('.completed');
+  if (eraseDone.parentNode) {
+    eraseDone.parentNode.removeChild(eraseDone);
+  }
+});
