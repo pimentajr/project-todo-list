@@ -9,3 +9,7 @@
 .completed {
   text-decoration: line-through;
 }
+
+.apaga {
+  display: none;
+}

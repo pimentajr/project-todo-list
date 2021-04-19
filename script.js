@@ -7,6 +7,7 @@ createTask.addEventListener('click', () => {
   tasklist.appendChild(itemTask);
   task.value = '';
 });
+
 const doubleClick = document.getElementById('lista-tarefas');
 doubleClick.addEventListener('click', (ev) => {
   const selectLI = document.querySelectorAll('li');
@@ -18,4 +19,13 @@ doubleClick.addEventListener('click', (ev) => {
 
 doubleClick.addEventListener('dblclick', (ev) => {
   ev.target.classList.toggle('completed');
+});
+
+const eraseButton = document.getElementById('apaga-tudo');
+eraseButton.addEventListener('click', () => {
+  const liSelect = document.querySelectorAll('li');
+  liSelect.forEach((ev) => {
+    const targo = ev;
+    targo.classList.add('apaga');
+  });
 });
