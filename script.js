@@ -8,9 +8,9 @@ function criarItem() {
     let inputValue = textoTarefa.value;
 
     listItem.innerText = inputValue;
-    listTarefas.appendChild(listItem);
     listItem.className = 'listItens';
-    inputValue = '';
+    listTarefas.appendChild(listItem);
+    textoTarefa.value = '';
 }
 
 criarTarefa.addEventListener('click', criarItem)
