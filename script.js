@@ -4,6 +4,7 @@ const listTask = document.querySelector('#lista-tarefas');
 const taskContainer = document.querySelector('#container');
 const inputField = document.querySelector('#texto-tarefa');
 const deleteButton = document.querySelector('#apaga-tudo');
+const finishedButton = document.querySelector('#remover-finalizados');
 
 function addTask() {
   const task = inputField.value;
@@ -50,7 +51,18 @@ function cleanList() {
   }
 }
 
+function removeFinished() {
+  for (let index = 0; index < listTask.children.length; index += 1) {
+    if (listTask.children[index].className === 'new-item completed') {
+      listTask.children[index].remove();
+    }
+  }
+  console.log(listTask.children[1].className);
+  console.log(localStorage);
+}
+
 body.addEventListener('click', backgroundColor);
 body.addEventListener('dblclick', scratch);
 btnCreatTask.addEventListener('click', addTask);
 deleteButton.addEventListener('click', cleanList);
+finishedButton.addEventListener('click', removeFinishedItems);
