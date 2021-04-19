@@ -16,3 +16,8 @@ clickElement.addEventListener('click', (ev) => {
   });
   ev.target.classList.add('ativo');
 });
+
+const twoClick = document.getElementById('lista-tarefas');
+twoClick.addEventListener('dblclick', (ev) => {
+  ev.target.classList.toggle('completed');
+});
