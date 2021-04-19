@@ -25,7 +25,7 @@ function giveSelect(e) {
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].classList.remove('selected');
   }
-  clickedItem.className += ' selected';
+  clickedItem.classList.add('selected');
 }
 taskList.addEventListener('click', giveSelect);
 
