@@ -36,8 +36,7 @@ function lineItem(event3) {
 orderList.addEventListener('dblclick', lineItem);
 
 // * Consultei o repositório de islene Gomes para resolver esta parte
-/* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/while*/
-//** Link: https://github.com/tryber/sd-011-project-todo-list/pull/15/files /*
+/* Link: https://github.com/tryber/sd-011-project-todo-list/pull/15/files */
 // requisito 10
 const buttonDelete = document.getElementById('apaga-tudo'); // chama o botão de delete
 function removeItens() {
