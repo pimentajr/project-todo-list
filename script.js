@@ -35,16 +35,13 @@ function creatButtonClosed() {
 }
 creatButtonClosed();
 
-
-  var close = document.getElementsByClassName("close");
-  for (let index = 0; index < close.length; index++) {
-    close[index].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
+var close = document.getElementsByClassName("close");
+for (let index = 0; index < close.length; index++) {
+  close[index].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
   }
-
-
+}
 
 function deleteAllButton(){
     var apagar = document.createElement('BUTTON');
@@ -53,13 +50,11 @@ function deleteAllButton(){
   apagar.appendChild(buttonName);   
   apagar.onclick = function() {
     let lista = document.getElementById('lista-tarefas');
-    console.log(lista);
     lista.innerHTML = "";
   }
   let menu = document.getElementById('menu');
   menu.appendChild(apagar);
 }
-
 deleteAllButton();
 
 function selectTask() {
