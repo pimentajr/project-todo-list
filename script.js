@@ -33,3 +33,9 @@ orderedList.addEventListener('dblclick', (doubleClick) => {
     doubleClickTarget.classList.add('completed');
   }
 });
+
+const clickDell = document.getElementById('apaga-tudo');
+
+clickDell.addEventListener('click', () => {
+  orderedList.innerHTML = '';
+});
