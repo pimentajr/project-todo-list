@@ -19,6 +19,7 @@ const databaseKeys = Object.getOwnPropertyNames(databaseStructure);
 function Task() {
   this.title = '';
   this.addedOn = Date.now();
+  this.completed = false;
 }
 
 function isNumber(element) {
@@ -72,6 +73,24 @@ function getInputFieldsFrom(container) {
   }
 
   return labeledInputFields;
+}
+
+function taskIndex(taskUid) {
+  const currentTaskList = getDatabaseEntry('taskList');
+  let found = false;
+  let index = 0;
+
+  for (; !found && index < currentTaskList.length; index += 1) {
+    if (currentTaskList[index].addedOn === taskUid) {
+      found = true;
+    }
+  }
+
+  if (found) {
+    return index - 1;
+  }
+
+  return -1;
 }
 
 function selectTask(event) {
@@ -132,7 +151,9 @@ function applySavedDatabaseState() {
 }
 
 function maySetDatabaseKeyValue(key, databaseArea) {
-  if (databaseArea.getItem(key) === undefined) {
+  const item = databaseArea.getItem(key);
+
+  if (item === undefined || item === null) {
     const stringifiedValue = JSON.stringify(databaseStructure[key]);
     databaseArea.setItem(key, stringifiedValue);
   }
@@ -144,21 +165,6 @@ function initializeDatabase() {
     maySetDatabaseKeyValue(databaseKeys[index], savedDatabaseState);
   }
 }
-// The function below can be used to update the main view in case changes
-// were made to the formatting of the list items in the addTaskToMainViewContent(task).
-//
-// function updateMainViewToNewFormat() {
-//   applySavedDatabaseState();
-//   updateDatabaseEntry('mainViewContent', '');
-//
-//   const taskList = getDatabaseEntry('taskList');
-//
-//   for (let index = 0; index < taskList.length; index += 1) {
-//     addTaskToMainViewContent(taskList[index]);
-//   }
-//
-//   saveDatabaseState();
-// }
 
 window.onload = () => {
   initializeDatabase();
