@@ -22,22 +22,29 @@ function newTask() {
     }
   }
 }
-var myNodelist = document.getElementsByTagName("li");
-for (let index = 0; index < myNodelist.length; index++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[index].appendChild(span);
-}
 
-var close = document.getElementsByClassName("close");
-for (let index = 0; index < close.length; index++) {
-  close[index].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
+function creatButtonClosed() {
+  var myNodelist = document.getElementsByTagName("li");
+  for (let index = 0; index < myNodelist.length; index++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[index].appendChild(span);
   }
 }
+creatButtonClosed();
+
+
+  var close = document.getElementsByClassName("close");
+  for (let index = 0; index < close.length; index++) {
+    close[index].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+
+
 
 function deleteAllButton(){
     var apagar = document.createElement('BUTTON');
@@ -55,7 +62,10 @@ function deleteAllButton(){
 
 deleteAllButton();
 
-document.querySelector('ol').addEventListener('click', (e) => {
-  if (e.target.tagName === 'LI')
-    e.target.classList.toggle('checked');
-});
+function selectTask() {
+  document.querySelector('ol').addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI')
+      e.target.classList.toggle('checked');
+  });
+}
+selectTask();
