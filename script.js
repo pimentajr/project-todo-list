@@ -14,5 +14,9 @@ function addItem() {
   itemName.value = ('');
 }
 function selectListItem() {
+  if (document.querySelector('.selectedListItem') != null) {
+    let previousSelection = document.querySelector('.selectedListItem');
+    previousSelection.classList.remove('selectedListItem');
+  }
   this.classList.add('selectedListItem');
 }
