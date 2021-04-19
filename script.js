@@ -76,14 +76,12 @@ function getList() {
 getList();
 
 // Botões de mover
-// Referencia documentação - https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 function moveElementUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
   buttonMoveUp.addEventListener('click', function moveUp() {
-    const selected = document.querySelectorAll('.backgroundItem')[0];
-    const newPositionUp = selected.previousElementSibling;
-    if (selected !== toDoList.firstChild) {
-      toDoList.insertBefore(selected, newPositionUp);
+    const selected = document.getElementsByClassName('backgroundItem')[0];
+    if (selected && selected.previousElementSibling !== null) {
+      toDoList.insertBefore(selected, selected.previousElementSibling);
     }
   });
 }
@@ -92,14 +90,19 @@ moveElementUp();
 function moveElementDown() {
   const buttonMoveDown = document.getElementById('mover-baixo');
   buttonMoveDown.addEventListener('click', function moveDown() {
-    const selected = document.querySelectorAll('.backgroundItem')[0];
-    const newPositionDown = selected.nextElementSibling;
-    if (selected !== toDoList.lastChild) {
-      toDoList.insertBefore(selected, newPositionDown.nextElementSibling);
+    const selected = document.getElementsByClassName('backgroundItem')[0];
+    if (selected && selected.nextElementSibling !== null) {
+      toDoList.insertBefore(selected.nextElementSibling, selected);
     }
   });
 }
 moveElementDown();
+
+/* Referências para a condição especial do requisito 13:
+https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling - (caso o elemento seja o ultimo retorna null)
+https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+https://www.w3schools.com/js/js_htmldom_navigation.asp
+https://www.w3schools.com/js/js_htmldom_elements.asp */
 
 // Botão para remover apenas o item selecionado
 const buttonRemoveItem = document.getElementById('remover-selecionado');
