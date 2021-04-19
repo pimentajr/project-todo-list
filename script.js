@@ -1,19 +1,9 @@
-const taskList = 'lista-tarefas';
-const listItems = document.getElementById(taskList);
-
-function createTask() {
-  const button = document.getElementById('criar-tarefa');
-
-  button.addEventListener('click', () => {
-    const inputUser = document.getElementById('texto-tarefa');
-    const list = document.createElement('li');
-    list.className = 'list-item';
-    list.innerText = inputUser.value;
-
-    listItems.appendChild(list);
-
-    inputUser.value = '';
-  )};
-}
-createTask();
-
+const createTask = document.getElementById('criar-tarefa');
+const taskList = document.getElementById('lista-tarefas');
+const task = document.getElementById('texto-tarefa');
+createTask.addEventListener('click', () => {
+  const listItem = document.createElement('li');
+  listItem.innerText = task.value;
+  taskList.appendChild(listItem);
+  task.value = '';
+});
