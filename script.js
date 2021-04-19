@@ -15,42 +15,14 @@ const adicionarNovaTarefa = () => {
 
 adicionarNovaTarefa();
 
-//questa 07 e 08
 
-//function paintGrey() {
-   // list.addEventListener('click', (event) => {
-    //  const selected = document.querySelector('.fundo-cinza');
   
-     // if (selected != null) {
-     //   selected.classList.remove('fundo-cinza');
-      //}
-      //event.target.classList.add('fundo-cinza');
-    //});
-  //}
-  
-  //paintGrey();    
+
   
  
 //questao 9
 
-function textLine() {
-    list.addEventListener('dblclick', (event) => {
-      event.target.classList.toggle('completed');
-    });
-  }
-  
-  textLine();
-  
-  function clearAll() {
-    const btnClear = document.getElementById('apaga-tudo');
-    btnClear.addEventListener('click', () => {
-      while (list.firstChild) {
-        list.removeChild(list.firstChild);
-      }
-    });
-  }
-  
-  clearAll();
+
 
   //questao 11
 
