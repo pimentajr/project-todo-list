@@ -2,6 +2,7 @@
 const buttonNewTask = document.getElementById('criar-tarefa');
 const buttonCleanAll = document.getElementById('apaga-tudo');
 const buttonCleanCompleted = document.getElementById('remover-finalizados');
+const buttonRemoveSelected = document.getElementById('remover-selecionado');
 const inputText = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 
@@ -56,4 +57,9 @@ function cleanCompleted() {
 }
 buttonCleanCompleted.addEventListener('click', cleanCompleted);
 
-cleanCompleted();
+// Remove selected item
+function removeSelected() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+}
+buttonRemoveSelected.addEventListener('click', removeSelected);
