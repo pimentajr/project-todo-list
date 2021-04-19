@@ -46,3 +46,14 @@ function cleanAll() {
   }
 }
 buttonCleanAll.addEventListener('click', cleanAll);
+
+// Clean completed
+function cleanCompleted() {
+  const list = document.querySelectorAll('.completed');
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].remove();
+  }
+}
+buttonCleanCompleted.addEventListener('click', cleanCompleted);
+
+cleanCompleted();
