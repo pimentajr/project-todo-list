@@ -78,16 +78,22 @@ function removeSelected() {
 
 function moveUp() {
   const selectUp = document.querySelector('.selected');
-  if (selectUp.previousElementSibling){
-    selectUp.parentNode.insertBefore(selectUp, selectUp.previousElementSibling)
-    selectUp.classList.remove('selected')
+  if (selectUp != null){
+    if (selectUp.previousElementSibling){
+      selectUp.parentNode.insertBefore(selectUp, selectUp.previousElementSibling)
+    }
+  } else {
+
   }
 }
 
 function moveDown() {
   const selectDown = document.querySelector('.selected')
-  if (selectDown.nextElementSibling){
-    selectDown.parentNode.insertBefore(selectDown.nextElementSibling, selectDown);
-    selectDown.classList.remove('selected')
+  if (selectDown != null){
+    if (selectDown.nextElementSibling){
+      selectDown.parentNode.insertBefore(selectDown.nextElementSibling, selectDown);
+    }
+  } else {
+
   }
 }
