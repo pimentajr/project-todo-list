@@ -37,9 +37,16 @@ btnAdd.addEventListener('click', () => {
   listItems.innerHTML = valueInput;
   listOl.appendChild(listItems);
   clearInput();
-
-  // Requisito 7
-  listItems.addEventListener('click', () => {
-    listItems.style.backgroundColor = 'rgb(128,128,128)';
-  });
 });
+
+// Requisito 7 e 8
+// Fiz com a ajuda da Cárol Silva do Time de Instrução.
+function selectedListItem(event) {
+  const listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    listItems[index].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
+const listItem = document.querySelector('#lista-tarefas');
+listItem.addEventListener('click', selectedListItem);
