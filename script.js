@@ -9,6 +9,10 @@ function addItem() {
   toDoList.appendChild(newItem);
   const itemName = document.getElementById('texto-tarefa');
   newItem.innerText = itemName.value;
+  newItem.className = 'listItem';
+  newItem.addEventListener('click', selectListItem);
   itemName.value = ('');
-
+}
+function selectListItem() {
+  this.classList.add('selectedListItem');
 }
