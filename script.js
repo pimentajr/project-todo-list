@@ -19,7 +19,15 @@ function selectedTask() {
     targetEvent.classList.add('selected');
   });
 }
-
 selectedTask();
 
-
+function streakTask() {
+  taskList.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains ('completed')) {
+      event.target.classList.remove ('completed');
+    } else {
+        event.target.classList.add ('completed');
+      }
+  });
+}
+streakTask();
