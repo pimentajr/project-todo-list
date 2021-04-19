@@ -39,18 +39,3 @@ const clickDell = document.getElementById('apaga-tudo');
 clickDell.addEventListener('click', () => {
   orderedList.innerHTML = '';
 });
-
-const removeDone = document.getElequementById('remover-finalizados');
-
-removeDone.addEventListener('click', () => {
-  const completedTasks = document.getElementsByClassName('completed');
-  for (let removeDoneIndex = 0; removeDoneIndex < completedTasks.length; removeDoneIndex += 1) {
-    completedTasks[removeDoneIndex].remove();
-  }
-});
-
-const saveList = document.getElementById('salvar-taregas');
-
-saveList.addEventListener('click', () => {
-  localStorage.setItem('tasks', orderedList.innerHTML);
-});
