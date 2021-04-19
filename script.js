@@ -39,8 +39,9 @@ function addTodo() {
 }
 
 function delAll() {
-  const olList = document.getElementById('lista-tarefas');
-  olList.innerHTML = "";
+  const olList = document.getElementById( 'li');
+  document.removeChild("li");
+  //olList.innerHTML = "";
 }
 
 function deleteItem() {
