@@ -1,5 +1,5 @@
 const listTarefas = document.getElementById('lista-tarefas'); //Lista a ser criada
-const criarTarefa = document.getElementById('criar-tarefa'); //BUTTON
+let criarTarefa = document.getElementById('criar-tarefa'); //BUTTON
 let textoTarefa = document.getElementById('texto-tarefa'); //INPUT
 
 // adicionando item na lista e zerando o input
@@ -26,5 +26,13 @@ function itemSelected(event) {
 
 listTarefas.addEventListener('click', itemSelected);
 
+// botao de apagar a lista
+const clearButton = document.getElementById('apaga-tudo');
+
+function cleanAll() {
+    listTarefas.innerText = '';
+}
+
+clearButton.addEventListener('click', cleanAll);
 
 
