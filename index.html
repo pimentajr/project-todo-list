@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <center>
+    <header>
+      <div class="titles">
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </div>  
+    </header>
+  </center>  
+  <main>
+    <center>
+      <div class="layout">
+        <input type="text" id="texto-tarefa">
+        <br>
+        <button id="criar-tarefa">Cria</button>
+        <button id="apaga-tudo">❌</button>
+        <button id="remover-finalizados">Remove Finalizados</button>
+        <button id="salvar-tarefas">✅</button>
+        <button id="mover-cima">⬆️</button>
+        <button id="mover-baixo">⬇️</button>
+        <button id="remover-selecionado">Remove Selecionados</button>
+        <ol id="lista-tarefas"></ol>
+      </div>
+    </center>    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
