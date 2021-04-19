@@ -24,7 +24,7 @@ const orderedList = document.querySelector('#lista-tarefas');
 
 function changeListItemBackgroundColor(event) {
   const aux = event;
-  let tasklist = document.querySelectorAll('.tasks');
+  const tasklist = document.querySelectorAll('.tasks');
   for (let index = 0; index < tasklist.length; index += 1) {
     if (tasklist[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       tasklist[index].style.backgroundColor = 'transparent';
@@ -77,7 +77,6 @@ removeCompletedButton.addEventListener('click', removeCompleted);
 
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 
-
 function saveTasksLocalStorage() {
   localStorage.setItem('taskList', orderedList.innerHTML);
 }
@@ -98,14 +97,3 @@ function removeSelectedItems() {
 }
 
 buttonRmvSelected.addEventListener('click', removeSelectedItems);
-
-const moveUpButton = document.querySelector('#mover-cima');
-
-function moveUp() {
-  for (let item of orderedList) {
-    let tempValue = item;
-
-  }
-}
-
-moveUp.addEventListener('click', moveUp)
