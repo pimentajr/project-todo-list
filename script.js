@@ -7,9 +7,8 @@ createTask.addEventListener('click', () => {
   tasklist.appendChild(itemTask);
   task.value = '';
 });
-
-const clickElement = document.getElementById('lista-tarefas');
-clickElement.addEventListener('click', (ev) => {
+const doubleClick = document.getElementById('lista-tarefas');
+doubleClick.addEventListener('click', (ev) => {
   const selectLI = document.querySelectorAll('li');
   selectLI.forEach((item) => {
     item.classList.remove('ativo');
@@ -17,7 +16,6 @@ clickElement.addEventListener('click', (ev) => {
   ev.target.classList.add('ativo');
 });
 
-const twoClick = document.getElementById('lista-tarefas');
-twoClick.addEventListener('dblclick', (ev) => {
+doubleClick.addEventListener('dblclick', (ev) => {
   ev.target.classList.toggle('completed');
 });
