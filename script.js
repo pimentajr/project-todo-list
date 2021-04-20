@@ -15,36 +15,9 @@ addTask.addEventListener('click', () => {
   else {
     document.getElementById('lista-tarefas').appendChild(li);
   }
-  document.getElementById('texto-tarefa').value = "";
+  document.getElementById('texto-tarefa').value = null;
 
-  creatButtonClosed(li)
 });
-
-function creatButtonClosed(li) {
-  var span = document.createElement('button');
-  var txt = document.createTextNode('\u00D7');
-  span.className = 'close';
-  span.appendChild(txt);
-  li.appendChild(span);
-  for (let index = 0; index < close.length; index += 1) {
-    close[index].onclick = function() {
-      var div = this.parentElement;
-      div.parentNode.removeChild(div);
-    }
-  }
-}
-
-function addButtonClosed() {
-  var myNodelist = document.getElementsByTagName("li");
-  for (let index = 0; index < myNodelist.length; index += 1) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[index].appendChild(span);
-  }
-}
-addButtonClosed();
 
 function deleteAllButton(){
   var apagarAll = document.createElement('BUTTON');
@@ -91,11 +64,4 @@ moveDownButton.addEventListener('click', () => {
   }
 });
 
-var close = document.getElementsByClassName("close");
-for (let index = 0; index < close.length; index += 1) {
-  close[index].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
 }
