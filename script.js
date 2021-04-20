@@ -11,7 +11,7 @@ function addTask() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-function classChanger(event) {
+function taskSelector(event) {
   const tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].classList.remove('selected');
@@ -20,7 +20,7 @@ function classChanger(event) {
   taskDone.classList.add('selected');
 }
 
-taskList.addEventListener('click', classChanger);
+taskList.addEventListener('click', taskSelector);
 
 function taskCompleted(event) {
   if (event.target.classList.contains('completed')) {
@@ -31,3 +31,13 @@ function taskCompleted(event) {
 }
 
 taskList.addEventListener('dblclick', taskCompleted);
+
+function removeDTasksDone() {
+  const tasksDone = document.querySelectorAll('li.completed');
+  for (let index = 0; index < tasksDone.length; index += 1) {
+    tasksDone[index].remove();
+  }
+}
+
+const clearDonesBtn = document.querySelector('#remover-finalizados');
+clearDonesBtn.addEventListener('click', removeDTasksDone);
