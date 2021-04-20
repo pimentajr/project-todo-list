@@ -11,13 +11,23 @@ function addTask() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-function classChanger (event) {
-  let tasks = document.querySelectorAll('li')
+function classChanger(event) {
+  const tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
-    tasks[index].className = '';
+    tasks[index].classList.remove('selected');
   }
-  let taskDone = event.target;
-  taskDone.className = 'selected';
+  const taskDone = event.target;
+  taskDone.classList.add('selected');
 }
 
-taskList.addEventListener('click', classChanger)
+taskList.addEventListener('click', classChanger);
+
+function taskCompleted(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+taskList.addEventListener('dblclick', taskCompleted);
