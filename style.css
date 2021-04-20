@@ -3,5 +3,5 @@
 }
 
 .completed {
-    text-decoration: black;
+    text-decoration: line-through black;
 }
