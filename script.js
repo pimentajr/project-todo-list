@@ -12,7 +12,7 @@ function addTask() {
 }
 
 function selectTask() {
-  const taskSelect = document.querySelector('#lista-tarefas'); 
+  const taskSelect = document.querySelector('#lista-tarefas');
   const items = document.getElementsByTagName('li');
   taskSelect.addEventListener('click', (event) => {
     const selected = event.target;
@@ -37,7 +37,7 @@ function concludedTask() {
 }
 concludedTask();
 
-function clear () {
+function clear() {
   const itemCheck = document.getElementsByClassName('item');
   for (let index = itemCheck.length - 1; index >= 0; index -= 1) {
     itemCheck[index].remove();
