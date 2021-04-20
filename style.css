@@ -30,6 +30,8 @@ html, body {
     margin: 0;
     cursor: pointer;
     font-size: 20px;
+    counter-increment: section;
+    content: "Section" counter(section)
 }
 
 .to-dos {

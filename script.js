@@ -1,9 +1,9 @@
 let addToDoButton = document.getElementById('criar-tarefa');
-let toDoContainer = document.getElementById('toDoContainer');
+let toDoContainer = document.getElementById('lista-tarefas');
 let inputField = document.getElementById("texto-tarefa");
 
 addToDoButton.addEventListener('click', function(){
-    var paragraph = document.createElement('p');
+    var paragraph = document.createElement('li');
     paragraph.classList.add('paragraph-styling');
     paragraph.innerText = inputField.value;
     toDoContainer.appendChild(paragraph);
