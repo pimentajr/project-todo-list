@@ -13,10 +13,14 @@ listaTarefas.addEventListener('click', function(event) {
   let tarefas = document.querySelectorAll('li')
   for (let i = 0; i < tarefas.length; i += 1) {
     tarefas[i].classList = 'noSelected';
-    
+
     event.target.classList = 'selected'
 
-    let taskSelected = document.querySelector('.selected');
-    taskSelected.style.backgroundColor = 'rgb(128, 128, 128)'
+      let taskSelected = document.querySelector('.selected');
+      taskSelected.style.backgroundColor = 'rgb(128, 128, 128)'
+    
+    if (tarefas[i].className === 'noSelected') {
+      tarefas[i].style.backgroundColor = 'white';
+    } 
   }
 });
