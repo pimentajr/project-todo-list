@@ -72,9 +72,10 @@ function createBtnClearList() {
 createBtnClearList();
 
 const btnClear = document.getElementById('apaga-tudo');
+const list = document.querySelector('#lista-tarefas');
 btnClear.addEventListener('click', () => {
   const listItems = document.querySelectorAll('li');
-  listOl.remove(listItems);
+  list.remove(listItems);
 });
 
 // Requisito 11
@@ -88,12 +89,12 @@ function createBtnRemoveCheck() {
 createBtnRemoveCheck();
 
 const btnRemoveTask = document.getElementById('remover-finalizados');
+const olList = document.querySelector('#lista-tarefas');
 btnRemoveTask.addEventListener('click', () => {
-  const listOl = document.querySelector('#lista-tarefas');
-  const listItem = document.querySelectorAll('.check');
-  for (let index = 0; index < listItem.length; index += 1) {
-    if (listItem[index].classList.contains('check')) {
-      listOl.removeChild(listItem[index]);
+  const listItem1 = document.querySelectorAll('.check');
+  for (let index = 0; index < listItem1.length; index += 1) {
+    if (listItem1[index].classList.contains('check')) {
+      olList.removeChild(listItem1[index]);
     }
   }
 });
@@ -117,4 +118,25 @@ btnSalved.addEventListener('click', () => {
   let listItems = document.querySelectorAll('li');
   listItems = JSON.stringify(listItem.innerHTML);
   localStorage.setItem('Taks', listItems);
+});
+
+// Requisito 14
+function createBtnRemoveTaskSelected() {
+  const btnRemoveTaskSelected = document.createElement('button');
+  const section = document.querySelector('section');
+  section.appendChild(btnRemoveTaskSelected);
+  btnRemoveTaskSelected.id = 'remover-selecionado';
+  btnRemoveTaskSelected.innerText = 'Remover Selecionado';
+}
+createBtnRemoveTaskSelected();
+
+const btnRemoveTaskSelected = document.getElementById('remover-selecionado');
+btnRemoveTaskSelected.addEventListener('click', () => {
+  const olList2 = document.querySelector('#lista-tarefas');
+  const listOfItem = document.querySelectorAll('.selected');
+  for (let index = 0; index < listOfItem.length; index += 1) {
+    if (listOfItem[index].classList.contains('selected')) {
+      olList2.removeChild(listOfItem[index]);
+    }
+  }
 });
