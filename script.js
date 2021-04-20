@@ -29,14 +29,17 @@ adicionarTarefa();
 
 // Requisito 7:
 
-// function selecionarLista() {
-//   const itemLista = document.createElement('li');
-//   itemLista.addEventListener('click', (events) => {
-//     events.target.style.backgroundColor = 'rgb(128, 128, 128)';
-//   });
-// }
-
-// selecionarLista();
+function selecionarTarefa() {
+  lista.addEventListener('click', (event) => {
+    const acao = event.target;
+    const itemSelecionado = document.querySelector('.selected');
+    if (itemSelecionado) {
+      itemSelecionado.classList.remove('selected');
+    }
+    acao.classList.add('selected');
+  });
+}
+selecionarTarefa();
 
 // Requisito 10:
 function deleteAllList() {
