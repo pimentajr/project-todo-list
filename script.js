@@ -18,17 +18,19 @@ function criarTarefa() {
   //  listaTarefas é pai de newItem
   listaTarefas.appendChild(newItem);
 }
-
-function isSelected(event) {
-  for (let i = 0; i < taskList.length; i += 1) {
-    taskList[i].classList = 'noSelected';
-    event.target.classList = 'selected';
+botaoAdd.addEventListener('click', criarTarefa);
+/*
+function isSelected(e) {
+  for (let index = 0; index < taskList.length; index += 1) {
+    taskList[index].classList = 'noSelected';
+    e.target.classList = 'selected';
     const taskSelected = document.querySelector('.selected');
     taskSelected.style.backgroundColor = 'rgb(128, 128, 128)';
-    if (taskList[i].className === 'noSelected') {
-      taskList[i].style.backgroundColor = 'white';
+    if (taskSelected[index].className === 'noSelected') {
+      taskSelected[index].style.backgroundColor = 'white';
     }
   }
 }
-botaoAdd.addEventListener('click', criarTarefa);
+
 taskList.addEventListener('click', isSelected);
+*/
