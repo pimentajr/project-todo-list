@@ -1,7 +1,6 @@
 const tarefaInput = document.getElementById('texto-tarefa');
 const botaoAdd = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
-const taskList = document.getElementsByClassName('item');
 
 function criarTarefa() {
   if (tarefaInput.value === '') {
@@ -18,7 +17,6 @@ function criarTarefa() {
   //  listaTarefas é pai de newItem
   listaTarefas.appendChild(newItem);
 }
-botaoAdd.addEventListener('click', criarTarefa);
 /*
 function isSelected(e) {
   for (let index = 0; index < taskList.length; index += 1) {
@@ -31,6 +29,22 @@ function isSelected(e) {
     }
   }
 }
-
-taskList.addEventListener('click', isSelected);
 */
+let lastSelected;
+
+function isSelected(event) {
+  const targetAtual = event.target;
+
+  if (targetAtual !== lastSelected) {
+    targetAtual.classList.add('selected');
+    if (lastSelected !== undefined) {
+      lastSelected.classList.remove('selected');
+    }
+  }
+  lastSelected = targetAtual;
+}
+
+window.onload = () => {
+  botaoAdd.addEventListener('click', criarTarefa);
+  listaTarefas.addEventListener('click', isSelected);
+};
