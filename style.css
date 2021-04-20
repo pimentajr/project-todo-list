@@ -4,7 +4,9 @@
 }
 
 header {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #001242;
   color: #F1FAEE;
@@ -13,4 +15,9 @@ header {
   font-family: Paytone One, sans-serif;
 }
 
-
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
