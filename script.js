@@ -120,10 +120,10 @@ saveTasks.innerText = 'Salvar';
 divInputs2.appendChild(saveTasks);
 
 function salvarTarefas() {
+  const taskList = document.querySelector('#lista-tarefas');
   saveTasks.addEventListener('click', () => {
-    const taskList = document.querySelector('#lista-tarefas');
     localStorage.setItem('listItems', taskList.innerHTML);
-    taskList.innerHTML = localStorage.getItem('listItems');
   });
+  taskList.innerHTML = localStorage.getItem('listItems');
 }
 salvarTarefas();
