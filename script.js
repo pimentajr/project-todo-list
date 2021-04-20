@@ -27,7 +27,7 @@ function adicionarTarefa() {
 
 adicionarTarefa();
 
-// Requisito 7:
+// Requisito 7 e 8:
 
 function selecionarTarefa() {
   lista.addEventListener('click', (event) => {
@@ -37,9 +37,34 @@ function selecionarTarefa() {
       itemSelecionado.classList.remove('selected');
     }
     acao.classList.add('selected');
+    if (!itemSelecionado) {
+      itemSelecionado.classList.remove('selected');
+    }
   });
 }
 selecionarTarefa();
+
+// lista.addEventListener('click', (event) => {
+//   const acao = event.target;
+//   if (acao.classList.contains('selected')) {
+//     acao.classList.remove('selected');
+//   } else {
+//     acao.classList.add('selected');
+//   }
+// });
+
+// Requisito 9
+function tarefaFinalizada() {
+  lista.addEventListener('dblclick', (event) => {
+    const acao = event.target;
+    if (acao.classList.contains('completed')) {
+      acao.classList.remove('completed');
+    } else {
+      acao.classList.add('completed');
+    }
+  });
+}
+tarefaFinalizada();
 
 // Requisito 10:
 function deleteAllList() {
