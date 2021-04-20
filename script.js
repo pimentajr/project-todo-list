@@ -2,6 +2,7 @@ const addTaskInputField = document.getElementById('texto-tarefa');
 const addTaskButton = document.getElementById('criar-tarefa');
 const clearAllButton = document.getElementById('apaga-tudo');
 const removeCompletedButton = document.getElementById('remover-finalizados');
+const removeSelectedButton = document.getElementById('remover-selecionado');
 const saveListMainViewContentButton = document.getElementById('salvar-tarefas');
 const moveSelectedUpButton = document.getElementById('mover-cima');
 const moveSelectedDownButton = document.getElementById('mover-baixo');
@@ -10,7 +11,7 @@ const mainView = document.getElementById('lista-tarefas');
 function moveSelectedDown() {
   const currentlySelected = document.querySelector('.selected');
 
-  if (!currentlySelected.nextElementSibling) {
+  if (!currentlySelected || currentlySelected === mainView.lastElementChild) {
     return;
   }
 
@@ -20,7 +21,7 @@ function moveSelectedDown() {
 function moveSelectedUp() {
   const currentlySelected = document.querySelector('.selected');
 
-  if (!currentlySelected.previousElementSibling) {
+  if (!currentlySelected || currentlySelected === mainView.firstElementChild) {
     return;
   }
 
@@ -29,6 +30,16 @@ function moveSelectedUp() {
 
 function saveListMainViewContent() {
   localStorage.setItem('mainViewContent', mainView.innerHTML);
+}
+
+function removeSelected() {
+  const currentlySelected = document.querySelector('.selected');
+
+  if (!currentlySelected) {
+    return;
+  }
+
+  currentlySelected.remove();
 }
 
 function removeCompleted() {
@@ -62,7 +73,7 @@ function toggleSelected(event) {
     currentlySelected.classList.remove('selected');
   }
 
-  event.target.classList.toggle('selected');
+  event.target.classList.add('selected');
 }
 
 function addTaskToMainView() {
@@ -87,6 +98,7 @@ window.onload = () => {
   mainView.addEventListener('dblclick', toggleCompleted);
   clearAllButton.addEventListener('click', clearAll);
   removeCompletedButton.addEventListener('click', removeCompleted);
+  removeSelectedButton.addEventListener('click', removeSelected);
   saveListMainViewContentButton.addEventListener('click', saveListMainViewContent);
   moveSelectedUpButton.addEventListener('click', moveSelectedUp);
   moveSelectedDownButton.addEventListener('click', moveSelectedDown);
