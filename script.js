@@ -10,6 +10,10 @@ function newTask() {
     document.getElementById('lista-tarefas').appendChild(li);
   }
   document.getElementById('texto-tarefa').value = "";
+  creatButtonClosed(li)
+}
+
+function creatButtonClosed(li) {
   var span = document.createElement('button');
   var txt = document.createTextNode('\u00D7');
   span.className = 'close';
@@ -23,7 +27,7 @@ function newTask() {
   }
 }
 
-function creatButtonClosed() {
+function addButtonClosed() {
   var myNodelist = document.getElementsByTagName("li");
   for (let index = 0; index < myNodelist.length; index += 1) {
     var span = document.createElement("SPAN");
@@ -33,7 +37,7 @@ function creatButtonClosed() {
     myNodelist[index].appendChild(span);
   }
 }
-creatButtonClosed();
+addButtonClosed();
 
 var close = document.getElementsByClassName("close");
 for (let index = 0; index < close.length; index += 1) {
