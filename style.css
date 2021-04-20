@@ -21,3 +21,7 @@ section {
   justify-content: center;
   align-items: center;
 }
+
+.selected {
+  background-color: rgb (128, 128, 128);
+}
