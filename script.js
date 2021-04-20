@@ -1,7 +1,7 @@
 const tarefaInput = document.getElementById('texto-tarefa');
 const botaoAdd = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
-
+const apagaTudo = document.getElementById('apaga-tudo');
 function criarTarefa() {
   if (tarefaInput.value === '') {
     return false;
@@ -44,7 +44,12 @@ function isSelected(event) {
   lastSelected = targetAtual;
 }
 
+function clearList() {
+  listaTarefas.innerHTML = '';
+}
+
 window.onload = () => {
   botaoAdd.addEventListener('click', criarTarefa);
   listaTarefas.addEventListener('click', isSelected);
+  apagaTudo.addEventListener('click', clearList);
 };
