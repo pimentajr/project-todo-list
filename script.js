@@ -37,21 +37,9 @@ function selecionarTarefa() {
       itemSelecionado.classList.remove('selected');
     }
     acao.classList.add('selected');
-    if (!itemSelecionado) {
-      itemSelecionado.classList.remove('selected');
-    }
   });
 }
 selecionarTarefa();
-
-// lista.addEventListener('click', (event) => {
-//   const acao = event.target;
-//   if (acao.classList.contains('selected')) {
-//     acao.classList.remove('selected');
-//   } else {
-//     acao.classList.add('selected');
-//   }
-// });
 
 // Requisito 9
 function tarefaFinalizada() {
