@@ -1,4 +1,4 @@
-const addTask = document.getElementById('criar-tarefa');
+addTask = document.getElementById('criar-tarefa');
 const selectTask = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
@@ -18,7 +18,6 @@ addTask.addEventListener('click', () => {
   }
   document.getElementById('texto-tarefa').value = null;
 });
-
 function deleteAllButton() {
   const apagarAll = document.createElement('BUTTON');
   const buttonName = document.createTextNode('Apaga tudo');
@@ -37,18 +36,14 @@ selectTask.addEventListener('dblclick', function(event) {
   let tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].classList = 'noSelected';
-
     event.target.classList = 'selected'
-
       let taskSelected = document.querySelector('.selected');
       taskSelected.style.backgroundColor = 'rgb(128, 128, 128)'
-
     if (tasks[index].className === 'noSelected') {
       tasks[index].style.backgroundColor = 'white';
     } 
   }
 });
-
 function taskCompleted(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -56,9 +51,7 @@ function taskCompleted(event) {
     event.target.classList.add('completed');
   }
 }
-
 selectTask.addEventListener('dblclick', taskCompleted);
-
 moveUpButton.addEventListener('click', () => {
   const itemList = document.getElementsByTagName('li');
   for (let index = 0; index < itemList.length; index += 1) {
