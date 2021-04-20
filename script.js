@@ -1,6 +1,11 @@
 const addTaskInputField = document.getElementById('texto-tarefa');
 const addTaskButton = document.getElementById('criar-tarefa');
+const clearAllButton = document.getElementById('apaga-tudo');
 const mainView = document.getElementById('lista-tarefas');
+
+function clearAll() {
+  mainView.innerHTML = '';
+}
 
 function toggleCompleted(event) {
   if (!event.target.classList.contains('task')) {
@@ -37,4 +42,5 @@ window.onload = () => {
   addTaskButton.addEventListener('click', addTaskToMainView);
   mainView.addEventListener('click', toggleSelected);
   mainView.addEventListener('dblclick', toggleCompleted);
+  clearAllButton.addEventListener('click', clearAll);
 };
