@@ -2,6 +2,9 @@ const addTask = document.getElementById('criar-tarefa');
 const selectTask = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
+const list = document.querySelector('#lista-tarefas');
+
+
 addTask.addEventListener('click', () => {
   const li = document.createElement('li');
   const inputValue = document.getElementById('texto-tarefa').value;
@@ -49,6 +52,14 @@ function taskCompleted(event) {
     event.target.classList.add('completed');
   }
 }
+
+const saveButton = document.querySelector('#salvar-tarefas');
+saveButton.addEventListener('click', () => {
+  localStorage.setItem('lista-tarefas', list.innerHTML);
+});
+
+const saveLocal = localStorage.getItem('lista-tarefas');
+list.innerHTML = saveLocal;
 
 selectTask.addEventListener('dblclick', taskCompleted);
 
