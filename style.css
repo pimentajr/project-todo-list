@@ -3,10 +3,11 @@ body {
   margin: 50px auto;
   text-align: center;
   font-family: Courgette, sans-serif;
-  color: rgb(255, 255, 255);
+  color: white;
   font-style: italic;
   font-size: 25px;
 }
+
 section {
   background-color: rgb(133, 130, 130);
   border-radius: 10px;
