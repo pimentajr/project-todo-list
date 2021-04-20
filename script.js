@@ -1,8 +1,12 @@
 const criarTarefa = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const listTarefas = document.getElementById('lista-tarefas');
-// const clearAll = document.getElementById('apaga-tudo')
+const clearAll = document.getElementById('apaga-tudo');
 const listaTarefaArr = listTarefas.children;
+
+function clearTable() {
+  listTarefas.innerHTML = '';
+}
 
 function getText() {
   const criaLista = document.createElement('li');
@@ -37,6 +41,6 @@ function setListColor(e) {
     e.target.style.backgroundColor = 'rgb(128,128,128)';
   }
 }
-
+clearAll.addEventListener('click', clearTable);
 listTarefas.addEventListener('click', setListColor);
 criarTarefa.addEventListener('click', getText);
