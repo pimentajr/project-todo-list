@@ -1,5 +1,4 @@
 let textSelected ='';
-
 let button = document.getElementById('criar-tarefa');
 
 button.addEventListener('click', function(event){
@@ -38,7 +37,6 @@ lista3.addEventListener('dblclick', function(event){
 
     if(event.target.className == 'selected'){
 
-
         if(event.target.className != 'selected completed' && segundaVez == false){
             event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
             event.target.className = 'selected completed';   
@@ -52,4 +50,17 @@ lista3.addEventListener('dblclick', function(event){
 
     }
 
+});
+
+let apagarLista = document.getElementById('apaga-tudo');
+let itensApagar = document.getElementsByTagName('li');
+
+apagarLista.addEventListener('click', function(){
+    const apagar = itensApagar.length;
+    console.log(itensApagar.length)
+
+    for(let i=apagar-1;i>=0;i--){
+        console.log(apagar);
+        itensApagar[i].remove();
+    }
 });
