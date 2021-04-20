@@ -68,3 +68,17 @@
   margin-left: 30px;
   font-family: Old Standard TT, sans-serif;
 }
+
+#salvar-tarefas {
+  border-radius: 20px;
+  margin-left: 30px;
+  font-family: Old Standard TT, sans-serif;
+}
+
+#cerejeira {
+  width: 400px;
+  float: right;
+  border-radius: 50px;
+  margin-top: 90px;
+  margin-right: 60px;
+}

@@ -4,6 +4,13 @@ const divMain = document.createElement('div');
 divMain.id = 'div-main';
 document.body.appendChild(divMain);
 
+// Adiciona img;
+
+const flor = document.createElement('img');
+flor.id = 'cerejeira';
+flor.src = 'cerejeira.jpg';
+divMain.appendChild(flor);
+
 // Cria cabeçalho;
 
 const header = document.createElement('header');
@@ -106,3 +113,17 @@ function deleteCompleted() {
   });
 }
 deleteCompleted();
+
+const saveTasks = document.createElement('button');
+saveTasks.id = 'salvar-tarefas';
+saveTasks.innerText = 'Salvar';
+divInputs2.appendChild(saveTasks);
+
+function salvarTarefas() {
+  saveTasks.addEventListener('click', () => {
+    const taskList = document.querySelector('#lista-tarefas');
+    localStorage.setItem('listItems', taskList.innerHTML);
+    taskList.innerHTML = localStorage.getItem('listItems');
+  });
+}
+salvarTarefas();
