@@ -18,11 +18,14 @@ criarTarefa.addEventListener('click', criarItem)
 //adicionar um item como feito em cinza
 function itemSelected(event) {
   let listItem = document.querySelector('.selected');
-  const selectedItem = event.target;
   if (listItem) {
     listItem.classList.remove('selected');
-  } selectedItem.classList.add('selected');
-}
+  }
+  const selectedItem = event.target;
+  if (selectedItem.className === 'listItens') {
+    selectedItem.classList.add('selected');
+ }
+} 
 
 listTarefas.addEventListener('click', itemSelected);
 
