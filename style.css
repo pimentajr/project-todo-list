@@ -15,3 +15,7 @@ section {
 p {
   color: brown;
 }
+
+.selected {
+  background-color: gray;
+}
