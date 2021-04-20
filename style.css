@@ -1,12 +1,12 @@
 body {
-  background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-simple-gradient-black-wooden-board-home-appliances-psd-layered-master-map-image_137943.jpg");
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-simple-gradient-black-wooden-board-home-appliances-psd-layered-master-map-image_137943.jpg');
   text-align: center;
 }
 
 section {
   width: 300px;
   border: 9px solid rgb(128, 87, 0);
-  border-style: inset;
+  border-style: inset; 
   padding: 50px;
   margin: 20px;
   background-color: whitesmoke;
