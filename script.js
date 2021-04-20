@@ -1,6 +1,6 @@
 const addTask = document.getElementById('criar-tarefa');
 const inputText = document.getElementById('texto-tarefa');
-const orderedList = document.getElementById('lista-tarefas');
+const selectTask = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
 
@@ -31,18 +31,27 @@ function deleteAllButton(){
   menu.appendChild(apagarAll);
 }
 deleteAllButton();
-function selectTask() {
-  document.querySelector('ol').addEventListener('dblclick', (e) => {
-    if (e.target.tagName === 'LI')
-      e.target.classList.toggle('checked');
-    });
-}
-selectTask();
+
+selectTask.addEventListener('click', function(event) {
+  let tasks = document.querySelectorAll('li');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].classList = 'noSelected';
+
+    event.target.classList = 'selected'
+
+      let taskSelected = document.querySelector('.selected');
+      taskSelected.style.backgroundColor = 'rgb(128, 128, 128)'
+
+    if (tasks[index].className === 'noSelected') {
+      tasks[index].style.backgroundColor = 'white';
+    } 
+  }
+});
 
 moveUpButton.addEventListener('click', () => {
   const itemList = document.getElementsByTagName('li');
   for (let index = 0; index < itemList.length; index += 1) {
-    if (itemList[index].classList.value.includes('checked') && index !== 0) {
+    if (itemList[index].classList.value.includes('selected') && index !== 0) {
       const saveItemList = itemList[index].outerHTML;
       itemList[index].outerHTML = itemList[index - 1].outerHTML;
       itemList[index - 1].outerHTML = saveItemList;
@@ -52,7 +61,7 @@ moveUpButton.addEventListener('click', () => {
 moveDownButton.addEventListener('click', () => {
   const itemList = document.getElementsByTagName('li');
   for (let index = itemList.length - 1; index >= 0; index -= 1) {
-    if (itemList[index].classList.value.includes('checked') && index !== (itemList.length - 1)) {
+    if (itemList[index].classList.value.includes('selected') && index !== (itemList.length - 1)) {
       const saveItemList = itemList[index].outerHTML;
       itemList[index].outerHTML = itemList[index + 1].outerHTML;
       itemList[index + 1].outerHTML = saveItemList;
