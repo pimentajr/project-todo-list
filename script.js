@@ -97,3 +97,20 @@ btnRemoveTask.addEventListener('click', () => {
     }
   }
 });
+
+// Requisito 12
+function createBtnSalvedLocalStorage() {
+  const btnSalved = document.createElement('button');
+  const section = document.querySelector('section');
+  section.appendChild(btnSalved);
+  btnSalved.id = 'salvar-tarefas';
+  btnSalved.innerText = 'Salvar Tarefas';
+}
+createBtnSalvedLocalStorage();
+
+const btnSalved = document.getElementById('salvar-tarefas');
+btnSalved.addEventListener('click', () => {
+  let listItems = document.querySelectorAll('li');
+  listItems = JSON.stringify(listItem.innerHTML);
+  localStorage.setItem('Taks', listItems);
+});
