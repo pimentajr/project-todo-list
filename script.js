@@ -3,7 +3,9 @@ const text = document.getElementById('texto-tarefa');
 const listeOl = document.getElementById('lista-tarefas');
 const resetEverything = document.getElementById('apaga-tudo')
 const removeFinished = document.getElementById('remove-finalizados')
-
+const moverUp = document.getElementById('mover-cima')
+const moverDown = document.getElementById('mover-baixo')
+// correta
 taskAdded.addEventListener('click', () => {
     const newLi = document.createElement('li');
 newLi.innerText = text.value
@@ -19,7 +21,7 @@ function selectColor() {
         if(selectColor) {
             selectColor.classList.remove('selected');
         }
-       toColor.classList.add('selected');
+       event.toColor.classList.add('selected');
   });
 }     
     
@@ -34,21 +36,34 @@ listeOl.addEventListener('dblclick', (event) => {
   });
 }
 
-
 function deleteTasks() {
-    resetEverything.addEventListener('click', () => {
-      listeOl.innerHTML = ''
+  resetEverything.addEventListener('click', () => {
+    listeOl.innerHTML = ''
   });
 }
 
-function deleteAllTasks() {
-  removeFinished.addEventListener('click', () => {
-    for(index = 0; completed.length -1; index -= 1){
-     completed[index].remove();
-    }
-});
+//remove finalizados
+function deleteAllTasks(e) {
+  const removeFinished = e.target.classList;
+  if(e.target.classList[2]=== 'completed') {
+    e.target.classList.remove('completed');
+  }else{
+    e.target.classList.add('completed')
+  }
 }
 
+moverUp.addEventListener('click', () => {
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    const father = selected.parentNode;
+    if (selected.previousElementSibling) {
+      father.insertBefore(selected, selected.previousElementSibling);
+    }
+  }
+});
+
+listeOl.addEventListener('click', selectColor)
+listeOl.addEventListener('click', completingTask)
 selectColor();
 completingTask();
 deleteTasks();
