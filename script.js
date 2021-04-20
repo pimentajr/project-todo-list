@@ -62,7 +62,7 @@ function deleteAllButton(){
 deleteAllButton();
 
 function selectTask() {
-  document.querySelector('ol').addEventListener('click', (e) => {
+  document.querySelector('ol').addEventListener('dblclick', (e) => {
     if (e.target.tagName === 'LI')
       e.target.classList.toggle('checked');
   });
