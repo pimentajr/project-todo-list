@@ -99,6 +99,10 @@ btnRemoveTask.addEventListener('click', () => {
 });
 
 // Requisito 12
+/*
+* Consultei a documentação acerca do tema: JSON.stringify()
+* Link: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+*/
 function createBtnSalvedLocalStorage() {
   const btnSalved = document.createElement('button');
   const section = document.querySelector('section');
