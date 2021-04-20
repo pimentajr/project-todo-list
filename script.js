@@ -2,9 +2,7 @@ const taskInput = document.querySelector('#texto-tarefa');
 const addTaskButton = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const removeAllTasksButton = document.querySelector('#apaga-tudo');
-const removeCompletedTasksButton = document.querySelector(
-  '#remover-finalizados'
-);
+const removeCompletedTasksButton = document.querySelector('#remover-finalizados');
 const removeSelectedTasks = document.querySelector('#remover-selecionado');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const moveUp = document.querySelector('#mover-cima');
@@ -18,8 +16,7 @@ removeAllTasksButton.addEventListener('click', () => {
 
 removeSelectedTasks.addEventListener('click', () => {
   const taskFound = [...taskList.children].find((child) =>
-    child.classList.contains('selected')
-  );
+    child.classList.contains('selected'));
   if (taskFound) taskFound.remove();
 });
 
@@ -50,7 +47,6 @@ addTaskButton.addEventListener('click', () => {
 });
 
 [...taskList.children].forEach((child) => {
-  console.log(1);
   child.addEventListener('click', () => {
     child.classList.toggle('completed');
   });
@@ -58,13 +54,15 @@ addTaskButton.addEventListener('click', () => {
 
 moveUp.addEventListener('click', () => {
   const selectedItem = document.querySelector('.selected');
+  if (!selectedItem) return;
   if (selectedItem !== taskList.firstElementChild) {
     taskList.insertBefore(selectedItem, selectedItem.previousSibling);
   }
 });
 
 moveDown.addEventListener('click', () => {
-  const selectedItem = document.getElementsByClassName('selected')[0];
+  const selectedItem = document.querySelector('.selected');
+  if (!selectedItem) return;
   const siblings = document.querySelector('#lista-tarefas');
   if (selectedItem !== siblings.lastElementChild) {
     siblings.insertBefore(selectedItem, selectedItem.nextSibling.nextSibling);
