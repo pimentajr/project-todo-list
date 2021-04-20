@@ -3,11 +3,19 @@ const botao = document.getElementById('criar-tarefa');
 const toDoList = document.getElementById('lista-tarefas');
 
 function selectedItem(event) {
-  const selected = document.querySelector('.selected');
+  const selected = document.querySelector('.thisItem');
   if (selected !== null) {
-    selected.classList.remove('selected');
+    selected.classList.remove('thisItem');
   }
-  event.target.classList.add('selected');
+  event.target.classList.add('thisItem');
+}
+
+function riscaItem(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 }
 
 function listaDeTarefas() {
@@ -17,6 +25,7 @@ function listaDeTarefas() {
     tarefa.value = '';
     toDoList.appendChild(tarefas);
     tarefas.addEventListener('click', selectedItem);
+    tarefas.addEventListener('dblclick', riscaItem);
   }
 }
 botao.addEventListener('click', listaDeTarefas);
