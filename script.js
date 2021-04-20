@@ -44,3 +44,5 @@ function clear (){
   }
 }
 buttonClear.addEventListener('click',clear);
+
+
