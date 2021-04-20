@@ -1,7 +1,16 @@
 const addTaskInputField = document.getElementById('texto-tarefa');
 const addTaskButton = document.getElementById('criar-tarefa');
 const clearAllButton = document.getElementById('apaga-tudo');
+const removeCompletedButton = document.getElementById('remover-finalizados');
 const mainView = document.getElementById('lista-tarefas');
+
+function removeCompleted() {
+  const completedTasks = document.querySelectorAll('.completed.task');
+
+  for (let index = 0; index < completedTasks.length; index += 1) {
+    completedTasks[index].remove();
+  }
+}
 
 function clearAll() {
   mainView.innerHTML = '';
@@ -43,4 +52,5 @@ window.onload = () => {
   mainView.addEventListener('click', toggleSelected);
   mainView.addEventListener('dblclick', toggleCompleted);
   clearAllButton.addEventListener('click', clearAll);
+  removeCompletedButton.addEventListener('click', removeCompleted);
 };
