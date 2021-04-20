@@ -76,3 +76,24 @@ btnClear.addEventListener('click', () => {
   const listItems = document.querySelectorAll('li');
   listOl.remove(listItems);
 });
+
+// Requisito 11
+function createBtnRemoveCheck() {
+  const btnRemoveTask = document.createElement('button');
+  const section = document.querySelector('section');
+  section.appendChild(btnRemoveTask);
+  btnRemoveTask.id = 'remover-finalizados';
+  btnRemoveTask.innerText = 'Remover Tarefa';
+}
+createBtnRemoveCheck();
+
+const btnRemoveTask = document.getElementById('remover-finalizados');
+btnRemoveTask.addEventListener('click', () => {
+  const listOl = document.querySelector('#lista-tarefas');
+  const listItem = document.querySelectorAll('.check');
+  for (let index = 0; index < listItem.length; index += 1) {
+    if (listItem[index].classList.contains('check')) {
+      listOl.removeChild(listItem[index]);
+    }
+  }
+});
