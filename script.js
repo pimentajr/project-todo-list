@@ -93,20 +93,15 @@ if (JSON.parse(localStorage.getItem('taskList'))) {
     olTaskList.appendChild(newTask);
   }
 }
-let eventUp = '';
+
 upButton.addEventListener('click', () => {
   for (let index = 0; index < listLength; index += 1) {
     if (olTaskList.children[index].style.backgroundColor && index > 0) {
-      eventUp = olTaskList.children[index].innerHTML;
       const tempValue = olTaskList.children[index - 1].innerHTML;
-      olTaskList.children[index - 1].innerHTML = eventUp;
+      olTaskList.children[index - 1].innerHTML = olTaskList.children[index].innerHTML;
       olTaskList.children[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
       olTaskList.children[index].innerHTML = tempValue;
       olTaskList.children[index].style.backgroundColor = '';
     }
   }
-});
-
-downButton.addEventListener('click', () => {
-  ;
 });
