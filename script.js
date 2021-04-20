@@ -1,8 +1,7 @@
 const newTaskButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 
-newTaskButton.addEventListener('click', addTask);
-
+// Botão para criar tarefa:
 function addTask() {
   const newTaskItem = document.createElement('li');
   newTaskItem.innerText = document.getElementById('texto-tarefa').value;
@@ -11,6 +10,9 @@ function addTask() {
   document.getElementById('texto-tarefa').value = '';
 }
 
+newTaskButton.addEventListener('click', addTask);
+
+// Função para selecionar a tarefa clicada:
 function taskSelector(event) {
   const tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
@@ -22,6 +24,7 @@ function taskSelector(event) {
 
 taskList.addEventListener('click', taskSelector);
 
+// Função para riscar tarefa concluida:
 function taskCompleted(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -32,12 +35,22 @@ function taskCompleted(event) {
 
 taskList.addEventListener('dblclick', taskCompleted);
 
-function removeDTasksDone() {
+// Botão para limpar as tarefas feitas:
+function removeTasksDone() {
   const tasksDone = document.querySelectorAll('li.completed');
   for (let index = 0; index < tasksDone.length; index += 1) {
     tasksDone[index].remove();
   }
 }
 
-const clearDonesBtn = document.querySelector('#remover-finalizados');
-clearDonesBtn.addEventListener('click', removeDTasksDone);
+document.querySelector('#remover-finalizados').addEventListener('click', removeTasksDone);
+
+// Botão de reset:
+function reset () {
+  const tasks = document.querySelectorAll('li');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].remove();
+  }
+}
+
+document.querySelector('#apaga-tudo').addEventListener('click', reset);
