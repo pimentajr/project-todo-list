@@ -107,6 +107,19 @@ upButton.addEventListener('click', () => {
   }
 });
 
+downButton.addEventListener('click', () => {
+  for (let index = 0; index < listLength; index += 1) {
+    if (olTaskList.children[index].style.backgroundColor && index < (listLength - 1)) {
+      const tempValue = olTaskList.children[index + 1].innerHTML;
+      olTaskList.children[index + 1].innerHTML = olTaskList.children[index].innerHTML;
+      olTaskList.children[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      olTaskList.children[index].innerHTML = tempValue;
+      olTaskList.children[index].style.backgroundColor = '';
+      break;
+    }
+  }
+});
+
 function removeSelected() {
   for (let index = 0; index < tasks.children.length; index += 1) {
     if (tasks.children[index].style.backgroundColor) {
