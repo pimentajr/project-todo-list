@@ -2,6 +2,8 @@ const addTask = document.getElementById('criar-tarefa');
 const selectTask = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
+const saveButton = document.querySelector('#salvar-tarefas');
+const lista = document.querySelector('#lista-tarefas');
 
 addTask.addEventListener('click', () => {
   const li = document.createElement('li');
@@ -22,7 +24,7 @@ function deleteAllButton() {
   const buttonName = document.createTextNode('Apaga tudo');
   apagarAll.id = 'apaga-tudo';
   apagarAll.appendChild(buttonName);
-  apagarAll.onclick = function() {
+  apagarAll.onclick = function () {
     const lista = document.getElementById('lista-tarefas');
     lista.innerHTML = '';
   }
@@ -31,7 +33,7 @@ function deleteAllButton() {
 }
 deleteAllButton();
 
-selectTask.addEventListener('click', function(event) {
+selectTask.addEventListener('dblclick', function(event) {
   let tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].classList = 'noSelected';
@@ -77,3 +79,10 @@ moveDownButton.addEventListener('click', () => {
     }
   }
 });
+
+saveButton.addEventListener('click', () => {
+  localStorage.setItem('lista-tarefas', lista.innerHTML);
+});
+
+const localSave = localStorage.getItem('lista-tarefas');
+lista.innerHTML = localSave;
