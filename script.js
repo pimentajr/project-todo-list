@@ -18,18 +18,13 @@ addNewTask();
 
 // Requisitos 7 e 8
 
-function paintGrey() {
-  list.addEventListener('click', (event) => {
-    const selected = document.querySelector('.fundo-cinza');
+function pintarCinza (event) {
+      event.target.classList.add("seletor")
 
-    if (selected != null) {
-      selected.classList.remove('fundo-cinza');
-    }
-    event.target.classList.add('fundo-cinza');
-  });
 }
 
-paintGrey();
+
+document.querySelector("ol").addEventListener("click", pintarCinza)
 
 // Requisito 9
 
@@ -82,3 +77,7 @@ carregarListaSalva();
 
 const btnSave = document.getElementById('salvar-tarefas');
 btnSave.addEventListener('click', salvamento);
+
+function pintarVermelho (event) {
+  event.target.style.backgroundColor
+}
