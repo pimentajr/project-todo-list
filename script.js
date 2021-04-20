@@ -1,6 +1,6 @@
 const listaTarefas = document.getElementById('lista-tarefas');
 const criarTarefa = document.getElementById('criar-tarefa');
-const limparTudo = document.getElementById('limpar');
+const limparTudo = document.getElementById('apaga-tudo');
 
 function taskAdd() {
   let newTask = document.createElement('li');
