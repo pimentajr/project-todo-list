@@ -9,10 +9,10 @@ addTask.addEventListener('click', () => {
   li.appendChild(text);
   if (inputValue === '') {
     alert('Campo vazio, informe uma tarefa!');
-  }
+  } 
   else {
     document.getElementById('lista-tarefas').appendChild(li);
-  }
+    }
   document.getElementById('texto-tarefa').value = null;
 });
 
@@ -21,24 +21,24 @@ function deleteAllButton() {
   const buttonName = document.createTextNode('Apaga tudo');
   apagarAll.id = 'apaga-tudo';
   apagarAll.appendChild(buttonName);
-  apagarAll.onclick = function() {
+  apagarAll.onclick = function () {
     const lista = document.getElementById('lista-tarefas');
     lista.innerHTML = '';
-  }
+  };
   const menu = document.getElementById('menu');
   menu.appendChild(apagarAll);
 }
 deleteAllButton();
-selectTask.addEventListener('click', function(event) {
-  let tasks = document.querySelectorAll('li');
+selectTask.addEventListener('click', function (event) {
+  const tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].classList = 'noSelected';
-    event.target.classList = 'selected'
-      let taskSelected = document.querySelector('.selected');
-      taskSelected.style.backgroundColor = 'rgb(128, 128, 128)'
+    event.target.classList = 'selected';
+    const taskSelected = document.querySelector('.selected');
+    taskSelected.style.backgroundColor = 'rgb(128, 128, 128)';
     if (tasks[index].className === 'noSelected') {
       tasks[index].style.backgroundColor = 'white';
-    } 
+    }
   }
 });
 
