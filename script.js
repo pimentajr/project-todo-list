@@ -9,10 +9,13 @@ addToDoButton.addEventListener('click', function(){
     toDoContainer.appendChild(paragraph);
     inputField.value = "";
     paragraph.addEventListener('click', function(){
-        paragraph.style.backgroundColor = rgb(128, 128, 128);
+        paragraph.style.textDecoration = "line-through";
     })
     paragraph.addEventListener('dblclick', function(){
         toDoContainer.removeChild(paragraph);
+    })
+    paragraph.addEventListener('click', function(){
+        paragraph.classList.add('grayRGD')
     })
 })
 //codigo que me estudei: https://www.youtube.com/watch?v=n3X7m0GzFRY&ab_channel=CodingMindBrasil

@@ -42,3 +42,7 @@ html, body {
     text-align: center;
     margin-right: 170px;
 }
+
+.grayRGD {
+    background-color: rgb(128, 128, 128)
+}
