@@ -54,10 +54,10 @@ listItem.addEventListener('click', selectedListItem);
 
 // Requisito 9
 listItem.addEventListener('dblclick', (event) => {
-  if (event.target.classList.contains('check')) {
-    event.target.classList.remove('check');
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
   } else {
-    event.target.classList.add('check');
+    event.target.classList.add('completed');
   }
 });
 
@@ -91,9 +91,9 @@ createBtnRemoveCheck();
 const btnRemoveTask = document.getElementById('remover-finalizados');
 const olList = document.querySelector('#lista-tarefas');
 btnRemoveTask.addEventListener('click', () => {
-  const listItem1 = document.querySelectorAll('.check');
+  const listItem1 = document.querySelectorAll('.completed');
   for (let index = 0; index < listItem1.length; index += 1) {
-    if (listItem1[index].classList.contains('check')) {
+    if (listItem1[index].classList.contains('completed')) {
       olList.removeChild(listItem1[index]);
     }
   }
