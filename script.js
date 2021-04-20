@@ -15,6 +15,7 @@ const databaseStructure = {
 const database = window.sessionStorage;
 const savedDatabaseState = window.localStorage;
 const databaseKeys = Object.getOwnPropertyNames(databaseStructure);
+const taskHTMLIdPrefix = 'task-';
 
 function Task() {
   this.title = '';
@@ -28,22 +29,6 @@ function isNumber(element) {
   }
 
   return false;
-}
-
-function sortObjectsArrayByKeyDesc(objectsArray) {
-  if (isNumber(objectsArray[0][keyToSortBy])) {
-    objectsArray.sort((a, b) => b[keyToSortBy] - a[keyToSortBy]);
-  } else {
-    objectsArray.sort((a, b) => b[keyToSortBy].localeCompare(a[keyToSortBy]));
-  }
-}
-
-function sortObjectsArrayByKeyAsc(objectsArray) {
-  if (isNumber(objectsArray[0][keyToSortBy])) {
-    objectsArray.sort((a, b) => a[keyToSortBy] - b[keyToSortBy]);
-  } else {
-    objectsArray.sort((a, b) => a[keyToSortBy].localeCompare(b[keyToSortBy]));
-  }
 }
 
 function getDatabaseEntry(key) {
@@ -75,13 +60,13 @@ function getInputFieldsFrom(container) {
   return labeledInputFields;
 }
 
-function taskIndex(taskUid) {
+function getTaskIndex(taskUid) {
   const currentTaskList = getDatabaseEntry('taskList');
   let found = false;
   let index = 0;
 
   for (; !found && index < currentTaskList.length; index += 1) {
-    if (currentTaskList[index].addedOn === taskUid) {
+    if (currentTaskList[index].addedOn === parseInt(taskUid, 10)) {
       found = true;
     }
   }
@@ -93,7 +78,26 @@ function taskIndex(taskUid) {
   return -1;
 }
 
-function selectTask(event) {
+function getTaskUid(taskHTMLId) {
+  return taskHTMLId.replace(taskHTMLIdPrefix, '');
+}
+
+function toggleCompletedTask(event) {
+  if (!event.target.classList.contains('task')) {
+    return;
+  }
+
+  const taskHTMLId = event.target.id;
+  const currentTaskList = getDatabaseEntry('taskList');
+  const isCompleted = currentTaskList[getTaskIndex(getTaskUid(taskHTMLId))].completed;
+
+  currentTaskList[getTaskIndex(getTaskUid(taskHTMLId))].completed = isCompleted ? false : true;
+  updateDatabaseEntry('taskList', currentTaskList);
+  event.target.classList.toggle('completed');
+  updateDatabaseEntry('mainViewContent', mainView.innerHTML);
+}
+
+function toggleSelectedTask(event) {
   if (!event.target.classList.contains('task')) {
     return;
   }
@@ -109,7 +113,7 @@ function selectTask(event) {
 function addTaskToMainViewContent(task) {
   const taskItem = document.createElement('li');
 
-  taskItem.id = `task-${task.addedOn}`;
+  taskItem.id = `${taskHTMLIdPrefix}${task.addedOn}`;
   taskItem.classList.add('task');
   taskItem.innerHTML = `${task.title}`;
   mainView.appendChild(taskItem);
@@ -169,7 +173,8 @@ function initializeDatabase() {
 window.onload = () => {
   initializeDatabase();
   addTaskForm.addEventListener('submit', addTaskToTaskList);
-  mainView.addEventListener('pointerdown', selectTask);
+  mainView.addEventListener('click', toggleSelectedTask);
+  mainView.addEventListener('dblclick', toggleCompletedTask);
   applySavedDatabaseState();
   mainView.innerHTML = getDatabaseEntry('mainViewContent');
 };
