@@ -23,3 +23,14 @@ function selectedTask() {
 }
 
 selectedTask();
+
+function dblclick() {
+  taskList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+dblclick();
+
+
+
+

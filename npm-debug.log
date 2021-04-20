@@ -1,18 +1,18 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'run', 'lint:styles' ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'run', 'lint' ]
 2 info using npm@3.5.2
 3 info using node@v8.10.0
-4 verbose run-script [ 'prelint:styles', 'lint:styles', 'postlint:styles' ]
-5 info lifecycle @~prelint:styles: @
-6 silly lifecycle @~prelint:styles: no script for prelint:styles, continuing
-7 info lifecycle @~lint:styles: @
-8 verbose lifecycle @~lint:styles: unsafe-perm in lifecycle true
-9 verbose lifecycle @~lint:styles: PATH: /usr/share/npm/bin/node-gyp-bin:/home/cristiana/Projects/sd-011-project-todo-list/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-10 verbose lifecycle @~lint:styles: CWD: /home/cristiana/Projects/sd-011-project-todo-list
-11 silly lifecycle @~lint:styles: Args: [ '-c',
-11 silly lifecycle   'stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input' ]
-12 info lifecycle @~lint:styles: Failed to exec lint:styles script
-13 verbose stack Error: @ lint:styles: `stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input`
+4 verbose run-script [ 'prelint', 'lint', 'postlint' ]
+5 info lifecycle @~prelint: @
+6 silly lifecycle @~prelint: no script for prelint, continuing
+7 info lifecycle @~lint: @
+8 verbose lifecycle @~lint: unsafe-perm in lifecycle true
+9 verbose lifecycle @~lint: PATH: /usr/share/npm/bin/node-gyp-bin:/home/cristiana/Projects/sd-011-project-todo-list/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+10 verbose lifecycle @~lint: CWD: /home/cristiana/Projects/sd-011-project-todo-list
+11 silly lifecycle @~lint: Args: [ '-c',
+11 silly lifecycle   'eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .' ]
+12 info lifecycle @~lint: Failed to exec lint script
+13 verbose stack Error: @ lint: `eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .`
 13 verbose stack spawn ENOENT
 13 verbose stack     at ChildProcess.<anonymous> (/usr/share/npm/lib/utils/spawn.js:17:16)
 13 verbose stack     at emitTwo (events.js:126:13)
@@ -22,21 +22,21 @@
 14 verbose pkgid @
 15 verbose cwd /home/cristiana/Projects/sd-011-project-todo-list
 16 error Linux 5.4.0-67-generic
-17 error argv "/usr/bin/node" "/usr/bin/npm" "run" "lint:styles"
+17 error argv "/usr/bin/node" "/usr/bin/npm" "run" "lint"
 18 error node v8.10.0
 19 error npm  v3.5.2
 20 error file sh
 21 error code ELIFECYCLE
 22 error errno ENOENT
 23 error syscall spawn
-24 error @ lint:styles: `stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input`
+24 error @ lint: `eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .`
 24 error spawn ENOENT
-25 error Failed at the @ lint:styles script 'stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input'.
+25 error Failed at the @ lint script 'eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .'.
 25 error Make sure you have the latest version of node.js and npm installed.
 25 error If you do, this is most likely a problem with the  package,
 25 error not with npm itself.
 25 error Tell the author that this fails on your system:
-25 error     stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input
+25 error     eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .
 25 error You can get information on how to open an issue for this project with:
 25 error     npm bugs
 25 error Or if that isn't available, you can get their info via:
