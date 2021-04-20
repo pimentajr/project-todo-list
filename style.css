@@ -1,3 +1,15 @@
+#funcionamento {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 6px;
+  font-weight: bolder;
+}
+
+header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 .listItem {
   font-family: Arial, Helvetica, sans-serif;
   font-size: small;
@@ -6,7 +18,7 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 8px;
-  width: 50%;
+  width: 400px;
   padding-left: 8px;
 }
 
@@ -18,10 +30,31 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 8px;
-  width: 50%;
+  width: 400px;
   padding-left: 8px;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+button {
+  width: 150px;
+  border-radius: 5px;
+}
+
+#criar-tarefa {
+  background-color: green;
+}
+
+#apaga-tudo {
+  background-color: darkred;
+}
+
+#remover-finalizados {
+  background-color: yellow;
+}
+
+#texto-tarefa {
+  width: 450px;
 }

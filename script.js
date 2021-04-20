@@ -34,7 +34,7 @@ function clearAll() {
   }
 }
 
-function clearCompleted () {
+function clearCompleted() {
   const listedItems = document.getElementsByClassName('listItem');
   for (let index = (listedItems.length - 1); index >= 0; index -= 1) {
     if (listedItems[index].classList.contains('completed')) {
