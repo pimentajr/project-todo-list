@@ -67,3 +67,16 @@ function deleteAllList() {
 }
 
 deleteAllList();
+
+function deleteSelecionados() {
+  const delSelecao = document.getElementById('remover-finalizados');
+
+  delSelecao.addEventListener('click', () => {
+    const itemLista = document.querySelectorAll('.completed');
+    for (let index = 0; index < itemLista.length; index += 1) {
+      lista.removeChild(itemLista[index]);
+    }
+  });
+}
+
+deleteSelecionados();
