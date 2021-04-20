@@ -86,4 +86,3 @@ console.log(tasklist);
 createTasks();
 backgroundColor();
 riskWord();
-clearAll();
