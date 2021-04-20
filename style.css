@@ -7,7 +7,6 @@ body {
   box-sizing: border-box;
 }
 
-.selected {
+.completed {
   text-decoration: line-through;
-  background-color: gray;
 }

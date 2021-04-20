@@ -1,5 +1,4 @@
 const addTask = document.getElementById('criar-tarefa');
-const inputText = document.getElementById('texto-tarefa');
 const selectTask = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
@@ -18,16 +17,16 @@ addTask.addEventListener('click', () => {
   document.getElementById('texto-tarefa').value = null;
 });
 
-function deleteAllButton(){
-  var apagarAll = document.createElement('BUTTON');
-  var buttonName = document.createTextNode("Apaga tudo");
-  apagarAll.id = "apaga-tudo";  
-  apagarAll.appendChild(buttonName);   
+function deleteAllButton() {
+  const apagarAll = document.createElement('BUTTON');
+  const buttonName = document.createTextNode('Apaga tudo');
+  apagarAll.id = 'apaga-tudo';
+  apagarAll.appendChild(buttonName);
   apagarAll.onclick = function() {
-    let lista = document.getElementById('lista-tarefas');
-    lista.innerHTML = "";
+    const lista = document.getElementById('lista-tarefas');
+    lista.innerHTML = '';
   }
-  let menu = document.getElementById('menu');
+  const menu = document.getElementById('menu');
   menu.appendChild(apagarAll);
 }
 deleteAllButton();
@@ -47,6 +46,16 @@ selectTask.addEventListener('click', function(event) {
     } 
   }
 });
+
+function taskCompleted(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+selectTask.addEventListener('dblclick', taskCompleted);
 
 moveUpButton.addEventListener('click', () => {
   const itemList = document.getElementsByTagName('li');
