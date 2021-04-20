@@ -1,10 +1,7 @@
-addTask = document.getElementById('criar-tarefa');
+const addTask = document.getElementById('criar-tarefa');
 const selectTask = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
-const saveButton = document.querySelector('#salvar-tarefas');
-const lista = document.querySelector('#lista-tarefas');
-
 addTask.addEventListener('click', () => {
   const li = document.createElement('li');
   const inputValue = document.getElementById('texto-tarefa').value;
@@ -18,12 +15,13 @@ addTask.addEventListener('click', () => {
   }
   document.getElementById('texto-tarefa').value = null;
 });
+
 function deleteAllButton() {
   const apagarAll = document.createElement('BUTTON');
   const buttonName = document.createTextNode('Apaga tudo');
   apagarAll.id = 'apaga-tudo';
   apagarAll.appendChild(buttonName);
-  apagarAll.onclick = function () {
+  apagarAll.onclick = function() {
     const lista = document.getElementById('lista-tarefas');
     lista.innerHTML = '';
   }
@@ -31,8 +29,7 @@ function deleteAllButton() {
   menu.appendChild(apagarAll);
 }
 deleteAllButton();
-
-selectTask.addEventListener('dblclick', function(event) {
+selectTask.addEventListener('click', function(event) {
   let tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].classList = 'noSelected';
@@ -44,6 +41,7 @@ selectTask.addEventListener('dblclick', function(event) {
     } 
   }
 });
+
 function taskCompleted(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -51,7 +49,9 @@ function taskCompleted(event) {
     event.target.classList.add('completed');
   }
 }
+
 selectTask.addEventListener('dblclick', taskCompleted);
+
 moveUpButton.addEventListener('click', () => {
   const itemList = document.getElementsByTagName('li');
   for (let index = 0; index < itemList.length; index += 1) {
@@ -72,10 +72,3 @@ moveDownButton.addEventListener('click', () => {
     }
   }
 });
-
-saveButton.addEventListener('click', () => {
-  localStorage.setItem('lista-tarefas', lista.innerHTML);
-});
-
-const localSave = localStorage.getItem('lista-tarefas');
-lista.innerHTML = localSave;
