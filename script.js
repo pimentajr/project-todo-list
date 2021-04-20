@@ -1,5 +1,6 @@
 const listaTarefas = document.getElementById('lista-tarefas');
 const criarTarefa = document.getElementById('criar-tarefa');
+const limparTudo = document.getElementById('limpar');
 
 function taskAdd() {
   let newTask = document.createElement('li');
@@ -10,7 +11,7 @@ function taskAdd() {
 criarTarefa.addEventListener('click', taskAdd);
 
 listaTarefas.addEventListener('click', function(event) {
-  let tarefas = document.querySelectorAll('li')
+  let tarefas = document.querySelectorAll('li');
   for (let i = 0; i < tarefas.length; i += 1) {
     tarefas[i].classList = 'noSelected';
 
@@ -23,4 +24,17 @@ listaTarefas.addEventListener('click', function(event) {
       tarefas[i].style.backgroundColor = 'white';
     } 
   }
+});
+
+listaTarefas.addEventListener('dblclick', function(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+});
+
+limparTudo.addEventListener('click', function(event) {
+  let tarefas = document.querySelectorAll('li');
+  listaTarefas.remove(tarefas);
 });
