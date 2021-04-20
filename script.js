@@ -3,7 +3,29 @@ const addTaskButton = document.getElementById('criar-tarefa');
 const clearAllButton = document.getElementById('apaga-tudo');
 const removeCompletedButton = document.getElementById('remover-finalizados');
 const saveListMainViewContentButton = document.getElementById('salvar-tarefas');
+const moveSelectedUpButton = document.getElementById('mover-cima');
+const moveSelectedDownButton = document.getElementById('mover-baixo');
 const mainView = document.getElementById('lista-tarefas');
+
+function moveSelectedDown() {
+  const currentlySelected = document.querySelector('.selected');
+
+  if (!currentlySelected.nextElementSibling) {
+    return;
+  }
+
+  currentlySelected.nextElementSibling.insertAdjacentElement('afterend', currentlySelected);
+}
+
+function moveSelectedUp() {
+  const currentlySelected = document.querySelector('.selected');
+
+  if (!currentlySelected.previousElementSibling) {
+    return;
+  }
+
+  currentlySelected.previousElementSibling.insertAdjacentElement('beforebegin', currentlySelected);
+}
 
 function saveListMainViewContent() {
   localStorage.setItem('mainViewContent', mainView.innerHTML);
@@ -66,4 +88,6 @@ window.onload = () => {
   clearAllButton.addEventListener('click', clearAll);
   removeCompletedButton.addEventListener('click', removeCompleted);
   saveListMainViewContentButton.addEventListener('click', saveListMainViewContent);
+  moveSelectedUpButton.addEventListener('click', moveSelectedUp);
+  moveSelectedDownButton.addEventListener('click', moveSelectedDown);
 };
