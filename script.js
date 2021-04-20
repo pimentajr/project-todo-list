@@ -66,4 +66,18 @@ removerFinalizados.addEventListener('click', function(){
     }
 });
 
+let salvaTarefas=document.getElementById('salvar-tarefas');
+salvaTarefas.addEventListener('click', function(){
+    let listaSalva = document.getElementsByTagName('li'); 
+    localStorage.setItem("ListaSalva", listaSalva);
+});
+
+window.onload = function(){
+    let listaMostrar = localStorage.getItem('ListaSalva');
+    let listaInicial = document.getElementById('lista-tarefas');
+    listaInicial.appendChild(listaMostrar);
+}
+
+
+
 
