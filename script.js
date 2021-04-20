@@ -46,7 +46,7 @@ function removeTasksDone() {
 document.querySelector('#remover-finalizados').addEventListener('click', removeTasksDone);
 
 // Botão de reset:
-function reset () {
+function reset() {
   const tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].remove();
@@ -54,3 +54,18 @@ function reset () {
 }
 
 document.querySelector('#apaga-tudo').addEventListener('click', reset);
+
+const saveTaskListBtn = document.querySelector('#salvar-tarefas');
+
+function saveTaskContent() {
+  const taskListContent = taskList.innerHTML;
+  localStorage.setItem('saved task list', taskListContent);
+}
+
+function loadTaskListContent() {
+  const taskListContent = localStorage.getItem('listaSalva');
+  taskList.innerHTML = taskListContent;
+}
+
+saveTaskListBtn.addEventListener('click', saveTaskContent);
+loadTaskListContent();
