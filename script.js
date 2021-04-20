@@ -2,9 +2,13 @@ const taskInput = document.querySelector('#texto-tarefa');
 const addTaskButton = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const removeAllTasksButton = document.querySelector('#apaga-tudo');
-const removeCompletedTasksButton = document.querySelector('#remover-finalizados');
+const removeCompletedTasksButton = document.querySelector(
+  '#remover-finalizados'
+);
 const removeSelectedTasks = document.querySelector('#remover-selecionado');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
+const moveUp = document.querySelector('#mover-cima');
+const moveDown = document.querySelector('#mover-baixo');
 
 removeAllTasksButton.addEventListener('click', () => {
   if (taskList.children.length) {
@@ -13,7 +17,9 @@ removeAllTasksButton.addEventListener('click', () => {
 });
 
 removeSelectedTasks.addEventListener('click', () => {
-  const taskFound = [...taskList.children].find((child) => child.classList.contains('selected'));
+  const taskFound = [...taskList.children].find((child) =>
+    child.classList.contains('selected')
+  );
   if (taskFound) taskFound.remove();
 });
 
@@ -26,7 +32,10 @@ removeCompletedTasksButton.addEventListener('click', () => {
 });
 
 saveTasksButton.addEventListener('click', () => {
-  const items = [...taskList.children].map((listItem) => [listItem.innerText, listItem.className]);
+  const items = [...taskList.children].map((listItem) => [
+    listItem.innerText,
+    listItem.className,
+  ]);
   const stringified = JSON.stringify(items);
   localStorage.setItem('listItems', stringified);
 });
@@ -45,6 +54,21 @@ addTaskButton.addEventListener('click', () => {
   child.addEventListener('click', () => {
     child.classList.toggle('completed');
   });
+});
+
+moveUp.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem !== taskList.firstElementChild) {
+    taskList.insertBefore(selectedItem, selectedItem.previousSibling);
+  }
+});
+
+moveDown.addEventListener('click', () => {
+  const selectedItem = document.getElementsByClassName('selected')[0];
+  const siblings = document.querySelector('#lista-tarefas');
+  if (selectedItem !== siblings.lastElementChild) {
+    siblings.insertBefore(selectedItem, selectedItem.nextSibling.nextSibling);
+  }
 });
 
 function resetSelectedChildren() {

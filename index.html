@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List Project</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </header>
-  <main>
-    <div id="input-container">
-      <input type="text" id="texto-tarefa" placeholder="Ex: Tomar Café"/>
-      <button id="criar-tarefa">Criar Tarefa</button>
-    </div>
-    <ol id="lista-tarefas"></ol>
-    <div id="buttons-container">
-      <button id="apaga-tudo">Apagar tudo</button>
-      <button id="remover-finalizados">Remover finalizados</button>
-      <button id="remover-selecionado">Remover selecionado</button>
-      <button id="salvar-tarefas">Salvar tarefas</button>
-    </div>
-  </main>
-  <footer>
-    <h2>
-      <a href="">Diego Figueirêdo</a> |
-      <a href="">GitHub</a> |
-      <a href="">Portfolio</a>
-    </h2>
-  </footer>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Project</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">
+        Clique duas vezes em um item para marcá-lo como completo
+      </p>
+    </header>
+    <main>
+      <div id="input-container">
+        <input type="text" id="texto-tarefa" placeholder="Ex: Tomar Café" />
+        <button id="criar-tarefa">Criar Tarefa</button>
+      </div>
+      <ol id="lista-tarefas"></ol>
+      <div id="buttons-container">
+        <button id="apaga-tudo">Apagar tudo</button>
+        <button id="remover-finalizados">Remover finalizados</button>
+        <button id="remover-selecionado">Remover selecionado</button>
+        <button id="salvar-tarefas">Salvar tarefas</button>
+        <button id="mover-cima">Mover Cima</button>
+        <button id="mover-baixo">Mover Baixo</button>
+      </div>
+    </main>
+    <footer>
+      <h2>
+        <a href="">Diego Figueirêdo</a> | <a href="">GitHub</a> |
+        <a href="">Portfolio</a>
+      </h2>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
