@@ -14,7 +14,7 @@ function addNewTask() {
 }
 buttonTask.addEventListener('click', addNewTask);
 
-// excluit todas as tarefas inseridas
+// excluir todas as tarefas inseridas
 function deleteTasks() {
   olList.innerText = '';
 }
@@ -30,6 +30,7 @@ function SelectedTask(event) {
 }
 olList.addEventListener('click', SelectedTask);
 
+// adicionar | remover classe completed
 function completedTask(events) {
   if (events.target.classList.contains('completed')) {
     events.target.classList.remove('completed');
@@ -40,3 +41,13 @@ function completedTask(events) {
   }
 }
 olList.addEventListener('dblclick', completedTask);
+
+// remover itens finalizados
+const removeButtom = document.querySelector('#remover-finalizados');
+function deleteCompleted(){
+  const removeCompleted = document.querySelectorAll('.completed');
+  for (let i = 0; i < removeCompleted.length; i += 1){
+    removeCompleted[i].remove();
+  }
+}
+removeButtom.addEventListener('click', deleteCompleted);
