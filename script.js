@@ -1,4 +1,10 @@
-function newTask() {
+window.onload = function() {
+
+const addTask = document.getElementById('criar-tarefa');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
+
+addTask.addEventListener('click', () => {
   const li = document.createElement('li');
   const inputValue = document.getElementById('texto-tarefa').value;
   const text = document.createTextNode(inputValue);
@@ -10,8 +16,9 @@ function newTask() {
     document.getElementById('lista-tarefas').appendChild(li);
   }
   document.getElementById('texto-tarefa').value = "";
+
   creatButtonClosed(li)
-}
+});
 
 function creatButtonClosed(li) {
   var span = document.createElement('button');
@@ -39,27 +46,20 @@ function addButtonClosed() {
 }
 addButtonClosed();
 
-var close = document.getElementsByClassName("close");
-for (let index = 0; index < close.length; index += 1) {
-  close[index].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
 function deleteAllButton(){
-    var apagar = document.createElement('BUTTON');
+  var apagarAll = document.createElement('BUTTON');
   var buttonName = document.createTextNode("Apaga tudo");
-  apagar.id = "apaga-tudo";  
-  apagar.appendChild(buttonName);   
-  apagar.onclick = function() {
+  apagarAll.id = "apaga-tudo";  
+  apagarAll.appendChild(buttonName);   
+  apagarAll.onclick = function() {
     let lista = document.getElementById('lista-tarefas');
     lista.innerHTML = "";
   }
   let menu = document.getElementById('menu');
-  menu.appendChild(apagar);
+  menu.appendChild(apagarAll);
 }
 deleteAllButton();
+
 
 function selectTask() {
   document.querySelector('ol').addEventListener('dblclick', (e) => {
@@ -68,3 +68,34 @@ function selectTask() {
   });
 }
 selectTask();
+
+moveUpButton.addEventListener('click', () => {
+  const itemList = document.getElementsByTagName('li');
+  for (let index = 0; index < itemList.length; index += 1) {
+    if (itemList[index].classList.value.includes('checked') && index !== 0) {
+      const saveItemList = itemList[index].outerHTML;
+      itemList[index].outerHTML = itemList[index - 1].outerHTML;
+      itemList[index - 1].outerHTML = saveItemList;
+    }
+  }
+});
+
+moveDownButton.addEventListener('click', () => {
+  const itemList = document.getElementsByTagName('li');
+  for (let index = itemList.length - 1; index >= 0; index -= 1) {
+    if (itemList[index].classList.value.includes('checked') && index !== (itemList.length - 1)) {
+      const saveItemList = itemList[index].outerHTML;
+      itemList[index].outerHTML = itemList[index + 1].outerHTML;
+      itemList[index + 1].outerHTML = saveItemList;
+    }
+  }
+});
+
+var close = document.getElementsByClassName("close");
+for (let index = 0; index < close.length; index += 1) {
+  close[index].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+}

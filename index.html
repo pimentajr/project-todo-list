@@ -14,12 +14,18 @@
   </header>
   <section id="newTask">
     <input type="text" id="texto-tarefa" placeholder="Nova tarefa..."/>
-    <button type="button" id="criar-tarefa" onclick="newTask()">New task</button> 
+    <button type="button" id="criar-tarefa" >New task</button> 
   </section>
   <div>
     <ol id="lista-tarefas"></ol>
   </div>
-  <section id="menu"></section>
+  <section id="menu">
+    <button type="button" id="remover-selecionado">Remover selecionado</button>
+    <button type="button" id="remover-finalizados">Remover finalizados</button>
+    <button type="button" id="salvar-tarefas">Salvar tarefas</button>
+    <button type="button" id="mover-cima">Mover para cima</button>
+    <button type="button" id="mover-baixo">Mover para baixo</button>
+  </section>
   <script src="script.js"></script>
 </body>
 </html>
