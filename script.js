@@ -25,18 +25,14 @@ lista2.addEventListener('click', function(event){
     }else{
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
         event.target.className = 'selected';
-        textSelected = event.target.innerHTML;  
-              
+        textSelected = event.target.innerHTML;         
     }
 });
 
 let lista3 = document.getElementById('lista-tarefas');
 let segundaVez = false;
-
 lista3.addEventListener('dblclick', function(event){
-
     if(event.target.className == 'selected'){
-
         if(event.target.className != 'selected completed' && segundaVez == false){
             event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
             event.target.className = 'selected completed';   
@@ -47,20 +43,31 @@ lista3.addEventListener('dblclick', function(event){
             event.target.className = 'selected';
             segundaVez=false;
         }
-
     }
-
 });
 
 let apagarLista = document.getElementById('apaga-tudo');
 let itensApagar = document.getElementsByTagName('li');
-
 apagarLista.addEventListener('click', function(){
     const apagar = itensApagar.length;
-    console.log(itensApagar.length)
-
     for(let i=apagar-1;i>=0;i--){
-        console.log(apagar);
         itensApagar[i].remove();
     }
 });
+
+let removerFinalizados = document.getElementById('remover-finalizados');
+let itensRemover = document.getElementsByTagName('li');
+removerFinalizados.addEventListener('click', function(){
+    const remover = itensRemover.length;
+    console.log('creuuuu:' + remover);
+    for(let i=remover-1;i>=0;i--){
+        console.log('entrou for');
+        console.log('Cor item' + itensRemover[i].style.textDecoration)
+        if(itensRemover[i].style.textDecoration === 'line-through solid rgb(0, 0, 0)'){
+            console.log('entrou iffffff');
+            itensRemover[i].remove();
+        }
+    }
+});
+
+
