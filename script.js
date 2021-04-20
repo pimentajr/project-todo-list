@@ -94,7 +94,7 @@ function upList() {
     return null;
   }
   selectedElement.parentNode.insertBefore(
-    selectedElement, selectedElement.previousElementSibling
+    selectedElement, selectedElement.previousElementSibling,
   );
 }
 
@@ -107,7 +107,7 @@ function downList() {
     return null;
   }
   selectedElement.parentNode.insertBefore(
-    selectedElement, selectedElement.nextElementSibling.nextElementSibling
+    selectedElement, selectedElement.nextElementSibling.nextElementSibling,
   );
 }
 
