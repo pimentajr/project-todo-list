@@ -4,6 +4,7 @@ const removeCheckButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
 const upButton = document.querySelector('#mover-cima');
 const downButton = document.querySelector('#mover-baixo');
+const removeButton = document.querySelector('#remover-selecionado');
 
 const olTaskList = document.querySelector('#lista-tarefas');
 
@@ -105,3 +106,13 @@ upButton.addEventListener('click', () => {
     }
   }
 });
+
+function removeSelected() {
+  for (let index = 0; index < tasks.children.length; index += 1) {
+    if (tasks.children[index].style.backgroundColor) {
+      tasks.removeChild(tasks.children[index]);
+    }
+  }
+}
+
+removeButton.addEventListener('click', removeSelected);
