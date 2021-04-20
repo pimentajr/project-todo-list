@@ -1,6 +1,8 @@
 window.onload = function() {
 
 const addTask = document.getElementById('criar-tarefa');
+const inputText = document.getElementById('texto-tarefa');
+const orderedList = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
 
@@ -14,9 +16,11 @@ addTask.addEventListener('click', () => {
   } 
   else {
     document.getElementById('lista-tarefas').appendChild(li);
+    li.setAttribute('id', 'itemList');
+    li.innerHTML += inputText.value;
+    orderedList.appendChild(li);
   }
   document.getElementById('texto-tarefa').value = null;
-
 });
 
 function deleteAllButton(){
@@ -38,7 +42,7 @@ function selectTask() {
   document.querySelector('ol').addEventListener('dblclick', (e) => {
     if (e.target.tagName === 'LI')
       e.target.classList.toggle('checked');
-  });
+    });
 }
 selectTask();
 

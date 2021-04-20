@@ -17,20 +17,12 @@ ol li {
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
-  background: #eee;
+  background: rgb(238, 238, 238);
   font-size: 18px;
   transition: 0.2s;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .checked {
   text-decoration: line-through;
-  background-color: rgb(128, 128,128);
+  background-color: gray;
 }
-
-
-
-
