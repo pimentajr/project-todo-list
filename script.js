@@ -1,5 +1,5 @@
 const addTask = document.getElementById('criar-tarefa');
-const selectTask = document.getElementById('lista-tarefas');
+var selectTask = document.getElementById('lista-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
 const list = document.querySelector('#lista-tarefas');
