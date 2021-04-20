@@ -46,3 +46,14 @@ html, body {
 .grayRGD {
     background-color: rgb(128, 128, 128)
 }
+
+.linha {
+    text-decoration: line-through;
+}
+
+.limpar {
+    display: none;
+}
+.list-item {
+    
+}
