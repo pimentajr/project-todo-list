@@ -5,7 +5,6 @@ const resetEverything = document.getElementById('apaga-tudo')
 const removeFinished = document.getElementById('remove-finalizados')
 const moverUp = document.getElementById('mover-cima')
 const moverDown = document.getElementById('mover-baixo')
-
 // correta
 taskAdded.addEventListener('click', () => {
     const newLi = document.createElement('li');
@@ -31,9 +30,7 @@ selectColor();
     
 function completingTask() {
 listeOl.addEventListener('dblclick', (event) => {
-    const aList = event.tarconst 
-    buttonRemoveSelected = document.getElementById('remover-selecionado');
-    get.classList;
+    const aList = event.target.classList;
     if(aList.contains('completed')) {
         aList.remove('completed');
     } else {
@@ -65,11 +62,3 @@ deleteAllTasks()
 listeOl.addEventListener('click', selectColor)
 listeOl.addEventListener('dblclick', completingTask)
 
-const buttonRemoveSelected = document.getElementById('remover-selecionado');
-
-
-function removeSelected() {
-  const selected = document.querySelector('.selected');
-  selected.remove();
-}
-buttonRemoveSelected.addEventListener('click', removeSelected);
