@@ -41,8 +41,8 @@ function clearAll() {
 clearAll();
 
 function removeFinalizados() {
-  const selectButtonRemoveFinalizados = document.querySelector('#remover-finalizados');
-  selectButtonRemoveFinalizados.addEventListener('click', () => {
+  const selectButtonRemoveCompleted = document.querySelector('#remover-finalizados');
+  selectButtonRemoveCompleted.addEventListener('click', () => {
     const finalizados = document.querySelectorAll('.completed');
     finalizados.forEach((element) => element.remove());
   });
