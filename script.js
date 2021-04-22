@@ -32,5 +32,18 @@ taskList.addEventListener('click', () => {
 // evento para reconhecer duplo clickedItem
 taskList.addEventListener('dblclick', () => {
   let dblClickedItem = event.target;
+// alternar entre completo e não completo atravez do duplo click
   dblClickedItem.classList.toggle('completed');
 })
+
+// Apagar lista atravez do button
+const clearList = document.getElementById('apaga-tudo');
+clearList.addEventListener('click', () => {
+// declara novamente quem é taskList  
+  const taskList2 = document.getElementById('lista-tarefas');
+  // remove elementos da lista um por um
+  let itens = taskList2.getElementsByTagName('li');
+  while(itens.length > 0) {
+    taskList2.removeChild(itens[0]);    
+  }
+});
