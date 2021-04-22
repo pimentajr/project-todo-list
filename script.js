@@ -1,10 +1,15 @@
-let taskButton = document.getElementById('criar-tarefa');
-taskButton.addEventListener('click', ()=>{
-  let newItem = document.getElementById('texto-tarefa').value;
+const taskButton = document.getElementById('criar-tarefa');
+taskButton.addEventListener('click', () => {
+  const newItem = document.getElementById('texto-tarefa').value;
   const list = document.getElementById('lista-tarefas');
-  let listChild = document.createElement('li');
+  const listChild = document.createElement('li');
   listChild.innerHTML = newItem;
   list.appendChild(listChild);
   document.getElementById('texto-tarefa').value = '';
-})
+});
 
+const taskList = document.getElementById('lista-tarefas');
+taskList.addEventListener('click', () => {
+let clickedItem = event.target;
+clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+})
