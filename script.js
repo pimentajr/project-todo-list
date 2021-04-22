@@ -8,8 +8,22 @@ taskButton.addEventListener('click', () => {
   document.getElementById('texto-tarefa').value = '';
 });
 
+// Salvando lista de tarefas (ol) na variavel taskList
 const taskList = document.getElementById('lista-tarefas');
+// Adicionando evento para saber se algum item na lista de tarefas foi clicado
 taskList.addEventListener('click', () => {
-let clickedItem = event.target;
+// guardando em clickedItem o item que foi clicado
+  let clickedItem = event.target;
+// Listar elementos li
+let liCollection = document.getElementsByTagName('li');
+// caminahndo na lista de tarefas
+for (let index = 0; index < liCollection.length; index++) {
+// verifica se algum item possui backGround cinza 
+  if (liCollection[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+// alterando para branco
+    liCollection[index].style.backgroundColor = 'white';
+  }
+}
+// item clicado pinta de cinza
 clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
 })
