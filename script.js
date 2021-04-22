@@ -15,20 +15,21 @@ text.value = ''
 })
 
 function selectColor() {
-    listeOl.addEventListener('click', (event) =>{  
-        const toColor = event.target;
-        const selectedColor = document.querySelector('.selected');
-        if(selectColor) {
-            selectColor.classList.remove('.selected');
-        }
-     
-        event.target.classList.add('.selected');
-        
-  });
+  const list2 = document.querySelector('#lista-tarefas');
+
+    listeOl.addEventListener('click', (colorChange) =>{  
+        const toColor = document.querySelector('li');
+        const selectedColor = colorChange.target;
+        if(selectedColor.className === 'item') {
+            selectColor.className += '.selected';
+          }
+     console.log(toColor)
+    });
+              
 }     
 selectColor();
     
-function completingTask() {
+function completingTabask() {
 listeOl.addEventListener('dblclick', (event) => {
     const aList = event.target.classList;
     if(aList.contains('completed')) {
@@ -47,20 +48,3 @@ function deleteTasks() {
 }
 deleteTasks()
 
-//remove finalizados
-function deleteAllTasks(e) {
-  const removeFinished = e.target.classList;
-  if(e.target.classList[2]=== 'completed') {
-    e.target.classList.removeEventListener('completed');
-  }else{
-    e.target.classList.add('completed')
-  }
-}
-
-deleteAllTasks()
-
-listeOl.addEventListener('click', selectColor)
-listeOl.addEventListener('dblclick', completingTask)
-
-
- 
