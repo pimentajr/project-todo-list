@@ -6,6 +6,7 @@ function addTask() {
   const newTaskItem = document.createElement('li');
   newTaskItem.innerText = document.getElementById('texto-tarefa').value;
   taskList.appendChild(newTaskItem);
+  newTaskItem.className = 'task';
 
   document.getElementById('texto-tarefa').value = '';
 }
@@ -14,12 +15,20 @@ newTaskButton.addEventListener('click', addTask);
 
 // Função para selecionar a tarefa clicada:
 function taskSelector(event) {
+  const target = event.target
   const tasks = document.querySelectorAll('li');
+  // primeiro remover outros selected
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].classList.remove('selected');
   }
-  const taskDone = event.target;
-  taskDone.classList.add('selected');
+  // definir o selected
+  if (target.classList.contains('task')) {
+    target.classList.add('selected');
+  } 
+  // falta colocar para quando clicar retirar o class selected
+  
+//   if (evento.classList.contains('itens-tarefa')
+//   taskDone.classList.add('selected');
 }
 
 taskList.addEventListener('click', taskSelector);
@@ -57,15 +66,29 @@ document.querySelector('#apaga-tudo').addEventListener('click', reset);
 
 const saveTaskListBtn = document.querySelector('#salvar-tarefas');
 
-function saveTaskContent() {
-  const taskListContent = taskList.innerHTML;
-  localStorage.setItem('saved task list', taskListContent);
-}
+//Botão salvar para mais
+// function saveTaskContent() {
+// //   const taskListContent = taskList.innerHTML;
+// //   localStorage.setItem('saved task list', taskListContent);
+// //   const taskListContent = [];
+// //   for (let index = 0; index < taskList.children.length; index += 1) {
+// //     taskListContent.push(taskList.children[index].innerHTML);
+// //   }
+// //   localStorage.setItem('listaSalva', taskListContent);
+//   const taskListContent = [];
+//   for (let index = 0; index < taskList.children.length; index += 1) {
+//         taskListContent.push(taskList.children[index].innerHTML);
+//       }
+//     }
 
-function loadTaskListContent() {
-  const taskListContent = localStorage.getItem('listaSalva');
-  taskList.innerHTML = taskListContent;
-}
+// function loadTaskListContent() {
+//   const taskListContent = localStorage.getItem('listaSalva');
+//   for (let index = 0; index < taskListContent.length; index += 1) {
+//       const newTaskItem = document.createElement('li')
+//       newTaskItem.innerHTML = taskListContent[index];
+//       taskList.appendChild(newTaskItem);      
+//   }
+// }
 
-saveTaskListBtn.addEventListener('click', saveTaskContent);
-loadTaskListContent();
+// saveTaskListBtn.addEventListener('click', saveTaskContent);
+// loadTaskListContent();
