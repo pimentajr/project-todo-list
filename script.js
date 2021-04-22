@@ -32,9 +32,5 @@ taskList.addEventListener('click', () => {
 // evento para reconhecer duplo clickedItem
 taskList.addEventListener('dblclick', () => {
   let dblClickedItem = event.target;
-  if (dblClickedItem.classList[0] === 'completed') {
-    dblClickedItem.classList.remove('completed');    
-  } else {
-    dblClickedItem.classList.add('completed');
-  }
+  dblClickedItem.classList.toggle('completed');
 })
