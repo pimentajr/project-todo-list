@@ -53,7 +53,17 @@ deleteAllTasks()
 
 // listeOl.addEventListener('click', selectColor)
 //listeOl.addEventListener('dblclick', completingTask)
- 
+
+//remover selecionados
+function removeSelect() {
+  const btnSave = document.querySelector('#remover-selecionado');
+  btnSave.addEventListener('click', () => {
+  const btnClear = document.querySelector('.selected');
+  btnClear.remove();
+  });
+}
+removeSelect()
+
 //salvar tarefas
 function salvarTarefas() {
   const btnSaveTask = document.querySelector('#salvar-tarefas');
