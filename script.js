@@ -71,8 +71,8 @@ selectGray()
 function salvarTarefas() {
   const saveAsk = document.querySelector('#salvar-tarefas');
   saveAsk.addEventListener('click', () => {
-    localStorage.setItem('toDoList', listeOl.innerHTML);
+    localStorage.setItem('Document', listeOl.innerHTML);
   });
-  listeOl.innerHTML = localStorage.getItem('toDoList');
+  listeOl.innerHTML = localStorage.getItem('Document');
 }
 salvarTarefas()
