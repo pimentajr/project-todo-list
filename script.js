@@ -57,4 +57,13 @@ deleteAllTasks()
 
 // listeOl.addEventListener('click', selectColor)
 listeOl.addEventListener('dblclick', completingTask)
-
+ 
+//salvar tarefas
+function salvarTarefas() {
+  const btnSaveTask = document.querySelector('#salvar-tarefas');
+  btnSaveTask.addEventListener('click', () => {
+    localStorage.setItem('Document', listeOl.innerHTML);
+  });
+  listeOl.innerHTML = localStorage.getItem('Document');
+}
+salvarTarefas()
