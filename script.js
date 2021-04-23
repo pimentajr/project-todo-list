@@ -21,7 +21,7 @@ function selectColor() {
         for(let index = 0; index < selectedColor.length; index =+ 1) { 
           selectedColor[index].classList.remove('selected');
         }
-             toColor.classList.add('.selected');
+             toColor.classList.add('selected');
         });
 }     
 selectColor();
@@ -55,16 +55,16 @@ completeds.forEach((removeitem)=>removeitem.remove());
   }
 deleteAllTasks()
 
-//listeOl.addEventListener('click', selectColor)
-//listeOl.addEventListener('dblclick', completingTask)
+listeOl.addEventListener('click', selectColor)
+listeOl.addEventListener('dblclick', completingTask)
 
-function selectGray() {
-listeOl.addEventListener('click', function(e){
-if(addEventListener){
-  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-}
-})
-}
-selectGray()
+// function selectGray() {
+// listeOl.addEventListener('click', function(e){
+// if(addEventListener){
+//   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+// }
+// })
+// }
+// selectGray()
 
 //salvar tarefas
