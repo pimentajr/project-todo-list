@@ -17,14 +17,12 @@ text.value = ''
 function selectColor() {
     listeOl.addEventListener('click', (event) =>{  
         const toColor = event.target;
-        const selectedColor = document.querySelector('.selected');
-        if(selectedColor) {
-            selectedColor.classList.remove('.selected');
+        const selectedColor = document.querySelectorAll('li');
+        for(let index = 0; index < selectedColor.length; index =+ 1) { 
+          selectedColor[index].classList.remove('selected');
         }
-     
-        toColor.classList.add('.selected');
-        
-  });
+             toColor.classList.add('.selected');
+        });
 }     
 selectColor();
     

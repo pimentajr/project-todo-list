@@ -1,3 +1,13 @@
+
+body {
+    background: brown;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 30px;
+  }
+
 .selected  {
     background-color: rgb(128, 128, 128);
 }
@@ -7,4 +17,5 @@
 
  #lista-tarefas {
      background-color: aqua
+     
  }
