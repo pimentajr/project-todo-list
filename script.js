@@ -68,3 +68,13 @@ if(addEventListener){
 })
 }
 selectGray()
+
+//salvar tarefas
+function salvarTarefas() {
+  const saveAsk = document.querySelector('#salvar-tarefas');
+  saveAsk.addEventListener('click', () => {
+    localStorage.setItem('toDoList', listeOl.innerHTML);
+  });
+  listeOl.innerHTML = localStorage.getItem('toDoList');
+}
+salvarTarefas()
