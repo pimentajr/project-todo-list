@@ -18,11 +18,11 @@ function selectColor() {
     listeOl.addEventListener('click', (event) =>{  
         const toColor = event.target;
         const selectedColor = document.querySelector('.selected');
-        if(selectColor) {
-            selectColor.classList.remove('.selected');
+        if(selectedColor) {
+            selectedColor.classList.remove('.selected');
         }
      
-        event.target.classList.add('.selected');
+        toColor.classList.add('.selected');
         
   });
 }     
@@ -62,3 +62,11 @@ deleteTasks()
 listeOl.addEventListener('click', selectColor)
 listeOl.addEventListener('dblclick', completingTask)
 
+function selectGray() {
+listeOl.addEventListener('click', function(e){
+if(addEventListener){
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+})
+}
+selectGray()
