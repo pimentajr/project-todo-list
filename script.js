@@ -2,7 +2,7 @@ const taskAdded = document.getElementById('criar-tarefa');
 const text = document.getElementById('texto-tarefa');
 const listeOl = document.getElementById('lista-tarefas');
 const resetEverything = document.getElementById('apaga-tudo')
-const removeFinished = document.getElementById('remove-finalizados')
+const removeFinished = document.getElementById('remover-finalizados')
 const moverUp = document.getElementById('mover-cima')
 const moverDown = document.getElementById('mover-baixo')
 // correta
@@ -48,16 +48,14 @@ function deleteTasks() {
 deleteTasks()
 
 //remove finalizados
-// function deleteAllTasks(e) {
-//   const removeFinished = e.target.classList;
-//   if(removeFinished[2]=== 'completed') {
-//     removeFinished.removeEventListener('completed');
-//   }else{
-//     removeFinished.add('completed')
-//   }
-// }
-
-// deleteAllTasks()
+function deleteAllTasks() {
+  const removeFinished = document.querySelector('#remover-finalizados');
+  removeFinished.addEventListener('click', () => {
+const completeds = document.querySelectorAll('.completed');
+completeds.forEach((removeitem)=>removeitem.remove());
+  });
+  }
+deleteAllTasks()
 
 listeOl.addEventListener('click', selectColor)
 listeOl.addEventListener('dblclick', completingTask)
