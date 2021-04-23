@@ -8,3 +8,7 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+button {
+  margin: 3px;
+}

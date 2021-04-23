@@ -22,10 +22,12 @@ taskList.addEventListener('click', () => {
     if (liCollection[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       // alterando para branco
       liCollection[index].style.backgroundColor = 'white';
+      liCollection[index].classList.remove('selected');
     }
   }
   // item clicado pinta de cinza
   clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+  clickedItem.classList.add('selected');
 })
 
 
@@ -55,3 +57,28 @@ clearCompleted.addEventListener('click', () => {
     document.querySelector('.completed').remove();
   }
 });
+// remover selecionados
+const removeSelected = document.getElementById('remover-selecionado');
+removeSelected.addEventListener('click', () => {
+  document.querySelector('.selected').remove();
+})
+
+// Salvar tarefas
+const saveTask = document.getElementById('salvar-tarefas');
+saveTask.addEventListener('click', () => {
+  let savedTasks = document.getElementsByTagName('li');
+  for (let i = 0; i < savedTasks.length; i++) {
+    localStorage.setItem(i,savedTasks[i].innerHTML);
+  }
+});
+
+window.onload = () => {
+  const listOnLoad = document.getElementById('lista-tarefas');
+  let listChildOnLoad = document.createElement('li');
+  for(let i = 0; i < localStorage.length;i++){
+    console.log('passou aqui')
+    listChildOnLoad = document.createElement('li');
+    listChildOnLoad.innerHTML = localStorage[i];
+    listOnLoad.appendChild(listChildOnLoad);
+  }
+}
