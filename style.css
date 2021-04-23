@@ -9,3 +9,14 @@
      background-color: aqua
      
  }
+ body {
+     background-color: gray;
+ }
+ header{
+     align-items: center;
+     display: flex;
+ }
+ header h1 {
+     background-color: green;
+     
+ }
