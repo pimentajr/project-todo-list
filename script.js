@@ -18,7 +18,7 @@ function selectColor() {
     listeOl.addEventListener('click', (event) =>{  
         const toColor = event.target;
         const selectedColor = document.querySelectorAll('li');
-        for(let index = 0; index < selectedColor.length; index =+ 1) { 
+        for(let index = 0; index < selectedColor.length; index += 1) { 
           selectedColor[index].classList.remove('selected');
         }
              toColor.classList.add('selected');
