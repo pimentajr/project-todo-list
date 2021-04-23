@@ -28,14 +28,10 @@ selectColor();
     
 function completingTask() {
 listeOl.addEventListener('dblclick', (event) => {
-    const aList = event.target.classList;
-    if(aList.contains('completed')) {
-        aList.remove('completed');
-    } else {
-        aList.add('completed');
-    }
-  });
-}
+  const aList = event.target;
+  aList.classList.toggle('completed');
+})
+}    
 completingTask()
 
 function deleteTasks() {
@@ -56,7 +52,7 @@ completeds.forEach((removeitem)=>removeitem.remove());
 deleteAllTasks()
 
 // listeOl.addEventListener('click', selectColor)
-listeOl.addEventListener('dblclick', completingTask)
+//listeOl.addEventListener('dblclick', completingTask)
  
 //salvar tarefas
 function salvarTarefas() {
