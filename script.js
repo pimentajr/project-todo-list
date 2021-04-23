@@ -55,8 +55,8 @@ completeds.forEach((removeitem)=>removeitem.remove());
   }
 deleteAllTasks()
 
-listeOl.addEventListener('click', selectColor)
-listeOl.addEventListener('dblclick', completingTask)
+//listeOl.addEventListener('click', selectColor)
+//listeOl.addEventListener('dblclick', completingTask)
 
 function selectGray() {
 listeOl.addEventListener('click', function(e){
