@@ -48,16 +48,16 @@ function deleteTasks() {
 deleteTasks()
 
 //remove finalizados
-function deleteAllTasks(e) {
-  const removeFinished = e.target.classList;
-  if(e.target.classList[2]=== 'completed') {
-    e.target.classList.removeEventListener('completed');
-  }else{
-    e.target.classList.add('completed')
-  }
-}
+// function deleteAllTasks(e) {
+//   const removeFinished = e.target.classList;
+//   if(removeFinished[2]=== 'completed') {
+//     removeFinished.removeEventListener('completed');
+//   }else{
+//     removeFinished.add('completed')
+//   }
+// }
 
-deleteAllTasks()
+// deleteAllTasks()
 
 listeOl.addEventListener('click', selectColor)
 listeOl.addEventListener('dblclick', completingTask)
