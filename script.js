@@ -58,13 +58,3 @@ deleteAllTasks()
 listeOl.addEventListener('click', selectColor)
 listeOl.addEventListener('dblclick', completingTask)
 
-// function selectGray() {
-// listeOl.addEventListener('click', function(e){
-// if(addEventListener){
-//   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-// }
-// })
-// }
-// selectGray()
-
-//salvar tarefas
