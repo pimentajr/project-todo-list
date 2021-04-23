@@ -26,8 +26,8 @@ taskList.addEventListener('click', () => {
     }
   }
   // item clicado pinta de cinza
-  clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
   clickedItem.classList.add('selected');
+  clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
 })
 
 
@@ -67,18 +67,21 @@ removeSelected.addEventListener('click', () => {
 const saveTask = document.getElementById('salvar-tarefas');
 saveTask.addEventListener('click', () => {
   let savedTasks = document.getElementsByTagName('li');
-  for (let i = 0; i < savedTasks.length; i++) {
-    localStorage.setItem(i,savedTasks[i].innerHTML);
+  for (let index = 0; index < savedTasks.length; index++) {
+    localStorage.setItem(index, savedTasks[index].innerHTML + '-' + savedTasks[index].classList);
+    //localStorage.setItem('class'+index,savedTasks[index].classList);
   }
 });
 
 window.onload = () => {
   const listOnLoad = document.getElementById('lista-tarefas');
   let listChildOnLoad = document.createElement('li');
-  for(let i = 0; i < localStorage.length;i++){
-    console.log('passou aqui')
+  for (let index = 0; index < localStorage.length; index++) {
     listChildOnLoad = document.createElement('li');
-    listChildOnLoad.innerHTML = localStorage[i];
+    listChildOnLoad.innerHTML = localStorage[index].split('-')[0];
+    if(localStorage[index].split('-')[1]){
+    listChildOnLoad.className = localStorage[index].split('-')[1];
+    }
     listOnLoad.appendChild(listChildOnLoad);
   }
 }
