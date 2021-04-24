@@ -12,6 +12,10 @@ buttonAddTodo.addEventListener('click', () => {
 
 ol.addEventListener('click', (event) => {
   if (event.target.tagName === 'LI') {
+    const selectedItem = document.querySelector('.selected');
+    if (selectedItem !== null) {
+      selectedItem.classList.remove('selected');
+    }
     event.target.classList.add('selected');
   }
 });
