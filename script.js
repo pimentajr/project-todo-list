@@ -4,6 +4,7 @@ const buttonAddTodo = document.getElementById('criar-tarefa');
 const buttonClearAll = document.getElementById('apaga-tudo');
 const buttonClearChecked = document.getElementById('remover-finalizados');
 const buttonClearSelected = document.getElementById('remover-selecionado');
+const buttonSaveList = document.getElementById('salvar-tarefas');
 
 buttonAddTodo.addEventListener('click', () => {
   const li = document.createElement('li');
@@ -48,4 +49,15 @@ buttonClearChecked.addEventListener('click', () => {
 buttonClearSelected.addEventListener('click', () => {
   const liSelected = document.querySelector('.selected');
   ol.removeChild(liSelected);
-})
+});
+
+buttonSaveList.addEventListener('click', () => {
+  localStorage.setItem('items', ol.innerHTML);
+});
+
+function initialize() {
+  const items = localStorage.getItem('items');
+  if (items) ol.innerHTML = items;
+}
+
+initialize();
