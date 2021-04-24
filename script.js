@@ -5,13 +5,14 @@ const buttonClearAll = document.getElementById('apaga-tudo');
 const buttonClearChecked = document.getElementById('remover-finalizados');
 const buttonClearSelected = document.getElementById('remover-selecionado');
 const buttonSaveList = document.getElementById('salvar-tarefas');
+const buttonUp = document.getElementById('mover-cima');
+const buttonDown = document.getElementById('mover-baixo');
 
 buttonAddTodo.addEventListener('click', () => {
   const li = document.createElement('li');
   li.innerText = input.value;
   ol.appendChild(li);
   input.value = '';
-  input.focus();
 });
 
 ol.addEventListener('click', (e) => {
@@ -25,14 +26,7 @@ ol.addEventListener('click', (e) => {
 });
 
 ol.addEventListener('dblclick', (e) => {
-  const task = e.target;
-  if (task.tagName === 'LI') {
-    if (task.classList.contains('completed')) {
-      task.classList.remove('completed');
-    } else {
-      task.classList.toggle('completed');
-    }
-  }
+  e.target.classList.toggle('completed');
 });
 
 buttonClearAll.addEventListener('click', () => {
@@ -61,3 +55,17 @@ function initialize() {
 }
 
 initialize();
+
+buttonUp.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem.previousElementSibling) {
+    ol.insertBefore(selectedItem, selectedItem.previousElementSibling);
+  }
+});
+
+buttonDown.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem.nextElementSibling) {
+    ol.insertBefore(selectedItem.nextElementSibling, selectedItem);
+  }
+});
