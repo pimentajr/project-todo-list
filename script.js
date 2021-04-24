@@ -2,6 +2,7 @@ const ol = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
 const buttonAddTodo = document.getElementById('criar-tarefa');
 const buttonClearAll = document.getElementById('apaga-tudo');
+const buttonClearChecked = document.getElementById('remover-finalizados');
 
 buttonAddTodo.addEventListener('click', () => {
   const li = document.createElement('li');
@@ -34,4 +35,11 @@ ol.addEventListener('dblclick', (e) => {
 
 buttonClearAll.addEventListener('click', () => {
   ol.innerHTML = '';
+});
+
+buttonClearChecked.addEventListener('click', () => {
+  const li = document.querySelectorAll('.completed');
+  for (let index = 0; index < li.length; index += 1) {
+    li[index].remove();
+  }
 });
