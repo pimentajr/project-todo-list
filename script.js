@@ -9,3 +9,9 @@ buttonAddTodo.addEventListener('click', () => {
   input.value = '';
   input.focus();
 });
+
+ol.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') {
+    event.target.classList.add('selected');
+  }
+});
