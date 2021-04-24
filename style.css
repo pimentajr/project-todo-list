@@ -31,6 +31,10 @@ main {
   text-align: center;
 }
 
+h3 {
+  margin: 10px 0;
+}
+
 .todo-list input {
   width: 60%;
   padding: 5px;
