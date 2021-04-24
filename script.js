@@ -10,12 +10,23 @@ buttonAddTodo.addEventListener('click', () => {
   input.focus();
 });
 
-ol.addEventListener('click', (event) => {
-  if (event.target.tagName === 'LI') {
+ol.addEventListener('click', (e) => {
+  if (e.target.tagName === 'LI') {
     const selectedItem = document.querySelector('.selected');
     if (selectedItem !== null) {
       selectedItem.classList.remove('selected');
     }
-    event.target.classList.add('selected');
+    e.target.classList.add('selected');
+  }
+});
+
+ol.addEventListener('dblclick', (e) => {
+  const task = e.target;
+  if (task.tagName === 'LI') {
+    if (task.classList.contains('completed')) {
+      task.classList.remove('completed');
+    } else {
+      task.classList.toggle('completed');
+    }
   }
 });
