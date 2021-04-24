@@ -3,6 +3,7 @@ const input = document.getElementById('texto-tarefa');
 const buttonAddTodo = document.getElementById('criar-tarefa');
 const buttonClearAll = document.getElementById('apaga-tudo');
 const buttonClearChecked = document.getElementById('remover-finalizados');
+const buttonClearSelected = document.getElementById('remover-selecionado');
 
 buttonAddTodo.addEventListener('click', () => {
   const li = document.createElement('li');
@@ -43,3 +44,8 @@ buttonClearChecked.addEventListener('click', () => {
     li[index].remove();
   }
 });
+
+buttonClearSelected.addEventListener('click', () => {
+  const liSelected = document.querySelector('.selected');
+  ol.removeChild(liSelected);
+})
