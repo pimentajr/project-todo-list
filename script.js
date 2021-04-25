@@ -2,13 +2,13 @@ const textInput = document.querySelector('#texto-tarefa');
 const addButton = document.querySelector('#criar-tarefa');
 const elementOl = document.querySelector('#lista-tarefas');
 
-function updateList() {
+function getList() {
   const listUpdate = elementOl.children;
   return listUpdate;
 }
 
 function paintLine() {
-  const myList = updateList();
+  const myList = getList();
   for (let i = 0; i < myList.length; i += 1) {
     myList[i].addEventListener('click', () => {
       const nowSelected = document.querySelector('.selected');
@@ -59,13 +59,84 @@ function deleteCompleted() {
 
 deleteCompleted();
 
+function deleteSelected() {
+  const delButton = document.querySelector('#remover-selecionado');
+
+  delButton.addEventListener('click', () => {
+    const selectedItem = document.querySelector('.selected');
+    elementOl.removeChild(selectedItem);
+  });
+  getList();
+  paintLine();
+  deleteList();
+  deleteCompleted();
+}
+
+deleteSelected();
+
 addButton.addEventListener('click', () => {
   const valueText = document.createTextNode(textInput.value);
   const elementLi = document.createElement('li');
   elementOl.appendChild(elementLi);
   elementLi.appendChild(valueText);
   textInput.value = '';
-  updateList();
+  getList();
+  paintLine();
+  deleteList();
+  deleteCompleted();
+});
+
+const saveButton = document.getElementById('salvar-tarefas');
+
+saveButton.addEventListener('click', () => {
+  const myList = elementOl.innerHTML;
+  localStorage.setItem('app', myList);
+});
+
+function loadToDoList() {
+  const loadedList = localStorage.getItem('app');
+  if (loadedList !== null) {
+    elementOl.innerHTML = loadedList;
+    getList();
+    paintLine();
+    deleteList();
+    deleteCompleted();
+  }
+}
+
+loadToDoList();
+
+const moveUpButton = document.getElementById('mover-cima');
+
+moveUpButton.addEventListener('click', () => {
+  const myList = elementOl;
+  const selectedLi = document.querySelector('.selected');
+
+  if (selectedLi) {
+    const moveUp = selectedLi.previousElementSibling;
+    if (moveUp) {
+      myList.insertBefore(selectedLi, moveUp);
+    }
+  }
+  getList();
+  paintLine();
+  deleteList();
+  deleteCompleted();
+});
+
+const moveDownButton = document.getElementById('mover-baixo');
+
+moveDownButton.addEventListener('click', () => {
+  const myList = elementOl;
+  const selectedLi = document.querySelector('.selected');
+
+  if (selectedLi) {
+    const moveDown = selectedLi.nextElementSibling;
+    if (moveDown) {
+      myList.insertBefore(selectedLi, moveDown.nextElementSibling);
+    }
+  }
+  getList();
   paintLine();
   deleteList();
   deleteCompleted();
