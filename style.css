@@ -4,6 +4,7 @@
 
 .completed {
   text-decoration: line-through;
+  color: black !important;
 }
 
 /* O efeito de InnerShadow no body foi realizado através de um
