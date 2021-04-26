@@ -4,6 +4,7 @@ const getBtn = document.querySelector('#criar-tarefa');
 const getLi = document.getElementsByTagName('li');
 const getClear = document.getElementById('apaga-tudo');
 const btnComplet = document.querySelector('#remover-finalizados');
+const btnSave = document.querySelector('#salvar-tarefas');
 
 function addTask() {
   getBtn.addEventListener('click', () => {
@@ -59,3 +60,13 @@ function removeComplete() {
   });
 }
 removeComplete();
+
+function saveTasks() {
+  btnSave.addEventListener('click', () => {
+    localStorage.setItem('save', getOl.innerHTML);
+  });
+  if (localStorage.save) {
+    getOl.innerHTML = localStorage.getItem('save');
+  }
+}
+saveTasks();
