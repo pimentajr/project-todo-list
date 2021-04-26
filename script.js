@@ -6,7 +6,8 @@ const getClear = document.getElementById('apaga-tudo');
 const btnComplet = document.querySelector('#remover-finalizados');
 const btnSave = document.querySelector('#salvar-tarefas');
 const btnMoveUp = document.querySelector('#mover-cima');
-const btnMoveDown = document.getElementById('mover-baixo');
+const btnMoveDown = document.querySelector('#mover-baixo');
+const btnRemoveSelected = document.querySelector('#remover-selecionado');
 
 function addTask() {
   getBtn.addEventListener('click', () => {
@@ -92,3 +93,13 @@ function moveDown() {
   });
 }
 moveDown();
+
+function removeSelected() {
+  btnRemoveSelected.addEventListener('click', () => {
+    const selectedToRemove = document.querySelector('.selected');
+    if (selectedToRemove) {
+      getOl.removeChild(selectedToRemove);
+    }
+  });
+}
+removeSelected();
