@@ -5,6 +5,8 @@ const getLi = document.getElementsByTagName('li');
 const getClear = document.getElementById('apaga-tudo');
 const btnComplet = document.querySelector('#remover-finalizados');
 const btnSave = document.querySelector('#salvar-tarefas');
+const btnMoveUp = document.querySelector('#mover-cima');
+const btnMoveDown = document.getElementById('mover-baixo');
 
 function addTask() {
   getBtn.addEventListener('click', () => {
@@ -70,3 +72,23 @@ function saveTasks() {
   }
 }
 saveTasks();
+
+function moveUp() {
+  btnMoveUp.addEventListener('click', () => {
+    const toUp = document.querySelector('.selected');
+    if (toUp && toUp.previousSibling) {
+      getOl.insertBefore(toUp, toUp.previousSibling);
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  btnMoveDown.addEventListener('click', () => {
+    const toDown = document.querySelector('.selected');
+    if (toDown && toDown.nextSibling) {
+      getOl.insertBefore(toDown.nextSibling, toDown);
+    }
+  });
+}
+moveDown();
