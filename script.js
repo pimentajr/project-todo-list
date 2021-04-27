@@ -76,8 +76,8 @@ function loadTasks(listaTarefa) {
     listTask(text[0], text[1], listaTarefa);
   }
 }
-
 loadTasks(listTarefas);
+
 buttonSave.addEventListener('click', saveTasks);
 buttonRem.addEventListener('click', removeLi);
 clearAll.addEventListener('click', clearTable);
