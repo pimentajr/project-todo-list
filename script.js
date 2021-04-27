@@ -2,6 +2,8 @@ const criarTarefa = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const listTarefas = document.getElementById('lista-tarefas');
 const clearAll = document.getElementById('apaga-tudo');
+const buttonRem = document.getElementById('remover-finalizados');
+const buttonSave = document.getElementById('salvar-tarefas');
 const listaTarefaArr = listTarefas.children;
 
 function clearTable() {
@@ -41,6 +43,43 @@ function setListColor(e) {
     e.target.style.backgroundColor = 'rgb(128,128,128)';
   }
 }
+
+const li = listTarefas.getElementsByClassName('completed');
+
+function removeLi() {
+  for (let index = 0; index < li.length;) {
+    listTarefas.removeChild(li[index]);
+  }
+}
+
+function saveTasks() {
+  localStorage.clear();
+  const getLi = document.getElementsByTagName('li');
+  for (let index = 0; index < getLi.length; index += 1) {
+    if (getLi[index].className === 'completed') {
+      localStorage.setItem(`item${index}`, `${getLi[index].firstChild.wholeText}, completed`);
+    }
+  }
+  alert('Tarefas Salvas');
+}
+
+function listTask(text, classCompleted, listaTarefa) {
+  const task = document.createElement('li');
+  task.innerText = text;
+  task.className = classCompleted;
+  listaTarefa.appendChild(task);
+}
+
+function loadTasks(listaTarefa) {
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const text = localStorage.getItem(`item${index}`).split(',');
+    listTask(text[0], text[1], listaTarefa);
+  }
+}
+
+loadTasks(listTarefas);
+buttonSave.addEventListener('click', saveTasks);
+buttonRem.addEventListener('click', removeLi);
 clearAll.addEventListener('click', clearTable);
 listTarefas.addEventListener('click', setListColor);
 criarTarefa.addEventListener('click', getText);
