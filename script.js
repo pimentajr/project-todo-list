@@ -1,7 +1,8 @@
 let addToDoButton = document.getElementById('criar-tarefa');
 let toDoContainer = document.getElementById('lista-tarefas');
-let inputField = document.getElementById("texto-tarefa");
-let eraseList = document.getElementById("apaga-tudo")
+let inputField = document.getElementById('texto-tarefa');
+let eraseList = document.getElementById('apaga-tudo');
+let removeEnded = document.getElementById('remover-finalizados');
 
 function selectItem(event) {
     let selectOne = document.querySelector('.grayRGB');
@@ -12,7 +13,6 @@ function selectItem(event) {
 }
 
 function completeTask(event) {
-    console.log(event.target)
     if(event.target.classList.contains('completed')) {
         event.target.classList.remove('completed');
     } else {
@@ -32,10 +32,18 @@ addToDoButton.addEventListener('click', function(){
     listItem.addEventListener('dblclick', completeTask);
     listItem.addEventListener('click', selectItem);
    
-})
+});
 
 eraseList.addEventListener('click',function(e){
    toDoContainer.innerHTML = '';
 });
+
+
+removeEnded.addEventListener('click',function(e) {
+    document.querySelectorAll('.completed').forEach(function(a){
+        a.remove()
+        })
+ });
+ 
 
 //codigo que me estudei: https://www.youtube.com/watch?v=n3X7m0GzFRY&ab_channel=CodingMindBrasil

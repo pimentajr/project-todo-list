@@ -38,6 +38,9 @@ html, body {
     margin-top: 25px;
 }
 
+body {
+    width: 80%;
+}
 #funcionamento {
     text-align: center;
     margin-right: 170px;
