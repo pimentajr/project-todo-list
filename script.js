@@ -52,3 +52,64 @@ getButtonFinalizados.addEventListener('click', () => {
     getListFinalizados[i].remove();
   }
 });
+
+// Exercício 13 - Botões pra cima pra baixo
+const getButtonCima = document.getElementById('mover-cima');
+getButtonCima.addEventListener('click', () => {
+  const elementosLista = document.getElementsByTagName('li');
+  let classe = ''; let index = 0;
+  for (let i = 0; i < elementosLista.length; i += 1) {
+    classe = elementosLista[i].className;
+    if (classe.indexOf('selected') !== -1) {
+      index = i;
+    }
+  }
+  if (index > 0) {
+    const classItemSelected = elementosLista[index].className;
+    const textItemSelected = elementosLista[index].innerHTML;
+    const helpClass = elementosLista[index - 1].className;
+    const helpText = elementosLista[index - 1].innerHTML;
+    elementosLista[index - 1].className = classItemSelected;
+    elementosLista[index - 1].innerHTML = textItemSelected;
+    elementosLista[index].className = helpClass;
+    elementosLista[index].innerHTML = helpText;
+  }
+});
+
+const getButtonBaixo = document.getElementById('mover-baixo');
+getButtonBaixo.addEventListener('click', () => {
+  const elementosLista = document.getElementsByTagName('li');
+  let classe = ''; let index = -1;
+  for (let i = 0; i < elementosLista.length; i += 1) {
+    classe = elementosLista[i].className;
+    if (classe.indexOf('selected') !== -1) {
+      index = i;
+    }
+  }
+  if (index < elementosLista.length - 1 && index !== -1) {
+    const classItemSelected = elementosLista[index].className;
+    const textItemSelected = elementosLista[index].innerHTML;
+    const helpClass = elementosLista[index + 1].className;
+    const helpText = elementosLista[index + 1].innerHTML;
+    elementosLista[index + 1].className = classItemSelected;
+    elementosLista[index + 1].innerHTML = textItemSelected;
+    elementosLista[index].className = helpClass;
+    elementosLista[index].innerHTML = helpText;
+  }
+});
+
+// Exercício 14
+const buttonRemover = document.getElementById('remover-selecionado');
+buttonRemover.addEventListener('click', () => {
+  const elementosLista = document.getElementsByTagName('li');
+  let index = -1; let classe = '';
+  for (let i = 0; i < elementosLista.length; i += 1) {
+    classe = elementosLista[i].className;
+    if (classe.indexOf('selected') !== -1) {
+      index = i;
+    }
+  }
+  if (index !== -1) {
+    elementosLista[index].remove();
+  }
+});
