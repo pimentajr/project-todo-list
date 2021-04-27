@@ -4,6 +4,7 @@ let inputField = document.getElementById('texto-tarefa');
 let eraseList = document.getElementById('apaga-tudo');
 let removeEnded = document.getElementById('remover-finalizados');
 let removeSelected = document.getElementById('remover-selecionado');
+let saveTasks = document.getElementById('salvar-tarefas');
 
 function selectItem(event) {
     let selectOne = document.querySelector('.grayRGB');
@@ -11,7 +12,7 @@ function selectItem(event) {
         selectOne.classList.remove('grayRGB');
     }
     event.target.classList.add('grayRGB');
-}
+};
 
 function completeTask(event) {
     if(event.target.classList.contains('completed')) {
@@ -19,9 +20,9 @@ function completeTask(event) {
     } else {
         event.target.classList.add('completed');
     }
-}
+};
 
-addToDoButton.addEventListener('click', function(){
+addToDoButton.addEventListener('click', function() {
     
     let listItem = document.createElement('li');
     listItem.classList.add('paragraph-styling');
@@ -42,15 +43,30 @@ eraseList.addEventListener('click',function(e){
 
 removeEnded.addEventListener('click',function(e) {
     document.querySelectorAll('.completed').forEach(function(a){
-        a.remove()
-        })
+        a.remove();
+        });
  });
  
 
  removeSelected.addEventListener('click',function(e) {
     document.querySelectorAll('.grayRGB').forEach(function(a){
-        a.remove()
+        a.remove();
         })
  });
+
+ saveTasks.addEventListener('click',function(e) {
+    //document.querySelectorAll('.grayRGB').forEach(function(b){
+        //b.localStorage.setItem();
+        //});
+        localStorage.setItem('taskList', toDoContainer.innerHTML)
+ });
+
+ window.onload = () => {
+     let savedTasks = localStorage.getItem('taskList');
+     if(savedTasks !== null) {
+        toDoContainer.innerHTML = localStorage.getItem('taskList')
+     }
+     console.log(localStorage.getItem('taskList'));
+ }
 
 //codigo que me estudei: https://www.youtube.com/watch?v=n3X7m0GzFRY&ab_channel=CodingMindBrasil

@@ -1,5 +1,5 @@
 html, body {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -42,8 +42,7 @@ body {
     width: 80%;
 }
 #funcionamento {
-    text-align: center;
-    margin-right: 170px;
+    margin-right: 290px;
 }
 
 .grayRGB {
@@ -56,7 +55,4 @@ body {
 
 .limpar {
     display: none;
-}
-.list-item {
-    
 }
