@@ -3,6 +3,7 @@ let toDoContainer = document.getElementById('lista-tarefas');
 let inputField = document.getElementById('texto-tarefa');
 let eraseList = document.getElementById('apaga-tudo');
 let removeEnded = document.getElementById('remover-finalizados');
+let removeSelected = document.getElementById('remover-selecionado');
 
 function selectItem(event) {
     let selectOne = document.querySelector('.grayRGB');
@@ -45,5 +46,11 @@ removeEnded.addEventListener('click',function(e) {
         })
  });
  
+
+ removeSelected.addEventListener('click',function(e) {
+    document.querySelectorAll('.grayRGB').forEach(function(a){
+        a.remove()
+        })
+ });
 
 //codigo que me estudei: https://www.youtube.com/watch?v=n3X7m0GzFRY&ab_channel=CodingMindBrasil
