@@ -43,11 +43,11 @@ html, body {
     margin-right: 170px;
 }
 
-.grayRGD {
+.grayRGB {
     background-color: rgb(128, 128, 128)
 }
 
-.linha {
+.completed {
     text-decoration: line-through;
 }
 
