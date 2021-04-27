@@ -1,3 +1,19 @@
 body {
   background-color: aliceblue;
 }
+
+.selected {
+  background-color: gray;
+}
+
+.no-background {
+  background-color: aliceblue;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.no-line {
+  text-decoration: none;
+}
