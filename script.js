@@ -24,15 +24,6 @@ function tarefaConcluida(cTarefa) {
       cTarefa.target.classList.toggle('completed');
     }
   }
-  
-// Função que é executada ao clique do botão 'apagar', limpando a lista de tarefas
-
-function apagarTarefas() {
-    const tarefas = document.querySelectorAll('.tarefa');
-    if (tarefas.length !== 0) {
-      list.innerHTML = ' ';
-    }
-  }
 
 // Função que é executada ao clique do botão 'apagar tarefas concluídas' apagando somente as tarefas marcadas como finalizadas.
 
@@ -50,12 +41,21 @@ function adicionarTarefas() {
     const text = document.getElementById('texto-tarefa');
     const list = document.getElementById('lista-tarefas');
     const tarefa = document.createElement('li');
-    tarefa.className = 'tarefa';
+    tarefa.className = 'tarefas';
     tarefa.innerText = text.value;
     list.appendChild(tarefa);
     text.value = ' ';
     tarefa.addEventListener('click', selecionarTarefa);
     tarefa.addEventListener('dblclick', tarefaConcluida);
+  }
+
+// Função que é executada ao clique do botão 'apagar', limpando a lista de tarefas
+
+function apagarTarefas() {
+    const tarefas = document.querySelectorAll('.tarefas');
+    if (tarefas.length !== 0) {
+      list.innerHTML = ' ';
+    }
   }
 
   // Função para salvar estado da lista de tarefas.
@@ -64,7 +64,8 @@ function salvarEstado() {
     localStorage.setItem('list', list.innerHTML);
   }
 
-// Função para carregar o estado salvo anteriormente.
+  // Função para carregar o estado salvo anteriormente.
+
 function carregarEstado() {
     list.innerHTML = localStorage.getItem('list');
     const carregarLista = document.querySelectorAll('li');
@@ -73,6 +74,13 @@ function carregarEstado() {
       carregarLista[index].addEventListener('dblclick', tarefaConcluida);
     }
   }
+  // Função para remover apenas o item selecionado.
+
+function removerSelecionado() {
+    const itemSelecionado = document.querySelector('.selecionado');
+    itemSelecionado.remove();
+  }
+
 window.onload = function () {
-  retrievingList();
+  carregarEstado();
 };
