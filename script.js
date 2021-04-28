@@ -28,6 +28,14 @@ function dbclickRisk() {
     } else {
       event.target.classList.add('completed');
     }
-  })
+  });
 }
 dbclickRisk();
+
+const clear = document.querySelector('#apaga-tudo');
+function clearAll() {
+  clear.addEventListener('click', () => {
+    olTask.innerHTML = '';
+  });
+}
+clearAll();
