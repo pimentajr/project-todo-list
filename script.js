@@ -23,8 +23,8 @@ function itemComplete(event) {
 
 // Apagar lista
 function deletingList() {
-  const retrievesItems = document.querySelectorAll('.item');
-  if (retrievesItems.length !== 0) {
+  const recoverItems = document.querySelectorAll('.item');
+  if (recoverItems.length !== 0) {
     const list = document.querySelector('#lista-tarefas');
     list.innerHTML = '';
   }
@@ -32,21 +32,21 @@ function deletingList() {
 
 // Apagar itens finalizados
 function deletingCompletedItem() {
-  const itemsMade = document.querySelectorAll('.completed');
-  for (let index = 0; index < itemsMade.length; index += 1) {
-    itemsMade[index].remove();
+  const itemsConcluidos = document.querySelectorAll('.completed');
+  for (let index = 0; index < itemsConcluidos.length; index += 1) {
+    itemsConcluidos[index].remove();
   }
 }
 
 // Criar tarefas
-const textEntry = document.querySelector('#texto-tarefa');
+const text = document.querySelector('#texto-tarefa');
 const list = document.querySelector('#lista-tarefas');
 function addingTasks() {
   const item = document.createElement('li');
   item.className = 'item';
-  item.innerText = textEntry.value;
+  item.innerText = text.value;
   list.appendChild(item);
-  textEntry.value = '';
+  text.value = '';
   item.addEventListener('click', selectingItem);
   item.addEventListener('dblclick', itemComplete);
 }
@@ -90,7 +90,7 @@ function removingSelectedItem() {
 
 window.onload = function () {
   // Elementos 
-  const csreatingTaks = document.querySelector('#criar-tarefa');
+  const creatingTasks = document.querySelector('#criar-tarefa');
   const clearList = document.querySelector('#apaga-tudo');
   const deleteCompletedItem = document.querySelector('#remover-finalizados');
   const saveList = document.querySelector('#salvar-tarefas');
