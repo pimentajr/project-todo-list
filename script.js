@@ -3,8 +3,8 @@ window.onload = () => {
   finishedItem();
   fapagaTudo();
   fapagaCompletos();
-//  saveList();
-//  clearSelec();
+  salvaLista();
+  removeSelecionado();
 };
 
 const buttonAdd = document.getElementById('criar-tarefa');
@@ -52,5 +52,21 @@ function fapagaCompletos() {
     for (let index = 0; index < concluidos.length; index += 1) {
       taskList.removeChild(concluidos[index]);
     }
+  });
+}
+
+function salvaLista() {
+  const saveButton = document.querySelector('#salvar-tarefas');
+  saveButton.addEventListener('click', () => {
+    localStorage.setItem('toDoList', taskList.innerHTML);
+  });
+  taskList.innerHTML = localStorage.getItem('toDoList');
+}
+
+function removeSelecionado() {
+  const clearSelectedButton = document.querySelector('#remover-selecionado');
+  clearSelectedButton.addEventListener('click', () => {
+    const removeSelected = document.querySelector('.selected');
+    removeSelected.remove();
   });
 }
