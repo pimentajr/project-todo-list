@@ -84,3 +84,19 @@ function removerSelecionado() {
 window.onload = function () {
   carregarEstado();
 };
+
+// Função para mover o item selecionado para cima
+function moverParaCima() {
+    const selectedItem = document.querySelector('.selected');
+    if (selectedItem && selectedItem.previousElementSibling !== null) {
+      selectedItem.parentNode.insertBefore(selectedItem, selectedItem.previousElementSibling);
+    }
+  }
+  
+  // Função para mover o  item selecionado para baixo
+  function moverParaBaixo() {
+    const selectedItem = document.querySelector('.selected');
+    if (selectedItem && selectedItem.nextSibling !== null) {
+      selectedItem.parentNode.insertBefore(selectedItem.nextSibling, selectedItem);
+    }
+  }
