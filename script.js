@@ -57,3 +57,9 @@ saveTaskBtn.addEventListener('click', () => {
   localStorage.setItem('tasks', olTask.innerHTML);
 });
 olTask.innerHTML = localStorage.getItem('tasks'); 
+
+const removeSelectedBtn = document.querySelector('#remover-selecionado');
+removeSelectedBtn.addEventListener('click', () => {
+  const selectItens = document.querySelector('.selected');
+  selectItens.remove();
+})
