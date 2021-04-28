@@ -1,4 +1,5 @@
  //Constantes declaradas que referenciam a um id.
+ 
  const text = document.getElementById('texto-tarefa');
  const list = document.getElementById('lista-tarefas');
 
@@ -22,7 +23,8 @@ function selecionarTarefa(sTarefa) {
 }
 
  //Função que retira da classe 'selecionado' uma tarefa previamente selecionada caso uma nova tarefa seja selecionada. 
-function retirarClasse() {
+
+ function retirarClasse() {
   const tarefaSelecionada = document.querySelectorAll('.selecionado');
   let index = ' ';
   for (index = 0; index < tarefaSelecionada.length; index += 1) {
@@ -31,6 +33,7 @@ function retirarClasse() {
 }
 
 // Função que ao dar duplo clique deixa a tarefa riscada, indicando que a mesma foi concluída.
+
 function tarefaConcluida(cTarefa) {
     if (cTarefa.className === 'completed') {
       cTarefa.target.classList.remove('completed');
@@ -39,11 +42,22 @@ function tarefaConcluida(cTarefa) {
 }
 }
 
-
 // Função que é executada ao clique do botão 'apagar', limpando a lista de tarefas
+
 function apagarTarefas() {
     const tarefas = document.querySelectorAll('.tarefa');
     if (tarefas.length !== 0) {
       list.innerHTML = ' ';
     }
   }
+
+ // Função que é executada ao clique do botão 'apagar tarefas concluídas' apagando somente as tarefas marcadas como finalizadas.
+
+ function apagarTarefasFinalizadas() {
+    const tarefasFinalizadas = document.querySelectorAll('.completed');
+    let index = ' ';
+    for (let index = 0; index < tarefasFinalizadas.length; index += 1) {
+        tarefasFinalizadas[index].remove();
+    }
+  }
+
