@@ -1,4 +1,4 @@
- //Constantes declaradas.
+ //Constantes declaradas que referenciam a um id.
  const text = document.getElementById('texto-tarefa');
  const list = document.getElementById('lista-tarefas');
 
@@ -38,3 +38,12 @@ function tarefaConcluida(cTarefa) {
       cTarefa.target.classList.toggle('completed');
 }
 }
+
+
+// Função que é executada ao clique do botão 'apagar', limpando a lista de tarefas
+function apagarTarefas() {
+    const tarefas = document.querySelectorAll('.tarefa');
+    if (tarefas.length !== 0) {
+      list.innerHTML = ' ';
+    }
+  }
