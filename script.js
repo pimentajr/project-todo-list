@@ -86,3 +86,13 @@ function removeAll() {
 }
 
 clearTasks.addEventListener('click', removeAll);
+
+const click = document.getElementsByTagName('ol')[0];
+
+saveTasks.addEventListener('click', () => {
+  localStorage.setItem('listOfSavedItens', click.innerHTML);
+});
+function getTasks() {
+  click.innerHTML = localStorage.getItem('listOfSavedItens');
+}
+getTasks();
