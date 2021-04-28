@@ -113,3 +113,41 @@ buttonRemover.addEventListener('click', () => {
     elementosLista[index].remove();
   }
 });
+
+// Exercício 12
+const buttonSalvar = document.getElementById('salvar-tarefas');
+buttonSalvar.addEventListener('click', () => {
+  const listItens = document.getElementsByTagName('li');
+  const vetor = [];
+  for (let i = 0; i < listItens.length; i += 1) {
+    vetor.push({
+      text: listItens[i].innerText,
+      completed: listItens[i].classList.contains('completed'),
+    });
+  }
+  const listJson = JSON.stringify(vetor);
+  localStorage.setItem('taskList', listJson);
+  console.log(vetor);
+  console.log(listJson);
+});
+
+function addTask(text) {
+  const newTask = document.createElement('li');
+  newTask.innerText = text;
+  createListOl.appendChild(newTask);
+  return newTask;
+}
+
+function loadLista() {
+  if (!Storage || !localStorage.taskList) {
+    return;
+  }
+  const taskList = JSON.parse(localStorage.taskList);
+  for (let i = 0; i < taskList.length; i += 1) {
+    const newTask = addTask(taskList[i].text);
+    if (taskList[i].completed) {
+      newTask.classList.add('completed');
+    }
+  }
+}
+loadLista();
