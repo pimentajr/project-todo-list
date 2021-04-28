@@ -2,7 +2,7 @@ window.onload = () => {
   backgroundSelected();
   finishedItem();
   fapagaTudo();
-//  clearComplet();
+  fapagaCompletos();
 //  saveList();
 //  clearSelec();
 };
@@ -42,5 +42,15 @@ function fapagaTudo() {
   const apagaTudo = document.querySelector('#apaga-tudo');
   apagaTudo.addEventListener('click', () => {
     taskList.innerHTML = '';
+  });
+}
+
+function fapagaCompletos() {
+  const apagarCompletos = document.querySelector('#remover-finalizados');
+  apagarCompletos.addEventListener('click', () => {
+    const concluidos = document.querySelectorAll('.completed');
+    for (let index = 0; index < concluidos.length; index += 1) {
+      taskList.removeChild(concluidos[index]);
+    }
   });
 }
