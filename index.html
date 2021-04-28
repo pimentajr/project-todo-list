@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo list</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='style.css'>
+  </head>
+  <body>
     <header>Minha Lista de Tarefas</header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" id="texto-tarefa">
-    <button type="submit" id="criar-tarefa" onclick="addingTasks()" >Criar tarefas</button>
-    <ol id="lista-tarefas"></ol>
-    <button id="apaga-tudo" onclick="deletingList()" >Apagar lista</button>
-    <button id="remover-finalizados" onclick="deletingCompletedItem()" >Apagar concluidos</button>
-    <button id="salvar-tarefas" onclick="savingList()" >Salvar tudo</button>
-    <button id="mover-cima" onclick="movingUp()" >Mover para cima</button>
-    <button id="mover-baixo" onclick="movingDown()" >Mover para baixo</button>
-    <button id="remover-selecionado" onclick="removingSelectedItem() " >Remover selecionado</button>
-    <script src="script.js"></script>
-</body>
+    <div>
+      <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+      <input type='text' id='texto-tarefa'>
+      <button id='criar-tarefa'  onclick='adicionarTarefas()' >Criar tarefa</button>
+      <ol id='lista-tarefas'></ol>
+      <button id='apaga-tudo' onclick="apagarTarefas()">Apagar</button>
+      <button id='remover-finalizados' onclick="apagarTarefasFinalizadas()" >Apagar tarefas concluídas</button>
+      <button id='salvar-tarefas' onclick='salvarEstado()'>Salvar tudo</button>
+      <button id='remover-selecionado' onclick='removerSelecionado()' >Remover selecionado</button>
+      <button id="mover-cima" onclick='moverParaCima()'>Mover para cima</button>
+      <button id="mover-baixo" onclick='moverParaBaixo()'>Mover para baixo</button>
+    </div>
+    <script src='script.js'></script>
+  </body>
 </html>

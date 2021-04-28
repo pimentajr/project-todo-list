@@ -1,112 +1,98 @@
-// Removendo a seleção do item
-function removingSelection() {
-  const selection = document.querySelectorAll('.selected');
-  for (let index = 0; index < selection.length; index += 1) {
-    selection[index].classList.remove('selected');
+//Função que retira da classe 'selecionado' uma tarefa previamente selecionada caso uma nova tarefa seja selecionada. 
+
+function retirarClasse() {
+    const tarefaSelecionada = document.querySelectorAll('.selecionado');
+    let index = ' ';
+    for (index = 0; index < tarefaSelecionada.length; index += 1) {
+      tarefaSelecionada[index].classList.remove('selecionado');
+    }
   }
-}
 
-// Selecionando item da lista
-function selectingItem(event) {
-  removingSelection();
-  event.target.classList.toggle('selected');
-}
+  // Função que deixa o item selecionado e atribui ao elemento a classe 'selecionado'.
 
-// Marcar concluido
-function itemComplete(event) {
-  if (event.className === 'completed') {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.toggle('completed');
+function selecionarTarefa(sTarefa) {
+    retirarClasse();
+    sTarefa.target.classList.toggle('selecionado');
   }
-}
 
-// Apagar lista
-function deletingList() {
-  const recoverItems = document.querySelectorAll('.item');
-  if (recoverItems.length !== 0) {
-    const list = document.querySelector('#lista-tarefas');
-    list.innerHTML = '';
+  // Função que ao dar duplo clique deixa a tarefa riscada, indicando que a mesma foi concluída.
+
+function tarefaConcluida(cTarefa) {
+    if (cTarefa.className === 'completed') {
+      cTarefa.target.classList.remove('completed');
+    } else {
+      cTarefa.target.classList.toggle('completed');
+    }
   }
-}
 
-// Apagar itens finalizados
-function deletingCompletedItem() {
-  const itemsConcluidos = document.querySelectorAll('.completed');
-  for (let index = 0; index < itemsConcluidos.length; index += 1) {
-    itemsConcluidos[index].remove();
+// Função que é executada ao clique do botão 'apagar tarefas concluídas' apagando somente as tarefas marcadas como finalizadas.
+
+function apagarTarefasFinalizadas() {
+    const tarefasFinalizadas = document.querySelectorAll('.completed');
+    let index = ' ';
+    for (let index = 0; index < tarefasFinalizadas.length; index += 1) {
+      tarefasFinalizadas[index].remove();
+    }
+  }  
+
+// Função adicionar tarefas.
+
+function adicionarTarefas() {
+    const text = document.getElementById('texto-tarefa');
+    const list = document.getElementById('lista-tarefas');
+    const tarefa = document.createElement('li');
+    tarefa.className = 'lista';
+    tarefa.innerText = text.value;
+    list.appendChild(tarefa);
+    text.value = ' ';
+    tarefa.addEventListener('click', selecionarTarefa);
+    tarefa.addEventListener('dblclick', tarefaConcluida);
   }
-}
 
-// Criar tarefas
-const text = document.querySelector('#texto-tarefa');
-const list = document.querySelector('#lista-tarefas');
-function addingTasks() {
-  const item = document.createElement('li');
-  item.className = 'item';
-  item.innerText = text.value;
-  list.appendChild(item);
-  text.value = '';
-  item.addEventListener('click', selectingItem);
-  item.addEventListener('dblclick', itemComplete);
-}
+// Função que é executada ao clique do botão 'apagar', limpando a lista de tarefas
 
-// Salvando
-function savingList() {
-  localStorage.setItem('list', list.innerHTML);
-}
-
-// Recuperando ao recarregar
-function recoverList() {
-  list.innerHTML = localStorage.getItem('list');
-  const recoverItem = document.querySelectorAll('li');
-  for (let index = 0; index < recoverItem.length; index += 1) {
-    recoverItem[index].addEventListener('click', selectingItem);
-    recoverItem[index].addEventListener('dblclick', itemComplete);
+function apagarTarefas() {
+    const tarefas = document.querySelectorAll('.lista');
+    if (tarefas.length !== 0) {
+      list.innerHTML = ' ';
+    }
   }
-}
 
-// Movendo item selecionado para cima
-function movingUp() {
-  const selectedItem = document.querySelector('.selected');
-  if (selectedItem && selectedItem.previousElementSibling !== null) {
-    selectedItem.parentNode.insertBefore(selectedItem, selectedItem.previousElementSibling);
+  // Função para salvar estado da lista de tarefas.
+
+function salvarEstado() {
+    localStorage.setItem('list', list.innerHTML);
   }
-}
 
-// Movendo item selecionado para baixo
-function movingDown() {
-  const selectedItem = document.querySelector('.selected');
-  if (selectedItem && selectedItem.nextSibling !== null) {
-    selectedItem.parentNode.insertBefore(selectedItem.nextSibling, selectedItem);
+  // Função para carregar o estado salvo anteriormente.
+
+function carregarEstado() {
+    list.innerHTML = localStorage.getItem('list');
+    const carregarLista = document.querySelectorAll('li');
+    for (let index = 0; index < carregarLista.length; index += 1) {
+      carregarLista[index].addEventListener('click', selecionarTarefa);
+      carregarLista[index].addEventListener('dblclick', tarefaConcluida);
+    }
   }
-}
+  // Função para remover apenas o item selecionado.
 
-// Remover item selecionado
-function removingSelectedItem() {
-  const selectedItem = document.querySelector('.selected');
-  selectedItem.remove();
-}
+function removerSelecionado() {
+    const itemSelecionado = document.querySelector('.selecionado');
+    itemSelecionado.remove();
+  }
 
-window.onload = function () {
-  // Elementos 
-  const creatingTasks = document.querySelector('#criar-tarefa');
-  const clearList = document.querySelector('#apaga-tudo');
-  const deleteCompletedItem = document.querySelector('#remover-finalizados');
-  const saveList = document.querySelector('#salvar-tarefas');
-  const moveUp = document.querySelector('#mover-cima');
-  const moveDown = document.querySelector('#mover-baixo');
-  const removeItemButton = document.querySelector('#remover-selecionado');
-
-  // Eventos
-  creatingTasks.addEventListener('click', addingTasks);
-  clearList.addEventListener('click', deletingList);
-  deleteCompletedItem.addEventListener('click', deletingCompletedItem);
-  saveList.addEventListener('click', savingList);
-  moveUp.addEventListener('click', movingUp);
-  moveDown.addEventListener('click', movingDown);
-  removeItemButton.addEventListener('click', removingSelectedItem);
-
-  // Chamada
-  recoverList();
-};
+// Função para mover o item selecionado para cima
+function moverParaCima() {
+    const itemSelecionado= document.querySelector('.selected');
+    if (itemSelecionado && itemSelecionado.previousElementSibling !== null) {
+      itemSelecionado.parentNode.insertBefore(itemSelecionado, itemSelecionado.previousElementSibling);
+    }
+  }
+  
+  // Função para mover o  item selecionado para baixo
+  function moverParaBaixo() {
+    const itemSelecionado = document.querySelector('.selected');
+    if (itemSelecionado && itemSelecionado.nextSibling !== null) {
+        itemSelecionado.parentNode.insertBefore(itemSelecionado.nextSibling, selectedItem);
+    }
+  }
