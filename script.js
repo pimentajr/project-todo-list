@@ -39,3 +39,21 @@ function clearAll() {
   });
 }
 clearAll();
+
+const clearEnd = document.querySelector('#remover-finalizados');
+const completed = document.getElementsByClassName('completed');
+function deleteEnd() {
+  clearEnd.addEventListener('click', () => {
+    console.log('complete');
+    for (let index = completed.length - 1; index >= 0; index -= 1) {
+      completed[index].remove();
+    }
+  })
+}
+deleteEnd();
+
+const saveTaskBtn = document.querySelector('#salvar-tarefas');
+saveTaskBtn.addEventListener('click', () => {
+  localStorage.setItem('tasks', olTask.innerHTML);
+});
+olTask.innerHTML = localStorage.getItem('tasks'); 
