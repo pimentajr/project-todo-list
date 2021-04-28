@@ -43,17 +43,17 @@ function clearSelected() {
 removeSelected.addEventListener('click', clearSelected);
 
 function upItem() {
-  const selected = document.querySelector('.selected');
-  if (selected.previousSibling !== null) {
-    list.insertBefore(selected, selected.previousElementSibling);
+  const li = document.querySelector('.selected');
+  if (li !== list.children[0] && li) {
+    list.insertBefore(li, li.previousSibling);
   }
 }
 upMove.addEventListener('click', upItem);
 
 function downItem() {
-  const selected = document.querySelector('.selected');
-  if (selected.nextSibling !== null) {
-    list.insertBefore(selected.nextSibling, selected);
+  const li = document.querySelector('.selected');
+  if (li !== list.lastChild && li) {
+    list.insertBefore(li.nextSibling, li);
   }
 }
 moveDown.addEventListener('click', downItem);
