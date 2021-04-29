@@ -9,7 +9,7 @@ const btnUp = document.getElementById('mover-cima');
 const btnDown = document.getElementById('mover-baixo');
 const selUpDown = document.getElementsByClassName('selected');
 
-function makingList() {
+btnAdd.addEventListener('click', () => {
   if (inptText.value === '') {
     return false;
   }
@@ -18,11 +18,9 @@ function makingList() {
   mkLi.innerHTML = inptText.value;
   list.appendChild(mkLi);
   inptText.value = '';
-}
+});
 
-btnAdd.addEventListener('click', makingList);
-
-function liBackColor(event) {
+list.addEventListener('click', (event) => {
   const select = document.querySelectorAll('.selected');
   if (event.target.classList.contains('listItem')) {
     for (let i = 0; i < select.length; i += 1) {
@@ -30,17 +28,13 @@ function liBackColor(event) {
     }
     event.target.classList.add('selected');
   }
-}
+});
 
-list.addEventListener('click', liBackColor);
-
-function clearAll() {
+clear.addEventListener('click', () => {
   list.innerHTML = '';
-}
+});
 
-clear.addEventListener('click', clearAll);
-
-function liDone(evento) {
+list.addEventListener('dblclick', (evento) => {
   if (evento.target.classList.contains('listItem')) {
     if (evento.target.classList.contains('completed') === true) {
       evento.target.classList.remove('completed');
@@ -48,55 +42,45 @@ function liDone(evento) {
       evento.target.classList.add('completed');
     }
   }
-}
+});
 
-list.addEventListener('dblclick', liDone);
-
-function clearFinalized() {
+const clearFinalized = () => {
   const complet = document.querySelectorAll('li.completed');
   for (let i = 0; i < complet.length; i += 1) {
     complet[i].remove();
   }
-}
+};
 
 btnFinalized.addEventListener('click', clearFinalized);
 
-function rmvSelected() {
+btnDelete.addEventListener('click', () => {
   const delOne = document.querySelectorAll('.selected');
   for (let i = 0; i < delOne.length; i += 1) {
     delOne[i].remove();
   }
-}
+});
 
-btnDelete.addEventListener('click', rmvSelected);
-
-function save() {
+btnSave.addEventListener('click', () => {
   localStorage.setItem('list', list.innerHTML);
-}
+});
 
 const saved = localStorage.getItem('list');
 list.innerHTML = saved;
 
-btnSave.addEventListener('click', save);
-
-function listUp() {
+btnUp.addEventListener('click', () => {
   for (let i = 0; i < selUpDown.length; i += 1) {
     if (selUpDown[i].previousElementSibling != null) {
       const item = selUpDown[i];
       list.insertBefore(item, item.previousSibling);
     }
   }
-}
+});
 
-btnUp.addEventListener('click', listUp);
-
-function listDown() {
+btnDown.addEventListener('click', () => {
   for (let i = 0; i < selUpDown.length; i += 1) {
     if (selUpDown[i].nextElementSibling != null) {
       const item = selUpDown[i];
       list.insertBefore(item.nextSibling, item);
     }
   }
-}
-
-btnDown.addEventListener('click', listDown);
+});
