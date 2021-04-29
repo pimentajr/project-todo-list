@@ -44,14 +44,12 @@ list.addEventListener('dblclick', (evento) => {
   }
 });
 
-const clearFinalized = () => {
+btnFinalized.addEventListener('click', () => {
   const complet = document.querySelectorAll('li.completed');
   for (let i = 0; i < complet.length; i += 1) {
     complet[i].remove();
   }
-};
-
-btnFinalized.addEventListener('click', clearFinalized);
+});
 
 btnDelete.addEventListener('click', () => {
   const delOne = document.querySelectorAll('.selected');
