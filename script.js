@@ -58,13 +58,6 @@ btnDelete.addEventListener('click', () => {
   }
 });
 
-btnSave.addEventListener('click', () => {
-  localStorage.setItem('list', list.innerHTML);
-});
-
-const saved = localStorage.getItem('list');
-list.innerHTML = saved;
-
 btnUp.addEventListener('click', () => {
   for (let i = 0; i < selUpDown.length; i += 1) {
     if (selUpDown[i].previousElementSibling != null) {
@@ -82,3 +75,10 @@ btnDown.addEventListener('click', () => {
     }
   }
 });
+
+btnSave.addEventListener('click', () => {
+  localStorage.setItem('list', list.innerHTML);
+});
+
+const saved = localStorage.getItem('list');
+list.innerHTML = saved;
