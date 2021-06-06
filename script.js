@@ -63,6 +63,9 @@ function removeCompleted() {
   }
 }
 
+/**
+ * Atribui a classe 'saved-item' e salva todos os elementos li existentes, incluindo os respectivos textos e classes, no localStorage.
+ */
 function saveTasks() {
   const itemsList = document.getElementsByTagName('li');
   for (let index = 0; index < itemsList.length; index += 1) {
@@ -76,6 +79,9 @@ function saveTasks() {
   alert('Lista salva!');
 }
 
+/**
+ * Recupera dados contidos no localStorage e os renderiza, criando elementos li que contem os respectivos textos e classes.
+ */
 function getTasks() {
   const list = document.getElementById(listaTarefas);
   for (let index = 0; index < localStorage.length; index += 1) {
@@ -87,6 +93,9 @@ function getTasks() {
   }
 }
 
+/**
+ * Limpa os dados contidos no localStorage e remove a classe 'saved-item' de todos os elementos li existentes.
+ */
 function deleteSavedTasks() {
   localStorage.clear();
   const itemsList = document.getElementsByTagName('li');
@@ -96,6 +105,9 @@ function deleteSavedTasks() {
   alert('Lista apagada!');
 }
 
+/**
+ * Recupera o elemento com a classe 'selected' e, se exixtente, verifica tambem a existencia de um elemento irmao anterior a ele. Feita a verificacao, cria objeto auxiliar contendo texto e classe do elemento anterior e, utilizando esse objeto, troca o texto e as classes do elemento de classe 'selected' com o seu irmao anterior.
+ */
 function moveUpTask() {
   const selected = document.querySelector('.selected');
   let previousElement;
@@ -103,17 +115,20 @@ function moveUpTask() {
     previousElement = selected.previousElementSibling;
   }
   if (previousElement) {
-    const objAux = {
+    const obj = {
       text: previousElement.innerText,
       class: previousElement.className,
     };
     previousElement.innerText = selected.innerText;
     previousElement.className = selected.className;
-    selected.innerText = objAux.text;
-    selected.className = objAux.class;
+    selected.innerText = obj.text;
+    selected.className = obj.class;
   }
 }
 
+/**
+ * Recupera o elemento com a classe 'selected' e, se exixtente, verifica tambem a existencia de um elemento irmao seguinte a ele. Feita a verificacao, cria objeto auxiliar contendo texto e classe do elemento seguinte e, utilizando esse objeto, troca o texto e as classes do elemento de classe 'selected' com o seu irmao seguinte.
+ */
 function moveDownTask() {
   const selected = document.querySelector('.selected');
   let nextElement;
@@ -121,17 +136,20 @@ function moveDownTask() {
     nextElement = selected.nextElementSibling;
   }
   if (nextElement) {
-    const objAux = {
+    const obj = {
       text: nextElement.innerText,
       class: nextElement.className,
     };
     nextElement.innerText = selected.innerText;
     nextElement.className = selected.className;
-    selected.innerText = objAux.text;
-    selected.className = objAux.class;
+    selected.innerText = obj.text;
+    selected.className = obj.class;
   }
 }
 
+/**
+ * Remove elemento com a classe 'selected'.
+ */
 function deleteSelectedTask() {
   const selected = document.querySelector('.selected');
   // console.log(selected);
