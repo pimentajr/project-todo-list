@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   text-align: center;
   display: flex;
   flex-flow: column;
@@ -46,4 +47,11 @@ li {
 
 button {
   border-radius: 5px;
+}
+
+footer {
+  margin-top: 100px;
+  padding: 10px;
+  color: bisque;
+  font-weight: 800;
 }
