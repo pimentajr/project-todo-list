@@ -1,0 +1,35 @@
+:root {
+
+  --first-color: rgba(255 , 255 , 255 , 0.7);
+
+  --second-color: rgba(255 , 255 , 255 , 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right top , fuchsia , blue);
+}
+
+ol {
+  list-style-type: none;
+}
+
+.glass {
+  margin: 0 auto;
+  min-height: 80vh;
+  width: 60%;
+  background: linear-gradient(to right bottom , var(--first-color) , var(--second-color));
+}
+
+.bg-list {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
