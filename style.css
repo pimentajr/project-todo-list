@@ -11,6 +11,7 @@
 }
 
 body {
+  font-family: New Tegomin, serif;
   min-height: 100vh;
   background: linear-gradient(to right top , fuchsia , blue);
 }
@@ -19,17 +20,131 @@ ol {
   list-style-type: none;
 }
 
+header {
+  padding: 20px;
+  text-align: center;
+  cursor: no-drop;
+}
+
+header h1 {
+  font-size: 40px;
+}
+
+header p {
+  font-size: 15px;
+}
+
+li {
+  height: 30px;
+  border: solid 3px rgba(255 , 255 , 255 , 0);
+  border-radius: 50px;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: rgba(255 , 255 , 255 , 0.39);
+  cursor: no-drop;
+  transition: 0.3s;
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+}
+
+li:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+#container-input {
+  text-align: center;
+  display: block;
+}
+
+#container-lista {
+  margin: 20px auto;
+  width: 650px;
+}
+
+#container-buttons {
+  text-align: center;
+  height: 60px;
+}
+
+#texto-tarefa {
+  font-family: New Tegomin, serif;
+  background-color: transparent;
+  border: solid 3px black;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  width: 500px;
+  transition: 0.3s;
+}
+
+#texto-tarefa:focus {
+  outline: none;
+}
+
+#texto-tarefa:hover {
+  transition: 0.3s;
+  border: solid 3px blue;
+}
+
+#texto-tarefa:active {
+  transform: scale(0.95);
+}
+
+.button {
+  font-family: New Tegomin, serif;
+  background-color: transparent;
+  border: solid 3px black;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  transition: 0.3s;
+  border: solid 3px blue;
+  color: blue;
+}
+
+.button:active {
+  transform: scale(0.9);
+}
+
+/* Baseado no link: https://www.youtube.com/watch?v=O7WbVj5apxU&list=WL&index=88&t=375s */
 .glass {
   margin: 0 auto;
-  min-height: 80vh;
+  min-height: 30vh;
   width: 60%;
   background: linear-gradient(to right bottom , var(--first-color) , var(--second-color));
 }
 
 .bg-list {
   background-color: gray;
+  color: white;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+/* Baseado no link: https://www.tutorialspoint.com/css/css_animation_fade_in_down.htm */
+
+@keyframes fadeInDown {
+
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
