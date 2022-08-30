@@ -34,10 +34,10 @@ Com os softwares instalados, siga as instruções abaixo:
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/pimentajr/project-todo-list
+git clone https://github.com/pimentajr/trybe-todo-list
 
 # Entrar no diretório
-cd project-todo-list
+cd trybe-todo-list
 
 # Baixar as dependências
 npm i
